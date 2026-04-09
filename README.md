@@ -29,3 +29,4 @@ Prices may change.
 | 1 | PLA filament | Bambu estimate | $22.00 | $22.00 |
 |  | **Supplies total** |  |  | **$39.97** |
 
+Wiring Diagram [robbi v0_1 wiring diagram.pdf]
