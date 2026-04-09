@@ -1,6 +1,9 @@
 # Robbi
 A tiny AI robot for under $50, completely DIY and with lots of personality
 
+<img width="1536" height="1024" alt="ChatGPT Image Apr 9, 2026, 10_22_10 AM" src="https://github.com/user-attachments/assets/d809f6ec-6017-42fc-a5b7-2c65b1858dfd" />
+
+
 ## Base BOM
 Prices may change.
 
