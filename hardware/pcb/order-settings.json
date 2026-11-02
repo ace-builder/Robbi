@@ -1,0 +1,24 @@
+{
+  "board_revision": "Robbi 2026-09",
+  "outline_mm": [
+    75,
+    45
+  ],
+  "layers": 4,
+  "material": "FR-4",
+  "thickness_mm": 1.6,
+  "outer_copper_oz": 1,
+  "inner_copper_oz": 0.5,
+  "solder_mask": "green",
+  "silkscreen": "white",
+  "finish": "lead-free HASL",
+  "via_treatment": "solder-mask plugged (manufacturer metadata: 过孔塞油)",
+  "assembly_panel_mm": [
+    75,
+    71
+  ],
+  "process_rails_mm_each": 13,
+  "note": "75 x 71 mm includes two manufacturer-added process rails. Order the 75 x 45 mm board outline.",
+  "original_gerbers_match_manufacturer_archive": true,
+  "gerber_sha256": "41c2447dcb8bf12c640209eaf1f7232ce2d263f77da26c6d9ce0b3fac4a3e881"
+}

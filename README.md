@@ -1,35 +1,65 @@
-# Robbi
-A tiny AI robot for under $50, completely DIY and with lots of personality
+# Build Robbi
 
-<img width="768" height="512" alt="ChatGPT Image Apr 9, 2026, 10_22_10 AM" src="https://github.com/user-attachments/assets/d809f6ec-6017-42fc-a5b7-2c65b1858dfd" />
+![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](assets/early-version-warning.svg)
 
+> [!WARNING]
+> **Very early version, far from perfect.** This project is provided as-is for experienced makers willing to invest several hours in tinkering, troubleshooting and fixes. The design, components and software will change; backward compatibility cannot be guaranteed.
 
-## Base BOM
-Prices may change.
+![Build Robbi — a small robot, built by you](assets/banners/00-build.png)
 
-| Qty | Name | Link | Approx. price / item | Approx. price total |
-|---:|---|---|---:|---:|
-| 1 | USB mic | [AliExpress](https://de.aliexpress.com/item/1005006769901138.html) | $2.93 | $2.93 |
-| 1 | 5V step-up module | [AliExpress](https://de.aliexpress.com/item/1005008051438437.html) | $6.11 | $6.11 |
-| 1 | Camera flex cable | [AliExpress](https://de.aliexpress.com/item/1005006739911403.html) | $1.02 | $1.02 |
-| 1 | Header pins | [AliExpress](https://de.aliexpress.com/item/32843300706.html) | $1.02 | $1.02 |
-| 1 | L293D motor driver | [AliExpress](https://de.aliexpress.com/item/1005006184056978.html) | $0.10 | $0.10 |
-| 2 | N20 motors (6V, 60 rpm) | [AliExpress](https://de.aliexpress.com/item/33022320164.html) | $2.05 | $4.10 |
-| 1 | LCD (1.69 inch) | [AliExpress](https://de.aliexpress.com/item/1005007346976745.html) | $3.19 | $3.19 |
-| 1 | Raspberry Pi Zero 2 W |  | ~$15.00 | ~$15.00 |
-| 1 | 18650 Li-ion battery (Samsung INR18650-35E) | | ~$2.50 | $2.50 |
-| 1 | IMX219 camera module | [AliExpress](https://de.aliexpress.com/item/1005004677658534.html) | $5.90 | $5.90 |
-|  | **Base BOM total** |  |  | **$41.98** |
+A small Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. Build the electronics on the bench, fit them into the printed body, then bring Robbi's movement and conversation to life.
 
-## Supplies
+## Watch the build
 
-| Qty | Name | Link | Approx. price / item | Approx. price total |
-|---:|---|---|---:|---:|
-| 1 | Threaded heat inserts set | [AliExpress](https://de.aliexpress.com/item/1005009464952378.html) | $15.05 | $15.05 |
-| 1 | Screws set | [AliExpress](https://de.aliexpress.com/item/1005007159750547.html) | $1.02 | $1.02 |
-| 1 | Jumper wires set | [AliExpress](https://de.aliexpress.com/item/1005002984683377.html) | $1.02 | $1.02 |
-| 2 | MR128ZZ bearings | [AliExpress](https://de.aliexpress.com/item/32962032067.html) | $0.44 | $0.88 |
-| 1 | PLA filament | Bambu estimate | $22.00 | $22.00 |
-|  | **Supplies total** |  |  | **$39.97** |
+[![Watch the Robbi video build guide](assets/build-video-thumbnail.png)](https://youtu.be/MBummcW5DIk)
 
-[Wiring Diagram](https://github.com/ace-builder/Robbi/blob/main/robbi%20v0_1%20wiring%20diagram.pdf)
+**11:46 · 4K · silent, with on-screen instructions.** Follow the assembly in the video and use the written steps below for parts, wiring and calibration.
+
+[Bench tests](https://youtu.be/MBummcW5DIk?t=59) · [Motors and wheels](https://youtu.be/MBummcW5DIk?t=136) · [Head assembly](https://youtu.be/MBummcW5DIk?t=305) · [Final checks](https://youtu.be/MBummcW5DIk?t=626)
+
+> [!IMPORTANT]
+> **Build guide in progress.** Includes the parts and variant photos, manufactured PCB settings, connector pinout, assembly STL and illustrated build sequence. Remaining gaps are the tested print recipe, exact fasteners at each mounting point, motor-cable identification and measured power/load limits. See the [release checklist](RELEASE-CHECKLIST.md).
+
+## Start here
+
+Follow the order below. **Finish the bench tests before mounting the electronics in the shell.**
+
+| Step | What you will do |
+| :--- | :--- |
+| **[01 · Parts](01-parts.md)** | Order the matching board, modules, motors and hardware. |
+| **[02 · Preparation](02-preparation.md)** | Gather tools, prepare printed parts and check the fits. |
+| **[03 · Software](03-software.md)** | Flash Bookworm, run one installer command and finish in the dashboard. |
+| **[04 · Bench tests](04-bench-tests.md)** | Test the battery-powered bare PCB, join it to the Pi, then check the peripherals. |
+| **[05 · Assembly](05-assembly.md)** | Mount the motors, Pi/back panel and head; fit the wiring, ToF sensor and side-panel inserts. |
+| **[06 · Calibration](06-calibration.md)** | Follow IMU calibration, check wheel movement and test STT, LLM and TTS. |
+| **[Troubleshooting](07-troubleshooting.md)** | Isolate a fault without changing several things at once. |
+
+## What you are building
+
+| Core | Hardware |
+| :--- | :--- |
+| Computer | Raspberry Pi Zero 2 W with a soldered 40-pin header |
+| Main board | Custom `Robbi 2026-09` PCB: power circuit, motor driver, speaker amplifier and IMU |
+| Movement | Two matching 3 V / 75 RPM N20 motors with encoders |
+| Face and voice | 1.69-inch SPI display, USB microphone and miniature speaker |
+| Vision and distance | IMX219 camera and one forward-facing VL53L1X-family ToF module |
+
+The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.
+
+## Keep these nearby
+
+- **[Parts list](bom.csv)** — quantities, variants and purchase links.
+- **[Wiring reference](WIRING.md)** — top-view connector drawing, numbered pins, display power-pin swap and power test points.
+- **[Build record](build-record.csv)** — record your revisions, measurements and test results.
+- **[PCB manufacturing files](hardware/pcb/README.md)** and **[enclosure model](hardware/prints/README.md)**.
+- **[One-command installation](03-software.md)** — minimal terminal setup, automatic startup and one generated configuration.
+- **[Release readiness](RELEASE-CHECKLIST.md)** — runtime publication and fresh-card testing status.
+
+> [!TIP]
+> Keep power disconnected while changing wiring or fitting parts. For the first powered motor checks, raise both wheels. Floor tests need a clear, level area away from edges: the forward ToF sensor does not provide cliff detection.
+
+## Repository layout
+
+Keep the Markdown files, `assets/` and `hardware/` together so the relative links work on GitHub. The repository root contains the runtime: `pyproject.toml`, `src/`, `config/`, `web/`, `apps/` and `tools/`. Installation is covered in [Software](03-software.md).
+
+The illustrated Markdown guide is the single maintained manual. Separate browser, commissioning and service-template editions have been retired; the installer generates the working settings and startup service.

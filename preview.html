@@ -1,0 +1,1657 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Build Robbi · illustrated guide</title><style>*{box-sizing:border-box}body{margin:0;background:#f2f6f7;color:#183442;font:17px/1.65 system-ui,Arial,sans-serif}aside{position:fixed;inset:0 auto 0 0;width:260px;background:#0c1823;padding:32px 24px;overflow:auto;color:white}aside strong{display:block;font-size:26px;margin-bottom:22px}aside a{display:block;color:#c5d7dc;text-decoration:none;font-size:14px;padding:7px 0}aside a:hover{color:#cae98c}main{margin-left:260px;max-width:1230px;padding:45px 55px 90px;background:white}section{margin-bottom:85px;scroll-margin-top:25px}h1{font-size:34px;line-height:1.2}h2{margin-top:42px;padding-bottom:10px;border-bottom:1px solid #dbe4e7}h3{margin-top:32px}a{color:#215f63}img{display:block;max-width:100%;height:auto;margin:22px auto;border-radius:7px}img[src*="banners/"]{width:100%;border-radius:0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{border:1px solid #dbe4e7;padding:12px;vertical-align:top;text-align:left}th{background:#edf3f4}td img{margin:6px auto}blockquote{border-left:4px solid #87aa68;padding:10px 20px;margin:24px 0;background:#f1f6ef}pre{overflow:auto;padding:18px;background:#edf3f4}code{font-size:.88em}li{padding:3px 0}p:has(>em){font-size:14px;color:#526770}details{padding:15px;background:#f5f8f9}@media(max-width:900px){aside{position:relative;width:100%}aside a{display:inline-block;margin-right:18px}main{margin:0;padding:25px}table{font-size:13px}}</style></head><body><aside><strong>BUILD ROBBI</strong><a href="#chapter-0">Overview</a><a href="#chapter-1">01 · Parts</a><a href="#chapter-2">02 · Preparation</a><a href="#chapter-3">03 · Software</a><a href="#chapter-4">04 · Bench tests</a><a href="#chapter-5">Wiring reference</a><a href="#chapter-6">05 · Assembly</a><a href="#chapter-7">06 · Calibration</a><a href="#chapter-8">Troubleshooting</a><a href="#chapter-9">PCB manufacturing</a><a href="#chapter-10">Enclosure model</a><a href="#chapter-11">Release checklist</a></aside><main><section id="chapter-0"><h1 id="chapter-0--build-robbi">Build Robbi</h1>
+<p><img alt="Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is." src="assets/early-version-warning.svg" /></p>
+<blockquote class="notice"><p><strong>Warning</strong><br>
+<strong>Very early version, far from perfect.</strong> This project is provided as-is for experienced makers willing to invest several hours in tinkering, troubleshooting and fixes. The design, components and software will change; backward compatibility cannot be guaranteed.</p>
+</blockquote>
+<p><img alt="Build Robbi — a small robot, built by you" src="assets/banners/00-build.png" /></p>
+<p>A small Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. Build the electronics on the bench, fit them into the printed body, then bring Robbi's movement and conversation to life.</p>
+<h2 id="chapter-0--watch-the-build">Watch the build</h2>
+<p><a href="https://youtu.be/MBummcW5DIk"><img alt="Watch the Robbi video build guide" src="assets/build-video-thumbnail.png" /></a></p>
+<p><strong>11:46 · 4K · silent, with on-screen instructions.</strong> Follow the assembly in the video and use the written steps below for parts, wiring and calibration.</p>
+<p><a href="https://youtu.be/MBummcW5DIk?t=59">Bench tests</a> · <a href="https://youtu.be/MBummcW5DIk?t=136">Motors and wheels</a> · <a href="https://youtu.be/MBummcW5DIk?t=305">Head assembly</a> · <a href="https://youtu.be/MBummcW5DIk?t=626">Final checks</a></p>
+<blockquote class="notice"><p><strong>Important</strong><br>
+<strong>Build guide in progress.</strong> Includes the parts and variant photos, manufactured PCB settings, connector pinout, assembly STL and illustrated build sequence. Remaining gaps are the tested print recipe, exact fasteners at each mounting point, motor-cable identification and measured power/load limits. See the <a href="#chapter-11">release checklist</a>.</p>
+</blockquote>
+<h2 id="chapter-0--start-here">Start here</h2>
+<p>Follow the order below. <strong>Finish the bench tests before mounting the electronics in the shell.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Step</th>
+<th style="text-align: left;">What you will do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-1">01 · Parts</a></strong></td>
+<td style="text-align: left;">Order the matching board, modules, motors and hardware.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-2">02 · Preparation</a></strong></td>
+<td style="text-align: left;">Gather tools, prepare printed parts and check the fits.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-3">03 · Software</a></strong></td>
+<td style="text-align: left;">Flash Bookworm, run one installer command and finish in the dashboard.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-4">04 · Bench tests</a></strong></td>
+<td style="text-align: left;">Test the battery-powered bare PCB, join it to the Pi, then check the peripherals.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-6">05 · Assembly</a></strong></td>
+<td style="text-align: left;">Mount the motors, Pi/back panel and head; fit the wiring, ToF sensor and side-panel inserts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-7">06 · Calibration</a></strong></td>
+<td style="text-align: left;">Follow IMU calibration, check wheel movement and test STT, LLM and TTS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><a href="#chapter-8">Troubleshooting</a></strong></td>
+<td style="text-align: left;">Isolate a fault without changing several things at once.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-0--what-you-are-building">What you are building</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Core</th>
+<th style="text-align: left;">Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Computer</td>
+<td style="text-align: left;">Raspberry Pi Zero 2 W with a soldered 40-pin header</td>
+</tr>
+<tr>
+<td style="text-align: left;">Main board</td>
+<td style="text-align: left;">Custom <code>Robbi 2026-09</code> PCB: power circuit, motor driver, speaker amplifier and IMU</td>
+</tr>
+<tr>
+<td style="text-align: left;">Movement</td>
+<td style="text-align: left;">Two matching 3 V / 75 RPM N20 motors with encoders</td>
+</tr>
+<tr>
+<td style="text-align: left;">Face and voice</td>
+<td style="text-align: left;">1.69-inch SPI display, USB microphone and miniature speaker</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vision and distance</td>
+<td style="text-align: left;">IMX219 camera and one forward-facing VL53L1X-family ToF module</td>
+</tr>
+</tbody>
+</table>
+<p>The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.</p>
+<h2 id="chapter-0--keep-these-nearby">Keep these nearby</h2>
+<ul>
+<li><strong><a href="bom.csv">Parts list</a></strong> — quantities, variants and purchase links.</li>
+<li><strong><a href="#chapter-5">Wiring reference</a></strong> — top-view connector drawing, numbered pins, display power-pin swap and power test points.</li>
+<li><strong><a href="build-record.csv">Build record</a></strong> — record your revisions, measurements and test results.</li>
+<li><strong><a href="#chapter-9">PCB manufacturing files</a></strong> and <strong><a href="#chapter-10">enclosure model</a></strong>.</li>
+<li><strong><a href="#chapter-3">One-command installation</a></strong> — minimal terminal setup, automatic startup and one generated configuration.</li>
+<li><strong><a href="#chapter-11">Release readiness</a></strong> — runtime publication and fresh-card testing status.</li>
+</ul>
+<blockquote class="notice"><p><strong>Tip</strong><br>
+Keep power disconnected while changing wiring or fitting parts. For the first powered motor checks, raise both wheels. Floor tests need a clear, level area away from edges: the forward ToF sensor does not provide cliff detection.</p>
+</blockquote>
+<h2 id="chapter-0--repository-layout">Repository layout</h2>
+<p>Keep the Markdown files, <code>assets/</code> and <code>hardware/</code> together so the relative links work on GitHub. The repository root contains the runtime: <code>pyproject.toml</code>, <code>src/</code>, <code>config/</code>, <code>web/</code>, <code>apps/</code> and <code>tools/</code>. Installation is covered in <a href="#chapter-3">Software</a>.</p>
+<p>The illustrated Markdown guide is the single maintained manual. Separate browser, commissioning and service-template editions have been retired; the installer generates the working settings and startup service.</p></section><section id="chapter-1"><h1 id="chapter-1--1-choose-the-parts">1. Choose the parts</h1>
+<p><img alt="Choose the parts" src="assets/banners/01-parts.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Preparation →</a></p>
+<p>Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. New reference listings were found through indexed product pages; live stock, seller authenticity and delivery to your country have not been verified. Confirm the exact variant before ordering.</p>
+<p><strong>Custom board:</strong> order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the <a href="#chapter-9">current manufacturing package and ordering notes</a>; remaining electrical documentation is listed in <a href="#chapter-11">the release checklist</a>.</p>
+<p><img alt="The custom board used in the build" src="assets/03-pcb-front-annotated.jpg" /></p>
+<h2 id="chapter-1--order-list">Order list</h2>
+<table>
+<thead>
+<tr>
+<th>Qty</th>
+<th>Part</th>
+<th>Exact choice</th>
+<th>Purchase link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Assembled Robbi custom PCB</td>
+<td>Custom four-layer board  •  Fabrication + component assembly  •  Quote required</td>
+<td><a href="https://www.aliexpress.com/item/1005012242415880.html">AliExpress · quote</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Raspberry Pi Zero 2 W</td>
+<td>1 board  •  Wi-Fi  •  Header already soldered</td>
+<td><a href="https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/">Raspberry Pi</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>High-quality microSD card</td>
+<td>32 GB minimum  •  64 or 128 GB recommended  •  A1 or A2  •  Class 10 / UHS-I</td>
+<td><a href="https://www.aliexpress.com/item/1005012331420695.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>N20 motors with encoders</td>
+<td>2 matching motors  •  3 V  •  75 RPM  •  Encoders</td>
+<td><a href="https://de.aliexpress.com/item/4001275879836.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>As required</td>
+<td>MR128ZZ miniature bearings</td>
+<td>MR128ZZ  •  8 mm bore  •  12 mm outside  •  3.5 mm thick</td>
+<td><a href="https://de.aliexpress.com/item/32962032067.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>TOF400C-VL53L1 sensor</td>
+<td>1 module  •  Select TOF400C-VL53L1</td>
+<td><a href="https://de.aliexpress.com/item/1005007318361593.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>TENSTAR ROBOT SPI display</td>
+<td>1 display  •  1.69 inch  •  240 × 280  •  8 pins</td>
+<td><a href="https://de.aliexpress.com/item/1005007346976745.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>IMX219 wide-angle camera</td>
+<td>1 camera  •  IMX219  •  130° or 160° lens  •  CSI</td>
+<td><a href="https://www.aliexpress.com/item/33015616449.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>20 mm miniature speaker</td>
+<td>1 speaker  •  20 mm diameter  •  8 Ω / 8R  •  0.5 W</td>
+<td><a href="https://de.aliexpress.com/item/1005006344913948.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>18650 holder with wires</td>
+<td>1 holder  •  Single cell  •  With wires</td>
+<td><a href="https://de.aliexpress.com/item/1005006089547043.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>18650 rechargeable cell</td>
+<td>1 cell  •  About 3000 mAh  •  Genuine high-drain Li-ion</td>
+<td><a href="https://www.aliexpress.com/item/1005013171674610.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>USB-C 18650 charger</td>
+<td>1 charger  •  External slot charger  •  USB-C input</td>
+<td><a href="https://www.aliexpress.com/item/1005008944009834.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Micro-USB OTG adapter — LEFT</td>
+<td>1 adapter  •  LEFT  •  Micro-USB male → USB-A female</td>
+<td><a href="https://de.aliexpress.com/item/1005006212943594.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Mini USB microphone</td>
+<td>1 microphone  •  USB-A  •  Built-in microphone</td>
+<td><a href="https://de.aliexpress.com/item/1005006769901138.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>VH3.96 battery connector</td>
+<td>1 cable  •  VH series  •  3.96 mm pitch  •  2P</td>
+<td><a href="https://de.aliexpress.com/item/1005002158441860.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>As required</td>
+<td>M2 heat-set inserts</td>
+<td>M2 internal thread  •  Outside size must match the model</td>
+<td><a href="https://de.aliexpress.com/item/1005009464952378.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>As required</td>
+<td>M2 screws and nuts</td>
+<td>M2  •  Lengths and quantities follow the assembly files</td>
+<td><a href="https://de.aliexpress.com/item/1005007159750547.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>As required</td>
+<td>M3 × 14 mm screws</td>
+<td>Additional linked hardware  •  M3  •  14 mm  •  50-piece pack</td>
+<td><a href="https://de.aliexpress.com/item/4000978466742.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>As required</td>
+<td>Female-to-female jumper wires</td>
+<td>F–F  •  Sockets at both ends  •  2.54 mm headers</td>
+<td><a href="https://de.aliexpress.com/item/1005003641187997.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>16 cm Pi Zero camera adapter ribbon</td>
+<td>16 cm; 22-pin / 0.5 mm pitch to 15-pin / 1.0 mm pitch</td>
+<td><a href="https://de.aliexpress.com/item/1005006739911403.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>Assortment</td>
+<td>Heat shrink or insulation tape</td>
+<td>Small assortment / one roll  •  Electrical insulation</td>
+<td><a href="https://www.aliexpress.com/item/1005010654501775.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>Access to 1 set</td>
+<td>Soldering equipment</td>
+<td>Use an existing setup or buy one  •  Electronics soldering</td>
+<td><a href="https://www.aliexpress.com/item/1005012288641627.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1 set</td>
+<td>Precision screwdriver and bits</td>
+<td>1 set  •  Hex H1.5 / H2.0 / H2.5  •  Small Phillips bits</td>
+<td><a href="https://www.aliexpress.com/item/1005013263451955.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>Access to 1 set</td>
+<td>Hot glue and glue gun</td>
+<td>Access to a glue gun  •  Matching glue sticks</td>
+<td><a href="https://www.aliexpress.com/item/1005013027427882.html">AliExpress</a></td>
+</tr>
+<tr>
+<td>1 complete print set</td>
+<td>3D printing access or service</td>
+<td>One complete set of Robbi’s printed parts  •  Custom quote required</td>
+<td><a href="https://www.aliexpress.com/item/1005012896821394.html">AliExpress · quote</a></td>
+</tr>
+</tbody>
+</table>
+<p>“As required” means the count depends on the assembly; pack sizes are not the number used in one robot. Confirm hardware quantities and screw lengths from the released assembly files. For the custom PCB, use the <a href="#chapter-9">manufacturing package</a> and request a quote for four-layer fabrication and assembly; the service listing is not a ready-made Robbi board.</p>
+<p>Also provide a suitable USB power source/cable for the isolated Pi setup, a microSD reader, a multimeter and the hand tools in <a href="#chapter-2">preparation</a>. Battery-lead protection and PCB spacing hardware must be specified in the release; they are not optional omissions just because their exact parts are unresolved.</p>
+<h2 id="chapter-1--recognise-the-important-variants">Recognise the important variants</h2>
+<table>
+<thead>
+<tr>
+<th>Motor and cable</th>
+<th>Display pin labels</th>
+<th>Forward ToF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="assets/parts/encoder-motor.jpg" alt="N20 motor with rear encoder and six-wire cable" width="240"></td>
+<td><img src="assets/parts/display-pin-labels.jpg" alt="1.69 inch display with eight labelled pins" width="240"></td>
+<td><img src="assets/parts/tof-module.jpg" alt="TOF400C-VL53L1X board" width="240"></td>
+</tr>
+<tr>
+<td>Select <strong>3 V / 75 RPM</strong>, two motors, with cables.</td>
+<td>Select <strong>240 × 280, eight pins</strong>. Match signals when wiring; VCC/GND differ from the custom PCB's order.</td>
+<td>Select <strong>TOF400C-VL53L1X</strong>. Keep the optical opening unobstructed.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>OTG adapter</th>
+<th>Battery cable contact type</th>
+<th>M2 screw head</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="assets/parts/otg-left.jpg" alt="Left-angle Micro-USB OTG adapter" width="240"></td>
+<td><img src="assets/parts/battery-socket.jpg" alt="Recessed female socket contacts in the battery connector" width="240"></td>
+<td><img src="assets/parts/m2-socket-head.jpg" alt="Cylindrical socket-head screw" width="240"></td>
+</tr>
+<tr>
+<td><strong>Left-angle</strong>, data-capable.</td>
+<td><strong>VH3.96, 2-pin, female socket contacts</strong>, with leads.</td>
+<td><strong>Cylindrical socket head</strong>, not countersunk. M3 screws are <strong>14 mm long</strong>; 50 is the pack count.</td>
+</tr>
+</tbody>
+</table>
+<p>The reference pictures identify shape and pin labels. For voltage, speed, size and quantity, use the order table above.</p>
+<h2 id="chapter-1--check-deliveries-before-building">Check deliveries before building</h2>
+<ul>
+<li>Count two matching <strong>3V75RPM encoder motors</strong> and their matching cables. Check the label and rear encoder board, not just the product title.</li>
+<li>Confirm <strong>Zero 2 W</strong>, with the 40-pin header already soldered.</li>
+<li>Confirm the <strong>1.69-inch, eight-pin, 240 × 280 SPI display</strong> and the exact ToF board outline.</li>
+<li>Check the camera ribbon: use <strong>16 cm</strong> with different widths at its two ends.</li>
+<li>Check the battery plug: <strong>VH3.96, 2-pin, female socket contacts</strong>, and matching polarity.</li>
+<li>Check screws by their actual dimensions. <strong>M3 × 14 mm</strong> and <strong>M2 socket head</strong> are the required selections. The purchased assortments do not establish the number or M2 length used at each mounting point.</li>
+<li>Keep cells and all power leads disconnected while checking fit.</li>
+</ul>
+<h2 id="chapter-1--selection-details">Selection details</h2>
+<details>
+<summary>Expand the component-by-component buying notes</summary>
+<h3 id="chapter-1--raspberry-pi-zero-2-w">Raspberry Pi Zero 2 W</h3>
+<p>The exact Zero 2 W model, with Wi-Fi and the 40-pin GPIO header already installed and soldered. Ask for 已焊接排针; a loose header in the box is not enough.</p>
+<p><strong>Avoid:</strong> The older Zero W / Zero WH, an unsoldered board, or a listing labelled only “Zero 2” without confirmation of Wi-Fi and the exact model.</p>
+<h3 id="chapter-1--high-quality-microsd-card">High-quality microSD card</h3>
+<p>Choose a <strong>high-quality microSD card with at least 32 GB</strong>. <strong>64 or 128 GB is recommended</strong> for extra room. Look for A1 or A2 and Class 10 / UHS-I; no particular brand is required. Buy from a reputable seller. The linked card is an example, not a brand requirement. The small microSD card goes into the Pi; an SD adapter is optional for your computer.</p>
+<p><strong>Avoid:</strong> Full-size SD cards, an empty adapter, unbranded cards or suspiciously cheap counterfeits. Advertised reader speeds are not the speed you will get on the Pi.</p>
+<h3 id="chapter-1--n20-motors-with-encoders">N20 motors with encoders</h3>
+<p>Select “3V75RPM”. Buy two identical N20 / JGA12-N20 units with rear encoder boards. Confirm matching encoder cables are included.</p>
+<p><strong>Avoid:</strong> Plain N20 motors without encoders; 6 V or 12 V versions; 750 RPM, 150 RPM or another speed.</p>
+<h3 id="chapter-1--mr128zz-miniature-bearings">MR128ZZ miniature bearings</h3>
+<p>Select “MR128ZZ 8x12x3.5mm”. Check all three dimensions: 8 mm inner diameter, 12 mm outer diameter and 3.5 mm width. The linked listing sells a 10-piece pack; use the assembly instructions for the number needed.</p>
+<p><strong>Avoid:</strong> MR128-2.5 (only 2.5 mm thick), MR148ZZ (14 mm outside), open or rubber-sealed variants, or flanged bearings in place of this plain MR128ZZ.</p>
+<h3 id="chapter-1--tof400c-vl53l1-sensor">TOF400C-VL53L1 sensor</h3>
+<p>Choose “TOF400C-VL53L1”. Look for the TOF400C-VL53L1X board marking. Match its outline, mounting holes and pin labels; check whether headers arrive soldered.</p>
+<p><strong>Avoid:</strong> TOF050C / VL6180 or TOF200C / VL53L0X. Another VL53L1X module can have a different board shape and pinout.</p>
+<h3 id="chapter-1--tenstar-robot-spi-display">TENSTAR ROBOT SPI display</h3>
+<p>Select “1.69 Inch”. Look for the eight-pin SPI board, ST7789-family controller and 240(RGB) × 280 marking on the display board.</p>
+<p><strong>Avoid:</strong> 1.54-inch or 1.9-inch variants; 240 × 240 or 240 × 320 panels; a different pin count or interface. Ignore the listing’s incorrect automatic 320 × 240 summary.</p>
+<h3 id="chapter-1--imx219-wide-angle-camera">IMX219 wide-angle camera</h3>
+<p>An IMX219 camera with a 130° or 160° lens and Raspberry Pi CSI support. Check board size, mounting holes and lens clearance against the printed mount.</p>
+<p><strong>Avoid:</strong> OV5647 / 5 MP cameras, narrow-angle lenses, USB webcams or bulky IR assemblies that do not fit the mount.</p>
+<h3 id="chapter-1--20-mm-miniature-speaker">20 mm miniature speaker</h3>
+<p>Select “20mm”, and verify 8R / 8 Ω and 0.5 W. Prefer attached leads; check that the plug matches the build or can be reterminated.</p>
+<p><strong>Avoid:</strong> 23 / 28 / 30 / 36 mm or larger versions, 4 Ω speakers, buzzers or powered USB speakers.</p>
+<h3 id="chapter-1--18650-holder-with-wires">18650 holder with wires</h3>
+<p>Select “1 Section with line”. Check the holder’s outside dimensions against the printed enclosure and its supported cell length.</p>
+<p><strong>Avoid:</strong> The version without wires, a two- to four-cell holder, or an AA / 14500 holder. A holder alone is not a charger.</p>
+<h3 id="chapter-1--18650-rechargeable-cell">18650 rechargeable cell</h3>
+<p>A traceable genuine single 18650 Li-ion cell with dimensions, charge/discharge limits and protection compatible with the approved power circuit. Molicel P30B is a reference example, not an instruction to fit an unprotected cell to an unverified circuit.</p>
+<p><strong>Avoid:</strong> Anonymous cells with implausible capacity labels, reclaimed cells, 21700 / 14500 sizes or LiFePO₄. A longer protected/button-top cell may not fit.</p>
+<h3 id="chapter-1--usb-c-18650-charger">USB-C 18650 charger</h3>
+<p>A USB-C charger for 3.6 / 3.7 V Li-ion 18650 cells, charging to 4.2 V. Check the actual input socket and use a charge current within the cell manufacturer’s limit. The linked XTAR ANT MC1 Plus is a USB-C reference example.</p>
+<p><strong>Avoid:</strong> An older micro-USB version, a bare TP4056 board, an empty holder, or a charger intended only for NiMH or 1.5 V batteries.</p>
+<h3 id="chapter-1--micro-usb-otg-adapter--left">Micro-USB OTG adapter — LEFT</h3>
+<p>Choose “Left” in the original listing. It must support OTG and data. For other sellers, check that the plug direction leaves the microphone inside the body with the USB data port accessible.</p>
+<p><strong>Avoid:</strong> “Right”, USB-C, mini-USB or charge-only adapters. Left/right naming can vary between sellers.</p>
+<h3 id="chapter-1--mini-usb-microphone">Mini USB microphone</h3>
+<p>A complete microphone dongle with driver-free USB Audio / Linux / Raspberry Pi compatibility. Match the small physical size shown.</p>
+<p><strong>Avoid:</strong> A USB Bluetooth receiver, a sound card with only empty audio sockets, a 3.5 mm-only mic, or an I²S microphone breakout.</p>
+<h3 id="chapter-1--vh396-battery-connector">VH3.96 battery connector</h3>
+<p>Select “2P”. Buy the VH3.96 housing with crimped wires attached; the linked listing offers 20 cm leads. Check the latch, mating socket and polarity against the PCB. Required cable end is FEMALE, with recessed socket contacts and no exposed pins. Verify polarity with a meter; wire colour alone is insufficient.</p>
+<p><strong>Avoid:</strong> 3P–10P, a bare housing, or a PCB header alone. PH2.0, XH2.50 / 2.54 and other “JST 2-pin” families are not interchangeable.</p>
+<h3 id="chapter-1--m2-heat-set-inserts">M2 heat-set inserts</h3>
+<p>M2 inserts intended for heat installation. Match outer diameter, length and quantity to the printed parts. The linked assortment contains several sizes, including M2.</p>
+<p><strong>Avoid:</strong> M2.5 / M3 inserts, ordinary hex nuts or wood inserts. “M2” specifies only the thread; it does not guarantee the outside dimensions fit.</p>
+<h3 id="chapter-1--m2-screws-and-nuts">M2 screws and nuts</h3>
+<p>Choose the M2 option (“482pcs M2” in the linked listing). Check required screw lengths and head style against the assembly instructions; the pack count is not the robot’s screw count. Use cylindrical socket-head screws, not countersunk. Final lengths and quantities remain to be supplied.</p>
+<p><strong>Avoid:</strong> M2.5 / M3 kits by mistake, self-tapping screws, or screws that are too long for the mounting position.</p>
+<h3 id="chapter-1--m3--14-mm-screws">M3 × 14 mm screws</h3>
+<p>Select “M3 50 pcs” and “x14mm”. These are socket-head machine screws. Keep this item separate from the M2 screws and inserts. The length is 14 mm. Fifty is the pack count, not a length or build quantity.</p>
+<p><strong>Avoid:</strong> Using M3 screws in M2 threads, or confusing 14 mm length with an M14 thread. Fifty pieces is the selected pack size, not a confirmed build quantity.</p>
+<h3 id="chapter-1--female-to-female-jumper-wires">Female-to-female jumper wires</h3>
+<p>Choose F-F / Female-Female / 母对母. Both ends must have sockets. Select a length and wire count that suit the wiring route without tension.</p>
+<p><strong>Avoid:</strong> M-M / 公对公 or M-F / 公对母. The listing’s default selection may be the wrong type.</p>
+<h3 id="chapter-1--16-cm-pi-zero-camera-adapter-ribbon">16 cm Pi Zero camera adapter ribbon</h3>
+<p>Use a 16 cm Pi Zero adapter ribbon, with a 22-pin narrow end and a 15-pin wide end. Check both connector widths and contact orientation; do not buy 15-to-15 or 22-to-22 by mistake.</p>
+<p><strong>Avoid:</strong> A different length or connector type without checking the fit. Verify that the selected listing option is 16 cm.</p>
+<h3 id="chapter-1--heat-shrink-or-insulation-tape">Heat shrink or insulation tape</h3>
+<p>Heat-shrink sizes that fit over the joints and shrink snugly, or tape explicitly rated for electrical insulation. No particular brand is required.</p>
+<p><strong>Avoid:</strong> Packing tape, masking tape, conductive copper tape, or tubing too large to grip after shrinking.</p>
+<h3 id="chapter-1--soldering-equipment">Soldering equipment</h3>
+<p>A temperature-controlled iron, suitable tip, stand, solder wire and electronics flux. Choose a plug and input voltage suitable for your local mains supply.</p>
+<p><strong>Avoid:</strong> 110 V-only equipment, plumbing acid flux, a welding machine, or a hot-air-only tool in place of an electronics soldering iron.</p>
+<h3 id="chapter-1--precision-screwdriver-and-bits">Precision screwdriver and bits</h3>
+<p>Check the bit list includes H1.5 and H2.5 hex bits: the DIN 912 socket-head screws shown use 1.5 mm hex for M2 and 2.5 mm for M3. H2.0 and small Phillips bits make the set more versatile. Match the bit to the actual screw head.</p>
+<p><strong>Avoid:</strong> Phillips-only or Torx-only sets, kits missing the small hex sizes, or a large powered driver that can strip these tiny screws.</p>
+<h3 id="chapter-1--hot-glue-and-glue-gun">Hot glue and glue gun</h3>
+<p>Glue sticks whose diameter matches the gun. If buying a mains gun, choose a plug and voltage suitable for your local mains supply. Check whether sticks are included.</p>
+<p><strong>Avoid:</strong> Sticks in the wrong diameter, or ordering only a gun when you also need glue. Do not substitute superglue or conductive adhesive without checking the assembly.</p>
+<h3 id="chapter-1--3d-printing-access-or-service">3D printing access or service</h3>
+<p>Send the confirmed printable parts, quantities, scale, material and settings for a custom quote. Agree the printing process and tolerances before ordering. The listing price is not the cost of a full Robbi print set. Use the <a href="#chapter-10">printing notes</a> to prepare the files; the complete assembly STL is not a single printable part.</p>
+<p><strong>Avoid:</strong> A random robot shell, resized parts or an incomplete print order. Check compatibility before changing material or printing process.</p>
+</details></section><section id="chapter-2"><h1 id="chapter-2--2-prepare-tools-and-printed-parts">2. Prepare tools and printed parts</h1>
+<p><img alt="Prepare tools and printed parts" src="assets/banners/02-prepare.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-1">← Parts</a> · <a href="#chapter-3">Software →</a></p>
+<h2 id="chapter-2--tools">Tools</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3D printer, makerspace or print service</td>
+<td>Body, head, wheels and internal mounts</td>
+</tr>
+<tr>
+<td>Temperature-controlled soldering iron, stand, solder and electronics flux</td>
+<td>Wire joints, any omitted through-hole headers and heat-set inserts with an appropriate tip</td>
+</tr>
+<tr>
+<td>Small manual driver; H1.5, H2 and H2.5 hex bits; small Phillips bits</td>
+<td>Fasteners; check the actual head before using a bit</td>
+</tr>
+<tr>
+<td>Flush cutters, wire stripper, tweezers and small pliers</td>
+<td>Harness preparation and handling small parts</td>
+</tr>
+<tr>
+<td>Heat-shrink tubing and suitable heat source</td>
+<td>Insulating individual wire joints</td>
+</tr>
+<tr>
+<td>Hot-glue gun and matching sticks</td>
+<td>Securing the forward ToF sensor and limited wire strain relief</td>
+</tr>
+<tr>
+<td>Multimeter with continuity and DC voltage ranges</td>
+<td>Finding shorts, checking polarity and measuring rails</td>
+</tr>
+<tr>
+<td>Knife/deburring tool, small file and calipers</td>
+<td>Removing supports and checking fits</td>
+</tr>
+<tr>
+<td>microSD reader and computer</td>
+<td>Flashing the operating system and copying the release</td>
+</tr>
+<tr>
+<td>Tape measure, tape and a flat test area</td>
+<td>Wheel and motion calibration</td>
+</tr>
+<tr>
+<td>Optional current-limited bench supply</td>
+<td>Controlled first power-up with the release's specified input and limit</td>
+</tr>
+</tbody>
+</table>
+<p>Use an uncluttered, nonconductive work surface and a small tray for screws. Ventilate soldering work. Do not solder directly onto the 18650 cell; prepare the holder leads with the cell removed.</p>
+<h2 id="chapter-2--print-the-matching-release">Print the matching release</h2>
+<p>Download <a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a> and extract <strong>robo_4_astra.stl</strong> on your computer. The archive contains the original assembly STL without changes to its geometry. It contains an assembly, modelled purchased hardware and separate wheel shapes, rather than a prepared print plate. See <a href="#chapter-10">the model notes</a> before slicing. Export/identify the actual printable bodies and confirm the scale against a known dimension. Print the confirmed millimetre-scale parts at <strong>100%</strong>. Scaling the shell to compensate for a tight fit also changes the bearings, board mounts and screw locations.</p>
+<p>The <a href="#chapter-10--parts-identifiable-in-the-supplied-stl">model inventory</a> identifies the shell, panels, head pieces and wheel geometry already present in this file.</p>
+<p>Use this checklist while separating printable geometry from the purchased electronics in the assembly STL. The shell, two side panels, head front/rear, wheel centre and tread ring are identifiable; print materials and the successful slicer settings are not stored in STL:</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Inspect before assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main body and closing panel(s)</td>
+<td>Both axle openings, motor seats, board mounts, battery access and front apertures</td>
+</tr>
+<tr>
+<td>Head/face bezel and rear/joint parts</td>
+<td>Screen aperture, display mounting features and cable passage</td>
+</tr>
+<tr>
+<td>Two wheels and their tread/tyre parts</td>
+<td>Shaft fit, concentricity, tread fit and body clearance</td>
+</tr>
+<tr>
+<td>Pi/PCB carrier</td>
+<td>Hole locations, underside insulation and port access</td>
+</tr>
+<tr>
+<td>Camera, speaker and ToF mounts</td>
+<td>Exact module outline, lens/window clearance and connector access</td>
+</tr>
+<tr>
+<td>Bearing and joint retainers, if separate</td>
+<td>Bearing seating depth and unobstructed motion</td>
+</tr>
+</tbody>
+</table>
+<p>Do not use the motion-studio <code>robbi-body.stl</code> and <code>robbi-head.stl</code> files as a complete print kit: the available preview models do not establish all separate printable parts or their counts.</p>
+<p><img alt="An earlier enclosure print on the printer bed" src="assets/05-printed-parts.jpg" /></p>
+<p><em>Illustrative print layout. Use the released parts and their specified print orientations for your build.</em></p>
+<p>The supplied STL does not contain slicer settings. Add the release's slicer project for orientation, supports, layer height, walls, infill and material. Use the settings for the released parts rather than guessing an orientation or material. Print a small insert/bearing fit sample first if changing printer, material or slicer settings.</p>
+<h2 id="chapter-2--clean-and-dry-fit">Clean and dry-fit</h2>
+<ol>
+<li>Remove supports and loose strings, particularly inside wire passages and screw holes.</li>
+<li>Deburr mating surfaces without enlarging bearing seats or motor pockets.</li>
+<li>Lay each component in its mount with <strong>no battery installed</strong>. Check that plugs can still be inserted and removed.</li>
+<li>Place the PCB carrier inside the body and close the panels loosely. Check clearance above the board's tall components and header pins.</li>
+<li>Sort screws by diameter and length. A screw should engage its intended thread without bottoming out against a board, motor or cell.</li>
+</ol>
+<h2 id="chapter-2--inserts-and-bearings">Inserts and bearings</h2>
+<p>Check the heat-set inserts now, but fit the <strong>side-panel inserts</strong> at the step shown in <a href="#chapter-6--7-fit-the-side-panel-inserts">Assembly</a>. These provide the threads for fastening the side panels to the main body. M2 specifies only the thread: outside diameter and length must match the printed pockets. Test the fit and heated-tool technique on a spare printed boss first.</p>
+<p>The specified bearing is <strong>MR128ZZ, 8 × 12 × 3.5 mm</strong>. It sits in the circular body recess around the motor-shaft opening; the <a href="#chapter-6--1-mount-the-motors-first">new close-ups</a> show both the seat and the matching D-shaped wheel hub. Press against the outer race when fitting a bearing into its printed bore. Align the wheel hub's flat with the shaft flat before pressing the wheel on; do not hammer through the bearing or onto the gearbox shaft. Stop if the plastic starts to split or distort.</p>
+<p><strong>Checkpoint:</strong> the shell closes without force, all modules fit, and there is a clear route for the head harness and camera ribbon. The battery is still out.</p></section><section id="chapter-3"><h1 id="chapter-3--3-install-the-software">3. Install the software</h1>
+<p><img alt="Install the software" src="assets/banners/03-software.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">← Preparation</a> · <a href="#chapter-4">Bench tests →</a></p>
+<p><strong>Early version, for experienced makers.</strong> Expect tinkering, fixes and several hours of work. Hardware, components and software will change; backward compatibility is not guaranteed. Provided as-is.</p>
+<p>The installer is hosted at <a href="https://github.com/ace-builder/Robbi">ace-builder/Robbi</a>. <strong>The runtime release is awaiting publication while its assets are being prepared.</strong> Until that release exists, the hosted installer exits with an explanation and makes no system changes. It does not download private robot code.</p>
+<h2 id="chapter-3--1-prepare-the-microsd-card">1. Prepare the microSD card</h2>
+<p>Use <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> to select <strong>Raspberry Pi OS (Legacy) Lite, 64-bit, Bookworm</strong> for a <strong>Pi Zero 2 W</strong>. Check the codename: Trixie/Python 3.13 is not supported by this runtime yet. Set your own Linux username/password or SSH key, hostname (for example <code>robbi</code>), Wi-Fi country, <strong>2.4 GHz</strong> Wi-Fi and SSH in Imager. Initial networking must work before you can connect over SSH.</p>
+<p>Boot the Pi separately on its normal USB supply with the custom board and motors disconnected. From your computer:</p>
+<pre><code class="language-sh">ssh YOUR_USER@robbi.local
+</code></pre>
+<p>Use the address from your router if <code>.local</code> does not resolve. Imager documentation: <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">first boot and remote access</a>.</p>
+<h2 id="chapter-3--2-run-the-installer">2. Run the installer</h2>
+<p>Run as your normal Linux user, <strong>without <code>sudo</code> in front of the command</strong>. The installer requests sudo for system packages, device access and the service.</p>
+<pre><code class="language-sh">curl -fsSL --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/ace-builder/Robbi/main/install.sh -o /tmp/robbi-install.sh &amp;&amp; bash /tmp/robbi-install.sh
+</code></pre>
+<p>To inspect it first, download the file, read it, then run <code>bash /tmp/robbi-install.sh</code>. A future tagged release can be selected with <code>--version TAG</code>. <code>--plan</code> describes the steps without installing; with the hosted script it still requires a downloadable runtime. An unpacked, audited release can be used with <code>bash install.sh --source /path/to/release/robbi-v2</code>.</p>
+<p>The installer verifies SHA-256, checks archive paths and a per-file manifest, installs apt dependencies, and creates <code>~/robbi-v2/.venv</code> using the OS camera and numerical libraries. It refuses unsupported systems and unrelated existing installations. Rerunning the <strong>same release</strong> resumes completed steps. This is a fresh-install command, not an updater for a working robot.</p>
+<p>Checksums detect corruption; trust still comes from the repository/release publisher. Review the script and release you choose.</p>
+<h2 id="chapter-3--3-answer-the-short-setup-prompts">3. Answer the short setup prompts</h2>
+<ol>
+<li>Enter the name Robbi should use for you. Your Linux login remains the account created in Imager.</li>
+<li>Choose a dashboard password, or press Enter for a generated one and save it; disabling sign-in requires explicitly trusting every device on the network.</li>
+<li>Keep the current Wi-Fi, or save another Personal network for the next reboot. The wizard checks the <strong>current</strong> connection; it cannot prove the new password works without joining that network. It never switches your active SSH connection.</li>
+<li>Select OpenAI, OpenRouter or an OpenAI-compatible local LLM server, edit the model ID, and paste your own key at the hidden prompt. The suggested model is <code>gpt-6-luna</code>; account access must pass the test. Local inference runs on another machine, not the Zero 2 W. STT/TTS default to OpenAI; optionally configure your own ElevenLabs voice and model (suggested <code>eleven_v4</code>). OpenRouter chat does not provide OpenAI speech credentials.</li>
+<li>Optionally send one small billable LLM test request. Failure or missing keys does not block the dashboard; configure them later in dashboard <strong>Settings → Connections &amp; API keys</strong> or with <code>robbi-setup</code>.</li>
+<li>Optionally configure Telegram: create a bot with <code>@BotFather</code> (<code>/newbot</code>), find your numeric ID using <code>@userinfobot</code> (<code>/start</code>), then enter that ID and your bot token in the wizard. Only your private chat is allowed; photos and robot actions default off. Never send your bot token to the ID bot.</li>
+<li>Review the interface checks and open the printed dashboard URL. Reboot once when prompted with <code>sudo reboot</code>.</li>
+</ol>
+<p>The connection test uses the same <a href="https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create">Chat Completions API</a> and JSON response mode as Robbi's conversation path. It sends only a fixed test prompt, never stored conversations, photos or recordings.</p>
+<h2 id="chapter-3--4-finish-in-the-dashboard">4. Finish in the dashboard</h2>
+<p>The service starts on boot and normally serves <code>http://robbi.local:8082</code>. Fresh installs require a dashboard password (username <code>robbi</code>). Set it in the wizard or later in <strong>Settings → Dashboard access</strong>; existing explicit trusted-LAN settings are preserved. Hardware probes tolerate missing peripherals. Check Overview, test the camera/display/audio and single front ToF, then follow IMU and wheel calibration in the build guide. The installer does not move the wheels. Motors, autonomous tasks and voice listening start disabled. Enroll your own “Hey Robbi” samples before enabling voice.</p>
+<p>Use <strong>Settings → Connections &amp; API keys</strong> for provider keys, arbitrary model IDs, local/OpenAI-compatible endpoints and Tavily search. In <strong>Wake word</strong>, record positive, negative and noise examples, then choose <strong>Train in this browser</strong> for lightweight personal calibration. Full neural-model training remains a separate computer workflow; export/import is available in the advanced section.</p>
+<p>Everyday setup belongs in the dashboard. There is one configuration, <strong><code>~/robbi-v2/config/robot.yaml</code></strong>, and one automatically generated service. There is no separate service profile, commissioning profile or browser edition of the manual.</p>
+<p>The public build has no automatic training recorder. Memories, conversations, maps, saved photos and app data start empty. Configure your own wake-word reference in the dashboard; private voice samples are not bundled.</p>
+<h2 id="chapter-3--reconfigure-diagnose-or-recover">Reconfigure, diagnose or recover</h2>
+<pre><code class="language-sh">robbi-setup
+systemctl status robbi-v2.service --no-pager
+journalctl -u robbi-v2.service -n 80 --no-pager
+sudo systemctl restart robbi-v2.service
+</code></pre>
+<p>Secrets are written only on your Pi to <code>~/robbi-v2/.env.secrets</code>, readable by the owner (mode 0600). They are not put in YAML, shell history or service arguments. Never upload that file, <code>var/</code>, Wi-Fi profiles or recordings. Wi-Fi uses a root-only <a href="https://networkmanager.dev/docs/api/latest/nm-settings-keyfile.html">NetworkManager keyfile</a>; only Personal networks are supported by the wizard. Configure enterprise networks through the OS.</p>
+<p>Fresh installs select <code>hardware.right_encoder_b_pin: 16</code> for the standard board. Alternate wiring can select <code>7</code>; this reserves Servo 1. Verify the pin routed by your PCB before motor tests. The public core also defaults to GPIO16 when the field is absent. When migrating alternate wiring, explicitly set the pin that matches that board.</p>
+<p>The installer backs up changed boot settings next to <code>/boot/firmware/config.txt</code> and a replaced unit next to <code>/etc/systemd/system/robbi-v2.service</code>. Its interface block enables I²C, SPI0/CE0, camera detection and <code>max98357a,no-sdmode</code>; plain <code>max98357a</code> conflicts with a motor pin and is rejected. <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README">Official overlay definitions</a>.</p>
+<p>To stop startup: <code>sudo systemctl disable --now robbi-v2.service</code>. To restore it: <code>sudo systemctl enable --now robbi-v2.service</code>. Restore the saved boot configuration only if you need to undo interface changes, then reboot. The setup Wi-Fi file is <code>/etc/NetworkManager/system-connections/robbi-setup.nmconnection</code>; preserve a known-working network before removing it. Back up configuration, secrets and <code>var/</code> before any later upgrade; the fresh installer will not replace an unrelated installation.</p>
+<p>A fresh Bookworm SD-card installation and an independent builder run remain release acceptance checks. Automated tests do not establish physical wiring, battery, motor or thermal performance.</p>
+<p><strong>Ready for the bench:</strong> the isolated Pi boots and its dashboard opens. Shut down with <code>sudo shutdown -h now</code>, remove USB power, then continue to <a href="#chapter-4">Bench tests</a>.</p>
+<p>Imported App Hub/ZIP apps require Linux isolation. The installer adds <code>bubblewrap</code> and <code>libseccomp2</code>; existing installations can add them with <code>sudo apt install bubblewrap libseccomp2</code>. If isolation is unavailable, imported apps stay blocked while bundled apps and the dashboard remain usable.</p></section><section id="chapter-4"><h1 id="chapter-4--4-test-the-electronics-on-the-bench">4. Test the electronics on the bench</h1>
+<p><img alt="Test the electronics on the bench" src="assets/banners/04-bench.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-3">← Software</a> · <a href="#chapter-6">Assembly →</a></p>
+<p>Test the electronics on a nonconductive work surface <strong>before fitting them inside the body</strong>. The order is: bare PCB → Pi/PCB connection → connected peripherals. The motors remain disconnected.</p>
+<h2 id="chapter-4--before-connecting-power">Before connecting power</h2>
+<p>The board is labelled <strong>Robbi 2026-09</strong>. The <a href="#chapter-9">manufacturing package supplied with this guide</a> includes IP5306, DRV8833, MAX98357A and LSM6DS3TR-C, matching the visible parts. Older design folders describe a different BQ25895/TPS61088 power circuit and incompatible connector assignments. Do not combine those older schematics with this board.</p>
+<p><strong>Use the <a href="#chapter-5">connector drawing and pin-by-pin wiring tables</a>.</strong> They cover the supplied September manufacturing package, including pin 1, display power-pin reversal, encoder feedback and battery polarity. Check each finished harness against those tables before applying power.</p>
+<p><img alt="Board connectors and the antenna keep-clear area" src="assets/03-pcb-front-annotated.jpg" /></p>
+<p>The photograph identifies connector locations; the <a href="assets/connector-map.svg">top-view drawing</a> identifies pin 1. Label each wire by signal at both ends. The display needs special care: its GND/VCC order differs from the PCB.</p>
+<p><img alt="Functional connections between modules" src="assets/system-connections.svg" /></p>
+<p><em>Functional overview, not a wiring pinout. Power protection and the released PCB's rail design must be verified separately.</em></p>
+<h2 id="chapter-4--1-test-the-bare-pcb">1. Test the bare PCB</h2>
+<ol>
+<li>Remove the cell and disconnect all USB power. Inspect both sides of the board for solder bridges, loose strands, bent pins and offset connectors.</li>
+<li>Verify battery polarity from the holder to <code>BAT</code>, the specified lead protection, and the absence of a persistent short across each supply. A brief continuity beep while capacitors charge is not a complete diagnosis.</li>
+<li>Check the underside 40-pin socket orientation. <strong>U6 belongs on the back of the board</strong> and is marked for hand soldering in the manufacturing files.</li>
+<li>Leave the Pi, motors and every peripheral disconnected. Attach <strong>only the battery</strong> using the correct, verified connector.</li>
+<li><strong>Press the power button. Connecting the battery alone does not switch the PCB on.</strong></li>
+<li>Put the black probe on <strong>PACK−</strong>. Measure <strong>PACK+</strong> (battery rail) and <strong>5V</strong> (nominal 5 V output). The motor driver uses the battery rail. <strong>Do not require 3.3 V at this stage: that rail is supplied by the Pi, which is not attached yet.</strong> Record the actual readings in <a href="build-record.csv">the build record</a>.</li>
+<li>Switch off and disconnect the battery before joining the Pi or changing any connection.</li>
+</ol>
+<p><img alt="Measuring the bare PCB with only the battery connected" src="assets/bench-power.jpg" /></p>
+<blockquote class="notice"><p><strong>Important</strong><br>
+The <a href="#chapter-5--power-test-points">power test-point drawing</a> identifies PACK−, PACK+ and 5V. Their names establish nominal functions; measured unloaded/loaded ranges still need to be recorded. The meter reading in this illustration is not a target value. The driver is battery-fed, so verify the duty/load limit for the selected 3 V motors before wheel tests.</p>
+</blockquote>
+<h2 id="chapter-4--2-join-the-pcb-directly-to-the-pi">2. Join the PCB directly to the Pi</h2>
+<ol>
+<li>Keep both battery and Pi USB power disconnected.</li>
+<li>Align the PCB's underside female socket with <strong>all 40 pins</strong> on the Pi. Check both rows for a one-pin or one-row offset.</li>
+<li>Hold the boards parallel and press evenly at the connector. Support the boards instead of pressing on unsupported corners.</li>
+<li>Check the spacing and clearance from conductive fasteners.</li>
+<li>Reconnect the battery, press the power button and let the Pi start. With the black probe on <strong>PACK−</strong>, check <strong>3V3</strong> for the nominal 3.3 V logic rail. Shut the Pi down and remove power again before adding peripherals.</li>
+</ol>
+<p><strong>There are no jumper cables between these two boards:</strong> the socket mates directly with the Pi's header. You will make this same connection again after the Pi is screwed onto the back panel.</p>
+<p><img alt="The PCB socket aligned with the Raspberry Pi header" src="assets/direct-pi-connection.jpg" /></p>
+<h2 id="chapter-4--3-connect-the-peripherals-on-the-bench">3. Connect the peripherals on the bench</h2>
+<p>Use the <a href="#chapter-5">pin-by-pin tables</a> to connect the LCD, microphone, camera, ToF sensor and speaker while power is off. The table below is a final connection checklist. Connect the camera ribbon squarely and close both latches. The USB microphone uses the Pi's <strong>USB data</strong> port through the OTG adapter, not <code>PWR IN</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Connection</th>
+<th>Signals to identify before plugging in</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pi ↔ custom board</td>
+<td>All 40 header positions, including 5 V, 3.3 V and ground</td>
+<td>Full alignment; no skipped row/pin</td>
+</tr>
+<tr>
+<td>Display ↔ LCD header</td>
+<td>VCC, GND, clock, data, reset, D/C, CS, backlight</td>
+<td>Match <strong>signal labels</strong>, not wire colour; confirm VCC and backlight supply</td>
+</tr>
+<tr>
+<td>Left motor/encoder ↔ left connector</td>
+<td>Motor pair, encoder supply, encoder ground, A and B</td>
+<td>Encoder power and motor power are distinct signals</td>
+</tr>
+<tr>
+<td>Right motor/encoder ↔ right connector</td>
+<td>Motor pair, encoder supply, encoder ground, A and B</td>
+<td>Confirm the released right-B route; see repair note below</td>
+</tr>
+<tr>
+<td>Forward ToF ↔ H1</td>
+<td>Supply, ground, SDA, SCL, XSHUT; any unused interrupt pin</td>
+<td>Exact module voltage and pin order; H2 stays empty</td>
+</tr>
+<tr>
+<td>Speaker ↔ SPEAKER</td>
+<td>Amplifier's two speaker outputs</td>
+<td>Neither lead should be assumed to be ground</td>
+</tr>
+<tr>
+<td>Camera ↔ Pi CSI</td>
+<td>Matching ribbon ends and contact orientation</td>
+<td>Power off; latches fully closed</td>
+</tr>
+<tr>
+<td>Microphone ↔ Pi USB</td>
+<td>OTG data adapter and USB microphone</td>
+<td>Use USB data port, not PWR IN</td>
+</tr>
+<tr>
+<td>Cell holder ↔ BAT</td>
+<td>Verified positive and negative</td>
+<td>Female VH3.96 two-pin lead; polarity measured before insertion</td>
+</tr>
+</tbody>
+</table>
+<p>Reconnect the battery, <strong>press the power button</strong>, and let the installed service start with <code>config/robot.yaml</code>. Do not also feed the Pi through its USB power socket unless the released power circuit explicitly supports it. Leave motor output disabled and motor leads unplugged.</p>
+<p><img alt="Pi, PCB and peripherals connected for bench testing" src="assets/16-bench-system.jpg" /></p>
+<p>Use insulated, secure connections for your build. Temporary clip leads are not a finished battery harness.</p>
+<h2 id="chapter-4--4-check-each-subsystem">4. Check each subsystem</h2>
+<p>Use dashboard Settings or <code>~/robbi-v2/config/robot.yaml</code> for all edits below. After manual edits, run <code>sudo systemctl restart robbi-v2.service</code>. The installer already enables the display, camera, front ToF and IMU; verify those settings rather than selecting another profile. Keep <code>hardware.enable_motors: false</code> and <code>runtime.calibration_confirmed: false</code>.</p>
+<h3 id="chapter-4--display">Display</h3>
+<p>Set <code>hardware.enable_lcd: true</code>. Restart and select a face. The physical panel is 240 × 280; the runtime draws at 280 × 240 with <code>offset_left=20</code>, DC25, reset24 and SPI0/CE0. Those values are currently in <code>src/robot/media.py</code>.</p>
+<p><img alt="First successful face display on the bench" src="assets/15-first-face.jpg" /></p>
+<p>Check that a complete face is visible and stable. If the backlight is on but the image is missing, recheck the signal labels and selected interface before changing geometry.</p>
+<h3 id="chapter-4--camera">Camera</h3>
+<p>Stop Robbi with <code>sudo systemctl stop robbi-v2.service</code>, then test camera detection and capture:</p>
+<pre><code class="language-bash">rpicam-hello --list-cameras
+rpicam-still -n -t 2000 -o camera-check.jpg
+</code></pre>
+<p>Confirm an IMX219 is detected and inspect the actual image for focus, obstruction and orientation. If the third-party module is not auto-detected, check its manufacturer's overlay instructions rather than enabling the legacy camera stack. Bookworm uses <code>rpicam-*</code> applications; see the <a href="https://www.raspberrypi.com/documentation/computers/camera_software.html">official camera software guide</a>.</p>
+<p>Then confirm <code>camera.enabled: true</code>, run <code>sudo systemctl start robbi-v2.service</code> and check that the dashboard image updates when you move an object. Stop the runtime before using <code>rpicam-*</code> again, because both would need the camera.</p>
+<h3 id="chapter-4--microphone-and-speaker">Microphone and speaker</h3>
+<p>First list ALSA devices:</p>
+<pre><code class="language-bash">arecord -l
+aplay -l
+</code></pre>
+<p>Choose the actual card names shown on your Pi; do not rely on card numbers remaining constant. With the runtime stopped, record a short sample (substitute the USB mic's card name for <code>Device</code> if necessary):</p>
+<pre><code class="language-bash">arecord -D plughw:CARD=Device,DEV=0 -f S16_LE -r 16000 -c 1 -d 5 mic-check.wav
+</code></pre>
+<p>Play the file on your computer to check capture before testing the tiny speaker. Configure <code>audio.mic_device</code> and <code>audio.alsa_device</code> in <code>config/robot.yaml</code> to match the device list. For speaker testing, start with a quiet speech sample and low software volume; the specified speaker is only 0.5 W. Confirm the amplifier/card name rather than assuming it is always <code>MAX98357A</code>.</p>
+<h3 id="chapter-4--distance-and-orientation-readings">Distance and orientation readings</h3>
+<p>Set <code>tof.enabled: true</code> and <code>imu.enabled: true</code>, leaving <code>tof.h2_enabled: false</code>. Restart and watch live values in diagnostics.</p>
+<ul>
+<li>Move a flat object toward and away from the forward ToF. Values should change plausibly and have fresh timestamps. H1 boots at <code>0x29</code> and is assigned <code>0x30</code> by the runtime each startup; the configuration's decimal <code>48</code> means <code>0x30</code>.</li>
+<li>Gently rotate the robot while holding the body. Orientation should respond in the same sense and settle when held still. The recorded LSM6DS3TR-C device was at <code>0x6B</code>; identification is more useful than assuming every board uses that address.</li>
+</ul>
+<p>Check that both sensors respond here. Perform the full <a href="#chapter-7--1-calibrate-the-imu">IMU calibration</a> after physical assembly.</p>
+<h2 id="chapter-4--5-shut-down-before-assembly">5. Shut down before assembly</h2>
+<p>Record a pass for display, camera, microphone, speaker, forward distance and live orientation. Resolve failures while the components are easy to reach. Shut Linux down, switch off and remove the battery before mounting the electronics.</p>
+<p><strong>Checkpoint:</strong> each peripheral works on the bench; the bare-board supplies have been checked; motor output is still disabled. Continue to <a href="#chapter-6">Assembly</a>.</p>
+<h2 id="chapter-4--gpio-reference">GPIO reference</h2>
+<details>
+<summary>BCM assignments and the prototype encoder repair</summary>
+<p>These are <strong>BCM numbers</strong>. The physical header position is shown separately to avoid mixing the numbering systems. They come from the current runtime and its hardware acceptance notes, not a confirmed new PCB release.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th style="text-align: right;">BCM</th>
+<th style="text-align: right;">Physical header pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I²C SDA / SCL</td>
+<td style="text-align: right;">2 / 3</td>
+<td style="text-align: right;">3 / 5</td>
+</tr>
+<tr>
+<td>Motor driver enable</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr>
+<td>Left motor inputs</td>
+<td style="text-align: right;">4 / 17</td>
+<td style="text-align: right;">7 / 11</td>
+</tr>
+<tr>
+<td>Right motor inputs</td>
+<td style="text-align: right;">22 / 23</td>
+<td style="text-align: right;">15 / 16</td>
+</tr>
+<tr>
+<td>Left encoder A / B</td>
+<td style="text-align: right;">27 / 5</td>
+<td style="text-align: right;">13 / 29</td>
+</tr>
+<tr>
+<td>Right encoder A</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td>Right encoder B, intended route</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr>
+<td>Right encoder B, original robot's repair only</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">26</td>
+</tr>
+<tr>
+<td>Display SPI clock / data / CE0</td>
+<td style="text-align: right;">11 / 10 / 8</td>
+<td style="text-align: right;">23 / 19 / 24</td>
+</tr>
+<tr>
+<td>Display D/C / reset</td>
+<td style="text-align: right;">25 / 24</td>
+<td style="text-align: right;">22 / 18</td>
+</tr>
+<tr>
+<td>Speaker I²S clock / LR clock / data out</td>
+<td style="text-align: right;">18 / 19 / 21</td>
+<td style="text-align: right;">12 / 35 / 40</td>
+</tr>
+<tr>
+<td>Forward H1 ToF XSHUT</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td>Optional H2 XSHUT, unused here</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">32</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Encoder selection:</strong> the installer writes <code>hardware.right_encoder_b_pin: 16</code> for the standard board. Match this to the released PCB route before motor tests. Alternate wiring may select <code>7</code>, which reserves Servo 1; never bridge GPIO7 and GPIO16. Do not rely on a missing-field default: private prototype and public runtime defaults differ. Set the field explicitly to match the physical connection. Use dashboard diagnostics for the selected pin rather than an old standalone probe with hard-coded assignments.</p>
+</details>
+<h2 id="chapter-4--battery-and-shutdown">Battery and shutdown</h2>
+<p>Use the external charger selected in the parts guide for initial charging. Remove the cell from the robot after shutting Linux down and switching power off. Onboard USB charging should only be included in the public instructions after the actual circuit, cell, charge current and thermal/protection checks are confirmed.</p>
+<p>The reference P30B is a 3.6 V nominal Li-ion cell with a 4.2 V charge voltage; its current and temperature limits are conditions to respect, not the robot's required operating current. See the <a href="https://www.molicel.com/wp-content/uploads/Product-Data-Sheet-of-INR-18650-P30B-80111-1.pdf">manufacturer's cell datasheet</a>. Do not solder to the cell, use a damaged wrapper, or leave its terminals loose among tools.</p>
+<p>For normal shutdown, run <code>sudo shutdown -h now</code>, wait for shutdown to finish, then switch the robot off. A physical power cut is available for an immediate fault; it is not the routine Linux shutdown procedure.</p></section><section id="chapter-5"><h1 id="chapter-5--wiring-reference--robbi-2026-09">Wiring reference · Robbi 2026-09</h1>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-4">Bench tests</a> · <a href="#chapter-6">Assembly</a></p>
+<p>Use this page with the supplied <code>gerber_v1.zip</code>, <code>bom_v1.csv</code> and <code>pickandplace_v1.csv</code>. Connector positions come from that placement file; the connections below were checked through the four copper layers and plated holes in that Gerber package. They describe the PCB, not an assumed wire-colour scheme.</p>
+<p><img alt="Top view with numbered connector pins and power test points" src="assets/connector-map.svg" /></p>
+<h2 id="chapter-5--orient-the-board">Orient the board</h2>
+<p>Place the board <strong>component side up, USB-C to the left</strong>, with the LCD and H1 headers along the top. In this view:</p>
+<ul>
+<li><strong>LCD, H1 and both motor connectors:</strong> pin 1 is at the left end.</li>
+<li><strong>H2:</strong> pin 1 is at the top end; leave H2 empty in this build.</li>
+<li><strong>BAT:</strong> pin 1 is the <strong>right-hand</strong> pad, connected to battery positive. Pin 2 is negative.</li>
+<li><strong>SPEAKER / H3:</strong> pin 1 is on the left. <code>H3</code> is the manufacturing-file reference; <code>SPEAKER</code> is the board label.</li>
+<li><strong>U6:</strong> the female 40-pin socket fits on the <strong>underside</strong>. Do not mirror this top-view drawing when identifying the copper pads.</li>
+</ul>
+<p>Pin 1 has a square copper pad. Verify the pad when a fitted connector hides the outline. All wiring and continuity checks below are done with the battery and USB disconnected.</p>
+<h2 id="chapter-5--display--lcd">Display · LCD</h2>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3V3</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SPI clock</td>
+<td>SCL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SPI MOSI</td>
+<td>SDA</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reset</td>
+<td>RES</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Data/command</td>
+<td>DC</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Chip select</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>8</td>
+<td>3V3 backlight</td>
+<td>BLK</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The display's first two pins are GND, VCC; the PCB's first two pins are VCC, GND.</strong> Match the printed signal names. Do not connect the two eight-pin rows with an unverified straight-through harness. On this display, <code>SDA</code> and <code>SCL</code> are SPI data and clock, not the ToF sensor's I²C bus.</p>
+<p><img src="assets/parts/display-pin-labels.jpg" alt="Front and rear of the specified display, with GND and VCC labels visible" width="520"></p>
+<h2 id="chapter-5--forward-distance-sensor--h1">Forward distance sensor · H1</h2>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3V3</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3</td>
+<td>I2C SDA</td>
+<td>SDA</td>
+</tr>
+<tr>
+<td>4</td>
+<td>I2C SCL</td>
+<td>SCL</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Unrouted</td>
+<td>Leave unconnected</td>
+</tr>
+<tr>
+<td>6</td>
+<td>XSHUT / BCM13</td>
+<td>XSHUT</td>
+</tr>
+</tbody>
+</table>
+<p>Connect five signals: VCC, GND, SDA, SCL and XSHUT. <strong>H1 pin 5 has no routed connection</strong>; the ToF module's interrupt output is unused. Map by the sensor's printed labels, not by its physical left-to-right order. H1 pin 6 reaches Pi physical pin 33 / BCM13. The spare H2 connector uses physical pin 32 / BCM12 for XSHUT and stays empty.</p>
+<h2 id="chapter-5--motors-and-encoders">Motors and encoders</h2>
+<p>Left/right always means <strong>Robbi's viewpoint looking forward</strong>. Each six-wire cable carries both motor power and encoder feedback. Encoder VCC is 3.3 V; the motor pair is a separate circuit.</p>
+<h3 id="chapter-5--left--mencoder_l">Left · MENCODER_L</h3>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Motor terminal 1</td>
+<td>Motor lead 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3V3 encoder supply</td>
+<td>Encoder VCC</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Encoder A / BCM27</td>
+<td>Encoder A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Encoder B / BCM5</td>
+<td>Encoder B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GND</td>
+<td>Encoder GND</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Motor terminal 2</td>
+<td>Motor lead 2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chapter-5--right--mencoder_r">Right · MENCODER_R</h3>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Motor terminal 1</td>
+<td>Motor lead 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3V3 encoder supply</td>
+<td>Encoder VCC</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Encoder A / BCM6</td>
+<td>Encoder A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Encoder B / BCM16</td>
+<td>Encoder B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GND</td>
+<td>Encoder GND</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Motor terminal 2</td>
+<td>Motor lead 2</td>
+</tr>
+</tbody>
+</table>
+<p>Use the supplied motor cable at the encoder board and terminate its other end to match this table. The exact motor-cable colour assignment has not been established from the available references. Identify the motor maker's pin labels before powering it; do not guess encoder power from the wire colours.</p>
+<p>For this PCB, set <code>hardware.right_encoder_b_pin: 16</code>. GPIO7 was a repair on the original robot's faulty Pi; it is not the normal route on a new board. Do not join GPIO7 and GPIO16.</p>
+<h2 id="chapter-5--speaker--speaker--h3">Speaker · SPEAKER / H3</h2>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Speaker +</td>
+<td>Speaker +</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Speaker -</td>
+<td>Speaker -</td>
+</tr>
+</tbody>
+</table>
+<p>Use the specified <strong>20 mm, 8 Ω, 0.5 W</strong> speaker. Both leads go to the amplifier outputs; neither goes to ground.</p>
+<h2 id="chapter-5--battery--bat">Battery · BAT</h2>
+<table>
+<thead>
+<tr>
+<th>PCB pin</th>
+<th>Signal</th>
+<th>Connect to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Battery + / PACK+</td>
+<td>Holder positive</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Battery - / PACK-</td>
+<td>Holder negative</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <strong>VH3.96, two-pin cable with female socket contacts</strong>. With the cell removed, trace the holder's positive contact to BAT pin 1 and its negative contact to pin 2. Confirm the cable polarity even if it arrives prewired.</p>
+<p>The motor driver's supply is connected to <code>PACK+</code>, the battery rail, rather than to the regulated Pi 5 V rail. The selected motors are rated 3 V. Keep initial movement bounded and use a verified duty limit; the loaded motor/thermal limits remain a physical measurement to document.</p>
+<h2 id="chapter-5--pi-camera-and-microphone">Pi, camera and microphone</h2>
+<ul>
+<li>The Pi joins the underside U6 socket directly through its complete <strong>2 × 20 header</strong>. There are no jumper wires between the Pi and custom PCB.</li>
+<li>Use the <strong>16 cm, 22-pin-to-15-pin camera ribbon</strong>. The narrow 22-pin end fits the Pi Zero; the wide end fits the camera. Seat contacts against the socket contacts, close both latches and leave a gentle bend.</li>
+<li>Plug the <strong>left-angle Micro-USB OTG adapter</strong> into the Pi's <strong>USB data</strong> port and plug the mini USB microphone into it. <code>PWR IN</code> cannot carry microphone data.</li>
+</ul>
+<h2 id="chapter-5--power-test-points">Power test points</h2>
+<p>Keep the black multimeter probe on <strong>PACK−</strong>. Use the marked single test pins instead of trying to touch adjacent IC legs.</p>
+<table>
+<thead>
+<tr>
+<th>Red probe</th>
+<th>When to check</th>
+<th>Expected function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PACK+</td>
+<td>Battery connected</td>
+<td>Battery voltage; also feeds motor-driver VM</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>Battery connected and power button pressed</td>
+<td>Nominal 5 V output for the Pi</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td><strong>After the Pi is attached and powered</strong></td>
+<td>Nominal 3.3 V from the Pi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A bare PCB does not generate its own 3.3 V rail.</strong> Do not treat a missing 3.3 V reading during the battery-only test as a fault. Nominal rail names are not measured acceptance tolerances; record the actual unloaded and loaded readings.</p>
+<p>Two placement-file test-point names are misleading: <code>TP_USB_DETECT</code> actually connects to right motor output 2 (the board labels it <code>MR2</code>), and <code>TP_I1C_SCL</code> connects to Pi physical pin 27 rather than the main I²C clock. Use the named power pins above and the connector tables instead.</p>
+<p><a href="hardware/pcb/connector-pinout.csv">Download the connector table as CSV</a>.</p></section><section id="chapter-6"><h1 id="chapter-6--5-assemble-robbi">5. Assemble Robbi</h1>
+<p><img alt="Assemble Robbi" src="assets/banners/05-assembly.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-4">← Bench tests</a> · <a href="#chapter-7">Calibration →</a></p>
+<p>Watch the <a href="https://youtu.be/MBummcW5DIk?t=136">assembly video</a> alongside these steps.</p>
+<p>Start here once the <a href="#chapter-4">bench tests</a> pass. Keep the battery out while fitting parts, changing plugs and soldering. Keep the <a href="#chapter-5">wiring reference</a> open alongside this page. The parts list establishes M2 socket-head screws, M3 × 14 mm screws, M2 inserts and MR128ZZ bearings; the remaining per-location fastener lengths/counts are tracked in the <a href="#chapter-11">release checklist</a>.</p>
+<p><strong>Build order:</strong> motors → Pi on back panel → wired PCB → head → back-panel fit → ToF → side-panel inserts → final soldering.</p>
+<h2 id="chapter-6--1-mount-the-motors-first">1. Mount the motors first</h2>
+<p><strong>You need:</strong> main body, two matching encoder motors, their leads, wheels and the release-specified retainers/bearings.</p>
+<ol>
+<li>Define left and right from <strong>Robbi's viewpoint looking forward</strong>. Label the leads <code>L</code> and <code>R</code>.</li>
+<li>Attach the matching motor/encoder plugs while the sockets are accessible. Feed the leads into the body.</li>
+<li>Seat each gearbox in its printed motor mount, with the output shaft aligned to the wheel opening. The existing assembly view below shows the bearing seated in the body next to the gearbox; keep the encoder board toward the accessible interior.</li>
+<li>Fit the specified retainers without forcing a misaligned motor into place. Keep the rear encoder board and rotating magnet clear of wires.</li>
+<li>Seat the <strong>MR128ZZ bearing</strong> in the circular recess at each motor-shaft opening. The shaft projects through the centre; keep the bearing square in its seat.</li>
+<li>Look for the flat on the <strong>D-shaped motor shaft</strong> and the matching flat inside the printed wheel hub. Align the two flats, then press the wheel on straight. Do not hammer the wheel onto the gearbox shaft or force a misaligned hub.</li>
+<li>Check that the hub sits correctly at the bearing and the wheel turns without rubbing the body. Leave motor leads unplugged from the PCB until the commissioning checks call for them.</li>
+</ol>
+<p><img alt="A motor seated inside the printed body" src="assets/motor-seat.jpg" /></p>
+<p><img alt="Routing the motor leads inside the body" src="assets/motor-leads.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th>Bearing seat and motor shaft</th>
+<th>Matching wheel hub</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="assets/build-details/bearing-d-shaft.jpg" alt="Bearing seated in the body with the D-shaped motor shaft protruding through its centre" width="460"></td>
+<td><img src="assets/build-details/wheel-d-hub.jpg" alt="Printed wheel hub with a matching D-shaped opening" width="460"></td>
+</tr>
+<tr>
+<td>The bearing belongs in the body's circular recess. Identify the flat on the shaft before fitting the wheel.</td>
+<td>The hub has one subtly straight edge; match it to the shaft flat.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="assets/build-details/wheel-d-hub-detail.jpg" alt="Enlarged wheel hub opening showing its flat lower-right edge" width="350"></p>
+<p><em>Hub detail: the lower-right edge of the opening is flat; the remaining profile is rounded.</em></p>
+<p><strong>Checkpoint:</strong> both motors and wheels are fitted before the Pi/back-panel assembly begins. Both wheels clear the body, and no wire can reach a rotating shaft or encoder magnet.</p>
+<h2 id="chapter-6--2-screw-the-pi-onto-the-back-panel">2. Screw the Pi onto the back panel</h2>
+<p>Keep the back panel separate from the body while working on it. Position the Pi on its mounting points and check access to the microSD card, ports and camera connector. Tighten the specified screws gently; the board must stay flat and clear of metal screw ends.</p>
+<blockquote class="notice"><p><strong>Tip</strong><br>
+<strong>The updated design is easier to assemble:</strong> the screws enter from behind, through the <strong>outside of the back panel</strong>. The earlier mounting arrangement shown below has different screw access.</p>
+</blockquote>
+<p><img alt="Raspberry Pi positioned on the back panel" src="assets/06-pi-mount.jpg" /></p>
+<p>Fit the <strong>left-angle Micro-USB OTG adapter</strong> to the Pi's <strong>USB data</strong> port, then plug the USB microphone into the adapter's USB-A socket. Check that the assembly fits inside the body and does not strain the Pi connector. The Pi's separate <code>PWR IN</code> socket cannot carry microphone data.</p>
+<p><img src="assets/build-details/usb-microphone-installed.jpg" alt="Left-angle OTG adapter plugged into the Raspberry Pi with the USB microphone connected to it" width="760"></p>
+<p>Connect the camera ribbon with power off, keep its latches closed, and leave broad bends rather than a crease. The detailed camera mounting and cable route are shown in step 5 below.</p>
+<h2 id="chapter-6--3-plug-the-wired-pcb-onto-the-pi">3. Plug the wired PCB onto the Pi</h2>
+<p>Keep the peripheral wiring connected to the PCB where practical. Bring the board to the mounted Pi, align all 40 header positions, support both boards and press the socket on evenly. This is the same direct connection used for the bench test.</p>
+<p>Check the connector from both sides. Keep the attached wire bundle and camera ribbon free; do not pull the boards together using their cables.</p>
+<p><img alt="PCB with its attached wires joined to the Pi on the back panel" src="assets/wired-pcb-on-pi.jpg" /></p>
+<p><strong>Checkpoint:</strong> the Pi is secured to the back panel, the PCB is fully seated, and the back panel is still outside the body.</p>
+<h2 id="chapter-6--4-assemble-and-attach-the-head">4. Assemble and attach the head</h2>
+<p><strong>You need:</strong> head shell/bezel, display, display harness, head bracket/joint and specified fasteners.</p>
+<ol>
+<li>Seat the display in the bezel, centred on its supports. Fit the printed retaining bracket over the back of the display and secure it using the central screw shown in the photograph below. Avoid pressure on the glass, flex cable and small components.</li>
+<li>Connect the eight display wires using the <a href="#chapter-5--display--lcd">LCD table</a>: PCB pins 1–8 are <strong>VCC, GND, SCL, SDA, RES, DC, CS, BLK</strong>. The display reverses the first two power pins relative to the PCB. Route the harness through its passage before fastening the head and bracket.</li>
+<li>Attach the head base to the body. The base fixing screws pass through the mounting surface and are secured by <strong>two nuts inside the body</strong>. Route the harness through the opening before tightening, and keep it clear of the screw heads and nuts.</li>
+<li>Leave a relaxed loop for the allowed head adjustment. Move the head gently by hand and check that nothing pulls tight.</li>
+</ol>
+<p><img alt="Display, bracket and harness passage" src="assets/08-head-open-annotated.jpg" /></p>
+<p><em>1 — display rear; 2 — head bracket; 3 — harness passage.</em></p>
+<p><img alt="Head harness routed into the body" src="assets/09-head-cables.jpg" /></p>
+<p><img src="assets/build-details/head-rear-harness.jpg" alt="Rear of the display showing the retaining bracket, central screw, base fixing screws and harness passing through the base opening" width="680"></p>
+<p><em>Rear view: the central screw secures the printed display-retaining bracket. The harness exits through the opening at the head base. Leave enough slack for head adjustment.</em></p>
+<p><img src="assets/build-details/head-mount-inside-nuts.jpg" alt="Inside the body, two nuts secure the head mounting screws above the camera ribbon" width="600"></p>
+<p><em>Inside view: support the outside screw heads while gently tightening these two nuts. Keep the display harness and orange camera ribbon out of the fasteners.</em></p>
+<p>Do this <strong>after mounting the Pi on the back panel and before sliding that panel into the body</strong>.</p>
+<h2 id="chapter-6--5-pack-the-wires-and-fit-the-back-panel">5. Pack the wires and fit the back panel</h2>
+<p>Before packing the wires, check these three placements while access is still open:</p>
+<ul>
+<li><strong>Camera:</strong> fastened to its printed supports with the mounting screws shown below, lens aligned with the body aperture, and 16 cm adapter ribbon latched at both ends.</li>
+<li><strong>Speaker:</strong> 20 mm driver behind its grille, with its two leads running to SPEAKER/H3.</li>
+<li><strong>Battery holder:</strong> empty holder in its body position, positive lead traced to BAT pin 1 and negative to pin 2.</li>
+</ul>
+<p>Keep the speaker diaphragm and camera lens clear of glue and mounting pressure. Route the battery lead clear of the wheel area.</p>
+<h3 id="chapter-6--camera-mounting-and-ribbon-route">Camera mounting and ribbon route</h3>
+<p>Fasten the camera module to the printed mount using the mounting screws shown. Tighten gently and keep the board flat. Check from outside that the lens is centred on its opening.</p>
+<p><img src="assets/build-details/camera-mounted-screws.jpg" alt="Camera module mounted against the printed supports with its fixing screws and orange ribbon visible" width="650"></p>
+<p>Route the orange camera ribbon in a <strong>relaxed, inverted S-shaped path</strong> through the available space. Leave slack at both connectors and keep it away from the head-mount nuts, the wheel area and the back-panel edge. Use broad bends; the tight folds visible on the prototype are not a reason to crease the ribbon on a new build.</p>
+<p><img src="assets/build-details/camera-ribbon-s-bend.jpg" alt="Camera ribbon following an inverted S-shaped route between the camera and Pi inside the body" width="650"></p>
+<h3 id="chapter-6--slide-in-the-back-panel">Slide in the back panel</h3>
+<ol>
+<li>Guide the wire bundle into the main body gradually. Keep plugs seated and move loose loops away from panel edges and wheels.</li>
+<li>Watch the camera ribbon continuously: <strong>there is very little room around it</strong>. Do not pinch, sharply crease or pull it at either connector.</li>
+<li>Gently flex the main body to widen the rear opening by a few centimetres so the back panel can slide in more easily. Stop if the plastic resists or a cable becomes taut.</li>
+<li>Guide the panel into its seat while tucking wires inside. If it catches, ease it back and reposition the obstruction; do not pull it closed with screws.</li>
+<li>Check the camera ribbon again before fastening the panel.</li>
+</ol>
+<p><img alt="The camera ribbon and wire bundle beside the back panel" src="assets/camera-ribbon-clearance.jpg" /></p>
+<p><img alt="Guiding the back panel into the body" src="assets/back-panel-fitting.jpg" /></p>
+<p><strong>Checkpoint:</strong> the panel fits without trapping the camera ribbon, and the remaining sensor/wiring work is still accessible.</p>
+<h2 id="chapter-6--6-hot-glue-the-forward-tof-sensor">6. Hot-glue the forward ToF sensor</h2>
+<ol>
+<li>Position the ToF sensor at the forward-facing opening. Remove any shipping film and keep both optical windows exposed.</li>
+<li>Apply small amounts of hot glue at the retaining surfaces, away from the optics and connector contacts.</li>
+<li>Hold the sensor aligned while the glue sets. Do not let its wires pull it out of position.</li>
+<li>Inspect from inside and outside: the sensor faces out through the opening and the optical path is clear.</li>
+</ol>
+<p><img alt="Securing the ToF sensor inside the shell with hot glue" src="assets/tof-gluing.jpg" /></p>
+<p><img alt="The installed sensor and its surrounding clearance" src="assets/tof-installed.jpg" /></p>
+<h2 id="chapter-6--7-fit-the-side-panel-inserts">7. Fit the side-panel inserts</h2>
+<p>These heat-set inserts provide the threads for the screws that attach the <strong>side panels to the main body</strong>.</p>
+<ol>
+<li>Match each insert's outside diameter and length to its printed pocket. Keep the battery removed and nearby wires clear of the hot tool.</li>
+<li>Use the soldering iron with an appropriate tip to heat and guide the insert straight into its pocket.</li>
+<li>Keep the insert square and let the heat do the work. Avoid sideways pressure and pushing it past the intended depth.</li>
+<li>Allow the plastic and insert to cool before trying the side-panel screw. Fit the side panels after the remaining wiring is checked.</li>
+</ol>
+<p><img alt="Installing a side-panel heat-set insert with the soldering iron" src="assets/side-panel-inserts.jpg" /></p>
+<h2 id="chapter-6--8-finish-the-wiring-and-close-up">8. Finish the wiring and close up</h2>
+<p>The robot is now largely assembled. Finish the remaining wire joints with the battery removed.</p>
+<ol>
+<li>Check each lead against the <a href="#chapter-5">wiring tables</a>. For the motor cables, identify the motor pair and the four encoder signals separately. For the battery lead, verify BAT pin 1 is positive; for the speaker, use both H3 outputs. Only splice leads that need termination or length adjustment—do not add solder joints to a complete working harness. Leave service slack without loops near the wheels.</li>
+<li>Slide heat-shrink on before soldering. Strip and tin the ends, heat the joint, let the solder flow and hold it still while it cools.</li>
+<li>Inspect for loose strands and bridges. Insulate each joint individually and check the lead with a gentle tug at its insulation.</li>
+<li>Tuck the finished wires into the body. Recheck the camera ribbon, head loop, panel seams and encoder clearance.</li>
+<li>Fit the side panels using the correct screws. Stop if a panel needs screw force to close.</li>
+</ol>
+<p><img alt="Soldering the final wire joints with the body largely assembled" src="assets/final-soldering.jpg" /></p>
+<h3 id="chapter-6--rear-support-foot">Rear support foot</h3>
+<p>Keep the rounded <strong>rear support foot</strong> fitted to the underside of the body. Together with the two driven wheels, it provides the third floor contact and keeps the rear shell clear of the floor. This is a support foot/skid, not a third powered wheel.</p>
+<p><img src="assets/build-details/rear-support-foot.jpg" alt="Rounded printed rear support foot projecting from the underside of Robbi's body" width="620"></p>
+<p>Set Robbi on a flat surface and check that the wheels and rear foot support him, the shell clears the floor and no cable hangs underneath. Check this before powered floor tests.</p>
+<p><strong>Checkpoint:</strong> continuity matches the wiring table, adjacent joints are individually insulated, the body closes freely, the rear support foot is fitted and the sensor windows remain clear. Recheck the camera image after closing: a cable that worked on the bench can be disturbed when fitting the panel. Continue with <a href="#chapter-7">IMU calibration and final checks</a>.</p></section><section id="chapter-7"><h1 id="chapter-7--6-calibrate-and-test-robbi">6. Calibrate and test Robbi</h1>
+<p><img alt="Calibrate and test Robbi" src="assets/banners/06-calibrate.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-6">← Assembly</a> · <a href="#chapter-8">Troubleshooting →</a></p>
+<p>Do this with the confirmed PCB wiring, motor supply checks and software pin mapping complete. The original robot's measurements are starting estimates, not calibration values for every printed robot.</p>
+<h2 id="chapter-7--1-calibrate-the-imu">1. Calibrate the IMU</h2>
+<p>Complete the final wiring and fitting checks before powering up. Open the dashboard's <strong>IMU</strong> tab and follow its calibration procedure in the order shown. Keep motor output disabled during this step.</p>
+<p>When calibration is complete, gently rotate the robot by hand and check that the orientation responds correctly and settles when held still. Record the result before moving on to wheel tests.</p>
+<p><img alt="Checking orientation in the dashboard while rotating Robbi" src="assets/17-imu-test.jpg" /></p>
+<p><em>The illustration shows an older dashboard design. Use the <strong>IMU</strong> tab and its calibration instructions in your installed version.</em></p>
+<h2 id="chapter-7--2-inspect-before-enabling-movement">2. Inspect before enabling movement</h2>
+<ol>
+<li>Shut down and remove power. Reconnect the labelled motor/encoder leads, inspect polarity and look for anything near the wheel or encoder magnet.</li>
+<li>Set <strong><code>hardware.right_encoder_b_pin: 16</code></strong> for the supplied PCB. The <a href="#chapter-5--right--mencoder_r">wiring table</a> traces right encoder B to Pi physical pin 36 / BCM16. Use <code>7</code> only for an explicitly rewired repair; configure the field rather than editing the Python source.</li>
+<li>Confirm the rear support foot is fitted, then support the body so both wheels are off the surface. Keep fingers and loose cables clear. Make the physical power cutoff immediately reachable.</li>
+<li>Leave autonomy, heartbeat, daily tasks and servo outputs disabled. Keep the obstacle guard enabled for forward motion; place a clear target within the sensor's usable range if needed to obtain a valid sample.</li>
+<li>With motor power disabled, observe the encoder counts while slowly rotating each wheel. Both A and B should change, and turning one wheel should affect only its own channel. Do not force a gearbox that resists back-driving; use the controlled raised-wheel test after wiring checks instead.</li>
+</ol>
+<p><strong>Legacy tools:</strong> <code>tools/hardware/encoder_probe.py</code> has an independent hard-coded repair map. Its <code>--pulse</code> option also commands 60% duty. Do not run it unchanged as a generic new-build test. Use a release-matched diagnostic or the runtime's motion diagnostics. Stop the runtime before any independent tool claims GPIO.</p>
+<h2 id="chapter-7--3-first-powered-wheel-tests">3. First powered wheel tests</h2>
+<p>The runtime requires both <code>runtime.calibration_confirmed: true</code> and <code>hardware.enable_motors: true</code> before it permits motor output. The first flag is a manual acknowledgement, <strong>not</strong> evidence that software has measured calibration automatically. Enable the two flags only after the preceding wiring, pin ownership, supply and raised-wheel checks; finish the measurements below before floor operation.</p>
+<p>Keep the supplied conservative PWM caps initially. A duty cap alone does not make an incompatible supply safe. If the motor does not start, stop and investigate friction, voltage and the appropriate duty range rather than leaving it stalled.</p>
+<ol>
+<li>Apply one short, bounded left-wheel command, around 200–300 ms, at a verified low duty. Stop completely.</li>
+<li>Confirm physical forward direction and positive logical forward counts. Repeat for the right wheel.</li>
+<li>If the motor direction is wrong, check its wiring and the runtime's <code>motion.left_motor_invert</code> / <code>motion.right_motor_invert</code> settings. If encoder counts have the wrong sign, use the corresponding <code>motion.encoder_left_invert</code> / <code>motion.encoder_right_invert</code> setting after checking A/B wiring.</li>
+<li>If the left command moves the right wheel, fix the side assignment. Do not hide an accidental harness swap behind several simultaneous inversion changes.</li>
+<li>Repeat both directions and use Stop during a short command. A wheel that continues running, has no encoder feedback or starts unexpectedly is a failed test.</li>
+</ol>
+<p>Record which setting you changed and repeat the same test. Change one variable at a time.</p>
+<h2 id="chapter-7--4-measure-wheel-travel">4. Measure wheel travel</h2>
+<p>Measure the outside diameter of the <strong>finished rolling surface</strong>, including its tread, and the distance between wheel contact centre lines. Enter dimensions in <strong>centimetres</strong> for <code>motion.wheel_diameter_cm</code> and <code>motion.wheel_base_cm</code>.</p>
+<p>Measure counts over several exact wheel revolutions, then divide by the number of revolutions. <code>motion.encoder_counts_per_rev</code> must mean decoded counts per <strong>output-wheel</strong> revolution, including the gearbox and the software's quadrature counting convention. The seller's motor-shaft pulse count is not necessarily that number.</p>
+<p>The prototype profile uses 6.2 cm diameter and 2800 counts/revolution. Its effective turn spacing has been adjusted between recorded builds. Re-measure instead of inheriting those values silently.</p>
+<h2 id="chapter-7--5-straight-line-checks-on-the-floor">5. Straight-line checks on the floor</h2>
+<p><img alt="A tape measure beside Robbi for distance checks" src="assets/18-distance-test.jpg" /></p>
+<ol>
+<li>Use a clear, level floor away from stairs. Check that the two wheels and rounded rear support foot support the body with the shell clear of the floor. Mark the start position of a fixed reference point on the robot, such as the axle centre line.</li>
+<li>Start with a 10 cm forward move at low speed. Check direction, stop behaviour and approximate distance.</li>
+<li>Increase to 50 cm, then 100 cm after the shorter move is reliable. Measure from the same reference point after the robot has stopped.</li>
+<li>Repeat at least three times and record forward distance and sideways drift. Test reverse travel separately with the space behind Robbi clear.</li>
+</ol>
+<p>If every run travels approximately the same proportion too far or too short, check wheel diameter and counts-per-revolution. If changing <strong>only</strong> effective wheel diameter for a systematic distance error:</p>
+<p><code>new diameter = old diameter × commanded distance / measured distance</code></p>
+<p>For example, a commanded 100 cm that repeatedly travels 90 cm suggests multiplying the current diameter by <code>100/90</code>, provided slip, counting errors and units have already been excluded. Do not adjust diameter and counts-per-revolution at the same time. A path that curves points first to wheel drag, mismatched tread, missed counts or side mapping, not just a global distance scale.</p>
+<h2 id="chapter-7--6-turning-checks">6. Turning checks</h2>
+<p>Mark the starting heading on the floor and test left/right 90° turns, then 180° and a full revolution. Let each turn settle before measuring. Repeat in both directions.</p>
+<p>Confirm the straight-distance calibration first. Adjust effective wheelbase only when the observed error is repeatable and wheel slip/encoder problems have been excluded. If the active controller uses IMU feedback or a separate turn gain, inspect that control mode before applying an odometry-only correction; do not tune several mechanisms to compensate for one another.</p>
+<p><strong>Checkpoint:</strong> turns are repeatable in both directions, neither wheel loses counts, and Stop works throughout. Record the measured error; “looks roughly right” is not a calibration result.</p>
+<h2 id="chapter-7--7-sensors-and-interruption-tests">7. Sensors and interruption tests</h2>
+<p>With a soft obstacle and room to stop, verify the forward range guard at low speed. A configured 12 cm threshold is a starting setting, not proof that stopping distance is adequate at every speed.</p>
+<p>Verify that stale or missing forward range blocks forward motion. Disconnect sensors only with power off; restart and inspect the expected fault before attempting a supervised check. The absence of a second ToF means there is no validated cliff detection. Keep all floor tests away from edges.</p>
+<p>During a short finite movement, interrupt the network and verify that the command expires and does not resume when the connection returns. Test the physical cutoff separately. Confirm the robot recovers to a stopped state after restart.</p>
+<h2 id="chapter-7--8-recheck-the-finished-assembly">8. Recheck the finished assembly</h2>
+<ol>
+<li>Shut Linux down, switch off and remove the cell.</li>
+<li>Dress the wires into the body. Preserve the head's service loop; keep the camera ribbon away from screw tips and sharp folds.</li>
+<li>Check each panel is seated without force. If a gap remains, reopen it and find the obstruction instead of tightening harder. Protect the camera ribbon when refitting the back panel.</li>
+<li>Turn each wheel and move the head by hand again. Check the power switch, charging/battery access and microSD access.</li>
+<li>Reinstall the battery, power on, and repeat the face, camera, microphone, speaker, sensor and short motion checks. A fault that appears only after closing is often a pinched lead or shifted connector.</li>
+</ol>
+<p><img alt="The assembled robot" src="assets/01-finished-robbi.jpg" /></p>
+<p>Complete <a href="build-record.csv">the build record</a>, save your final configuration and package versions, and keep a backup of the working SD card. Enable autonomous features individually only after manual movement and sensing are reliable. Room-scale navigation and a kitchen-and-back demonstration require their own testing; assembling the hardware does not establish that level of accuracy.</p>
+<h2 id="chapter-7--9-test-stt-llm-and-tts">9. Test STT, LLM and TTS</h2>
+<p>Hardware checks do not yet prove the complete conversation works. Configure your own providers, then check each part separately.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Check</th>
+<th style="text-align: left;">Try this</th>
+<th style="text-align: left;">Pass condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>STT — speech to text</strong></td>
+<td style="text-align: left;">Say a short sentence into the microphone.</td>
+<td style="text-align: left;">The transcription matches what you said.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LLM — language model</strong></td>
+<td style="text-align: left;">Send a simple question through typed chat.</td>
+<td style="text-align: left;">Robbi produces a relevant, coherent answer.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TTS — text to speech</strong></td>
+<td style="text-align: left;">Play a short response through the speaker.</td>
+<td style="text-align: left;">The voice is understandable and free of obvious clipping or distortion.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Full conversation</strong></td>
+<td style="text-align: left;">Ask aloud, wait for the reply and follow up.</td>
+<td style="text-align: left;">Listening, transcription, response and speech work together.</td>
+</tr>
+</tbody>
+</table>
+<p>Run <code>robbi-setup</code> if you skipped provider setup or want to change keys. The wizard stores your own keys in the runtime’s <code>.env.secrets</code> with owner-only permissions and leaves calibrated geometry intact. Dashboard <strong>Settings → Connections &amp; API keys</strong> also saves provider keys, accepts custom model IDs and local/OpenAI-compatible endpoints, discovers models and tests the connection. Select Tavily there to enable current web/news lookup. Choose a model and, for ElevenLabs, a voice available to your own account. No helper server is installed on the Pi.</p>
+<p>After the individual checks above pass, set <code>voice.enabled: true</code> with <code>wake_engine: local_wake</code>, and enrol your own examples in the <strong>Wake word</strong> tab: at least four positives, three negatives and two noise clips, then run browser calibration and review the result before applying it. Record a few natural examples at the intended speaking distance. Check recognition and false triggers before leaving listening enabled. Keep autonomy, Telegram and proactive tasks off until basic interaction works.</p>
+<h2 id="chapter-7--10-verify-automatic-startup">10. Verify automatic startup</h2>
+<p>The installer already creates and enables <code>robbi-v2.service</code> for your Linux account, using the same <code>config/robot.yaml</code> you calibrated. No service template or profile switch is needed.</p>
+<pre><code class="language-sh">sudo systemctl restart robbi-v2.service
+systemctl status robbi-v2.service --no-pager
+journalctl -u robbi-v2.service -n 80 --no-pager
+</code></pre>
+<p>Test a reboot and confirm the dashboard, settings and peripherals recover. Do not leave a foreground instance running alongside the service. The motor-disable helper assumes enable on BCM26 and supplements a reachable physical cutoff.</p>
+<p>To stop automatic startup: <code>sudo systemctl disable --now robbi-v2.service</code>. To restore it: <code>sudo systemctl enable --now robbi-v2.service</code>. Back up your working configuration, private secret file and <code>var/</code> to a private location after calibration.</p></section><section id="chapter-8"><h1 id="chapter-8--7-troubleshooting">7. Troubleshooting</h1>
+<p><img alt="Troubleshooting" src="assets/banners/07-troubleshoot.png" /></p>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-7">← Calibration</a></p>
+<p>Power off and remove the cell before moving plugs, swapping wires or touching the CSI ribbon. Inspect logs and live values before changing several settings at once.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Check first</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pi does not boot</td>
+<td>Press the PCB power button; then check battery polarity, loaded supply voltage, microSD image and full header alignment</td>
+<td>Isolate the Pi from the custom board and test it with its proper USB supply</td>
+</tr>
+<tr>
+<td>Pi resets when motors start</td>
+<td>Power rail droop, cell/holder contacts, motor startup load, protection trips</td>
+<td>Stop motor tests and measure the loaded rails; do not disable protection</td>
+</tr>
+<tr>
+<td>Board gets hot or a supply is shorted</td>
+<td>Power immediately off; solder bridges, offset header, reversed lead</td>
+<td>Correct the hardware fault before another power attempt</td>
+</tr>
+<tr>
+<td>Dashboard unavailable</td>
+<td>Runtime/service status, Wi-Fi and the Pi’s current address</td>
+<td>Check <code>journalctl -u robbi-v2.service -n 80 --no-pager</code>; confirm selected config and port</td>
+</tr>
+<tr>
+<td>Installer says no runtime release</td>
+<td>Only the bootstrap script has been published so far</td>
+<td>Wait for the runtime release; it makes no system changes while unavailable</td>
+</tr>
+<tr>
+<td>Installer interrupted</td>
+<td>Rerun the same installer/release</td>
+<td>Completed steps resume; do not run this fresh installer over an unrelated existing robot</td>
+</tr>
+<tr>
+<td>Setup rejects OS</td>
+<td>Check <code>/etc/os-release</code> and <code>python3 --version</code></td>
+<td>Use Bookworm Lite 64-bit; Trixie/Python 3.13 is not supported yet</td>
+</tr>
+<tr>
+<td>New Wi-Fi does not connect</td>
+<td>Correct 2.4 GHz SSID/password and a deliberate reboot</td>
+<td>The wizard tests the current connection only; restore the original Imager network if needed</td>
+</tr>
+<tr>
+<td>LLM test fails</td>
+<td>Run <code>robbi-setup</code> and check key/model/account access</td>
+<td>HTTP 401 means credentials, 404 model/endpoint, 429 quota/rate limit; the dashboard still works offline</td>
+</tr>
+<tr>
+<td>Import or dependency error</td>
+<td>Python version and the active <code>.venv</code></td>
+<td>Use the Bookworm/Python 3.11 environment and <code>pip check</code>; preserve the apt camera/numerical stack</td>
+</tr>
+<tr>
+<td>Display lights but no face</td>
+<td>LCD signal order, SPI device, D/C and reset</td>
+<td>Check runtime logs and the ST7789 driver; do not assume backlight means SPI is wired correctly</td>
+</tr>
+<tr>
+<td>Face is clipped or shifted</td>
+<td>Exact panel variant and runtime dimensions</td>
+<td>Verify 240 × 280 hardware, runtime 280 × 240 and offset_left 20</td>
+</tr>
+<tr>
+<td>Camera not detected</td>
+<td>Power-off ribbon seating, contact direction and adapter type</td>
+<td>Test <code>rpicam-hello --list-cameras</code> with Robbi stopped; follow the camera manufacturer's overlay instructions</td>
+</tr>
+<tr>
+<td>Camera is detected but image is dark/blocked</td>
+<td>Lens cap/film, enclosure opening and exposure</td>
+<td>Inspect a saved still with the head open</td>
+</tr>
+<tr>
+<td>USB microphone missing</td>
+<td>USB data port and OTG adapter</td>
+<td>Check <code>arecord -l</code>; a charge-only adapter or PWR IN port will not work</td>
+</tr>
+<tr>
+<td>Speech is silent</td>
+<td>ALSA card name, speaker connector, overlay and volume</td>
+<td>Check <code>aplay -l</code>; confirm the amplifier overlay does not claim motor GPIO4</td>
+</tr>
+<tr>
+<td>Speech distorts or rattles</td>
+<td>Excess volume, wrong speaker impedance, grille pressure</td>
+<td>Lower software volume and inspect the 8 Ω / 0.5 W speaker mount</td>
+</tr>
+<tr>
+<td>Typed chat works but voice does not</td>
+<td>Capture sample, STT provider and wake references</td>
+<td>Test recorded audio first, then speech recognition, then wake detection</td>
+</tr>
+<tr>
+<td>ToF absent or stale</td>
+<td>H1 wiring, XSHUT13 and runtime status</td>
+<td>H1 boots at 0x29 and is reassigned to 0x30; keep unused H2 disabled</td>
+</tr>
+<tr>
+<td>IMU view does not move</td>
+<td>Correct chip, I²C identity and fresh samples</td>
+<td>Check live values and follow calibration in the dashboard’s IMU tab; verify the module identity before changing hardware</td>
+</tr>
+<tr>
+<td>Motor output refused</td>
+<td>Both runtime motor gates and a fresh forward-range sample</td>
+<td>Finish the wiring/bench checks before enabling output; do not bypass the guard for floor tests</td>
+</tr>
+<tr>
+<td>One wheel turns, the other does not</td>
+<td>Six-wire motor harness and correct side assignment</td>
+<td>Check motor output separately from encoder A/B feedback</td>
+</tr>
+<tr>
+<td>Encoder count stays zero</td>
+<td>Supply, ground, both A/B pins and software pin map</td>
+<td>Reconcile GPIO16 versus the original robot's GPIO7 repair; do not bridge pins</td>
+</tr>
+<tr>
+<td>Robot spins instead of driving straight</td>
+<td>Left/right mapping, direction and encoder signs</td>
+<td>Raised-wheel test one side at a time; change one setting at a time</td>
+</tr>
+<tr>
+<td>Consistent distance error</td>
+<td>Wheel circumference and decoded counts per wheel revolution</td>
+<td>Re-measure and calibrate one distance scale parameter</td>
+</tr>
+<tr>
+<td>Irregular drift or different turns each time</td>
+<td>Wheel rubbing, traction, loose hubs, missed counts and voltage</td>
+<td>Fix the mechanical/electrical cause before retuning the controller</td>
+</tr>
+<tr>
+<td>Works open, fails closed</td>
+<td>Pinched ribbon, strained plug, screw contact or wheel obstruction</td>
+<td>Reopen, inspect and reroute; do not force the panel shut</td>
+</tr>
+</tbody>
+</table>
+<p>When reporting a fault, include the board/print/software versions, the exact symptom, relevant log lines and a clear connector photo. Remove API keys, Wi-Fi credentials and personal recordings before sharing diagnostics.</p></section><section id="chapter-9"><h1 id="chapter-9--pcb-fabrication-files">PCB fabrication files</h1>
+<p><a href="#chapter-0">Back to the build guide</a></p>
+<p>Use these three matching manufacturing files together. Their SHA-256 checksums are recorded in <a href="hardware/release-files.json">the release manifest</a>.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="hardware/pcb/gerber_v1.zip">gerber_v1.zip</a></td>
+<td>Board artwork, outline and plated/non-plated drill files</td>
+</tr>
+<tr>
+<td><a href="hardware/pcb/bom_v1.csv">bom_v1.csv</a></td>
+<td>Assembly bill of materials, including supplier part numbers</td>
+</tr>
+<tr>
+<td><a href="hardware/pcb/pickandplace_v1.csv">pickandplace_v1.csv</a></td>
+<td>Component positions, side and rotation</td>
+</tr>
+</tbody>
+</table>
+<p>The Gerber ZIP contains <strong>four copper layers</strong>: top, bottom and two inner layers. Use all four layers. The BOM contains 31 grouped rows covering 59 component references; the placement file contains the same 59 references, with no unmatched references in either direction.</p>
+<h2 id="chapter-9--settings-from-the-manufactured-board">Settings from the manufactured board</h2>
+<p>These settings were recovered from the manufacturer’s returned production package. The original Gerbers inside that package match the guide’s ZIP byte for byte.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Board outline</td>
+<td><strong>75 × 45 mm</strong></td>
+</tr>
+<tr>
+<td>Material / thickness</td>
+<td><strong>FR-4 / 1.6 mm</strong></td>
+</tr>
+<tr>
+<td>Copper layers</td>
+<td><strong>4</strong></td>
+</tr>
+<tr>
+<td>Outer / inner copper</td>
+<td><strong>1 oz / 0.5 oz</strong></td>
+</tr>
+<tr>
+<td>Solder mask / silkscreen</td>
+<td><strong>Green / white</strong></td>
+</tr>
+<tr>
+<td>Surface finish</td>
+<td><strong>Lead-free HASL</strong></td>
+</tr>
+<tr>
+<td>Via treatment</td>
+<td>Solder-mask plugged, as recorded by the manufacturer</td>
+</tr>
+</tbody>
+</table>
+<p>The manufacturing panel is <strong>75 × 71 mm</strong>, including two <strong>13 mm process rails</strong> added along the 45 mm dimension. Those rails are manufacturing aids, not part of the enclosure-sized board. Submit the supplied 75 × 45 mm outline rather than resizing it to the panel dimensions. The exact dielectric stackup is not recorded in the recovered settings.</p>
+<p><a href="hardware/pcb/order-settings.json">Machine-readable order settings</a> · <a href="#chapter-5">Connector pinout and orientation</a></p>
+<h2 id="chapter-9--ordering-sequence">Ordering sequence</h2>
+<ol>
+<li>Upload the Gerber ZIP intact to the PCB manufacturer's order tool. Check its rendered outline, layer assignment, drill alignment and preview against the board photographs.</li>
+<li>Enter the settings above: four layers, 75 × 45 mm, 1.6 mm FR-4, 1 oz outer / 0.5 oz inner copper, green mask, white silkscreen and lead-free HASL. Check the manufacturer's interpretation of the via-treatment option and let it prepare the required assembly rails.</li>
+<li>Request PCB assembly, then upload the matching BOM and pick-and-place file together. Both <code>.csv</code> exports are actually <strong>UTF-16, tab-delimited</strong> text. If the upload tool asks about encoding/delimiter, select those. Preserve the original files and explicitly review any conversion made by the manufacturer's importer.</li>
+<li>Match parts by the specified manufacturer part and supplier part number. Several free-text <code>link</code> fields in the export point to unrelated products; do not let those override the actual MPN/LCSC selection.</li>
+<li>Review the assembly preview, including polarized capacitors, USB-C orientation and the underside connector. Resolve substitutions against the intended footprint and electrical function before ordering.</li>
+<li>Confirm the through-hole assembly scope. <strong>U6 is the 2 × 20 female socket, placed on the bottom side and explicitly marked “HAND SOLDER BACK SIDE”.</strong> The BOM and placement file both include it; agree whether the manufacturer supplies/fits it or whether it is supplied for hand assembly. Do not have it fitted twice or on the top side.</li>
+<li>Check whether BAT, LCD, H1/H2, encoder, speaker/servo headers, test pins and switches are included in the assembly service or supplied separately. Keep optional fitted connectors electrically unused if the guide does not use them.</li>
+</ol>
+<h2 id="chapter-9--parts-already-on-the-custom-board">Parts already on the custom board</h2>
+<table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U7</td>
+<td>IP5306, C181692</td>
+<td>Power-management stage</td>
+</tr>
+<tr>
+<td>MD1</td>
+<td>DRV8833PWPR, C50506</td>
+<td>Two-motor driver</td>
+</tr>
+<tr>
+<td>AMP</td>
+<td>MAX98357AETE+T, C910544</td>
+<td>I²S speaker amplifier</td>
+</tr>
+<tr>
+<td>U4</td>
+<td>LSM6DS3TR-C, C967633</td>
+<td>IMU</td>
+</tr>
+<tr>
+<td>BAT</td>
+<td>B2P-VH(LF)(SN), C160315</td>
+<td>Two-pin VH3.96 battery header</td>
+</tr>
+<tr>
+<td>U6</td>
+<td>2 × 20 female socket, C2977589</td>
+<td>Underside Pi connection</td>
+</tr>
+</tbody>
+</table>
+<p>The parts and visible <code>Robbi 2026-09</code> layout correspond to the board in the build photographs. This is a consistency check, not a new electrical design review or a substitute for loaded power/thermal testing. The <a href="#chapter-5">wiring reference</a> now provides connector pin order and orientation checked against the manufactured copper layout. Earlier schematic exports use a different power circuit and must not be presented as the schematic for this manufactured board.</p></section><section id="chapter-10"><h1 id="chapter-10--enclosure-model">Enclosure model</h1>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Print preparation</a></p>
+<p>Download <strong><a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a></strong>, then extract <strong>robo_4_astra.stl</strong> on your computer before importing it into your slicer or CAD program. The ZIP contains the unchanged original assembly reference. Checksums for the archive and extracted STL are recorded in the <a href="hardware/release-files.json">release manifest</a>.</p>
+<p>The model is distributed as a ZIP so it fits GitHub’s browser-upload limit. Keep this inner ZIP compressed when uploading the guide to GitHub; builders extract it after downloading.</p>
+<h2 id="chapter-10--parts-identifiable-in-the-supplied-stl">Parts identifiable in the supplied STL</h2>
+<p>The mesh has been inspected as separate connected surfaces. It contains purchased electronics as well as these identifiable enclosure/wheel shapes:</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th style="text-align: right;">Build quantity</th>
+<th>Geometry / handling note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main body</td>
+<td style="text-align: right;">1</td>
+<td>Contains the motor seats and wire passages; check the camera/speaker openings before closing</td>
+</tr>
+<tr>
+<td>Body closing/back section</td>
+<td style="text-align: right;">1</td>
+<td>Keep separate while mounting the Pi and joining the wired PCB</td>
+</tr>
+<tr>
+<td>Body side panels</td>
+<td style="text-align: right;">2</td>
+<td>Two panel shapes are present; each has an approximately 108.4 × 81 × 7 mm axis-aligned bounding box in the supplied model</td>
+</tr>
+<tr>
+<td>Head front/shell</td>
+<td style="text-align: right;">1</td>
+<td>Approximately 65 × 50 × 29 mm bounding box</td>
+</tr>
+<tr>
+<td>Head rear/support piece</td>
+<td style="text-align: right;">1</td>
+<td>Approximately 65 × 40 × 26.25 mm bounding box, including its projecting mounting features</td>
+</tr>
+<tr>
+<td>Wheel centre/hub</td>
+<td style="text-align: right;">2</td>
+<td>One representative shape is present; approximately 56 mm diameter and 20 mm overall depth</td>
+</tr>
+<tr>
+<td>Tread ring</td>
+<td style="text-align: right;">2</td>
+<td>One representative shape is present; <strong>62 mm outer diameter</strong>, 5.8 mm axial width</td>
+</tr>
+<tr>
+<td>Rear support foot</td>
+<td style="text-align: right;">1</td>
+<td>Keep this rounded floor-contact feature in the build; the <a href="#chapter-6--rear-support-foot">assembly close-up</a> shows its underside position</td>
+</tr>
+</tbody>
+</table>
+<p>These measurements are geometry checks, not printer clearances or a tested print recipe. The main body and closing section have open mesh boundaries when isolated; inspect their complete geometry and slicer preview rather than treating an automatic “split to parts” operation as a finished print kit. Small detached surfaces and modelled electronic components are not extra printed parts.</p>
+<p>The 62 mm tread diameter agrees with the prototype's 6.2 cm starting wheel-diameter setting. Calibrate using the actual finished rolling surface after printing.</p>
+<p>The wheel hub uses a <strong>D-shaped opening</strong> to match the motor shaft. Preserve the flat when cleaning the print; do not drill the opening into a round hole to make it fit. The MR128ZZ bearing seats in the body's circular recess around that shaft opening.</p>
+<p>The remaining print information is <strong>material by part, orientation, supports, wall count, infill and layer height</strong>. A slicer project can provide these without needing a replacement STL.</p>
+<blockquote class="notice"><p><strong>Important</strong><br>
+This is <strong>not a ready-to-print plate</strong>. The assembly includes modelled purchased components as well as printed parts. Do not print the entire file as one object or treat every disconnected surface as a printable part.</p>
+</blockquote>
+<h2 id="chapter-10--prepare-the-printable-parts">Prepare the printable parts</h2>
+<p>Export each printable body separately with a name and quantity: main body, panels, head/bezel, bracket, mounts, wheels and tread parts. Confirm millimetres against a known component before slicing; STL does not encode units.</p>
+<p>Add the matching slicer project or specify material, orientation, supports, layer height, walls and infill. Confirm the tread material and the insert, bearing and fastener dimensions at each location. The <a href="#chapter-11">release checklist</a> separates the existing geometry from the print settings and physical-fit checks still to confirm.</p>
+<h2 id="chapter-10--back-panel-revision">Back-panel revision</h2>
+<p>In the updated design, the Pi mounting screws enter from behind, through the <strong>outside of the back panel</strong>. Check that the exported parts match this arrangement. Follow the <a href="#chapter-6">assembly sequence</a> for motor installation, cable routing and final fitting.</p></section><section id="chapter-11"><h1 id="chapter-11--release-checklist">Release checklist</h1>
+<p><a href="#chapter-0">Guide home</a></p>
+<p>Complete these items before labelling the release independently reproducible. This page tracks specifications and tests that remain open.</p>
+<h2 id="chapter-11--mechanical-files">Mechanical files</h2>
+<ul>
+<li>[x] Inspect the supplied STL and identify the main enclosure pieces, two side panels, head pieces, 56 mm wheel centre and 62 mm tread ring.</li>
+<li>[ ] Prepare a tested print plate with the updated external-access Pi mounting screws; resolve the main shell/closing-section open mesh boundaries before calling the extracts print-ready.</li>
+<li>[ ] Confirm units, materials, orientation, supports, layer height, walls and infill; include a slicer project.</li>
+<li>[ ] Specify M2 screw lengths/counts, M3 × 14 counts, insert outside dimensions/counts, spacers and MR128ZZ bearing locations/counts.</li>
+<li>[x] Illustrate the bearing seat, D-shaped shaft/hub fit, left-angle microphone adapter, camera screw mounting and ribbon route, head retaining bracket/inside nuts, and rear support foot using the supplied assembly photographs.</li>
+<li>[ ] Confirm the complete fastener dimensions and any additional wheel retention used on the released build; keep the documented back-panel/camera-ribbon clearances in the print-fit checks.</li>
+</ul>
+<h2 id="chapter-11--electrical-specification">Electrical specification</h2>
+<ul>
+<li>[x] Add a component-side connector drawing and numbered pin tables for all connectors used in this build; verify their copper connectivity in the manufactured Gerbers.</li>
+<li>[ ] Archive a fully matching editable schematic: the available schematic PDFs retain the older power circuit even though the PCB exports contain the newer IP5306 stage.</li>
+<li>[x] Recover manufactured board settings: 75 × 45 mm, four layers, 1.6 mm FR-4, 1 oz outer / 0.5 oz inner copper, lead-free HASL, green/white; distinguish the 75 × 71 mm assembly panel.</li>
+<li>[ ] Confirm exact dielectric stackup and which through-hole connectors arrived fitted; U6 is already marked for backside hand soldering.</li>
+<li>[x] Trace MENCODER_R pin 4 to U6 pin 36 / BCM16 in the supplied Gerbers. Use <code>hardware.right_encoder_b_pin: 16</code>; GPIO7 remains a repair option.</li>
+<li>[x] Trace MAX98357A SD_MODE to 3V3; installer documentation uses <code>max98357a,no-sdmode</code> to leave motor GPIO4 available.</li>
+<li>[ ] Confirm the installed overlay and sound output on the fresh-card acceptance run.</li>
+<li>[x] Document power-button startup and named PACK− / PACK+ / 5V / 3V3 test points; distinguish battery-only checks from the Pi-supplied 3.3 V rail.</li>
+<li>[ ] Record actual unloaded/loaded voltages, cell/protection configuration, charge settings and permitted simultaneous inputs.</li>
+<li>[ ] Validate the supply, duty and load limits for the 3 V motors, including startup and thermal checks.</li>
+</ul>
+<h2 id="chapter-11--software-and-repeatability">Software and repeatability</h2>
+<ul>
+<li>[ ] Publish an audited runtime archive and SHA-256 under an immutable tag in ace-builder/Robbi. Installer publication alone is not a runtime release; assets remain on hold.</li>
+<li>[ ] Complete a fresh Bookworm 64-bit installation and record the working package versions.</li>
+<li>[ ] Validate the generated config/robot.yaml, setup wizard and service on a fresh Pi, including missing peripherals, network recovery and dashboard IMU calibration.</li>
+<li>[ ] Complete the build record: movement, stop/fault/restart behaviour, STT, LLM, TTS and full spoken interaction.</li>
+<li>[ ] Have another builder follow the guide without additional private instructions.</li>
+<li>[ ] Add appropriate code, CAD and media licences; exclude credentials and personal runtime state.</li>
+</ul>
+<h2 id="chapter-11--publication-scope">Publication scope</h2>
+<p>Only <code>install.sh</code> is authorized for upload at present. Runtime, guide, warning banner, CAD and media stay local until the asset review is finished and publication is authorized. No <code>.env</code> files, owner data, private addresses, custom voice IDs or device-specific deployment records may enter a release.</p></section></main></body></html>
