@@ -2,9 +2,6 @@
 
 ![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](assets/early-version-warning.svg)
 
-> [!WARNING]
-> **Very early version, far from perfect.** This project is provided as-is for experienced makers willing to invest several hours in tinkering, troubleshooting and fixes. The design, components and software will change; backward compatibility cannot be guaranteed.
-
 ![Build Robbi — a small robot, built by you](assets/banners/00-build.png)
 
 A small Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. Build the electronics on the bench, fit them into the printed body, then bring Robbi's movement and conversation to life.
