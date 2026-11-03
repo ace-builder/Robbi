@@ -46,6 +46,36 @@ Follow the order below. **Finish the bench tests before mounting the electronics
 
 The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.
 
+## Known limitations
+
+These notes describe the current prototype. Suspected causes and possible improvements are identified below.
+
+### Power and charging
+
+- **Charger connection:** Plugging in a charger can briefly interrupt the supply and brown out the Raspberry Pi. **Shut Robbi down cleanly, wait for shutdown to finish, and switch power off before connecting a charger.**
+- **Battery cutoff:** The protection cutoff is reported at approximately **3.1 V** in this build. For routine use and battery longevity, earlier low-battery warning and orderly shutdown would be preferable to regularly reaching the protection cutoff.
+- **Access to controls:** The charging port is currently inaccessible from outside the body. The power button is accessible only with the left side panel open.
+
+### Movement, sensing and audio
+
+- **Driving accuracy:** N20 motors with encoders improve control, but they do not offer the precision of high-end smart servos such as Dynamixel units. Calibration, gearbox play and wheel slip affect repeatability.
+- **Uneven surfaces:** Motor torque and traction can be insufficient on **high-pile (shag) carpet**, slopes and uneven ground. Smooth, level floors work best.
+- **Position drift:** Encoder feedback measures wheel rotation, not actual movement over the floor. Position errors can accumulate over longer routes; mapping and navigation still need supervision and repeated checks.
+- **Limited obstacle coverage:** The single forward-facing ToF sensor does not provide rear obstacle detection or cliff detection. Keep driving tests away from desk edges and stairs.
+- **Microphone while driving:** Speech may not be picked up reliably while the motors run. Motor noise inside the shell is a suspected cause. Stopping before speaking is the more reliable approach.
+- **Camera quality:** The camera is adequate for basic interaction, but image quality is modest.
+- **Speaker volume:** The small speaker can be difficult to hear with background noise. A compatible 1–2 W speaker and improved mounting could help, subject to amplifier, impedance, power and space constraints.
+
+### Mechanical design and assembly
+
+- **DuPont connections:** The current build uses friction-fit DuPont leads. They can loosen with movement or repeated assembly; keyed, locking connectors would be a better long-term solution.
+- **Camera ribbon clearance:** The flex cable has very little room and several tight bends. Assembly is awkward, and the routing needs better clearance and strain relief for vibration and repeated servicing.
+- **ToF mounting:** The sensor is held with hot glue. A dedicated bracket would make alignment and servicing more repeatable.
+- **Display-head rear panel:** This part has not yet been physically tested; its fit and cable clearance remain unverified.
+- **Assembly effort:** Many screws and nuts, restricted access and tightly packed wiring make assembly tedious. The enclosure needs further work to simplify assembly and maintenance.
+
+A future PCB revision could also explore an **on-board 18650 holder**, with suitable cell retention, electrical clearance and enclosure space. This is a proposed improvement.
+
 ## Keep these nearby
 
 - **[Parts list](bom.csv)** — quantities, variants and purchase links.
