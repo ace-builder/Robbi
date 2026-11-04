@@ -4805,6 +4805,11 @@
       "sha256": "4784d6d14bf239e1917b20703147d96ada07ae068b79e77d230d6981dd147dea",
       "bytes": 302484,
       "review": "Robot mesh, structural/header validation; existing matching Robbi body/head"
+    },
+    "build/assets/robbi-driving-banner-2d.gif": {
+      "sha256": "bc591f5578304b901f519a9a5114cbe9195d3cef976857db9ada570dfcd6439c",
+      "bytes": 1088960,
+      "review": "User-selected 2D Robbi driving banner supplied for the project README; no comment or personal-identity metadata."
     }
   }
 }

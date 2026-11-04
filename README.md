@@ -2,6 +2,8 @@
 
 ![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](build/assets/early-version-warning.svg)
 
+![Robbi driving](build/assets/robbi-driving-banner-2d.gif)
+
 A tiny Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. This repository brings together the illustrated hardware build guide and the software that runs on Robbi.
 
 ## Choose your starting point
