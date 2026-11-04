@@ -1,6 +1,6 @@
 # Build Robbi
 
-![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](assets/early-version-warning.svg)
+![Very early version, provided as-is. Experienced makers only. The current printed enclosure iteration has not been physically tested; CAD and reference slicer checks only.](assets/early-version-warning.svg)
 
 ![Build Robbi — a small robot, built by you](assets/banners/00-build.png)
 
@@ -22,12 +22,12 @@ The terminal wizard handles your own API keys, model and voice choice, dashboard
 
 [![Watch the Robbi video build guide](assets/build-video-thumbnail.png)](https://youtu.be/MBummcW5DIk)
 
-**11:46 · 4K · silent, with on-screen instructions.** Follow the assembly in the video and use the written steps below for parts, wiring and calibration.
+**11:46 · 4K · silent, with on-screen instructions.** The footage shows an earlier enclosure. Use it for component identification, electronics tests and general techniques; follow the written steps for the **13 October 2026 printed revision**. Its new motor clip, button, fixed head and stack insertion order are not demonstrated by the older footage.
 
 [Bench tests](https://youtu.be/MBummcW5DIk?t=59) · [Motors and wheels](https://youtu.be/MBummcW5DIk?t=136) · [Head assembly](https://youtu.be/MBummcW5DIk?t=305) · [Final checks](https://youtu.be/MBummcW5DIk?t=626)
 
 > [!IMPORTANT]
-> **Build guide in progress.** Includes the parts and variant photos, manufactured PCB settings, connector pinout, assembly STL and illustrated build sequence. Remaining gaps are the tested print recipe, exact fasteners at each mounting point, motor-cable identification and measured power/load limits. See the [release checklist](RELEASE-CHECKLIST.md).
+> **Printed design not yet physically validated.** The matching individual STLs, reference 3MF projects, revised fasteners and mechanical assembly order are now included. CAD fit and slicer checks do not establish real-world fit or strength. Complete the dry-fit checks before gluing or powered use. Remaining gaps include original wheel/tread print settings, unchanged fasteners, motor-cable identification and measured power/load limits. See the [print files](hardware/prints/README.md) and [release checklist](RELEASE-CHECKLIST.md).
 
 ## Start here
 
@@ -39,7 +39,7 @@ Follow the order below. **Finish the bench tests before mounting the electronics
 | **[02 · Preparation](02-preparation.md)** | Gather tools, prepare printed parts and check the fits. |
 | **[03 · Software](03-software.md)** | Flash Bookworm, run one installer command and finish in the dashboard. |
 | **[04 · Bench tests](04-bench-tests.md)** | Test the battery-powered bare PCB, join it to the Pi, then check the peripherals. |
-| **[05 · Assembly](05-assembly.md)** | Mount the motors, Pi/back panel and head; fit the wiring, ToF sensor and side-panel inserts. |
+| **[05 · Assembly](05-assembly.md)** | Fit motors and clip, ToF and holder, button and board stack; attach the fixed head, then camera and panels. |
 | **[06 · Calibration](06-calibration.md)** | Follow IMU calibration, check wheel movement and test STT, LLM and TTS. |
 | **[Troubleshooting](07-troubleshooting.md)** | Isolate a fault without changing several things at once. |
 
@@ -53,7 +53,7 @@ Follow the order below. **Finish the bench tests before mounting the electronics
 | Face and voice | 1.69-inch SPI display, USB microphone and miniature speaker |
 | Vision and distance | IMX219 camera and one forward-facing VL53L1X-family ToF module |
 
-The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.
+The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together. The [revision notes](hardware/prints/DESIGN-2026-10-13.md) explain the differences from the filmed prototype and the checks still needed.
 
 ## Known limitations
 

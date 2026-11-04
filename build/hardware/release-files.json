@@ -35,5 +35,194 @@
     "file": "build/hardware/pcb/order-settings.json",
     "bytes": 674,
     "sha256": "221585bac12a7561af6b9a596aadacb7fa24a4f509ea6d285be3b8bcd718435e"
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Fixed_head_carrier_with_neck.stl",
+    "bytes": 1749984,
+    "sha256": "af1cd3017fec79e14861ec2d3997eac42e8064a7eb9959a1eed1a6eade222cfc",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Fixed_head_rear_service_cover.stl",
+    "bytes": 416884,
+    "sha256": "13ddf002ac8af93538edca0c4c57c02974a1f1f32e266205236485f0ef3ac9a8",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Main_chassis_USB_and_button.stl",
+    "bytes": 1698684,
+    "sha256": "f2ae61e4a5d1199c4a18790b426d7936d07cf7e76af0e46005db14482b9525e8",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Motor_retaining_clip_forward_fastener.stl",
+    "bytes": 53484,
+    "sha256": "8334038dccd876ec69580bf185ccc447c30b6c5e81135a9b074218a07ad844d6",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/OPTIONAL_rocker_longer_contact_0p10_print.stl",
+    "bytes": 688584,
+    "sha256": "5d94f83176366354fe7397d1ba60ab47d73a205e82d4660ec8e513b59bdf9b69",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/OPTIONAL_rocker_shorter_contact_0p10_print.stl",
+    "bytes": 688584,
+    "sha256": "677dd190dfbb3debac678bb4e882b387ea41e7eec70681d30e3add41329623b7",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Power_button_keeper_print.stl",
+    "bytes": 108584,
+    "sha256": "f86b3efce0a3ec261a690b3c1d2c8ffefe2dddfc46efee4e5290cfc4adb82d26",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Power_button_pivot_pin_print.stl",
+    "bytes": 278084,
+    "sha256": "5ecd0955c61a9c1d3fe122a4204123c02ddf2f9d074c53a040794b0883f0210b",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Power_button_rocker_print.stl",
+    "bytes": 688584,
+    "sha256": "2bcd82f6b25805408eb9eab24162c3f4650c8788f90596a37845dd02c980db4e",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Rear_electronics_cover.stl",
+    "bytes": 616184,
+    "sha256": "11567283cc1f839125aa39ef8324742522b8bf62daf49c5350d3e2b09c3980c1",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Sidepanel_left_battery_side.stl",
+    "bytes": 258484,
+    "sha256": "73725003c81378811f34f3229a9016bc68b5e94cd2ec861c497bda4492c1629e",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Sidepanel_right_GPIO_side.stl",
+    "bytes": 258484,
+    "sha256": "762946d19413e4acc3431128b4c3c69e605015c9e61aeb4d2234fd0c7cc979b0",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/Stack_spacer_11mm_PRINT_4.stl",
+    "bytes": 1404084,
+    "sha256": "7231a212bf8f83936fe060c3db425f75aa16c7c572f47357bab66e2ce75b3a3e",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/TEST_ONLY_button_USB_fit_coupon_print.stl",
+    "bytes": 291984,
+    "sha256": "6f98ea8c2e3e5a53d45109e3b53eb43c8224e379af686f8b7f5e76812b7e1864",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/print/TEST_ONLY_ToF_seat_coupon_PRINT.stl",
+    "bytes": 75284,
+    "sha256": "0ec9e481345b6b386325673667253c43135e964e1a9f1ffaec6b3734707e1266",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/01_Main_chassis_REFERENCE_A1_0p4.3mf",
+    "bytes": 404121,
+    "sha256": "99ed45da55f2ba1443fa40ae546b57dbab58ccfabd2d7125153ec45dc21798a7",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/02_Rear_cover_REFERENCE_A1_0p4.3mf",
+    "bytes": 174902,
+    "sha256": "9a12c5c6f46263d657f34ed2e31faaaa9d254cd70ea49e1e2009d823dc44ceae",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/03_Both_side_panels_REFERENCE_A1_0p4.3mf",
+    "bytes": 147881,
+    "sha256": "df5f59cde95a8367bc3f3441c408d5e556eebf9a81f9bec0e94c64ae845bb5ec",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/04_Four_stack_spacers_REFERENCE_A1_0p4.3mf",
+    "bytes": 235328,
+    "sha256": "c2792cc06e880b8fd1111128b8579a011dc6e129aa93de85c1a36acf41539ddc",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/05_TEST_ONLY_fit_coupon_REFERENCE_A1_0p4.3mf",
+    "bytes": 104623,
+    "sha256": "9dd2d9844134e19ca79f47cce045d6c7316a2c0c46367e24ff632e583d8a526f",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/06_Power_button_rocker_REFERENCE_A1_0p4.3mf",
+    "bytes": 192903,
+    "sha256": "ce686c77a074653ed6f795db28445a750f5ffaa6bcabcde599e82707137ad333",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/07_Power_button_keeper_and_pin_REFERENCE_A1_0p4.3mf",
+    "bytes": 125121,
+    "sha256": "a1e5bdf43b42af524cf7d85507527b4df1df817d50a6722e224c8da9f925e7f3",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/08_Fixed_head_carrier_REFERENCE_A1_0p4.3mf",
+    "bytes": 441441,
+    "sha256": "6132046cead51812349c81b70bd642539017b3576023419e3be0c5091ef7b8cb",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/09_Fixed_head_rear_cover_REFERENCE_A1_0p4.3mf",
+    "bytes": 117520,
+    "sha256": "36c9b0d6d9a24f9f4395e7fbf8ce7a114ae5902b650a83ecf11c9d7f36d1ec1e",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/10_TEST_ONLY_ToF_seat_coupon_REFERENCE_A1_0p4.3mf",
+    "bytes": 45696,
+    "sha256": "20cff0384061d5434477cc6df8e451348957be311ebb45b63241bc16d9b54e77",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/slicer_projects/11_Motor_retaining_clip_REFERENCE_A1_0p4.3mf",
+    "bytes": 38417,
+    "sha256": "4848fae0f2fc612408a051158651c48af923d81b3bf1d0bf2ac06f413a436f6f",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/prints/2026-10-13/validation.json",
+    "bytes": 1248,
+    "sha256": "43d503f62321ab95294c18f797cab995c2f762e06aa160d616f157f2ec950c01",
+    "design_revision": "2026-10-13",
+    "physical_fit_tested": false
   }
 ]

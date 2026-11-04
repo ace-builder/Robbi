@@ -18,6 +18,10 @@ Place the board **component side up, USB-C to the left**, with the LCD and H1 he
 
 Pin 1 has a square copper pad. Verify the pad when a fitted connector hides the outline. All wiring and continuity checks below are done with the battery and USB disconnected.
 
+## Enclosure routing and access
+
+The October printed revision changes mechanical routing, not this electrical pinout. Preconnect LCD and MENCODER_L before inserting the board stack; keep their remote ends free for routing. Feed display housings individually through the Ø12 mm neck. H2 and servo outputs remain unused in this build. The holder leaves very little LCD wire clearance: use the [current assembly order](05-assembly.md) and [fit notes](hardware/prints/DESIGN-2026-10-13.md#fit-limits-to-check-on-real-parts), and check actual insulated leads without kinking or pinching them. CAD wire models specify local clearances, not complete harness lengths or different pin assignments.
+
 ## Display · LCD
 
 | PCB pin | Signal | Connect to |

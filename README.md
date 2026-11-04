@@ -1,6 +1,6 @@
 # Robbi
 
-![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](build/assets/early-version-warning.svg)
+![Very early version, provided as-is. Experienced makers only. The current printed enclosure iteration has not been physically tested; CAD and reference slicer checks only.](build/assets/early-version-warning.svg)
 
 ![Robbi driving](build/assets/robbi-driving-banner-2d.gif)
 
@@ -19,7 +19,7 @@ A tiny Raspberry Pi robot with a face, a camera, a voice and two encoder-equippe
 1. **Order and prepare:** follow the [parts list](build/01-parts.md) and [printing/tool preparation](build/02-preparation.md).
 2. **Install the software:** prepare Raspberry Pi OS Bookworm Lite 64-bit, connect by SSH and follow [first setup](software/SETUP.md).
 3. **Test on the bench:** verify the bare PCB, connect it to the Pi and check each peripheral using the [bench tests](build/04-bench-tests.md).
-4. **Assemble:** fit the motors, body, head and wiring following the [illustrated assembly guide](build/05-assembly.md).
+4. **Assemble:** fit the motors and new clip, holder and button, then insert the electronics stack **before attaching the fixed head**. Follow the [assembly guide](build/05-assembly.md) for the 13 October 2026 printed design.
 5. **Calibrate and check:** complete [IMU and motor calibration and voice tests](build/06-calibration.md). Use [troubleshooting](build/07-troubleshooting.md) if a check fails.
 
 The core hardware is a Raspberry Pi Zero 2 W, the custom Robbi PCB, two N20 encoder motors, a small SPI face display, USB microphone, speaker, camera and forward-facing distance sensor. Bench-test the electronics before closing the shell.
@@ -38,17 +38,17 @@ The guided installer verifies a pinned source snapshot, sets up the runtime and 
 
 [![Watch the Robbi video build guide](build/assets/build-video-thumbnail.png)](https://youtu.be/MBummcW5DIk)
 
-The silent 4K build video accompanies the written guide. Use the written parts, wiring and test instructions alongside it.
+The silent 4K build video shows an earlier enclosure. Its electronics tests and component close-ups remain useful; follow the current written assembly order for the revised printed parts. See [what changed](build/hardware/prints/DESIGN-2026-10-13.md).
 
 ## Known limitations
 
-These notes describe the current prototype. Suspected causes and possible improvements are identified below.
+These notes distinguish the filmed prototype from the **13 October 2026 printed design**. That enclosure iteration has CAD and reference slicer checks, but **has not yet been physically printed and assembled for validation**. Check actual component fit, button operation, cable clearance and motor retention before powered use.
 
 ### Power and charging
 
 - **Charger connection:** Plugging in a charger can briefly interrupt the supply and brown out the Raspberry Pi. **Shut Robbi down cleanly, wait for shutdown to finish, and switch power off before connecting a charger.**
 - **Battery cutoff:** The protection cutoff is reported at approximately **3.1 V** in this build. For routine use and battery longevity, earlier low-battery warning and orderly shutdown would be preferable to regularly reaching the protection cutoff.
-- **Access to controls:** The charging port is currently inaccessible from outside the body. The power button is accessible only with the left side panel open.
+- **Access to controls:** On the filmed prototype, the charging port is inaccessible from outside and the power button requires the left panel to be open. The October printed revision adds a rear USB opening and an external button mechanism. Actual cable seating and button actuation still need physical testing; these mechanical changes do not fix the charger-connection brownout.
 
 ### Movement, sensing and audio
 
@@ -65,7 +65,7 @@ These notes describe the current prototype. Suspected causes and possible improv
 - **DuPont connections:** The current build uses friction-fit DuPont leads. They can loosen with movement or repeated assembly; keyed, locking connectors would be a better long-term solution.
 - **Camera ribbon clearance:** The flex cable has very little room and several tight bends. Assembly is awkward, and the routing needs better clearance and strain relief for vibration and repeated servicing.
 - **ToF mounting:** The sensor is held with hot glue. A dedicated bracket would make alignment and servicing more repeatable.
-- **Display-head rear panel:** This part has not yet been physically tested; its fit and cable clearance remain unverified.
+- **Revised enclosure:** The October chassis, panels, motor clip, button mechanism and fixed head/rear cover have not been physically validated together. The head is fixed; it has no turning or tilting joint. Thin walls, tight harness clearances and the new cover hooks need particular care during a dry assembly.
 - **Assembly effort:** Many screws and nuts, restricted access and tightly packed wiring make assembly tedious. The enclosure needs further work to simplify assembly and maintenance.
 
 A future PCB revision could also explore an **on-board 18650 holder**, with suitable cell retention, electrical clearance and enclosure space. This is a proposed improvement.

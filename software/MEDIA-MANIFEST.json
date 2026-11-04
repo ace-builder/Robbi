@@ -4810,6 +4810,11 @@
       "sha256": "bc591f5578304b901f519a9a5114cbe9195d3cef976857db9ada570dfcd6439c",
       "bytes": 1088960,
       "review": "User-selected 2D Robbi driving banner supplied for the project README; no comment or personal-identity metadata."
+    },
+    "build/assets/early-version-warning.svg": {
+      "sha256": "871b31721174e2b5f3d30b7051172e1d8060e416a91e9b13c8215bab55b75585",
+      "bytes": 1602,
+      "review": "Project warning banner; adds hardware-specific untested-enclosure notice. No personal metadata."
     }
   }
 }

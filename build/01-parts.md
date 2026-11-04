@@ -23,15 +23,15 @@ Match the PCB, enclosure and motor revisions before ordering. Choose the exact v
 | 1 | TENSTAR ROBOT SPI display | 1 display  •  1.69 inch  •  240 × 280  •  8 pins | [AliExpress](https://de.aliexpress.com/item/1005007346976745.html) |
 | 1 | IMX219 wide-angle camera | 1 camera  •  IMX219  •  130° or 160° lens  •  CSI | [AliExpress](https://www.aliexpress.com/item/33015616449.html) |
 | 1 | 20 mm miniature speaker | 1 speaker  •  20 mm diameter  •  8 Ω / 8R  •  0.5 W | [AliExpress](https://de.aliexpress.com/item/1005006344913948.html) |
-| 1 | 18650 holder with wires | 1 holder  •  Single cell  •  With wires | [AliExpress](https://de.aliexpress.com/item/1005006089547043.html) |
+| 1 | 18650 holder with wires | Single cell  •  With wires  •  76 × 21 × 18.4 mm envelope; 20.4 mm loaded height | [AliExpress](https://de.aliexpress.com/item/1005006089547043.html) |
 | 1 | 18650 rechargeable cell | 1 cell  •  About 3000 mAh  •  Genuine high-drain Li-ion | [AliExpress](https://www.aliexpress.com/item/1005013171674610.html) |
 | 1 | USB-C 18650 charger | 1 charger  •  External slot charger  •  USB-C input | [AliExpress](https://www.aliexpress.com/item/1005008944009834.html) |
 | 1 | Micro-USB OTG adapter — LEFT | 1 adapter  •  LEFT  •  Micro-USB male → USB-A female | [AliExpress](https://de.aliexpress.com/item/1005006212943594.html) |
 | 1 | Mini USB microphone | 1 microphone  •  USB-A  •  Built-in microphone | [AliExpress](https://de.aliexpress.com/item/1005006769901138.html) |
 | 1 | VH3.96 battery connector | 1 cable  •  VH series  •  3.96 mm pitch  •  2P | [AliExpress](https://de.aliexpress.com/item/1005002158441860.html) |
 | As required | M2 heat-set inserts | M2 internal thread  •  Outside size must match the model | [AliExpress](https://de.aliexpress.com/item/1005009464952378.html) |
-| As required | M2 screws and nuts | M2  •  Lengths and quantities follow the assembly files | [AliExpress](https://de.aliexpress.com/item/1005007159750547.html) |
-| As required | M3 × 14 mm screws | Additional linked hardware  •  M3  •  14 mm  •  50-piece pack | [AliExpress](https://de.aliexpress.com/item/4000978466742.html) |
+| 6 screws + 6 nuts, plus unchanged fixings | M2 socket-head screws and nuts | 4 × 20 mm, 1 × 10 mm, 1 × 6 mm for revised assemblies; compact washers below | [AliExpress](https://de.aliexpress.com/item/1005007159750547.html) |
+| 2 screws + 2 nuts | M3 × 12 mm head screws and nuts | Socket heads  •  **12 mm under head**  •  7 × 0.5 mm washers below | [AliExpress · select matching dimensions](https://de.aliexpress.com/item/4000978466742.html) |
 | As required | Female-to-female jumper wires | F–F  •  Sockets at both ends  •  2.54 mm headers | [AliExpress](https://de.aliexpress.com/item/1005003641187997.html) |
 | 1 | 16 cm Pi Zero camera adapter ribbon | 16 cm; 22-pin / 0.5 mm pitch to 15-pin / 1.0 mm pitch | [AliExpress](https://de.aliexpress.com/item/1005006739911403.html) |
 | Assortment | Heat shrink or insulation tape | Small assortment / one roll  •  Electrical insulation | [AliExpress](https://www.aliexpress.com/item/1005010654501775.html) |
@@ -44,6 +44,24 @@ Match the PCB, enclosure and motor revisions before ordering. Choose the exact v
 
 Also provide a suitable USB power source/cable for the isolated Pi setup, a microSD reader, a multimeter and the hand tools in [preparation](02-preparation.md). Battery-lead protection and PCB spacing hardware must be specified in the release; they are not optional omissions just because their exact parts are unresolved.
 
+## October 2026 fasteners and holder fit
+
+The revised mechanical design specifies the hardware below. These are **CAD fit specifications**, not yet a physically validated assembly. Screw length is measured **under the head**. Purchase links are listing references; check the actual selected length, head style, nut size and washer dimensions, rather than accepting a default option or pack count.
+
+| Location | Required for the revised design |
+| :--- | :--- |
+| Rear cover / Pi / PCB stack | **4 × M2 × 20 socket-head screws**, 4 × M2 nuts (4 mm AF × 1.6 mm thick), 4 × compact washers (about 4.5 mm OD × 0.3 mm thick), and **4 printed 11 mm spacers**. |
+| Head to chassis | **2 × M3 × 12 socket-head screws**, 2 × M3 nuts (5.5 mm AF × 2.4 mm thick), 2 × washers (7 mm OD × 0.5 mm thick). Do not substitute the old 14 mm purchase selection without checking fit. |
+| Head service cover | **1 × M2 × 6 socket-head screw** and 1 × M2 nut (4 mm AF × 1.6 mm thick). |
+| New motor clip | **1 × M2 × 10 socket-head screw** and 1 × M2 nut (4 mm AF × 1.6 mm thick); **no washer**. |
+| Holder / ToF | Suitable adhesive for the empty holder; two small hot-glue fillets for the ToF. No holder or ToF mounting screw. |
+
+The M2 subtotal covers only the revised assemblies in this table; side-panel, rear-cover and camera attachment hardware still needs matching to the preserved interfaces. Check whether an assortment actually includes the specified compact washers. The existing M2 and M3 listing links do not guarantee every required nut/washer is included.
+
+The holder fit is based on **76 × 21 × 18.4 mm empty** and **20.4 mm loaded height**, with only small modelled clearances. Trial-fit the actual holder, cell, wires and both panels before gluing the empty holder. Its central hole stays unused. The cell-service envelope was checked up to **70 mm long × Ø18.6 mm**; actual spring-contact travel remains unverified.
+
+Use 1.5 mm and 2.5 mm Allen keys for ordinary M2/M3 socket heads. Board-stack access assumes a slim 4 mm AF nut driver, no more than 5.5 mm outside diameter. See [print quantities and materials](hardware/prints/README.md), [assembly](05-assembly.md) and [remaining fit checks](RELEASE-CHECKLIST.md).
+
 ## Recognise the important variants
 
 | Motor and cable | Display pin labels | Forward ToF |
@@ -54,7 +72,7 @@ Also provide a suitable USB power source/cable for the isolated Pi setup, a micr
 | OTG adapter | Battery cable contact type | M2 screw head |
 |---|---|---|
 | <img src="assets/parts/otg-left.jpg" alt="Left-angle Micro-USB OTG adapter" width="240"> | <img src="assets/parts/battery-socket.jpg" alt="Recessed female socket contacts in the battery connector" width="240"> | <img src="assets/parts/m2-socket-head.jpg" alt="Cylindrical socket-head screw" width="240"> |
-| **Left-angle**, data-capable. | **VH3.96, 2-pin, female socket contacts**, with leads. | **Cylindrical socket head**, not countersunk. M3 screws are **14 mm long**; 50 is the pack count. |
+| **Left-angle**, data-capable. | **VH3.96, 2-pin, female socket contacts**, with leads. | **Cylindrical socket head**, not countersunk. The revised head uses **M3 × 12 mm**; pack counts are not build quantities. |
 
 The reference pictures identify shape and pin labels. For voltage, speed, size and quantity, use the order table above.
 
@@ -65,7 +83,7 @@ The reference pictures identify shape and pin labels. For voltage, speed, size a
 - Confirm the **1.69-inch, eight-pin, 240 × 280 SPI display** and the exact ToF board outline.
 - Check the camera ribbon: use **16 cm** with different widths at its two ends.
 - Check the battery plug: **VH3.96, 2-pin, female socket contacts**, and matching polarity.
-- Check screws by their actual dimensions. **M3 × 14 mm** and **M2 socket head** are the required selections. The purchased assortments do not establish the number or M2 length used at each mounting point.
+- Check actual screw lengths, nuts and compact washers against the revision table. The head uses **M3 × 12 mm**; the specified M2 locations use **20, 10 and 6 mm** socket-head screws. Unchanged fixings still need confirmation.
 - Keep cells and all power leads disconnected while checking fit.
 
 ## Selection details
@@ -124,7 +142,7 @@ Select “20mm”, and verify 8R / 8 Ω and 0.5 W. Prefer attached leads; check 
 
 ### 18650 holder with wires
 
-Select “1 Section with line”. Check the holder’s outside dimensions against the printed enclosure and its supported cell length.
+Select “1 Section with line”. The October seat was modelled for a **76 × 21 × 18.4 mm** holder, **20.4 mm high with the cell fitted**. Check the purchased holder's actual dimensions, contacts, lead exit and supported cell length; a generic single-cell holder is not guaranteed to fit.
 
 **Avoid:** The version without wires, a two- to four-cell holder, or an AA / 14500 holder. A holder alone is not a charger.
 
@@ -166,15 +184,15 @@ M2 inserts intended for heat installation. Match outer diameter, length and quan
 
 ### M2 screws and nuts
 
-Choose the M2 option (“482pcs M2” in the linked listing). Check required screw lengths and head style against the assembly instructions; the pack count is not the robot’s screw count. Use cylindrical socket-head screws, not countersunk. Final lengths and quantities remain to be supplied.
+Choose an M2 socket-head assortment or individual sizes matching the revision table: four 20 mm, one 10 mm and one 6 mm screw, plus six specified M2 nuts and four compact washers for the revised assemblies. The pack count is not the robot's count, and an assortment may omit the correct washers. Unchanged side-panel/rear-cover/camera fixings still require confirmation.
 
 **Avoid:** M2.5 / M3 kits by mistake, self-tapping screws, or screws that are too long for the mounting position.
 
-### M3 × 14 mm screws
+### M3 × 12 mm head screws
 
-Select “M3 50 pcs” and “x14mm”. These are socket-head machine screws. Keep this item separate from the M2 screws and inserts. The length is 14 mm. Fifty is the pack count, not a length or build quantity.
+For the October fixed head, obtain **two M3 × 12 mm socket-head screws**, two 5.5 mm AF × 2.4 mm nuts and two 7 mm OD × 0.5 mm washers. Select by actual dimensions; the old linked purchase used a 14 mm option, which is not the revised head specification. Check that the listing offers the required size and source matching nuts/washers separately if needed.
 
-**Avoid:** Using M3 screws in M2 threads, or confusing 14 mm length with an M14 thread. Fifty pieces is the selected pack size, not a confirmed build quantity.
+**Avoid:** Reusing a 14 mm screw without checking depth, M3 screws in M2 threads, or treating a seller's pack size as the quantity fitted to the robot.
 
 ### Female-to-female jumper wires
 

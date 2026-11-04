@@ -6,12 +6,17 @@ Complete these items before labelling the release independently reproducible. Th
 
 ## Mechanical files
 
-- [x] Inspect the supplied STL and identify the main enclosure pieces, two side panels, head pieces, 56 mm wheel centre and 62 mm tread ring.
-- [ ] Prepare a tested print plate with the updated external-access Pi mounting screws; resolve the main shell/closing-section open mesh boundaries before calling the extracts print-ready.
-- [ ] Confirm units, materials, orientation, supports, layer height, walls and infill; include a slicer project.
-- [ ] Specify M2 screw lengths/counts, M3 × 14 counts, insert outside dimensions/counts, spacers and MR128ZZ bearing locations/counts.
-- [x] Illustrate the bearing seat, D-shaped shaft/hub fit, left-angle microphone adapter, camera screw mounting and ribbon route, head retaining bracket/inside nuts, and rear support foot using the supplied assembly photographs.
-- [ ] Confirm the complete fastener dimensions and any additional wheel retention used on the released build; keep the documented back-panel/camera-ribbon clearances in the print-fit checks.
+- [x] Compare the published assembly STL with the October chassis, panels, new motor clip and fixed head/cover; sampled surfaces agree within mesh export tolerance.
+- [x] Include the unchanged 15 individual October STL exports and 11 unsliced reference 3MF projects; keep the original assembly STL as a reference.
+- [x] Document millimetres/100% scale, reference orientation/supports and the PETG button / solid clip exceptions. These are reference slicer results, not a physically validated recipe.
+- [x] Specify four M2 × 20 stack screws/four 11 mm spacers, M2 × 10 clip fastener, M2 × 6 head-cover fastener and two M3 × 12 head fasteners with corresponding nuts/washers.
+- [x] Correct the written order: clip before holder/electronics; GPIO-side stack entry at 4 mm offset with head off; BAT then inward seating; head then camera.
+- [x] Label the video/photographs as an earlier enclosure; remove the old adjustable-head and body-flex instructions from the current sequence.
+- [ ] Physically print and dry-assemble the matching October enclosure. Check thin walls, actual motor retention, Pi/header stack height, LCD/holder clearance, button no-preload/click/release, USB seating, head hooks/posts, camera screws and ToF optics.
+- [ ] Validate material strength, repeated button use, cable strain and full assembly/service routes on actual parts.
+- [ ] Confirm unchanged side-panel/rear-cover/camera fasteners, insert dimensions/counts, bearing counts and any wheel retention.
+- [ ] Supply separate wheel/tread print files and confirm tread material and successful print settings. The assembly reference contains the original hub and tread geometry.
+- [ ] Add current-revision assembly photos after the physical build; existing photos identify components and earlier techniques.
 
 ## Electrical specification
 
@@ -37,4 +42,4 @@ Complete these items before labelling the release independently reproducible. Th
 
 ## Publication scope
 
-This complete repository package is prepared locally for owner review. Nothing has been uploaded as part of package preparation; the owner controls publication. No `.env` files, owner data, private addresses, custom voice IDs or device-specific deployment records may enter a release.
+The repository contains the reviewed software snapshot and the hardware guide. Publication does not establish physical validation of the revised printed enclosure. No `.env` files, owner data, private addresses, custom voice IDs or device-specific deployment records may enter a release.

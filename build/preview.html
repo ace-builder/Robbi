@@ -1,20 +1,23 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Build Robbi · illustrated guide</title><style>*{box-sizing:border-box}body{margin:0;background:#f2f6f7;color:#183442;font:17px/1.65 system-ui,Arial,sans-serif}aside{position:fixed;inset:0 auto 0 0;width:260px;background:#0c1823;padding:32px 24px;overflow:auto;color:white}aside strong{display:block;font-size:26px;margin-bottom:22px}aside a{display:block;color:#c5d7dc;text-decoration:none;font-size:14px;padding:7px 0}aside a:hover{color:#cae98c}main{margin-left:260px;max-width:1230px;padding:45px 55px 90px;background:white}section{margin-bottom:85px;scroll-margin-top:25px}h1{font-size:34px;line-height:1.2}h2{margin-top:42px;padding-bottom:10px;border-bottom:1px solid #dbe4e7}h3{margin-top:32px}a{color:#215f63}img{display:block;max-width:100%;height:auto;margin:22px auto;border-radius:7px}img[src*="banners/"]{width:100%;border-radius:0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{border:1px solid #dbe4e7;padding:12px;vertical-align:top;text-align:left}th{background:#edf3f4}td img{margin:6px auto}blockquote{border-left:4px solid #87aa68;padding:10px 20px;margin:24px 0;background:#f1f6ef}pre{overflow:auto;padding:18px;background:#edf3f4}code{font-size:.88em}li{padding:3px 0}p:has(>em){font-size:14px;color:#526770}details{padding:15px;background:#f5f8f9}@media(max-width:900px){aside{position:relative;width:100%}aside a{display:inline-block;margin-right:18px}main{margin:0;padding:25px}table{font-size:13px}}</style></head><body><aside><strong>BUILD ROBBI</strong><a href="#chapter-0">Overview</a><a href="#chapter-1">01 · Parts</a><a href="#chapter-2">02 · Preparation</a><a href="#chapter-3">03 · Software</a><a href="#chapter-4">04 · Bench tests</a><a href="#chapter-5">Wiring reference</a><a href="#chapter-6">05 · Assembly</a><a href="#chapter-7">06 · Calibration</a><a href="#chapter-8">Troubleshooting</a><a href="#chapter-9">PCB manufacturing</a><a href="#chapter-10">Enclosure model</a><a href="#chapter-11">Release checklist</a></aside><main><section id="chapter-0"><h1 id="chapter-0--build-robbi">Build Robbi</h1>
-<p><img alt="Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is." src="assets/early-version-warning.svg" /></p>
-<blockquote class="notice"><p><strong>Warning</strong><br>
-<strong>Very early version, far from perfect.</strong> This project is provided as-is for experienced makers willing to invest several hours in tinkering, troubleshooting and fixes. The design, components and software will change; backward compatibility cannot be guaranteed.</p>
-</blockquote>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Build Robbi · illustrated guide</title><style>*{box-sizing:border-box}body{margin:0;background:#f2f6f7;color:#183442;font:17px/1.65 system-ui,Arial,sans-serif}aside{position:fixed;inset:0 auto 0 0;width:260px;background:#0c1823;padding:32px 24px;overflow:auto;color:white}aside strong{display:block;font-size:26px;margin-bottom:22px}aside a{display:block;color:#c5d7dc;text-decoration:none;font-size:14px;padding:7px 0}aside a:hover{color:#cae98c}main{margin-left:260px;max-width:1230px;padding:45px 55px 90px;background:white}section{margin-bottom:85px;scroll-margin-top:25px}h1{font-size:34px;line-height:1.2}h2{margin-top:42px;padding-bottom:10px;border-bottom:1px solid #dbe4e7}h3{margin-top:32px}a{color:#215f63}img{display:block;max-width:100%;height:auto;margin:22px auto;border-radius:7px}img[src*="banners/"]{width:100%;border-radius:0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{border:1px solid #dbe4e7;padding:12px;vertical-align:top;text-align:left}th{background:#edf3f4}td img{margin:6px auto}blockquote{border-left:4px solid #87aa68;padding:10px 20px;margin:24px 0;background:#f1f6ef}pre{overflow:auto;padding:18px;background:#edf3f4}code{font-size:.88em}li{padding:3px 0}p:has(>em){font-size:14px;color:#526770}details{padding:15px;background:#f5f8f9}@media(max-width:900px){aside{position:relative;width:100%}aside a{display:inline-block;margin-right:18px}main{margin:0;padding:25px}table{font-size:13px}}.table-wrap{overflow-x:auto}blockquote.warning{border-color:#a57d12;background:#fff7d6}</style></head><body><aside><strong>BUILD ROBBI</strong><a href="#chapter-0">Overview</a><a href="#chapter-1">01 · Parts</a><a href="#chapter-2">02 · Preparation</a><a href="#chapter-3">03 · Software</a><a href="#chapter-4">04 · Bench tests</a><a href="#chapter-5">Wiring reference</a><a href="#chapter-6">05 · Assembly</a><a href="#chapter-7">06 · Calibration</a><a href="#chapter-8">Troubleshooting</a><a href="#chapter-9">PCB manufacturing</a><a href="#chapter-10">Print files</a><a href="#chapter-11">October design and fit limits</a><a href="#chapter-12">Release checklist</a></aside><main><section id="chapter-0"><h1 id="chapter-0--build-robbi">Build Robbi</h1>
+<p><img alt="Very early version, provided as-is. Experienced makers only. The current printed enclosure iteration has not been physically tested; CAD and reference slicer checks only." src="assets/early-version-warning.svg" /></p>
 <p><img alt="Build Robbi — a small robot, built by you" src="assets/banners/00-build.png" /></p>
 <p>A small Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. Build the electronics on the bench, fit them into the printed body, then bring Robbi's movement and conversation to life.</p>
+<h2 id="chapter-0--software-and-first-setup">Software and first setup</h2>
+<p>The reusable runtime is in <a href="../software/README.md"><code>software/</code></a>. It includes the full generic app library, generated expressions and media, voice conversations and memory, provider configuration, manual control, IMU visualization and experimental mapping. Owner data, keys, captured photos, private training workflows and the Filming dashboard are excluded.</p>
+<p>Start with the <strong><a href="../software/SETUP.md">complete first-install walkthrough</a></strong>. Once the Pi is reachable by SSH:</p>
+<pre><code class="language-sh">curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/ace-builder/Robbi/main/software/install.sh | bash
+</code></pre>
+<p>The terminal wizard handles your own API keys, model and voice choice, dashboard password, Wi-Fi and optional Telegram. Normal operation then moves to the dashboard. See <a href="../software/LICENSE.md">licensing</a>: personal non-commercial use and modification are welcome; commercial permission is separate.</p>
 <h2 id="chapter-0--watch-the-build">Watch the build</h2>
 <p><a href="https://youtu.be/MBummcW5DIk"><img alt="Watch the Robbi video build guide" src="assets/build-video-thumbnail.png" /></a></p>
-<p><strong>11:46 · 4K · silent, with on-screen instructions.</strong> Follow the assembly in the video and use the written steps below for parts, wiring and calibration.</p>
+<p><strong>11:46 · 4K · silent, with on-screen instructions.</strong> The footage shows an earlier enclosure. Use it for component identification, electronics tests and general techniques; follow the written steps for the <strong>13 October 2026 printed revision</strong>. Its new motor clip, button, fixed head and stack insertion order are not demonstrated by the older footage.</p>
 <p><a href="https://youtu.be/MBummcW5DIk?t=59">Bench tests</a> · <a href="https://youtu.be/MBummcW5DIk?t=136">Motors and wheels</a> · <a href="https://youtu.be/MBummcW5DIk?t=305">Head assembly</a> · <a href="https://youtu.be/MBummcW5DIk?t=626">Final checks</a></p>
-<blockquote class="notice"><p><strong>Important</strong><br>
-<strong>Build guide in progress.</strong> Includes the parts and variant photos, manufactured PCB settings, connector pinout, assembly STL and illustrated build sequence. Remaining gaps are the tested print recipe, exact fasteners at each mounting point, motor-cable identification and measured power/load limits. See the <a href="#chapter-11">release checklist</a>.</p>
+<blockquote class="notice important"><p><strong>Important</strong><br>
+<strong>Printed design not yet physically validated.</strong> The matching individual STLs, reference 3MF projects, revised fasteners and mechanical assembly order are now included. CAD fit and slicer checks do not establish real-world fit or strength. Complete the dry-fit checks before gluing or powered use. Remaining gaps include original wheel/tread print settings, unchanged fasteners, motor-cable identification and measured power/load limits. See the <a href="#chapter-10">print files</a> and <a href="#chapter-12">release checklist</a>.</p>
 </blockquote>
 <h2 id="chapter-0--start-here">Start here</h2>
 <p>Follow the order below. <strong>Finish the bench tests before mounting the electronics in the shell.</strong></p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: left;">Step</th>
@@ -40,7 +43,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="#chapter-6">05 · Assembly</a></strong></td>
-<td style="text-align: left;">Mount the motors, Pi/back panel and head; fit the wiring, ToF sensor and side-panel inserts.</td>
+<td style="text-align: left;">Fit motors and clip, ToF and holder, button and board stack; attach the fixed head, then camera and panels.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><a href="#chapter-7">06 · Calibration</a></strong></td>
@@ -51,9 +54,9 @@
 <td style="text-align: left;">Isolate a fault without changing several things at once.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="chapter-0--what-you-are-building">What you are building</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: left;">Core</th>
@@ -82,8 +85,10 @@
 <td style="text-align: left;">IMX219 camera and one forward-facing VL53L1X-family ToF module</td>
 </tr>
 </tbody>
-</table>
-<p>The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.</p>
+</table></div>
+<p>The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together. The <a href="#chapter-11">revision notes</a> explain the differences from the filmed prototype and the checks still needed.</p>
+<h2 id="chapter-0--known-limitations">Known limitations</h2>
+<p>Read the <a href="../README.md#known-limitations">current prototype limitations</a> before ordering parts or starting assembly.</p>
 <h2 id="chapter-0--keep-these-nearby">Keep these nearby</h2>
 <ul>
 <li><strong><a href="bom.csv">Parts list</a></strong> — quantities, variants and purchase links.</li>
@@ -91,21 +96,20 @@
 <li><strong><a href="build-record.csv">Build record</a></strong> — record your revisions, measurements and test results.</li>
 <li><strong><a href="#chapter-9">PCB manufacturing files</a></strong> and <strong><a href="#chapter-10">enclosure model</a></strong>.</li>
 <li><strong><a href="#chapter-3">One-command installation</a></strong> — minimal terminal setup, automatic startup and one generated configuration.</li>
-<li><strong><a href="#chapter-11">Release readiness</a></strong> — runtime publication and fresh-card testing status.</li>
+<li><strong><a href="#chapter-12">Release readiness</a></strong> — runtime publication and fresh-card testing status.</li>
 </ul>
-<blockquote class="notice"><p><strong>Tip</strong><br>
+<blockquote class="notice tip"><p><strong>Tip</strong><br>
 Keep power disconnected while changing wiring or fitting parts. For the first powered motor checks, raise both wheels. Floor tests need a clear, level area away from edges: the forward ToF sensor does not provide cliff detection.</p>
 </blockquote>
 <h2 id="chapter-0--repository-layout">Repository layout</h2>
-<p>Keep the Markdown files, <code>assets/</code> and <code>hardware/</code> together so the relative links work on GitHub. The repository root contains the runtime: <code>pyproject.toml</code>, <code>src/</code>, <code>config/</code>, <code>web/</code>, <code>apps/</code> and <code>tools/</code>. Installation is covered in <a href="#chapter-3">Software</a>.</p>
-<p>The illustrated Markdown guide is the single maintained manual. Separate browser, commissioning and service-template editions have been retired; the installer generates the working settings and startup service.</p></section><section id="chapter-1"><h1 id="chapter-1--1-choose-the-parts">1. Choose the parts</h1>
+<p>This guide, its images and manufacturing files live together under <code>build/</code>. The reusable runtime, installer and software documentation live under <a href="../software/README.md"><code>software/</code></a>. Start with the <a href="../README.md">project overview</a> for the complete setup sequence.</p></section><section id="chapter-1"><h1 id="chapter-1--1-choose-the-parts">1. Choose the parts</h1>
 <p><img alt="Choose the parts" src="assets/banners/01-parts.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Preparation →</a></p>
 <p>Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. New reference listings were found through indexed product pages; live stock, seller authenticity and delivery to your country have not been verified. Confirm the exact variant before ordering.</p>
-<p><strong>Custom board:</strong> order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the <a href="#chapter-9">current manufacturing package and ordering notes</a>; remaining electrical documentation is listed in <a href="#chapter-11">the release checklist</a>.</p>
+<p><strong>Custom board:</strong> order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the <a href="#chapter-9">current manufacturing package and ordering notes</a>; remaining electrical documentation is listed in <a href="#chapter-12">the release checklist</a>.</p>
 <p><img alt="The custom board used in the build" src="assets/03-pcb-front-annotated.jpg" /></p>
 <h2 id="chapter-1--order-list">Order list</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Qty</th>
@@ -172,7 +176,7 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <tr>
 <td>1</td>
 <td>18650 holder with wires</td>
-<td>1 holder  •  Single cell  •  With wires</td>
+<td>Single cell  •  With wires  •  76 × 21 × 18.4 mm envelope; 20.4 mm loaded height</td>
 <td><a href="https://de.aliexpress.com/item/1005006089547043.html">AliExpress</a></td>
 </tr>
 <tr>
@@ -212,16 +216,16 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <td><a href="https://de.aliexpress.com/item/1005009464952378.html">AliExpress</a></td>
 </tr>
 <tr>
-<td>As required</td>
-<td>M2 screws and nuts</td>
-<td>M2  •  Lengths and quantities follow the assembly files</td>
+<td>6 screws + 6 nuts, plus unchanged fixings</td>
+<td>M2 socket-head screws and nuts</td>
+<td>4 × 20 mm, 1 × 10 mm, 1 × 6 mm for revised assemblies; compact washers below</td>
 <td><a href="https://de.aliexpress.com/item/1005007159750547.html">AliExpress</a></td>
 </tr>
 <tr>
-<td>As required</td>
-<td>M3 × 14 mm screws</td>
-<td>Additional linked hardware  •  M3  •  14 mm  •  50-piece pack</td>
-<td><a href="https://de.aliexpress.com/item/4000978466742.html">AliExpress</a></td>
+<td>2 screws + 2 nuts</td>
+<td>M3 × 12 mm head screws and nuts</td>
+<td>Socket heads  •  <strong>12 mm under head</strong>  •  7 × 0.5 mm washers below</td>
+<td><a href="https://de.aliexpress.com/item/4000978466742.html">AliExpress · select matching dimensions</a></td>
 </tr>
 <tr>
 <td>As required</td>
@@ -266,11 +270,46 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <td><a href="https://www.aliexpress.com/item/1005012896821394.html">AliExpress · quote</a></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>“As required” means the count depends on the assembly; pack sizes are not the number used in one robot. Confirm hardware quantities and screw lengths from the released assembly files. For the custom PCB, use the <a href="#chapter-9">manufacturing package</a> and request a quote for four-layer fabrication and assembly; the service listing is not a ready-made Robbi board.</p>
 <p>Also provide a suitable USB power source/cable for the isolated Pi setup, a microSD reader, a multimeter and the hand tools in <a href="#chapter-2">preparation</a>. Battery-lead protection and PCB spacing hardware must be specified in the release; they are not optional omissions just because their exact parts are unresolved.</p>
+<h2 id="chapter-1--october-2026-fasteners-and-holder-fit">October 2026 fasteners and holder fit</h2>
+<p>The revised mechanical design specifies the hardware below. These are <strong>CAD fit specifications</strong>, not yet a physically validated assembly. Screw length is measured <strong>under the head</strong>. Purchase links are listing references; check the actual selected length, head style, nut size and washer dimensions, rather than accepting a default option or pack count.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Location</th>
+<th style="text-align: left;">Required for the revised design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Rear cover / Pi / PCB stack</td>
+<td style="text-align: left;"><strong>4 × M2 × 20 socket-head screws</strong>, 4 × M2 nuts (4 mm AF × 1.6 mm thick), 4 × compact washers (about 4.5 mm OD × 0.3 mm thick), and <strong>4 printed 11 mm spacers</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Head to chassis</td>
+<td style="text-align: left;"><strong>2 × M3 × 12 socket-head screws</strong>, 2 × M3 nuts (5.5 mm AF × 2.4 mm thick), 2 × washers (7 mm OD × 0.5 mm thick). Do not substitute the old 14 mm purchase selection without checking fit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Head service cover</td>
+<td style="text-align: left;"><strong>1 × M2 × 6 socket-head screw</strong> and 1 × M2 nut (4 mm AF × 1.6 mm thick).</td>
+</tr>
+<tr>
+<td style="text-align: left;">New motor clip</td>
+<td style="text-align: left;"><strong>1 × M2 × 10 socket-head screw</strong> and 1 × M2 nut (4 mm AF × 1.6 mm thick); <strong>no washer</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Holder / ToF</td>
+<td style="text-align: left;">Suitable adhesive for the empty holder; two small hot-glue fillets for the ToF. No holder or ToF mounting screw.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The M2 subtotal covers only the revised assemblies in this table; side-panel, rear-cover and camera attachment hardware still needs matching to the preserved interfaces. Check whether an assortment actually includes the specified compact washers. The existing M2 and M3 listing links do not guarantee every required nut/washer is included.</p>
+<p>The holder fit is based on <strong>76 × 21 × 18.4 mm empty</strong> and <strong>20.4 mm loaded height</strong>, with only small modelled clearances. Trial-fit the actual holder, cell, wires and both panels before gluing the empty holder. Its central hole stays unused. The cell-service envelope was checked up to <strong>70 mm long × Ø18.6 mm</strong>; actual spring-contact travel remains unverified.</p>
+<p>Use 1.5 mm and 2.5 mm Allen keys for ordinary M2/M3 socket heads. Board-stack access assumes a slim 4 mm AF nut driver, no more than 5.5 mm outside diameter. See <a href="#chapter-10">print quantities and materials</a>, <a href="#chapter-6">assembly</a> and <a href="#chapter-12">remaining fit checks</a>.</p>
 <h2 id="chapter-1--recognise-the-important-variants">Recognise the important variants</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Motor and cable</th>
@@ -290,8 +329,8 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <td>Select <strong>TOF400C-VL53L1X</strong>. Keep the optical opening unobstructed.</td>
 </tr>
 </tbody>
-</table>
-<table>
+</table></div>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>OTG adapter</th>
@@ -308,10 +347,10 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <tr>
 <td><strong>Left-angle</strong>, data-capable.</td>
 <td><strong>VH3.96, 2-pin, female socket contacts</strong>, with leads.</td>
-<td><strong>Cylindrical socket head</strong>, not countersunk. M3 screws are <strong>14 mm long</strong>; 50 is the pack count.</td>
+<td><strong>Cylindrical socket head</strong>, not countersunk. The revised head uses <strong>M3 × 12 mm</strong>; pack counts are not build quantities.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The reference pictures identify shape and pin labels. For voltage, speed, size and quantity, use the order table above.</p>
 <h2 id="chapter-1--check-deliveries-before-building">Check deliveries before building</h2>
 <ul>
@@ -320,7 +359,7 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <li>Confirm the <strong>1.69-inch, eight-pin, 240 × 280 SPI display</strong> and the exact ToF board outline.</li>
 <li>Check the camera ribbon: use <strong>16 cm</strong> with different widths at its two ends.</li>
 <li>Check the battery plug: <strong>VH3.96, 2-pin, female socket contacts</strong>, and matching polarity.</li>
-<li>Check screws by their actual dimensions. <strong>M3 × 14 mm</strong> and <strong>M2 socket head</strong> are the required selections. The purchased assortments do not establish the number or M2 length used at each mounting point.</li>
+<li>Check actual screw lengths, nuts and compact washers against the revision table. The head uses <strong>M3 × 12 mm</strong>; the specified M2 locations use <strong>20, 10 and 6 mm</strong> socket-head screws. Unchanged fixings still need confirmation.</li>
 <li>Keep cells and all power leads disconnected while checking fit.</li>
 </ul>
 <h2 id="chapter-1--selection-details">Selection details</h2>
@@ -351,7 +390,7 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <p>Select “20mm”, and verify 8R / 8 Ω and 0.5 W. Prefer attached leads; check that the plug matches the build or can be reterminated.</p>
 <p><strong>Avoid:</strong> 23 / 28 / 30 / 36 mm or larger versions, 4 Ω speakers, buzzers or powered USB speakers.</p>
 <h3 id="chapter-1--18650-holder-with-wires">18650 holder with wires</h3>
-<p>Select “1 Section with line”. Check the holder’s outside dimensions against the printed enclosure and its supported cell length.</p>
+<p>Select “1 Section with line”. The October seat was modelled for a <strong>76 × 21 × 18.4 mm</strong> holder, <strong>20.4 mm high with the cell fitted</strong>. Check the purchased holder's actual dimensions, contacts, lead exit and supported cell length; a generic single-cell holder is not guaranteed to fit.</p>
 <p><strong>Avoid:</strong> The version without wires, a two- to four-cell holder, or an AA / 14500 holder. A holder alone is not a charger.</p>
 <h3 id="chapter-1--18650-rechargeable-cell">18650 rechargeable cell</h3>
 <p>A traceable genuine single 18650 Li-ion cell with dimensions, charge/discharge limits and protection compatible with the approved power circuit. Molicel P30B is a reference example, not an instruction to fit an unprotected cell to an unverified circuit.</p>
@@ -372,11 +411,11 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <p>M2 inserts intended for heat installation. Match outer diameter, length and quantity to the printed parts. The linked assortment contains several sizes, including M2.</p>
 <p><strong>Avoid:</strong> M2.5 / M3 inserts, ordinary hex nuts or wood inserts. “M2” specifies only the thread; it does not guarantee the outside dimensions fit.</p>
 <h3 id="chapter-1--m2-screws-and-nuts">M2 screws and nuts</h3>
-<p>Choose the M2 option (“482pcs M2” in the linked listing). Check required screw lengths and head style against the assembly instructions; the pack count is not the robot’s screw count. Use cylindrical socket-head screws, not countersunk. Final lengths and quantities remain to be supplied.</p>
+<p>Choose an M2 socket-head assortment or individual sizes matching the revision table: four 20 mm, one 10 mm and one 6 mm screw, plus six specified M2 nuts and four compact washers for the revised assemblies. The pack count is not the robot's count, and an assortment may omit the correct washers. Unchanged side-panel/rear-cover/camera fixings still require confirmation.</p>
 <p><strong>Avoid:</strong> M2.5 / M3 kits by mistake, self-tapping screws, or screws that are too long for the mounting position.</p>
-<h3 id="chapter-1--m3--14-mm-screws">M3 × 14 mm screws</h3>
-<p>Select “M3 50 pcs” and “x14mm”. These are socket-head machine screws. Keep this item separate from the M2 screws and inserts. The length is 14 mm. Fifty is the pack count, not a length or build quantity.</p>
-<p><strong>Avoid:</strong> Using M3 screws in M2 threads, or confusing 14 mm length with an M14 thread. Fifty pieces is the selected pack size, not a confirmed build quantity.</p>
+<h3 id="chapter-1--m3--12-mm-head-screws">M3 × 12 mm head screws</h3>
+<p>For the October fixed head, obtain <strong>two M3 × 12 mm socket-head screws</strong>, two 5.5 mm AF × 2.4 mm nuts and two 7 mm OD × 0.5 mm washers. Select by actual dimensions; the old linked purchase used a 14 mm option, which is not the revised head specification. Check that the listing offers the required size and source matching nuts/washers separately if needed.</p>
+<p><strong>Avoid:</strong> Reusing a 14 mm screw without checking depth, M3 screws in M2 threads, or treating a seller's pack size as the quantity fitted to the robot.</p>
 <h3 id="chapter-1--female-to-female-jumper-wires">Female-to-female jumper wires</h3>
 <p>Choose F-F / Female-Female / 母对母. Both ends must have sockets. Select a length and wire count that suit the wiring route without tension.</p>
 <p><strong>Avoid:</strong> M-M / 公对公 or M-F / 公对母. The listing’s default selection may be the wrong type.</p>
@@ -402,161 +441,161 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <p><img alt="Prepare tools and printed parts" src="assets/banners/02-prepare.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-1">← Parts</a> · <a href="#chapter-3">Software →</a></p>
 <h2 id="chapter-2--tools">Tools</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Used for</th>
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">Used for</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>3D printer, makerspace or print service</td>
-<td>Body, head, wheels and internal mounts</td>
+<td style="text-align: left;">3D printer, makerspace or print service</td>
+<td style="text-align: left;">Body, head, wheels and internal mounts</td>
 </tr>
 <tr>
-<td>Temperature-controlled soldering iron, stand, solder and electronics flux</td>
-<td>Wire joints, any omitted through-hole headers and heat-set inserts with an appropriate tip</td>
+<td style="text-align: left;">Temperature-controlled soldering iron, stand, solder and electronics flux</td>
+<td style="text-align: left;">Wire joints, omitted through-hole headers and heat-set inserts with an appropriate tip</td>
 </tr>
 <tr>
-<td>Small manual driver; H1.5, H2 and H2.5 hex bits; small Phillips bits</td>
-<td>Fasteners; check the actual head before using a bit</td>
+<td style="text-align: left;">1.5 mm and 2.5 mm Allen keys, plus small Phillips bits</td>
+<td style="text-align: left;">M2 and M3 socket-head screws; a long straight leg must reach the motor clip/head fasteners</td>
 </tr>
 <tr>
-<td>Flush cutters, wire stripper, tweezers and small pliers</td>
-<td>Harness preparation and handling small parts</td>
+<td style="text-align: left;">Slim 4 mm AF nut driver, outside diameter no more than 5.5 mm</td>
+<td style="text-align: left;">Compact M2 board-stack nuts; check actual hardware</td>
 </tr>
 <tr>
-<td>Heat-shrink tubing and suitable heat source</td>
-<td>Insulating individual wire joints</td>
+<td style="text-align: left;">Flush cutters, wire stripper, tweezers and small pliers</td>
+<td style="text-align: left;">Harnesses, side-loaded clip nut and split button pin</td>
 </tr>
 <tr>
-<td>Hot-glue gun and matching sticks</td>
-<td>Securing the forward ToF sensor and limited wire strain relief</td>
+<td style="text-align: left;">Heat-shrink tubing and suitable heat source</td>
+<td style="text-align: left;">Insulating individual joints</td>
 </tr>
 <tr>
-<td>Multimeter with continuity and DC voltage ranges</td>
-<td>Finding shorts, checking polarity and measuring rails</td>
+<td style="text-align: left;">Hot-glue gun and adhesive suitable for the holder/plastic</td>
+<td style="text-align: left;">Two ToF glue fillets and accessible holder retention</td>
 </tr>
 <tr>
-<td>Knife/deburring tool, small file and calipers</td>
-<td>Removing supports and checking fits</td>
+<td style="text-align: left;">Multimeter with continuity and DC voltage ranges</td>
+<td style="text-align: left;">Shorts, polarity and rail measurements</td>
 </tr>
 <tr>
-<td>microSD reader and computer</td>
-<td>Flashing the operating system and copying the release</td>
+<td style="text-align: left;">Deburring tool, small file and calipers</td>
+<td style="text-align: left;">Support cleanup and actual printed fits</td>
 </tr>
 <tr>
-<td>Tape measure, tape and a flat test area</td>
-<td>Wheel and motion calibration</td>
+<td style="text-align: left;">microSD reader and computer</td>
+<td style="text-align: left;">Flashing the OS and copying the release</td>
 </tr>
 <tr>
-<td>Optional current-limited bench supply</td>
-<td>Controlled first power-up with the release's specified input and limit</td>
+<td style="text-align: left;">Tape measure, tape and a flat test area</td>
+<td style="text-align: left;">Wheel and motion calibration</td>
+</tr>
+<tr>
+<td style="text-align: left;">Optional current-limited bench supply</td>
+<td style="text-align: left;">First power-up only with a verified input arrangement and limit</td>
 </tr>
 </tbody>
-</table>
-<p>Use an uncluttered, nonconductive work surface and a small tray for screws. Ventilate soldering work. Do not solder directly onto the 18650 cell; prepare the holder leads with the cell removed.</p>
+</table></div>
+<p>Use a nonconductive work surface and a tray for fasteners. Ventilate soldering work. Prepare holder leads with the cell removed; do not solder directly to a cell.</p>
 <h2 id="chapter-2--print-the-matching-release">Print the matching release</h2>
-<p>Download <a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a> and extract <strong>robo_4_astra.stl</strong> on your computer. The archive contains the original assembly STL without changes to its geometry. It contains an assembly, modelled purchased hardware and separate wheel shapes, rather than a prepared print plate. See <a href="#chapter-10">the model notes</a> before slicing. Export/identify the actual printable bodies and confirm the scale against a known dimension. Print the confirmed millimetre-scale parts at <strong>100%</strong>. Scaling the shell to compensate for a tight fit also changes the bearings, board mounts and screw locations.</p>
-<p>The <a href="#chapter-10--parts-identifiable-in-the-supplied-stl">model inventory</a> identifies the shell, panels, head pieces and wheel geometry already present in this file.</p>
-<p>Use this checklist while separating printable geometry from the purchased electronics in the assembly STL. The shell, two side panels, head front/rear, wheel centre and tread ring are identifiable; print materials and the successful slicer settings are not stored in STL:</p>
-<table>
+<blockquote class="notice warning"><p><strong>Warning</strong><br>
+<strong>The 13 October 2026 enclosure iteration has not yet been physically validated.</strong> CAD and reference slicing checks do not establish printed fit, strength or switch operation. Plan a dry assembly and expect possible adjustment or reprinting.</p>
+</blockquote>
+<p>Start with the <a href="#chapter-10--individual-printable-parts">individual STLs and reference 3MF projects</a>. Use this matching chassis, both panels, new front-fastened clip, rear cover, four 11 mm spacers, three button pieces and fixed head/cover together. Do not substitute earlier clip, panel or head parts.</p>
+<p>The original <a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a> remains an unchanged <strong>assembly reference</strong>, including modelled purchased components and the original wheel/tread shapes. Do not print the entire STL as one object or use an automatic split as a finished kit. The individual October exports avoid that ambiguity for the revised enclosure pieces. Separate wheel/tread print settings still need confirmation.</p>
+<p>Import individual files in <strong>millimetres at 100% scale</strong> and keep their supplied orientation. The 3MF projects are unsliced reference projects for an A1 / 0.4 mm nozzle, not printer-ready instructions. Choose the actual machine, material, plate and nozzle, inspect supports and thin walls, and slice again.</p>
+<div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Group</th>
-<th>Inspect before assembly</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">Preparation / check</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Main body and closing panel(s)</td>
-<td>Both axle openings, motor seats, board mounts, battery access and front apertures</td>
+<td style="text-align: left;">Chassis and rear cover</td>
+<td style="text-align: left;">Clean supports from motor seats, cover keys, Pi rails, USB opening and cable passages.</td>
 </tr>
 <tr>
-<td>Head/face bezel and rear/joint parts</td>
-<td>Screen aperture, display mounting features and cable passage</td>
+<td style="text-align: left;">Side panels</td>
+<td style="text-align: left;">Preserve the 0.8 mm battery-pocket skins and locating rims; check preview continuity.</td>
 </tr>
 <tr>
-<td>Two wheels and their tread/tyre parts</td>
-<td>Shaft fit, concentricity, tread fit and body clearance</td>
+<td style="text-align: left;">Motor clip</td>
+<td style="text-align: left;">Use the new front-fastened part; the solid reference profile and gentle tightening matter near thin motor walls.</td>
 </tr>
 <tr>
-<td>Pi/PCB carrier</td>
-<td>Hole locations, underside insulation and port access</td>
+<td style="text-align: left;">Button rocker, keeper and pin</td>
+<td style="text-align: left;">PETG / 0.16 mm reference; preserve the leaf, return spring, pin diameter and split fork. Clip the pin-only brim gently.</td>
 </tr>
 <tr>
-<td>Camera, speaker and ToF mounts</td>
-<td>Exact module outline, lens/window clearance and connector access</td>
+<td style="text-align: left;">Head carrier and cover</td>
+<td style="text-align: left;">Clean the hollow neck and sliding hooks; protect the four long cover posts.</td>
 </tr>
 <tr>
-<td>Bearing and joint retainers, if separate</td>
-<td>Bearing seating depth and unobstructed motion</td>
+<td style="text-align: left;">Wheels, treads and bearings</td>
+<td style="text-align: left;">Check D-shaft fit, concentricity, bearing fit and actual tread material separately.</td>
 </tr>
 </tbody>
-</table>
-<p>Do not use the motion-studio <code>robbi-body.stl</code> and <code>robbi-head.stl</code> files as a complete print kit: the available preview models do not establish all separate printable parts or their counts.</p>
+</table></div>
+<p>Print the <strong>button/USB coupon and three button parts first</strong>. The optional ToF coupon checks its local seat. These small tests do not prove real-stack switch actuation, full USB plug seating or sensor performance through the final shell. Use the <a href="#chapter-10">part-by-part printing table</a> for supports, layer height, walls, infill and exceptions.</p>
 <p><img alt="An earlier enclosure print on the printer bed" src="assets/05-printed-parts.jpg" /></p>
-<p><em>Illustrative print layout. Use the released parts and their specified print orientations for your build.</em></p>
-<p>The supplied STL does not contain slicer settings. Add the release's slicer project for orientation, supports, layer height, walls, infill and material. Use the settings for the released parts rather than guessing an orientation or material. Print a small insert/bearing fit sample first if changing printer, material or slicer settings.</p>
+<p><em>Earlier print layout, not the reference orientation for every current part.</em></p>
+<p>Do not use the software's <code>robbi-body.stl</code> and <code>robbi-head.stl</code> preview models as a complete print kit. Do not rescale the enclosure to fix a local tight fit: this also moves the bearing, board and screw interfaces.</p>
 <h2 id="chapter-2--clean-and-dry-fit">Clean and dry-fit</h2>
 <ol>
-<li>Remove supports and loose strings, particularly inside wire passages and screw holes.</li>
-<li>Deburr mating surfaces without enlarging bearing seats or motor pockets.</li>
-<li>Lay each component in its mount with <strong>no battery installed</strong>. Check that plugs can still be inserted and removed.</li>
-<li>Place the PCB carrier inside the body and close the panels loosely. Check clearance above the board's tall components and header pins.</li>
-<li>Sort screws by diameter and length. A screw should engage its intended thread without bottoming out against a board, motor or cell.</li>
+<li>Remove supports, strings and burrs without changing mounting datums, bearing seats or flexure dimensions.</li>
+<li>Test the button/coupon motion and actual USB cable overmold. Separately check the real switch and complete plug seating with the seated stack later.</li>
+<li>Dry-fit the motors and new clip before the holder, electronics, head or camera. Check actual motor retention and the thin chassis floor/wall.</li>
+<li>Trial-fit the <strong>loaded holder and both panels</strong>, check lead exits and contacts, then remove the cell before bonding the empty holder. Its central hole stays unused.</li>
+<li>Dry-fit the real Pi/header/custom PCB on <strong>four 11 mm spacers</strong>. Check actual Pi thickness and header engagement before tightening the four outside-entry screws.</li>
+<li>Seat the display on its studs and offer the service cover with no wires first. It must meet the rim without screw force or pressure on the glass/components.</li>
+<li>Follow the <a href="#chapter-6">current assembly order</a>: the stack enters through the GPIO side with the head off, held 4 mm outward before moving inward. Keep cell and USB absent during the first complete fit.</li>
 </ol>
 <h2 id="chapter-2--inserts-and-bearings">Inserts and bearings</h2>
-<p>Check the heat-set inserts now, but fit the <strong>side-panel inserts</strong> at the step shown in <a href="#chapter-6--7-fit-the-side-panel-inserts">Assembly</a>. These provide the threads for fastening the side panels to the main body. M2 specifies only the thread: outside diameter and length must match the printed pockets. Test the fit and heated-tool technique on a spare printed boss first.</p>
-<p>The specified bearing is <strong>MR128ZZ, 8 × 12 × 3.5 mm</strong>. It sits in the circular body recess around the motor-shaft opening; the <a href="#chapter-6--1-mount-the-motors-first">new close-ups</a> show both the seat and the matching D-shaped wheel hub. Press against the outer race when fitting a bearing into its printed bore. Align the wheel hub's flat with the shaft flat before pressing the wheel on; do not hammer through the bearing or onto the gearbox shaft. Stop if the plastic starts to split or distort.</p>
-<p><strong>Checkpoint:</strong> the shell closes without force, all modules fit, and there is a clear route for the head harness and camera ribbon. The battery is still out.</p></section><section id="chapter-3"><h1 id="chapter-3--3-install-the-software">3. Install the software</h1>
-<p><img alt="Install the software" src="assets/banners/03-software.png" /></p>
-<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">← Preparation</a> · <a href="#chapter-4">Bench tests →</a></p>
-<p><strong>Early version, for experienced makers.</strong> Expect tinkering, fixes and several hours of work. Hardware, components and software will change; backward compatibility is not guaranteed. Provided as-is.</p>
-<p>The installer is hosted at <a href="https://github.com/ace-builder/Robbi">ace-builder/Robbi</a>. <strong>The runtime release is awaiting publication while its assets are being prepared.</strong> Until that release exists, the hosted installer exits with an explanation and makes no system changes. It does not download private robot code.</p>
-<h2 id="chapter-3--1-prepare-the-microsd-card">1. Prepare the microSD card</h2>
-<p>Use <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> to select <strong>Raspberry Pi OS (Legacy) Lite, 64-bit, Bookworm</strong> for a <strong>Pi Zero 2 W</strong>. Check the codename: Trixie/Python 3.13 is not supported by this runtime yet. Set your own Linux username/password or SSH key, hostname (for example <code>robbi</code>), Wi-Fi country, <strong>2.4 GHz</strong> Wi-Fi and SSH in Imager. Initial networking must work before you can connect over SSH.</p>
-<p>Boot the Pi separately on its normal USB supply with the custom board and motors disconnected. From your computer:</p>
-<pre><code class="language-sh">ssh YOUR_USER@robbi.local
+<p>Fit the matching <strong>side-panel heat-set inserts while the body is empty</strong>, as described in <a href="#chapter-6--side-panel-inserts">assembly</a>. Their outside diameter and length must match the actual pockets; test on a spare boss if changing printer or material. The new clip and head use their specified captive nuts, not substitute inserts.</p>
+<p>The bearing is <strong>MR128ZZ, 8 × 12 × 3.5 mm</strong>, in the circular body recess around the shaft opening. The <a href="#chapter-6--1-mount-the-motors-first">bearing and wheel close-ups</a> show the seats and D-shaped hub. Press on the outer race to seat a bearing; align shaft and hub flats and avoid hammering the gearbox. Stop if plastic splits or distorts.</p>
+<p><strong>Checkpoint:</strong> the complete unpowered enclosure fits freely; actual wires, camera ribbon, holder and board stack have clearance; the button releases; the head cover seats without pressure. Record the print revision, settings and unresolved fits in <a href="build-record.csv">build-record.csv</a>.</p></section><section id="chapter-3"><h1 id="chapter-3--software-installation">Software installation</h1>
+<p><a href="#chapter-0">Guide home</a> · <a href="../software/SETUP.md">Complete setup walkthrough</a> · <a href="#chapter-4">Next: bench tests</a></p>
+<p>Target: Raspberry Pi Zero 2 W, Raspberry Pi OS <strong>Bookworm Lite 64-bit (Legacy)</strong>, Python 3.11 or 3.12. Use an empty microSD card for the first install. The installer preserves an existing installation by refusing to overwrite it; it is not an update command.</p>
+<h2 id="chapter-3--1-prepare-the-card-and-connect">1. Prepare the card and connect</h2>
+<p>In Raspberry Pi Imager choose the supported OS and set a hostname such as <code>robbi</code>, your own Linux username and password, the correct Wi-Fi country, your 2.4 GHz Wi-Fi network/password, and SSH access. These initial settings are needed before SSH can reach the Pi. Boot the Pi and connect using <code>ssh YOUR_LINUX_USERNAME@robbi.local</code>, or its router-assigned IP address. Use an interactive terminal, not a background SSH command.</p>
+<h2 id="chapter-3--2-run-one-installer-command">2. Run one installer command</h2>
+<p>Run as your normal Linux user, without putting <code>sudo</code> in front:</p>
+<pre><code class="language-sh">curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/ace-builder/Robbi/main/software/install.sh | bash
 </code></pre>
-<p>Use the address from your router if <code>.local</code> does not resolve. Imager documentation: <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">first boot and remote access</a>.</p>
-<h2 id="chapter-3--2-run-the-installer">2. Run the installer</h2>
-<p>Run as your normal Linux user, <strong>without <code>sudo</code> in front of the command</strong>. The installer requests sudo for system packages, device access and the service.</p>
-<pre><code class="language-sh">curl -fsSL --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/ace-builder/Robbi/main/software/install.sh -o /tmp/robbi-install.sh &amp;&amp; bash /tmp/robbi-install.sh
-</code></pre>
-<p>To inspect it first, download the file, read it, then run <code>bash /tmp/robbi-install.sh</code>. A future tagged release can be selected with <code>--version TAG</code>. <code>--plan</code> describes the steps without installing; with the hosted script it still requires a downloadable runtime. An unpacked, audited release can be used with <code>bash install.sh --source /path/to/release/robbi-v2</code>.</p>
-<p>The installer verifies SHA-256, checks archive paths and a per-file manifest, installs apt dependencies, and creates <code>~/robbi-v2/.venv</code> using the OS camera and numerical libraries. It refuses unsupported systems and unrelated existing installations. Rerunning the <strong>same release</strong> resumes completed steps. This is a fresh-install command, not an updater for a working robot.</p>
-<p>Checksums detect corruption; trust still comes from the repository/release publisher. Review the script and release you choose.</p>
-<h2 id="chapter-3--3-answer-the-short-setup-prompts">3. Answer the short setup prompts</h2>
+<p>The script resolves a GitHub commit, verifies its bootstrap helper, downloads that pinned source snapshot, and checks every runtime file against the included manifest before making system changes. A separate GitHub Release is not required. Only the runtime is extracted; CAD, source artwork and tests are left off the Pi. Internet access and at least 2 GiB free storage are required. Installation asks for your normal sudo password to install OS packages and the service.</p>
+<p>If you already downloaded or cloned the repository, run <code>bash software/install.sh</code> from the repository root (or <code>bash install.sh</code> inside <code>software/</code>). <code>bash install.sh --plan</code> describes the steps without installing anything. For a specific published tag or commit, download that version's <code>software/install.sh</code> and use <code>--version TAG_OR_COMMIT</code>.</p>
+<h2 id="chapter-3--3-complete-terminal-setup">3. Complete terminal setup</h2>
+<p>The wizard guides these steps:</p>
 <ol>
-<li>Enter the name Robbi should use for you. Your Linux login remains the account created in Imager.</li>
-<li>Choose a dashboard password, or press Enter for a generated one and save it; disabling sign-in requires explicitly trusting every device on the network.</li>
-<li>Keep the current Wi-Fi, or save another Personal network for the next reboot. The wizard checks the <strong>current</strong> connection; it cannot prove the new password works without joining that network. It never switches your active SSH connection.</li>
-<li>Select OpenAI, OpenRouter or an OpenAI-compatible local LLM server, edit the model ID, and paste your own key at the hidden prompt. The suggested model is <code>gpt-6-luna</code>; account access must pass the test. Local inference runs on another machine, not the Zero 2 W. STT/TTS default to OpenAI; optionally configure your own ElevenLabs voice and model (suggested <code>eleven_v4</code>). OpenRouter chat does not provide OpenAI speech credentials.</li>
-<li>Optionally send one small billable LLM test request. Failure or missing keys does not block the dashboard; configure them later in dashboard <strong>Settings → Connections &amp; API keys</strong> or with <code>robbi-setup</code>.</li>
-<li>Optionally configure Telegram: create a bot with <code>@BotFather</code> (<code>/newbot</code>), find your numeric ID using <code>@userinfobot</code> (<code>/start</code>), then enter that ID and your bot token in the wizard. Only your private chat is allowed; photos and robot actions default off. Never send your bot token to the ID bot.</li>
-<li>Review the interface checks and open the printed dashboard URL. Reboot once when prompted with <code>sudo reboot</code>.</li>
+<li><strong>Owner:</strong> the name Robbi should use; this is saved only on your Pi.</li>
+<li><strong>Dashboard access:</strong> choose a password, or explicitly disable sign-in for a trusted LAN. The dashboard username is <code>robbi</code>, separate from your Linux account.</li>
+<li><strong>Wi-Fi:</strong> test the current connection and optionally save another network. Its password is hidden; changing networks waits for a deliberate reboot so SSH stays connected.</li>
+<li><strong>LLM:</strong> choose OpenAI, OpenRouter or an OpenAI-compatible local server, enter its base URL/model and hidden API key. A local server runs on your own computer; enter its reachable LAN address. An optional small, billable connection test checks the selected model.</li>
+<li><strong>Speech:</strong> add a separate speech-recognition key when needed. Optional ElevenLabs setup asks for your own API key, available voice ID and model. No private voice ID or account key is supplied.</li>
+<li><strong>Web search:</strong> optionally enter a Tavily key. Free default weather does not need a key. Other app providers can be configured later in the dashboard.</li>
+<li><strong>Telegram:</strong> optional. The wizard explains how to create a bot and find your numeric Telegram user ID, then allows only that private chat. Robot actions and photos stay off until enabled separately.</li>
+<li><strong>Checks:</strong> test network access and list hardware/audio interfaces, then start the service and show the dashboard address. Missing peripherals do not prevent dashboard startup. No motors move during setup.</li>
 </ol>
-<p>The connection test uses the same <a href="https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create">Chat Completions API</a> and JSON response mode as Robbi's conversation path. It sends only a fixed test prompt, never stored conversations, photos or recordings.</p>
-<h2 id="chapter-3--4-finish-in-the-dashboard">4. Finish in the dashboard</h2>
-<p>The service starts on boot and normally serves <code>http://robbi.local:8082</code>. Fresh installs require a dashboard password (username <code>robbi</code>). Set it in the wizard or later in <strong>Settings → Dashboard access</strong>; existing explicit trusted-LAN settings are preserved. Hardware probes tolerate missing peripherals. Check Overview, test the camera/display/audio and single front ToF, then follow IMU and wheel calibration in the build guide. The installer does not move the wheels. Motors, autonomous tasks and voice listening start disabled. Enroll your own “Hey Robbi” samples before enabling voice.</p>
-<p>Use <strong>Settings → Connections &amp; API keys</strong> for provider keys, arbitrary model IDs, local/OpenAI-compatible endpoints and Tavily search. In <strong>Wake word</strong>, record positive, negative and noise examples, then choose <strong>Train in this browser</strong> for lightweight personal calibration. Full neural-model training remains a separate computer workflow; export/import is available in the advanced section.</p>
-<p>Everyday setup belongs in the dashboard. There is one configuration, <strong><code>~/robbi-v2/config/robot.yaml</code></strong>, and one automatically generated service. There is no separate service profile, commissioning profile or browser edition of the manual.</p>
-<p>The public build has no automatic training recorder. Memories, conversations, maps, saved photos and app data start empty. Configure your own wake-word reference in the dashboard; private voice samples are not bundled.</p>
-<h2 id="chapter-3--reconfigure-diagnose-or-recover">Reconfigure, diagnose or recover</h2>
-<pre><code class="language-sh">robbi-setup
-systemctl status robbi-v2.service --no-pager
-journalctl -u robbi-v2.service -n 80 --no-pager
-sudo systemctl restart robbi-v2.service
-</code></pre>
-<p>Secrets are written only on your Pi to <code>~/robbi-v2/.env.secrets</code>, readable by the owner (mode 0600). They are not put in YAML, shell history or service arguments. Never upload that file, <code>var/</code>, Wi-Fi profiles or recordings. Wi-Fi uses a root-only <a href="https://networkmanager.dev/docs/api/latest/nm-settings-keyfile.html">NetworkManager keyfile</a>; only Personal networks are supported by the wizard. Configure enterprise networks through the OS.</p>
-<p>Fresh installs select <code>hardware.right_encoder_b_pin: 16</code> for the standard board. Alternate wiring can select <code>7</code>; this reserves Servo 1. Verify the pin routed by your PCB before motor tests. The public core also defaults to GPIO16 when the field is absent. When migrating alternate wiring, explicitly set the pin that matches that board.</p>
-<p>The installer backs up changed boot settings next to <code>/boot/firmware/config.txt</code> and a replaced unit next to <code>/etc/systemd/system/robbi-v2.service</code>. Its interface block enables I²C, SPI0/CE0, camera detection and <code>max98357a,no-sdmode</code>; plain <code>max98357a</code> conflicts with a motor pin and is rejected. <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README">Official overlay definitions</a>.</p>
-<p>To stop startup: <code>sudo systemctl disable --now robbi-v2.service</code>. To restore it: <code>sudo systemctl enable --now robbi-v2.service</code>. Restore the saved boot configuration only if you need to undo interface changes, then reboot. The setup Wi-Fi file is <code>/etc/NetworkManager/system-connections/robbi-setup.nmconnection</code>; preserve a known-working network before removing it. Back up configuration, secrets and <code>var/</code> before any later upgrade; the fresh installer will not replace an unrelated installation.</p>
-<p>A fresh Bookworm SD-card installation and an independent builder run remain release acceptance checks. Automated tests do not establish physical wiring, battery, motor or thermal performance.</p>
-<p><strong>Ready for the bench:</strong> the isolated Pi boots and its dashboard opens. Shut down with <code>sudo shutdown -h now</code>, remove USB power, then continue to <a href="#chapter-4">Bench tests</a>.</p>
-<p>Imported App Hub/ZIP apps require Linux isolation. The installer adds <code>bubblewrap</code> and <code>libseccomp2</code>; existing installations can add them with <code>sudo apt install bubblewrap libseccomp2</code>. If isolation is unavailable, imported apps stay blocked while bundled apps and the dashboard remain usable.</p></section><section id="chapter-4"><h1 id="chapter-4--4-test-the-electronics-on-the-bench">4. Test the electronics on the bench</h1>
+<p>API keys go in <code>~/robbi-v2/.env.secrets</code> with owner-only permissions; settings in <code>~/robbi-v2/config/robot.yaml</code>; memories and generated data in <code>~/robbi-v2/var/</code>. These files must never be uploaded. You can rerun <code>robbi-setup</code> later or change provider keys/model settings in the dashboard.</p>
+<h2 id="chapter-3--4-reboot-and-finish-in-the-dashboard">4. Reboot and finish in the dashboard</h2>
+<p>Reboot when prompted: <code>sudo reboot</code>. SPI, I2C, camera/audio and any newly saved Wi-Fi settings take effect. Open <code>http://robbi.local:8082</code> or the router-assigned IP on port 8082, using the chosen dashboard password.</p>
+<p>Use Overview to check camera, display, speaker, microphone, front ToF and IMU health. Follow <a href="#chapter-4">bench tests</a> and <a href="#chapter-7">calibration</a>. Enroll your own wake phrase in the Wake word tab. Check wheel directions and encoder calibration with the wheels raised before enabling movement. Motors, unsupervised autonomy and wake listening are not enabled blindly by installation.</p>
+<p>The public dashboard includes apps, media/audio, manual driving, IMU visualization, experimental mapping, configurable providers and Conversation Lab. It has no Filming tab or private training-recorder routes. Memories and history start empty. Robbi App Hub is a client connection, defaulting to <code>https://ai-tier.com/apphub</code>; the Hub website is not installed on the Pi. App permissions require owner approval once and are retained locally.</p>
+<h2 id="chapter-3--troubleshooting">Troubleshooting</h2>
+<ul>
+<li>Continue an interrupted first install by running the same snapshot's installer again. Completed steps are recorded; a different snapshot refuses to overwrite an existing installation.</li>
+<li>Reopen initial configuration with <code>robbi-setup</code>.</li>
+<li>Service status: <code>systemctl status robbi-v2.service</code>.</li>
+<li>Logs: <code>journalctl -u robbi-v2.service -n 80 --no-pager</code>.</li>
+<li>Restart: <code>sudo systemctl restart robbi-v2.service</code>.</li>
+<li>For a wrong model/key, edit Providers in the dashboard or rerun setup; a failed provider does not require reinstalling the OS.</li>
+<li>The installer is validated with offline/mocked setup tests; a fresh-card end-to-end install and your actual hardware still need physical verification.</li>
+</ul></section><section id="chapter-4"><h1 id="chapter-4--4-test-the-electronics-on-the-bench">4. Test the electronics on the bench</h1>
 <p><img alt="Test the electronics on the bench" src="assets/banners/04-bench.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-3">← Software</a> · <a href="#chapter-6">Assembly →</a></p>
 <p>Test the electronics on a nonconductive work surface <strong>before fitting them inside the body</strong>. The order is: bare PCB → Pi/PCB connection → connected peripherals. The motors remain disconnected.</p>
@@ -578,7 +617,7 @@ sudo systemctl restart robbi-v2.service
 <li>Switch off and disconnect the battery before joining the Pi or changing any connection.</li>
 </ol>
 <p><img alt="Measuring the bare PCB with only the battery connected" src="assets/bench-power.jpg" /></p>
-<blockquote class="notice"><p><strong>Important</strong><br>
+<blockquote class="notice important"><p><strong>Important</strong><br>
 The <a href="#chapter-5--power-test-points">power test-point drawing</a> identifies PACK−, PACK+ and 5V. Their names establish nominal functions; measured unloaded/loaded ranges still need to be recorded. The meter reading in this illustration is not a target value. The driver is battery-fed, so verify the duty/load limit for the selected 3 V motors before wheel tests.</p>
 </blockquote>
 <h2 id="chapter-4--2-join-the-pcb-directly-to-the-pi">2. Join the PCB directly to the Pi</h2>
@@ -593,7 +632,7 @@ The <a href="#chapter-5--power-test-points">power test-point drawing</a> identif
 <p><img alt="The PCB socket aligned with the Raspberry Pi header" src="assets/direct-pi-connection.jpg" /></p>
 <h2 id="chapter-4--3-connect-the-peripherals-on-the-bench">3. Connect the peripherals on the bench</h2>
 <p>Use the <a href="#chapter-5">pin-by-pin tables</a> to connect the LCD, microphone, camera, ToF sensor and speaker while power is off. The table below is a final connection checklist. Connect the camera ribbon squarely and close both latches. The USB microphone uses the Pi's <strong>USB data</strong> port through the OTG adapter, not <code>PWR IN</code>.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Connection</th>
@@ -648,7 +687,7 @@ The <a href="#chapter-5--power-test-points">power test-point drawing</a> identif
 <td>Female VH3.96 two-pin lead; polarity measured before insertion</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Reconnect the battery, <strong>press the power button</strong>, and let the installed service start with <code>config/robot.yaml</code>. Do not also feed the Pi through its USB power socket unless the released power circuit explicitly supports it. Leave motor output disabled and motor leads unplugged.</p>
 <p><img alt="Pi, PCB and peripherals connected for bench testing" src="assets/16-bench-system.jpg" /></p>
 <p>Use insulated, secure connections for your build. Temporary clip leads are not a finished battery harness.</p>
@@ -688,7 +727,7 @@ aplay -l
 <details>
 <summary>BCM assignments and the prototype encoder repair</summary>
 <p>These are <strong>BCM numbers</strong>. The physical header position is shown separately to avoid mixing the numbering systems. They come from the current runtime and its hardware acceptance notes, not a confirmed new PCB release.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Function</th>
@@ -763,7 +802,7 @@ aplay -l
 <td style="text-align: right;">32</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>Encoder selection:</strong> the installer writes <code>hardware.right_encoder_b_pin: 16</code> for the standard board. Match this to the released PCB route before motor tests. Alternate wiring may select <code>7</code>, which reserves Servo 1; never bridge GPIO7 and GPIO16. Do not rely on a missing-field default: private prototype and public runtime defaults differ. Set the field explicitly to match the physical connection. Use dashboard diagnostics for the selected pin rather than an old standalone probe with hard-coded assignments.</p>
 </details>
 <h2 id="chapter-4--battery-and-shutdown">Battery and shutdown</h2>
@@ -783,8 +822,10 @@ aplay -l
 <li><strong>U6:</strong> the female 40-pin socket fits on the <strong>underside</strong>. Do not mirror this top-view drawing when identifying the copper pads.</li>
 </ul>
 <p>Pin 1 has a square copper pad. Verify the pad when a fitted connector hides the outline. All wiring and continuity checks below are done with the battery and USB disconnected.</p>
+<h2 id="chapter-5--enclosure-routing-and-access">Enclosure routing and access</h2>
+<p>The October printed revision changes mechanical routing, not this electrical pinout. Preconnect LCD and MENCODER_L before inserting the board stack; keep their remote ends free for routing. Feed display housings individually through the Ø12 mm neck. H2 and servo outputs remain unused in this build. The holder leaves very little LCD wire clearance: use the <a href="#chapter-6">current assembly order</a> and <a href="#chapter-11--fit-limits-to-check-on-real-parts">fit notes</a>, and check actual insulated leads without kinking or pinching them. CAD wire models specify local clearances, not complete harness lengths or different pin assignments.</p>
 <h2 id="chapter-5--display--lcd">Display · LCD</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -834,11 +875,11 @@ aplay -l
 <td>BLK</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>The display's first two pins are GND, VCC; the PCB's first two pins are VCC, GND.</strong> Match the printed signal names. Do not connect the two eight-pin rows with an unverified straight-through harness. On this display, <code>SDA</code> and <code>SCL</code> are SPI data and clock, not the ToF sensor's I²C bus.</p>
 <p><img src="assets/parts/display-pin-labels.jpg" alt="Front and rear of the specified display, with GND and VCC labels visible" width="520"></p>
 <h2 id="chapter-5--forward-distance-sensor--h1">Forward distance sensor · H1</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -878,12 +919,12 @@ aplay -l
 <td>XSHUT</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Connect five signals: VCC, GND, SDA, SCL and XSHUT. <strong>H1 pin 5 has no routed connection</strong>; the ToF module's interrupt output is unused. Map by the sensor's printed labels, not by its physical left-to-right order. H1 pin 6 reaches Pi physical pin 33 / BCM13. The spare H2 connector uses physical pin 32 / BCM12 for XSHUT and stays empty.</p>
 <h2 id="chapter-5--motors-and-encoders">Motors and encoders</h2>
 <p>Left/right always means <strong>Robbi's viewpoint looking forward</strong>. Each six-wire cable carries both motor power and encoder feedback. Encoder VCC is 3.3 V; the motor pair is a separate circuit.</p>
 <h3 id="chapter-5--left--mencoder_l">Left · MENCODER_L</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -923,9 +964,9 @@ aplay -l
 <td>Motor lead 2</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="chapter-5--right--mencoder_r">Right · MENCODER_R</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -965,11 +1006,11 @@ aplay -l
 <td>Motor lead 2</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Use the supplied motor cable at the encoder board and terminate its other end to match this table. The exact motor-cable colour assignment has not been established from the available references. Identify the motor maker's pin labels before powering it; do not guess encoder power from the wire colours.</p>
 <p>For this PCB, set <code>hardware.right_encoder_b_pin: 16</code>. GPIO7 was a repair on the original robot's faulty Pi; it is not the normal route on a new board. Do not join GPIO7 and GPIO16.</p>
 <h2 id="chapter-5--speaker--speaker--h3">Speaker · SPEAKER / H3</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -989,10 +1030,10 @@ aplay -l
 <td>Speaker -</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Use the specified <strong>20 mm, 8 Ω, 0.5 W</strong> speaker. Both leads go to the amplifier outputs; neither goes to ground.</p>
 <h2 id="chapter-5--battery--bat">Battery · BAT</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>PCB pin</th>
@@ -1012,7 +1053,7 @@ aplay -l
 <td>Holder negative</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Use the <strong>VH3.96, two-pin cable with female socket contacts</strong>. With the cell removed, trace the holder's positive contact to BAT pin 1 and its negative contact to pin 2. Confirm the cable polarity even if it arrives prewired.</p>
 <p>The motor driver's supply is connected to <code>PACK+</code>, the battery rail, rather than to the regulated Pi 5 V rail. The selected motors are rated 3 V. Keep initial movement bounded and use a verified duty limit; the loaded motor/thermal limits remain a physical measurement to document.</p>
 <h2 id="chapter-5--pi-camera-and-microphone">Pi, camera and microphone</h2>
@@ -1023,7 +1064,7 @@ aplay -l
 </ul>
 <h2 id="chapter-5--power-test-points">Power test points</h2>
 <p>Keep the black multimeter probe on <strong>PACK−</strong>. Use the marked single test pins instead of trying to touch adjacent IC legs.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Red probe</th>
@@ -1048,136 +1089,148 @@ aplay -l
 <td>Nominal 3.3 V from the Pi</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p><strong>A bare PCB does not generate its own 3.3 V rail.</strong> Do not treat a missing 3.3 V reading during the battery-only test as a fault. Nominal rail names are not measured acceptance tolerances; record the actual unloaded and loaded readings.</p>
 <p>Two placement-file test-point names are misleading: <code>TP_USB_DETECT</code> actually connects to right motor output 2 (the board labels it <code>MR2</code>), and <code>TP_I1C_SCL</code> connects to Pi physical pin 27 rather than the main I²C clock. Use the named power pins above and the connector tables instead.</p>
 <p><a href="hardware/pcb/connector-pinout.csv">Download the connector table as CSV</a>.</p></section><section id="chapter-6"><h1 id="chapter-6--5-assemble-robbi">5. Assemble Robbi</h1>
 <p><img alt="Assemble Robbi" src="assets/banners/05-assembly.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-4">← Bench tests</a> · <a href="#chapter-7">Calibration →</a></p>
-<p>Watch the <a href="https://youtu.be/MBummcW5DIk?t=136">assembly video</a> alongside these steps.</p>
-<p>Start here once the <a href="#chapter-4">bench tests</a> pass. Keep the battery out while fitting parts, changing plugs and soldering. Keep the <a href="#chapter-5">wiring reference</a> open alongside this page. The parts list establishes M2 socket-head screws, M3 × 14 mm screws, M2 inserts and MR128ZZ bearings; the remaining per-location fastener lengths/counts are tracked in the <a href="#chapter-11">release checklist</a>.</p>
-<p><strong>Build order:</strong> motors → Pi on back panel → wired PCB → head → back-panel fit → ToF → side-panel inserts → final soldering.</p>
+<p>These steps follow the <strong>13 October 2026 printed design</strong>. Finish the <a href="#chapter-4">bench tests</a> first, and keep the <a href="#chapter-5">wiring reference</a> nearby.</p>
+<blockquote class="notice warning"><p><strong>Warning</strong><br>
+<strong>This enclosure iteration has not yet been physically validated.</strong> The <a href="#chapter-10">print files</a> have CAD and reference slicing checks only. Complete a dry assembly with the cell out and USB disconnected before gluing or powered use. The <a href="https://youtu.be/MBummcW5DIk">video</a> and photographs show an earlier build; use them for component identification and general techniques, not the revised mechanical order.</p>
+</blockquote>
+<p><strong>Build order:</strong> motors and new front-fastened clip → ToF and holder → button → prewired Pi/PCB/rear-cover stack → side insertion → fixed head and display → camera and closure.</p>
+<p>Keep the head and <strong>both</strong> side panels off until the electronics stack is seated. The GPIO side means the side beside the Pi's long 40-pin header, named <code>Sidepanel_right_GPIO_side</code> in the print set.</p>
+<h2 id="chapter-6--before-assembly">Before assembly</h2>
+<ul>
+<li>Remove supports and burrs from the motor seats, cable passages, nut pockets, cover keys, button slot and head hooks. Preserve the thin panel skins and button flexures.</li>
+<li>Test the button mechanism in its coupon; try the actual USB cable overmold. Separately test the actual stack and switch later: the coupon does not reproduce their final position.</li>
+<li>Try the display on its four locating studs and offer up the head cover without wires. It must meet the rim without forcing the glass, flex cable or PCB.</li>
+<li>Finish soldering and insulate all wire joints with the cell removed. Identify each lead by signal; leave service slack. Do not postpone hot work until a cell is enclosed beside the joint.</li>
+<li>Set aside the <a href="#chapter-1--october-2026-fasteners-and-holder-fit">revision-specific fasteners</a>. The new head uses <strong>M3 × 12</strong>, not the prototype's M3 × 14 purchase selection.</li>
+</ul>
+<h3 id="chapter-6--side-panel-inserts">Side-panel inserts</h3>
+<p>Fit the matching M2 heat-set inserts into the side-panel attachment pockets while the body is empty and the cell is removed. Match outside diameter and length to the actual pockets; M2 specifies only the internal thread. Guide each insert straight with an appropriate heated tip, let the heat do the work, and allow it to cool before trying a screw. Do not use the iron to force a wrong-size insert into a thin wall. The unchanged insert sizes/counts and side-panel screw lengths still require confirmation on the actual print.</p>
+<p><img alt="Installing a side-panel insert on the earlier body" src="assets/side-panel-inserts.jpg" /></p>
 <h2 id="chapter-6--1-mount-the-motors-first">1. Mount the motors first</h2>
-<p><strong>You need:</strong> main body, two matching encoder motors, their leads, wheels and the release-specified retainers/bearings.</p>
+<p><strong>You need:</strong> main chassis, two matching encoder motors and leads, the <strong>new front-fastened motor clip</strong>, one M2 × 10 socket-head screw, one M2 nut and no washer for that clip.</p>
 <ol>
-<li>Define left and right from <strong>Robbi's viewpoint looking forward</strong>. Label the leads <code>L</code> and <code>R</code>.</li>
-<li>Attach the matching motor/encoder plugs while the sockets are accessible. Feed the leads into the body.</li>
-<li>Seat each gearbox in its printed motor mount, with the output shaft aligned to the wheel opening. The existing assembly view below shows the bearing seated in the body next to the gearbox; keep the encoder board toward the accessible interior.</li>
-<li>Fit the specified retainers without forcing a misaligned motor into place. Keep the rear encoder board and rotating magnet clear of wires.</li>
-<li>Seat the <strong>MR128ZZ bearing</strong> in the circular recess at each motor-shaft opening. The shaft projects through the centre; keep the bearing square in its seat.</li>
-<li>Look for the flat on the <strong>D-shaped motor shaft</strong> and the matching flat inside the printed wheel hub. Align the two flats, then press the wheel on straight. Do not hammer the wheel onto the gearbox shaft or force a misaligned hub.</li>
-<li>Check that the hub sits correctly at the bearing and the wheel turns without rubbing the body. Leave motor leads unplugged from the PCB until the commissioning checks call for them.</li>
+<li>Define left and right from <strong>Robbi's viewpoint looking forward</strong>. Label the motor/encoder leads <code>L</code> and <code>R</code>; attach their matching plugs while accessible.</li>
+<li>Clean the new clip boss's side-loading nut slot and driver passage. From the open GPIO side, use tweezers to slide the M2 nut into the front-facing boss pocket. Keep it in position while starting the screw.</li>
+<li>Seat the gearboxes in the existing motor locations, with shafts aligned to the wheel openings. Keep wires clear of the rear encoder boards and rotating magnets.</li>
+<li>Introduce the new clip from the GPIO side, about <strong>6 mm rearward and 15 mm above</strong> its final position. Lower it behind the fixed camera frame, then slide it <strong>6 mm forward</strong> onto its boss. The motor contact lands must sit on the motors.</li>
+<li>Insert the <strong>M2 × 10 screw downward</strong>, without a washer. Use the long straight leg of a 1.5 mm Allen key through the open body-top/neck passage. Tighten gently until seated; do not bow the clip foot.</li>
+<li>Check actual motor retention and the thin printed motor wall. The old clip's rear screw position conflicts with the revised holder and must not be reused.</li>
+<li>Seat the <strong>MR128ZZ bearing</strong> squarely in the circular body recess at each motor-shaft opening. Align the flat on the <strong>D-shaped shaft</strong> with the flat in the wheel hub; press the wheel on straight without hammering the gearbox. Check wheel/body clearance. Leave the motor leads disconnected from the PCB until the wiring checks call for them.</li>
 </ol>
-<p><img alt="A motor seated inside the printed body" src="assets/motor-seat.jpg" /></p>
-<p><img alt="Routing the motor leads inside the body" src="assets/motor-leads.jpg" /></p>
-<table>
+<p><img alt="Motor position on the earlier body; use the revised front-fastened clip" src="assets/motor-seat.jpg" /></p>
+<p><img alt="Motor lead identification and routing on the earlier build" src="assets/motor-leads.jpg" /></p>
+<div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Bearing seat and motor shaft</th>
-<th>Matching wheel hub</th>
+<th style="text-align: left;">Bearing and motor shaft</th>
+<th style="text-align: left;">Wheel hub</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img src="assets/build-details/bearing-d-shaft.jpg" alt="Bearing seated in the body with the D-shaped motor shaft protruding through its centre" width="460"></td>
-<td><img src="assets/build-details/wheel-d-hub.jpg" alt="Printed wheel hub with a matching D-shaped opening" width="460"></td>
+<td style="text-align: left;"><img src="assets/build-details/bearing-d-shaft.jpg" alt="Bearing seated in the body's circular recess with the D-shaped motor shaft visible" width="460"></td>
+<td style="text-align: left;"><img src="assets/build-details/wheel-d-hub.jpg" alt="Wheel hub with a matching D-shaped opening" width="460"></td>
 </tr>
 <tr>
-<td>The bearing belongs in the body's circular recess. Identify the flat on the shaft before fitting the wheel.</td>
-<td>The hub has one subtly straight edge; match it to the shaft flat.</td>
+<td style="text-align: left;">Keep the bearing square in its seat.</td>
+<td style="text-align: left;">Preserve the flat; do not drill the hub round.</td>
 </tr>
 </tbody>
-</table>
-<p><img src="assets/build-details/wheel-d-hub-detail.jpg" alt="Enlarged wheel hub opening showing its flat lower-right edge" width="350"></p>
-<p><em>Hub detail: the lower-right edge of the opening is flat; the remaining profile is rounded.</em></p>
-<p><strong>Checkpoint:</strong> both motors and wheels are fitted before the Pi/back-panel assembly begins. Both wheels clear the body, and no wire can reach a rotating shaft or encoder magnet.</p>
-<h2 id="chapter-6--2-screw-the-pi-onto-the-back-panel">2. Screw the Pi onto the back panel</h2>
-<p>Keep the back panel separate from the body while working on it. Position the Pi on its mounting points and check access to the microSD card, ports and camera connector. Tighten the specified screws gently; the board must stay flat and clear of metal screw ends.</p>
-<blockquote class="notice"><p><strong>Tip</strong><br>
-<strong>The updated design is easier to assemble:</strong> the screws enter from behind, through the <strong>outside of the back panel</strong>. The earlier mounting arrangement shown below has different screw access.</p>
-</blockquote>
-<p><img alt="Raspberry Pi positioned on the back panel" src="assets/06-pi-mount.jpg" /></p>
-<p>Fit the <strong>left-angle Micro-USB OTG adapter</strong> to the Pi's <strong>USB data</strong> port, then plug the USB microphone into the adapter's USB-A socket. Check that the assembly fits inside the body and does not strain the Pi connector. The Pi's separate <code>PWR IN</code> socket cannot carry microphone data.</p>
-<p><img src="assets/build-details/usb-microphone-installed.jpg" alt="Left-angle OTG adapter plugged into the Raspberry Pi with the USB microphone connected to it" width="760"></p>
-<p>Connect the camera ribbon with power off, keep its latches closed, and leave broad bends rather than a crease. The detailed camera mounting and cable route are shown in step 5 below.</p>
-<h2 id="chapter-6--3-plug-the-wired-pcb-onto-the-pi">3. Plug the wired PCB onto the Pi</h2>
-<p>Keep the peripheral wiring connected to the PCB where practical. Bring the board to the mounted Pi, align all 40 header positions, support both boards and press the socket on evenly. This is the same direct connection used for the bench test.</p>
-<p>Check the connector from both sides. Keep the attached wire bundle and camera ribbon free; do not pull the boards together using their cables.</p>
-<p><img alt="PCB with its attached wires joined to the Pi on the back panel" src="assets/wired-pcb-on-pi.jpg" /></p>
-<p><strong>Checkpoint:</strong> the Pi is secured to the back panel, the PCB is fully seated, and the back panel is still outside the body.</p>
-<h2 id="chapter-6--4-assemble-and-attach-the-head">4. Assemble and attach the head</h2>
-<p><strong>You need:</strong> head shell/bezel, display, display harness, head bracket/joint and specified fasteners.</p>
+</table></div>
+<p><strong>Checkpoint:</strong> motors cannot shift under the clip, wheels turn freely, and no wire can reach an encoder magnet or shaft. Complete this before fitting the holder, head, camera module or electronics.</p>
+<h2 id="chapter-6--2-fit-the-tof-and-battery-holder">2. Fit the ToF and battery holder</h2>
 <ol>
-<li>Seat the display in the bezel, centred on its supports. Fit the printed retaining bracket over the back of the display and secure it using the central screw shown in the photograph below. Avoid pressure on the glass, flex cable and small components.</li>
-<li>Connect the eight display wires using the <a href="#chapter-5--display--lcd">LCD table</a>: PCB pins 1–8 are <strong>VCC, GND, SCL, SDA, RES, DC, CS, BLK</strong>. The display reverses the first two power pins relative to the PCB. Route the harness through its passage before fastening the head and bracket.</li>
-<li>Attach the head base to the body. The base fixing screws pass through the mounting surface and are secured by <strong>two nuts inside the body</strong>. Route the harness through the opening before tightening, and keep it clear of the screw heads and nuts.</li>
-<li>Leave a relaxed loop for the allowed head adjustment. Move the head gently by hand and check that nothing pulls tight.</li>
+<li>Dry-fit the actual ToF board and cover in the forward locating outline. Keep the bottom header edge open and check that real solder tails clear the curved shell.</li>
+<li>Test readings through the front window using the already bench-tested electronics outside the shell. Power down and disconnect again before applying glue.</li>
+<li>Apply <strong>two small hot-glue fillets at the outer ears</strong>, clear of optical windows, pins and connector contacts. There are no ToF mounting screws, snap clips or rear clamp in this design.</li>
+<li>Trial-fit the <strong>76 × 21 × 18.4 mm holder</strong>, its cell and <strong>both panels</strong>. The measured loaded height is 20.4 mm. Check the actual holder contacts, lead exit and wire clearance; then remove the cell again.</li>
+<li>Bond the <strong>empty holder</strong> to its flat seat using small accessible fillets suitable for the holder and printed material. Keep glue away from springs, contacts and the lead exit. Do not use the central Ø3.6 hole: safe screw-head space has not been established.</li>
+<li>Route the holder leads in the rear-side corridor, not through the tiny end gaps. Verify polarity against BAT: pin 1 positive, pin 2 negative. Leave BAT unplugged.</li>
 </ol>
-<p><img alt="Display, bracket and harness passage" src="assets/08-head-open-annotated.jpg" /></p>
-<p><em>1 — display rear; 2 — head bracket; 3 — harness passage.</em></p>
-<p><img alt="Head harness routed into the body" src="assets/09-head-cables.jpg" /></p>
-<p><img src="assets/build-details/head-rear-harness.jpg" alt="Rear of the display showing the retaining bracket, central screw, base fixing screws and harness passing through the base opening" width="680"></p>
-<p><em>Rear view: the central screw secures the printed display-retaining bracket. The harness exits through the opening at the head base. Leave enough slack for head adjustment.</em></p>
-<p><img src="assets/build-details/head-mount-inside-nuts.jpg" alt="Inside the body, two nuts secure the head mounting screws above the camera ribbon" width="600"></p>
-<p><em>Inside view: support the outside screw heads while gently tightening these two nuts. Keep the display harness and orange camera ribbon out of the fasteners.</em></p>
-<p>Do this <strong>after mounting the Pi on the back panel and before sliding that panel into the body</strong>.</p>
-<h2 id="chapter-6--5-pack-the-wires-and-fit-the-back-panel">5. Pack the wires and fit the back panel</h2>
-<p>Before packing the wires, check these three placements while access is still open:</p>
-<ul>
-<li><strong>Camera:</strong> fastened to its printed supports with the mounting screws shown below, lens aligned with the body aperture, and 16 cm adapter ribbon latched at both ends.</li>
-<li><strong>Speaker:</strong> 20 mm driver behind its grille, with its two leads running to SPEAKER/H3.</li>
-<li><strong>Battery holder:</strong> empty holder in its body position, positive lead traced to BAT pin 1 and negative to pin 2.</li>
-</ul>
-<p>Keep the speaker diaphragm and camera lens clear of glue and mounting pressure. Route the battery lead clear of the wheel area.</p>
-<h3 id="chapter-6--camera-mounting-and-ribbon-route">Camera mounting and ribbon route</h3>
-<p>Fasten the camera module to the printed mount using the mounting screws shown. Tighten gently and keep the board flat. Check from outside that the lens is centred on its opening.</p>
-<p><img src="assets/build-details/camera-mounted-screws.jpg" alt="Camera module mounted against the printed supports with its fixing screws and orange ribbon visible" width="650"></p>
-<p>Route the orange camera ribbon in a <strong>relaxed, inverted S-shaped path</strong> through the available space. Leave slack at both connectors and keep it away from the head-mount nuts, the wheel area and the back-panel edge. Use broad bends; the tight folds visible on the prototype are not a reason to crease the ribbon on a new build.</p>
-<p><img src="assets/build-details/camera-ribbon-s-bend.jpg" alt="Camera ribbon following an inverted S-shaped route between the camera and Pi inside the body" width="650"></p>
-<h3 id="chapter-6--slide-in-the-back-panel">Slide in the back panel</h3>
+<p><img alt="Small amounts of glue around the ToF on the earlier build" src="assets/tof-gluing.jpg" /></p>
+<p><img alt="Check the ToF optical path and surrounding clearance" src="assets/tof-installed.jpg" /></p>
+<p>The model allows only about <strong>1.0 mm</strong> of chassis floor and rear motor wall in the tightest regions, plus <strong>0.8 mm</strong> panel pocket skins. Inspect the real print before gluing. The LCD/holder clearance is particularly tight; see the <a href="#chapter-11--fit-limits-to-check-on-real-parts">fit limits</a>.</p>
+<h2 id="chapter-6--3-install-the-external-power-button">3. Install the external power button</h2>
+<p>With electronics and cell absent:</p>
 <ol>
-<li>Guide the wire bundle into the main body gradually. Keep plugs seated and move loose loops away from panel edges and wheels.</li>
-<li>Watch the camera ribbon continuously: <strong>there is very little room around it</strong>. Do not pinch, sharply crease or pull it at either connector.</li>
-<li>Gently flex the main body to widen the rear opening by a few centimetres so the back panel can slide in more easily. Stop if the plastic resists or a cable becomes taut.</li>
-<li>Guide the panel into its seat while tucking wires inside. If it catches, ease it back and reposition the obstruction; do not pull it closed with screws.</li>
-<li>Check the camera ribbon again before fastening the panel.</li>
+<li>Feed the rocker from inside outward through its slot, curved pad facing outside and contact tip toward SW1.</li>
+<li>Slide the keeper from the USB side into its keyed seat.</li>
+<li>Insert the split pivot pin from the side <strong>away from USB</strong> until its fork seats in the keeper cheek and retains it.</li>
+<li>Check free movement and spring return. Use the nominal rocker for the first complete-stack fit; do not trim or lengthen its contact to compensate for a wrong stack height.</li>
 </ol>
-<p><img alt="The camera ribbon and wire bundle beside the back panel" src="assets/camera-ribbon-clearance.jpg" /></p>
-<p><img alt="Guiding the back panel into the body" src="assets/back-panel-fitting.jpg" /></p>
-<p><strong>Checkpoint:</strong> the panel fits without trapping the camera ribbon, and the remaining sensor/wiring work is still accessible.</p>
-<h2 id="chapter-6--6-hot-glue-the-forward-tof-sensor">6. Hot-glue the forward ToF sensor</h2>
+<p><strong>Checkpoint:</strong> the mechanism moves freely. Actual switch actuation is checked only after the board stack is seated, with the cell out and USB disconnected.</p>
+<h2 id="chapter-6--4-assemble-and-prewire-the-board-stack">4. Assemble and prewire the board stack</h2>
+<p>Keep the rear electronics cover outside the body and all power disconnected.</p>
 <ol>
-<li>Position the ToF sensor at the forward-facing opening. Remove any shipping film and keep both optical windows exposed.</li>
-<li>Apply small amounts of hot glue at the retaining surfaces, away from the optics and connector contacts.</li>
-<li>Hold the sensor aligned while the glue sets. Do not let its wires pull it out of position.</li>
-<li>Inspect from inside and outside: the sensor faces out through the opening and the optical path is clear.</li>
+<li>Insert <strong>four M2 × 20 socket-head screws from outside the rear cover</strong>. Place the Pi underside on the rails between the stops, with its component side facing inward and its GPIO tails in their relief.</li>
+<li>Fit <strong>four 11 mm printed spacers</strong>, one at each Pi mounting location on the component side.</li>
+<li>Align the custom PCB's underside female socket with <strong>all 40 GPIO pins</strong>. Press the boards together squarely, with the custom board's USB-C socket toward the lower rear opening.</li>
+<li>Fit compact M2 washers and nuts above the custom PCB. Tighten evenly, without bowing either board. Verify actual Pi thickness, soldered-header height and full mating depth: screws must not pull an incompatible header stack into place.</li>
+<li>Fit the left-angle Micro-USB OTG adapter to the Pi's <strong>USB data port</strong>, then the USB microphone. <code>PWR IN</code> does not carry microphone data.</li>
+<li>Preconnect constrained board-side plugs, particularly <strong>LCD and MENCODER_L</strong>. Leave the remote display ends loose for threading through the neck. H2 and SERVO1 stay empty in the standard build; if using H2 in a modification, its PCB plug also needs connecting before insertion. Leave <strong>BAT</strong> unplugged.</li>
+<li>Use individual display housings, leave slack for the stack's 4 mm movement and check the actual LCD/left-encoder wire bends against the holder. Keep wires away from the cell, clip, button and panel rims. CAD wire shapes are local clearance references, not a full harness specification.</li>
 </ol>
-<p><img alt="Securing the ToF sensor inside the shell with hot glue" src="assets/tof-gluing.jpg" /></p>
-<p><img alt="The installed sensor and its surrounding clearance" src="assets/tof-installed.jpg" /></p>
-<h2 id="chapter-6--7-fit-the-side-panel-inserts">7. Fit the side-panel inserts</h2>
-<p>These heat-set inserts provide the threads for the screws that attach the <strong>side panels to the main body</strong>.</p>
+<p><strong>Stack, outside to inside:</strong> rear cover → Pi underside → Pi → 11 mm spacers/header gap → custom PCB underside → custom PCB component side.</p>
+<p><img alt="Direct Pi-to-PCB header connection; no jumper wires between the boards" src="assets/direct-pi-connection.jpg" /></p>
+<p><img alt="Earlier wired board stack; the revision adds four 11 mm supports and outside-entry screws" src="assets/wired-pcb-on-pi.jpg" /></p>
+<p><img src="assets/build-details/usb-microphone-installed.jpg" alt="Left-angle OTG adapter and miniature USB microphone connected to the Pi USB data port" width="760"></p>
+<h2 id="chapter-6--5-insert-the-stack-and-connect-bat">5. Insert the stack and connect BAT</h2>
+<p><strong>Do the first complete mechanical fit with no cell installed and no USB power.</strong></p>
 <ol>
-<li>Match each insert's outside diameter and length to its printed pocket. Keep the battery removed and nearby wires clear of the hot tool.</li>
-<li>Use the soldering iron with an appropriate tip to heat and guide the insert straight into its pocket.</li>
-<li>Keep the insert square and let the heat do the work. Avoid sideways pressure and pushing it past the intended depth.</li>
-<li>Allow the plastic and insert to cool before trying the side-panel screw. Fit the side panels after the remaining wiring is checked.</li>
+<li>Keep the fixed head and both side panels off. Hold the rear-cover/board stack <strong>4 mm outward</strong> from its final seated plane.</li>
+<li>Offer it through the open <strong>GPIO side</strong>, slide sideways and align the rear-cover keys while guiding the loose harness. The curved lower lip prevents a simple straight rear insertion.</li>
+<li>While the stack is still <strong>4 mm outward</strong>, connect <strong>BAT</strong>. Then move the whole stack <strong>4 mm inward</strong>, perpendicular to the boards, to seat its keys. Do not try to unplug or force constrained LCD/H2 plugs with the stack seated.</li>
+<li>Check that no wire is trapped against the holder, button or rims. <strong>Do not widen the body by centimetres as in the older video.</strong> If it catches, withdraw it and find the interference; do not pull it closed with screws.</li>
+<li>Still with the cell out and USB disconnected, test the button against the actual SW1: no preload in every orientation, a click before the rocker stop, and full release. The nominal rest gap is <strong>0.20 mm</strong>; the assembly target is <strong>0.15–0.25 mm</strong>. Test through the available play.</li>
+<li>Try the actual USB cable. Its overmold must pass through the <strong>14 × 8 mm</strong> opening far enough to reach a socket mouth modelled <strong>12.63 mm behind the opening</strong>. A coupon or visible hole does not prove full seating.</li>
+<li>Once all dry-fit checks and soldering are complete, withdraw the stack <strong>4 mm</strong>, disconnect BAT and slide it out again. With the head still off, fit the cell according to polarity markings, then repeat the side insertion: <strong>BAT at the 4 mm offset → seat inward</strong>. Keep the board switched off while completing the head and remote connections; verify the 5 V output is off before touching signal plugs. If the output is live, stop and disconnect BAT before changing connections.</li>
 </ol>
-<p><img alt="Installing a side-panel heat-set insert with the soldering iron" src="assets/side-panel-inserts.jpg" /></p>
-<h2 id="chapter-6--8-finish-the-wiring-and-close-up">8. Finish the wiring and close up</h2>
-<p>The robot is now largely assembled. Finish the remaining wire joints with the battery removed.</p>
+<p>If the enclosure fit or power-off state is uncertain, continue the remaining fit checks without the cell. Cell installation can wait until the service opening described below. The new charging opening does not change the need to <strong>shut down and switch off before connecting a charger</strong>.</p>
+<h2 id="chapter-6--6-fit-the-fixed-head-display-and-service-cover">6. Fit the fixed head, display and service cover</h2>
+<p>This design has <strong>no head adjustment, turning or tilting joint</strong>. Fit it only after the electronics stack is seated.</p>
 <ol>
-<li>Check each lead against the <a href="#chapter-5">wiring tables</a>. For the motor cables, identify the motor pair and the four encoder signals separately. For the battery lead, verify BAT pin 1 is positive; for the speaker, use both H3 outputs. Only splice leads that need termination or length adjustment—do not add solder joints to a complete working harness. Leave service slack without loops near the wheels.</li>
-<li>Slide heat-shrink on before soldering. Strip and tin the ends, heat the joint, let the solder flow and hold it still while it cools.</li>
-<li>Inspect for loose strands and bridges. Insulate each joint individually and check the lead with a gentle tug at its insulation.</li>
-<li>Tuck the finished wires into the body. Recheck the camera ribbon, head loop, panel seams and encoder clearance.</li>
-<li>Fit the side panels using the correct screws. Stop if a panel needs screw force to close.</li>
+<li>Seat an M3 nut in each open-top head ear pocket. Place the carrier on the body.</li>
+<li>From inside the chassis, fit <strong>two M3 × 12 socket-head screws with 7 mm OD × 0.5 mm washers upward</strong> into the nuts. The battery-side screw enters straight from its open side. On the GPIO side, introduce the screw with its <strong>head tilted about 15° rearward</strong>, then straighten it as the tip enters the roof hole to clear the fixed camera bridge. Tighten gently with a 2.5 mm Allen key.</li>
+<li>Feed the eight loose display leads and their <strong>individual housings one at a time</strong> through the <strong>Ø12 mm neck</strong>. A rigid eight-wide connector is not assumed to fit. Leave slack and support the PCB near its header while connecting.</li>
+<li>Place the display on its four locating studs. Use the <a href="#chapter-5--display--lcd">LCD wiring table</a>: PCB pins 1–8 are <strong>VCC, GND, SCL, SDA, RES, DC, CS, BLK</strong>. The display's first two power pins are reversed relative to the custom PCB; match signal labels, not wire colours.</li>
+<li>Fan the leads away from the cover's four long posts and right-side screw boss. The cover must not press the glass, display flex or components. The model assumes a 1.2 mm display PCB; verify the actual board and free seating before tightening.</li>
+<li>Insert the M2 nut in the rear-facing right boss. Offer the cover <strong>1.5 mm below</strong> its installed height, move it forward to the rim, then slide it <strong>up 1.5 mm</strong> to engage its two hooks. Secure with <strong>one M2 × 6 socket-head screw</strong>. The hooks slide; do not flex them as snap clips or use the screw to drag the cover into place.</li>
 </ol>
-<p><img alt="Soldering the final wire joints with the body largely assembled" src="assets/final-soldering.jpg" /></p>
+<p>The approximately 24.65 mm cover posts are delicate retainers, not handles. If the actual display differs, check all four corner contacts equally; use small nonconductive shims only on intended corner pads if necessary. Never compensate by loading the glass or forcing the cover.</p>
+<p><strong>Checkpoint:</strong> the fixed head is secure, the display wires remain relaxed, and the service cover meets its rim without force. The earlier bracket/central-screw head photographs are not assembly instructions for this head.</p>
+<h2 id="chapter-6--7-fit-the-camera-and-close-the-body">7. Fit the camera and close the body</h2>
+<ol>
+<li>Fit the camera <strong>after</strong> tightening the head fasteners so it cannot block the long Allen key. The camera seats move 1 mm forward and the small bores are now <strong>14 mm deep</strong>, not 15 mm. Check actual screws clamp the board before bottoming; keep the lens centred and board flat.</li>
+<li>Connect the camera ribbon with power off and close both latches. Use a relaxed inverted-S route with broad bends and slack at both connectors. Do not copy sharp folds visible on the prototype or trap the ribbon beside the head screws or panel edges.</li>
+<li>Position the unchanged speaker behind its grille without loading the diaphragm. Check its two leads against SPEAKER/H3. Connect the remaining remote ends with the board output off and verify all leads against <a href="#chapter-5">WIRING.md</a>.</li>
+<li>Inspect insulated joints, motor/encoder clearance, holder leads and display slack. There must be enough free lead for the stack's initial 4 mm service movement.</li>
+<li>Secure the rear cover and both side panels using the matching unchanged attachment hardware. Do not force a panel closed with its screws. Recheck button return, USB plug access, motor retention and camera-ribbon clearance after tightening.</li>
+</ol>
+<p><img src="assets/build-details/camera-mounted-screws.jpg" alt="Earlier camera installation showing mounting screws and the orange ribbon; check revised seat and screw depth" width="650"></p>
+<p><img src="assets/build-details/camera-ribbon-s-bend.jpg" alt="Earlier camera ribbon route; preserve clearance and avoid copying the sharp prototype folds" width="650"></p>
 <h3 id="chapter-6--rear-support-foot">Rear support foot</h3>
-<p>Keep the rounded <strong>rear support foot</strong> fitted to the underside of the body. Together with the two driven wheels, it provides the third floor contact and keeps the rear shell clear of the floor. This is a support foot/skid, not a third powered wheel.</p>
-<p><img src="assets/build-details/rear-support-foot.jpg" alt="Rounded printed rear support foot projecting from the underside of Robbi's body" width="620"></p>
-<p>Set Robbi on a flat surface and check that the wheels and rear foot support him, the shell clears the floor and no cable hangs underneath. Check this before powered floor tests.</p>
-<p><strong>Checkpoint:</strong> continuity matches the wiring table, adjacent joints are individually insulated, the body closes freely, the rear support foot is fitted and the sensor windows remain clear. Recheck the camera image after closing: a cable that worked on the bench can be disturbed when fitting the panel. Continue with <a href="#chapter-7">IMU calibration and final checks</a>.</p></section><section id="chapter-7"><h1 id="chapter-7--6-calibrate-and-test-robbi">6. Calibrate and test Robbi</h1>
+<p>Retain the rounded <strong>rear support foot/skid</strong> under the body. With the two wheels it provides the third floor contact and keeps the rear shell off the floor; it is not a powered wheel.</p>
+<p><img src="assets/build-details/rear-support-foot.jpg" alt="Rear support foot below the robot body" width="620"></p>
+<p>Set Robbi on a flat surface. Both wheels and the rear foot must support him, with the shell and cables clear of the floor. Recheck the camera image and ToF after closure, then continue with <a href="#chapter-7">IMU, motor and voice checks</a>. Keep the first powered wheel test raised off the floor.</p>
+<h2 id="chapter-6--service-and-disassembly">Service and disassembly</h2>
+<p>Shut the Pi down cleanly, switch the board off and disconnect external USB power before opening or changing plugs. Do not treat the printed rocker as a battery-isolation switch.</p>
+<p><strong>Display only:</strong> remove its M2 rear-cover screw, slide the cover <strong>down 1.5 mm</strong>, then pull rearward. Unplug the display leads before lifting the PCB straight off the studs. The head can stay attached.</p>
+<p><strong>Electronics stack or cell:</strong></p>
+<ol>
+<li>Remove <strong>both</strong> side panels. Remove the camera module if it obstructs head-fastener access; the CAD tool-access check did not include a measured purchased camera left in place.</li>
+<li>Open the head cover. Label and unplug display leads <strong>at the display</strong>, free ties and feed their individual housings down the neck. Leave the constrained LCD plug attached to the PCB.</li>
+<li>Loosen both M3 head screws about <strong>5 mm</strong>, support and lift the head at least <strong>10 mm</strong>. Remove both screw/washer sets completely before sliding the electronics. The battery-side screw withdraws about <strong>12 mm straight down</strong>; the GPIO-side screw withdraws about <strong>10.5 mm</strong>, then its head tilts rearward up to <strong>15°</strong> as the shank leaves the roof. Keep each washer with its screw.</li>
+<li>If populated for a modification, unplug SERVO1 while the stack is seated. Free other remote harness ends and ties as needed, then release the rear-cover screws.</li>
+<li>Move the stack <strong>4 mm outward</strong>, <strong>disconnect BAT at that offset</strong>, then slide it out through the GPIO side while guiding the loose harness. Keep constrained board-side LCD, MENCODER_L and any fitted H2 plugs attached until the stack is outside.</li>
+<li>Release the actual cell-holder spring contact, lift the cell approximately <strong>20 mm</strong>, then withdraw through the battery side. The checked external envelope is up to <strong>70 × Ø18.6 mm</strong>; actual contact travel was not modelled. The bonded empty holder can stay in place.</li>
+</ol>
+<p>Reassembly reverses the mechanical route: side entry while 4 mm out → BAT → seat inward → head → camera and panels. Repeat wiring, button and clearance checks. To remove the button pin with the stack out, squeeze its exposed fork tips with fine tweezers and pull straight out; do not force the fork backwards through its bore.</p></section><section id="chapter-7"><h1 id="chapter-7--6-calibrate-and-test-robbi">6. Calibrate and test Robbi</h1>
 <p><img alt="Calibrate and test Robbi" src="assets/banners/06-calibrate.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-6">← Assembly</a> · <a href="#chapter-8">Troubleshooting →</a></p>
 <p>Do this with the confirmed PCB wiring, motor supply checks and software pin mapping complete. The original robot's measurements are starting estimates, not calibration values for every printed robot.</p>
@@ -1194,7 +1247,7 @@ aplay -l
 <li>Leave autonomy, heartbeat, daily tasks and servo outputs disabled. Keep the obstacle guard enabled for forward motion; place a clear target within the sensor's usable range if needed to obtain a valid sample.</li>
 <li>With motor power disabled, observe the encoder counts while slowly rotating each wheel. Both A and B should change, and turning one wheel should affect only its own channel. Do not force a gearbox that resists back-driving; use the controlled raised-wheel test after wiring checks instead.</li>
 </ol>
-<p><strong>Legacy tools:</strong> <code>tools/hardware/encoder_probe.py</code> has an independent hard-coded repair map. Its <code>--pulse</code> option also commands 60% duty. Do not run it unchanged as a generic new-build test. Use a release-matched diagnostic or the runtime's motion diagnostics. Stop the runtime before any independent tool claims GPIO.</p>
+<p><strong>Legacy tools:</strong> <code>tools/legacy/encoder_probe.py</code> has an independent hard-coded repair map. Its <code>--pulse</code> option also commands 60% duty. Do not run it unchanged as a generic new-build test. Use a release-matched diagnostic or the runtime's motion diagnostics. Stop the runtime before any independent tool claims GPIO.</p>
 <h2 id="chapter-7--3-first-powered-wheel-tests">3. First powered wheel tests</h2>
 <p>The runtime requires both <code>runtime.calibration_confirmed: true</code> and <code>hardware.enable_motors: true</code> before it permits motor output. The first flag is a manual acknowledgement, <strong>not</strong> evidence that software has measured calibration automatically. Enable the two flags only after the preceding wiring, pin ownership, supply and raised-wheel checks; finish the measurements below before floor operation.</p>
 <p>Keep the supplied conservative PWM caps initially. A duty cap alone does not make an incompatible supply safe. If the motor does not start, stop and investigate friction, voltage and the appropriate duty range rather than leaving it stalled.</p>
@@ -1241,7 +1294,7 @@ aplay -l
 <p>Complete <a href="build-record.csv">the build record</a>, save your final configuration and package versions, and keep a backup of the working SD card. Enable autonomous features individually only after manual movement and sensing are reliable. Room-scale navigation and a kitchen-and-back demonstration require their own testing; assembling the hardware does not establish that level of accuracy.</p>
 <h2 id="chapter-7--9-test-stt-llm-and-tts">9. Test STT, LLM and TTS</h2>
 <p>Hardware checks do not yet prove the complete conversation works. Configure your own providers, then check each part separately.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th style="text-align: left;">Check</th>
@@ -1271,7 +1324,7 @@ aplay -l
 <td style="text-align: left;">Listening, transcription, response and speech work together.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Run <code>robbi-setup</code> if you skipped provider setup or want to change keys. The wizard stores your own keys in the runtime’s <code>.env.secrets</code> with owner-only permissions and leaves calibrated geometry intact. Dashboard <strong>Settings → Connections &amp; API keys</strong> also saves provider keys, accepts custom model IDs and local/OpenAI-compatible endpoints, discovers models and tests the connection. Select Tavily there to enable current web/news lookup. Choose a model and, for ElevenLabs, a voice available to your own account. No helper server is installed on the Pi.</p>
 <p>After the individual checks above pass, set <code>voice.enabled: true</code> with <code>wake_engine: local_wake</code>, and enrol your own examples in the <strong>Wake word</strong> tab: at least four positives, three negatives and two noise clips, then run browser calibration and review the result before applying it. Record a few natural examples at the intended speaking distance. Check recognition and false triggers before leaving listening enabled. Keep autonomy, Telegram and proactive tasks off until basic interaction works.</p>
 <h2 id="chapter-7--10-verify-automatic-startup">10. Verify automatic startup</h2>
@@ -1285,7 +1338,7 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <p><img alt="Troubleshooting" src="assets/banners/07-troubleshoot.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-7">← Calibration</a></p>
 <p>Power off and remove the cell before moving plugs, swapping wires or touching the CSI ribbon. Inspect logs and live values before changing several settings at once.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Symptom</th>
@@ -1430,11 +1483,11 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <td>Reopen, inspect and reroute; do not force the panel shut</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>When reporting a fault, include the board/print/software versions, the exact symptom, relevant log lines and a clear connector photo. Remove API keys, Wi-Fi credentials and personal recordings before sharing diagnostics.</p></section><section id="chapter-9"><h1 id="chapter-9--pcb-fabrication-files">PCB fabrication files</h1>
 <p><a href="#chapter-0">Back to the build guide</a></p>
 <p>Use these three matching manufacturing files together. Their SHA-256 checksums are recorded in <a href="hardware/release-files.json">the release manifest</a>.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>File</th>
@@ -1455,11 +1508,11 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <td>Component positions, side and rotation</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The Gerber ZIP contains <strong>four copper layers</strong>: top, bottom and two inner layers. Use all four layers. The BOM contains 31 grouped rows covering 59 component references; the placement file contains the same 59 references, with no unmatched references in either direction.</p>
 <h2 id="chapter-9--settings-from-the-manufactured-board">Settings from the manufactured board</h2>
 <p>These settings were recovered from the manufacturer’s returned production package. The original Gerbers inside that package match the guide’s ZIP byte for byte.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -1496,21 +1549,21 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <td>Solder-mask plugged, as recorded by the manufacturer</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The manufacturing panel is <strong>75 × 71 mm</strong>, including two <strong>13 mm process rails</strong> added along the 45 mm dimension. Those rails are manufacturing aids, not part of the enclosure-sized board. Submit the supplied 75 × 45 mm outline rather than resizing it to the panel dimensions. The exact dielectric stackup is not recorded in the recovered settings.</p>
 <p><a href="hardware/pcb/order-settings.json">Machine-readable order settings</a> · <a href="#chapter-5">Connector pinout and orientation</a></p>
 <h2 id="chapter-9--ordering-sequence">Ordering sequence</h2>
 <ol>
 <li>Upload the Gerber ZIP intact to the PCB manufacturer's order tool. Check its rendered outline, layer assignment, drill alignment and preview against the board photographs.</li>
 <li>Enter the settings above: four layers, 75 × 45 mm, 1.6 mm FR-4, 1 oz outer / 0.5 oz inner copper, green mask, white silkscreen and lead-free HASL. Check the manufacturer's interpretation of the via-treatment option and let it prepare the required assembly rails.</li>
-<li>Request PCB assembly, then upload the matching BOM and pick-and-place file together. Both <code>.csv</code> exports are actually <strong>UTF-16, tab-delimited</strong> text. If the upload tool asks about encoding/delimiter, select those. Preserve the original files and explicitly review any conversion made by the manufacturer's importer.</li>
+<li>Request PCB assembly, then upload the matching BOM and pick-and-place file together. Both <code>.csv</code> exports are <strong>UTF-8, tab-delimited</strong> text. This package converts the original UTF-16 encoding without changing field values or row content. If the upload tool asks, choose UTF-8 and the tab delimiter, and review its imported part mapping.</li>
 <li>Match parts by the specified manufacturer part and supplier part number. Several free-text <code>link</code> fields in the export point to unrelated products; do not let those override the actual MPN/LCSC selection.</li>
 <li>Review the assembly preview, including polarized capacitors, USB-C orientation and the underside connector. Resolve substitutions against the intended footprint and electrical function before ordering.</li>
 <li>Confirm the through-hole assembly scope. <strong>U6 is the 2 × 20 female socket, placed on the bottom side and explicitly marked “HAND SOLDER BACK SIDE”.</strong> The BOM and placement file both include it; agree whether the manufacturer supplies/fits it or whether it is supplied for hand assembly. Do not have it fitted twice or on the top side.</li>
 <li>Check whether BAT, LCD, H1/H2, encoder, speaker/servo headers, test pins and switches are included in the assembly service or supplied separately. Keep optional fitted connectors electrically unused if the guide does not use them.</li>
 </ol>
 <h2 id="chapter-9--parts-already-on-the-custom-board">Parts already on the custom board</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Reference</th>
@@ -1550,88 +1603,228 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <td>Underside Pi connection</td>
 </tr>
 </tbody>
-</table>
-<p>The parts and visible <code>Robbi 2026-09</code> layout correspond to the board in the build photographs. This is a consistency check, not a new electrical design review or a substitute for loaded power/thermal testing. The <a href="#chapter-5">wiring reference</a> now provides connector pin order and orientation checked against the manufactured copper layout. Earlier schematic exports use a different power circuit and must not be presented as the schematic for this manufactured board.</p></section><section id="chapter-10"><h1 id="chapter-10--enclosure-model">Enclosure model</h1>
-<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Print preparation</a></p>
-<p>Download <strong><a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a></strong>, then extract <strong>robo_4_astra.stl</strong> on your computer before importing it into your slicer or CAD program. The ZIP contains the unchanged original assembly reference. Checksums for the archive and extracted STL are recorded in the <a href="hardware/release-files.json">release manifest</a>.</p>
-<p>The model is distributed as a ZIP so it fits GitHub’s browser-upload limit. Keep this inner ZIP compressed when uploading the guide to GitHub; builders extract it after downloading.</p>
-<h2 id="chapter-10--parts-identifiable-in-the-supplied-stl">Parts identifiable in the supplied STL</h2>
-<p>The mesh has been inspected as separate connected surfaces. It contains purchased electronics as well as these identifiable enclosure/wheel shapes:</p>
-<table>
+</table></div>
+<p>The parts and visible <code>Robbi 2026-09</code> layout correspond to the board in the build photographs. This is a consistency check, not a new electrical design review or a substitute for loaded power/thermal testing. The <a href="#chapter-5">wiring reference</a> now provides connector pin order and orientation checked against the manufactured copper layout. Earlier schematic exports use a different power circuit and must not be presented as the schematic for this manufactured board.</p></section><section id="chapter-10"><h1 id="chapter-10--enclosure-and-print-files">Enclosure and print files</h1>
+<p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Print preparation</a> · <a href="#chapter-6">Assembly</a></p>
+<blockquote class="notice warning"><p><strong>Warning</strong><br>
+<strong>The 13 October 2026 printed design has not yet been physically tested as a complete build.</strong> It has nominal CAD-fit and reference slicer checks only. Fit, strength, button operation, connector access and optical clearance still need checking on actual printed parts and purchased components. The build video shows an earlier enclosure.</p>
+</blockquote>
+<p>Use the matching files in <strong><a href="hardware/prints/2026-10-13">2026-10-13/</a></strong> together. Do not mix earlier chassis, panels, motor clips or head parts with this revision. See <a href="#chapter-11">design changes and fit limits</a>.</p>
+<h2 id="chapter-10--individual-printable-parts">Individual printable parts</h2>
+<p>STLs are supplied in millimetres, already oriented for printing. Import at <strong>100% scale</strong>. Reference projects use a Bambu A1 / 0.4 mm nozzle; select your actual printer, nozzle, filament and build plate, then inspect and slice again. The 3MF files contain models and settings, <strong>not ready-to-run G-code</strong>.</p>
+<p>Default reference settings: <strong>PLA, 0.20 mm layers, three walls, 15% infill</strong>. Button and clip exceptions are listed below. These are reference settings, not a physically validated print recipe.</p>
+<div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Part</th>
-<th style="text-align: right;">Build quantity</th>
-<th>Geometry / handling note</th>
+<th style="text-align: left;">Part</th>
+<th style="text-align: right;">Qty</th>
+<th style="text-align: left;">STL</th>
+<th style="text-align: left;">Reference 3MF</th>
+<th style="text-align: left;">Orientation / exceptions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Main body</td>
+<td style="text-align: left;">Main chassis</td>
 <td style="text-align: right;">1</td>
-<td>Contains the motor seats and wire passages; check the camera/speaker openings before closing</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Main_chassis_USB_and_button.stl">Chassis</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/01_Main_chassis_REFERENCE_A1_0p4.3mf">01</a></td>
+<td style="text-align: left;">Supplied side down; motor axes vertical; bed-only tree/organic supports.</td>
 </tr>
 <tr>
-<td>Body closing/back section</td>
+<td style="text-align: left;">Rear electronics cover</td>
 <td style="text-align: right;">1</td>
-<td>Keep separate while mounting the Pi and joining the wired PCB</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Rear_electronics_cover.stl">Rear cover</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/02_Rear_cover_REFERENCE_A1_0p4.3mf">02</a></td>
+<td style="text-align: left;">Outside face down, Pi rails up; normal supports under raised end lips.</td>
 </tr>
 <tr>
-<td>Body side panels</td>
-<td style="text-align: right;">2</td>
-<td>Two panel shapes are present; each has an approximately 108.4 × 81 × 7 mm axis-aligned bounding box in the supplied model</td>
+<td style="text-align: left;">Side panels</td>
+<td style="text-align: right;">1 each</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Sidepanel_left_battery_side.stl">Battery side</a> · <a href="hardware/prints/2026-10-13/print/Sidepanel_right_GPIO_side.stl">GPIO side</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/03_Both_side_panels_REFERENCE_A1_0p4.3mf">03, both panels</a></td>
+<td style="text-align: left;">Outside faces down; no supports. Preserve the 0.8 mm pocket skins.</td>
 </tr>
 <tr>
-<td>Head front/shell</td>
+<td style="text-align: left;">New front-fastened motor clip</td>
 <td style="text-align: right;">1</td>
-<td>Approximately 65 × 50 × 29 mm bounding box</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Motor_retaining_clip_forward_fastener.stl">Clip</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/11_Motor_retaining_clip_REFERENCE_A1_0p4.3mf">11</a></td>
+<td style="text-align: left;">Broad side down; no supports; four walls, 40% configured infill, <strong>26 top and 26 bottom layers</strong> make this small part solid.</td>
 </tr>
 <tr>
-<td>Head rear/support piece</td>
+<td style="text-align: left;">11 mm stack spacers</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Stack_spacer_11mm_PRINT_4.stl">One spacer</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/04_Four_stack_spacers_REFERENCE_A1_0p4.3mf">04, four spacers</a></td>
+<td style="text-align: left;">Upright; no supports. <strong>STL = one spacer; 3MF = four.</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Button rocker</td>
 <td style="text-align: right;">1</td>
-<td>Approximately 65 × 40 × 26.25 mm bounding box, including its projecting mounting features</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Power_button_rocker_print.stl">Nominal rocker</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/06_Power_button_rocker_REFERENCE_A1_0p4.3mf">06</a></td>
+<td style="text-align: left;"><strong>PETG, 0.16 mm</strong>, bearing axis vertical, bed-only tree supports.</td>
 </tr>
 <tr>
-<td>Wheel centre/hub</td>
-<td style="text-align: right;">2</td>
-<td>One representative shape is present; approximately 56 mm diameter and 20 mm overall depth</td>
+<td style="text-align: left;">Button keeper and split pivot pin</td>
+<td style="text-align: right;">1 each</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Power_button_keeper_print.stl">Keeper</a> · <a href="hardware/prints/2026-10-13/print/Power_button_pivot_pin_print.stl">Pin</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/07_Power_button_keeper_and_pin_REFERENCE_A1_0p4.3mf">07, both parts</a></td>
+<td style="text-align: left;"><strong>PETG, 0.16 mm</strong>, no supports; keeper flat, pin horizontal. Pin-only <strong>3 mm outer brim, zero gap</strong>.</td>
 </tr>
 <tr>
-<td>Tread ring</td>
-<td style="text-align: right;">2</td>
-<td>One representative shape is present; <strong>62 mm outer diameter</strong>, 5.8 mm axial width</td>
-</tr>
-<tr>
-<td>Rear support foot</td>
+<td style="text-align: left;">Fixed head carrier and hollow neck</td>
 <td style="text-align: right;">1</td>
-<td>Keep this rounded floor-contact feature in the build; the <a href="#chapter-6--rear-support-foot">assembly close-up</a> shows its underside position</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Fixed_head_carrier_with_neck.stl">Head carrier</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/08_Fixed_head_carrier_REFERENCE_A1_0p4.3mf">08</a></td>
+<td style="text-align: left;">Front bezel down, rear open upward; normal supports from bed only.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Head rear service cover</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/print/Fixed_head_rear_service_cover.stl">Head cover</a></td>
+<td style="text-align: left;"><a href="hardware/prints/2026-10-13/slicer_projects/09_Fixed_head_rear_cover_REFERENCE_A1_0p4.3mf">09</a></td>
+<td style="text-align: left;">Outside rear face down, posts up; no supports; reference outer-wall speed 40 mm/s.</td>
 </tr>
 </tbody>
-</table>
-<p>These measurements are geometry checks, not printer clearances or a tested print recipe. The main body and closing section have open mesh boundaries when isolated; inspect their complete geometry and slicer preview rather than treating an automatic “split to parts” operation as a finished print kit. Small detached surfaces and modelled electronic components are not extra printed parts.</p>
-<p>The 62 mm tread diameter agrees with the prototype's 6.2 cm starting wheel-diameter setting. Calibrate using the actual finished rolling surface after printing.</p>
-<p>The wheel hub uses a <strong>D-shaped opening</strong> to match the motor shaft. Preserve the flat when cleaning the print; do not drill the opening into a round hole to make it fit. The MR128ZZ bearing seats in the body's circular recess around that shaft opening.</p>
-<p>The remaining print information is <strong>material by part, orientation, supports, wall count, infill and layer height</strong>. A slicer project can provide these without needing a replacement STL.</p>
-<blockquote class="notice"><p><strong>Important</strong><br>
-This is <strong>not a ready-to-print plate</strong>. The assembly includes modelled purchased components as well as printed parts. Do not print the entire file as one object or treat every disconnected surface as a printable part.</p>
+</table></div>
+<p>The button reference uses three walls, 15% configured infill and <strong>20 top / 20 bottom layers</strong>, making these small parts solid. Preserve the flexible rocker leaf, keeper spring and split pin. Support the fork while gently clipping off its brim. Do not enlarge the 2.4 mm button bores or sand away the 2.30 mm pin's working diameter.</p>
+<h3 id="chapter-10--small-fit-tests-first">Small fit tests first</h3>
+<ul>
+<li><strong>Button/USB coupon:</strong> <a href="hardware/prints/2026-10-13/print/TEST_ONLY_button_USB_fit_coupon_print.stl">STL</a> · <a href="hardware/prints/2026-10-13/slicer_projects/05_TEST_ONLY_fit_coupon_REFERENCE_A1_0p4.3mf">project 05</a>. Print with the three PETG button parts. The coupon checks motion, return and USB cable-overmold passage; it does <strong>not</strong> establish the switch gap or complete plug seating on the actual board stack.</li>
+<li><strong>Optional ToF coupon:</strong> <a href="hardware/prints/2026-10-13/print/TEST_ONLY_ToF_seat_coupon_PRINT.stl">STL</a> · <a href="hardware/prints/2026-10-13/slicer_projects/10_TEST_ONLY_ToF_seat_coupon_REFERENCE_A1_0p4.3mf">project 10</a>. Outside face down, no supports. Check the actual board, cover and solder tails; optical performance still needs testing in the robot.</li>
+<li><strong>Optional rocker alternatives:</strong> <a href="hardware/prints/2026-10-13/print/OPTIONAL_rocker_longer_contact_0p10_print.stl">0.10 mm longer contact</a> · <a href="hardware/prints/2026-10-13/print/OPTIONAL_rocker_shorter_contact_0p10_print.stl">0.10 mm shorter contact</a>. Use the nominal part first. A contact-length change requires repeating all real-stack button checks; it cannot compensate for an incorrectly seated header or wrong stack height.</li>
+</ul>
+<p>Coupons and alternative rockers are test/adjustment pieces, not extra installed robot parts.</p>
+<h2 id="chapter-10--original-assembly-stl">Original assembly STL</h2>
+<p><strong><a href="hardware/prints/robo_4_astra.zip">robo_4_astra.zip</a></strong> contains the original, unchanged <strong>robo_4_astra.stl</strong>. Extract it locally for an assembly reference. It includes modelled purchased electronics and contact surfaces between parts; it is <strong>not a prepared print plate</strong>. Do not print it as one object or interpret every disconnected surface as a printable part.</p>
+<p>A surface comparison of the chassis, both side panels, motor clip and fixed head/rear cover agrees with the October individual exports within <strong>0.026 mm at the sampled vertices</strong>, after accounting for pose and tessellation. This supports the revision match; it does not establish physical fit or a complete equivalence of every purchased reference component. The new individual files are unchanged exports from the October print release, not automatic splits of the assembly STL.</p>
+<h3 id="chapter-10--parts-identifiable-in-the-supplied-stl">Parts identifiable in the supplied STL</h3>
+<p>The assembly also contains the original wheel hub and tread geometry. The individual October exports above cover the revised enclosure and functional print pieces; they do not include a separate wheel/tread print project.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Original geometry</th>
+<th style="text-align: right;">Build quantity</th>
+<th style="text-align: left;">Handling note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Wheel centre/hub</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">One representative shape in the assembly; about 56 mm diameter and 20 mm depth. Preserve its D-shaped shaft opening.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tread ring</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">One representative shape; 62 mm outer diameter and 5.8 mm axial width. Tread material and print settings still need confirmation.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rear support foot/skid</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Retain the underside floor-contact feature; see the <a href="#chapter-6--rear-support-foot">assembly close-up</a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The MR128ZZ bearing sits in the body recess around the shaft opening. The 62 mm tread diameter is the prototype's 6.2 cm starting wheel-diameter setting; calibrate using the finished rolling surface.</p>
+<p>Original archive/extracted-STL hashes and the added individual-file hashes are recorded in the <a href="hardware/release-files.json">hardware release manifest</a>. <a href="hardware/prints/2026-10-13/validation.json">Validation status</a> distinguishes the recorded CAD/slicer checks from physical tests still to do.</p></section><section id="chapter-11"><h1 id="chapter-11--printed-design-13-october-2026">Printed design: 13 October 2026</h1>
+<p><a href="#chapter-10">Print files</a> · <a href="#chapter-6">Assembly steps</a> · <a href="#chapter-1">Parts</a></p>
+<blockquote class="notice warning"><p><strong>Warning</strong><br>
+<strong>This printed design iteration has not yet been physically validated.</strong> The CAD release records nominal fit, service-path and reference slicing checks. Those checks do not prove real printed fit, strength, reliable button actuation, charging access or sensor performance. Complete a dry assembly with actual components before committing adhesive or applying power.</p>
 </blockquote>
-<h2 id="chapter-10--prepare-the-printable-parts">Prepare the printable parts</h2>
-<p>Export each printable body separately with a name and quantity: main body, panels, head/bezel, bracket, mounts, wheels and tread parts. Confirm millimetres against a known component before slicing; STL does not encode units.</p>
-<p>Add the matching slicer project or specify material, orientation, supports, layer height, walls and infill. Confirm the tread material and the insert, bearing and fastener dimensions at each location. The <a href="#chapter-11">release checklist</a> separates the existing geometry from the print settings and physical-fit checks still to confirm.</p>
-<h2 id="chapter-10--back-panel-revision">Back-panel revision</h2>
-<p>In the updated design, the Pi mounting screws enter from behind, through the <strong>outside of the back panel</strong>. Check that the exported parts match this arrangement. Follow the <a href="#chapter-6">assembly sequence</a> for motor installation, cable routing and final fitting.</p></section><section id="chapter-11"><h1 id="chapter-11--release-checklist">Release checklist</h1>
+<p>The published assembly STL contains the revised chassis and fixed head; the earlier written guide and build footage described the prototype's assembly. The current guide now follows the October design. Individual October STLs and reference 3MF projects are available alongside the original assembly reference. Use the complete matching set.</p>
+<h2 id="chapter-11--differences-from-the-filmed-prototype">Differences from the filmed prototype</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Area</th>
+<th style="text-align: left;">October design and required change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Head</td>
+<td style="text-align: left;">Fixed carrier with an enclosed hollow neck and separate rear service cover. No adjustable or motorised head joint. Use two M3 × 12 screws <strong>upward from inside the chassis</strong>, with nuts in the head ears. The older central retaining bracket is not the new cover.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Head cover</td>
+<td style="text-align: left;">Offer it <strong>1.5 mm low</strong>, move forward to the rim, then slide <strong>up 1.5 mm</strong> to engage two hooks. Secure with one M2 × 6 screw. The hooks slide; do not bend them as snap clips.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Electronics mounting</td>
+<td style="text-align: left;">Four M2 × 20 screws from outside the rear cover pass through the Pi, <strong>four 11 mm spacers</strong>, custom PCB, compact washers and nuts. Confirm the actual header mating height; do not pull the boards together with screws.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stack insertion</td>
+<td style="text-align: left;">Keep the head and both side panels off. Enter from the <strong>GPIO side</strong>, hold the stack <strong>4 mm outward</strong>, connect BAT, then seat it <strong>4 mm inward</strong>. Do not stretch the body by centimetres as in the older footage.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Battery</td>
+<td style="text-align: left;">Seat for a <strong>76 × 21 × 18.4 mm</strong> holder; measured loaded height <strong>20.4 mm</strong>. Glue the empty holder using accessible fillets after fit checks. Its central Ø3.6 hole is unused; no safe screw-head clearance has been established.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Motor retention</td>
+<td style="text-align: left;">New front-fastened clip and side-loaded M2 nut replace the old rear fastener, which conflicts with the holder. Fit the motors and clip <strong>before</strong> the holder, head, camera or electronics.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Power button</td>
+<td style="text-align: left;">Separate PETG rocker, keeper/return spring and split pivot pin operate SW1 from outside. Test no preload, a click before the stop and complete release with the actual stack installed.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Charging access</td>
+<td style="text-align: left;">Rear opening is <strong>14 × 8 mm</strong>; the modelled connector mouth is <strong>12.63 mm behind it</strong>. The cable overmold must enter far enough for full seating. This enclosure change does not alter the PCB's brownout on charger connection.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Camera</td>
+<td style="text-align: left;">The four seating planes move <strong>1 mm forward</strong>; the screw bores become <strong>14 mm deep</strong>. Check actual screws clamp before bottoming. Fit the camera after the head screws to preserve tool access.</td>
+</tr>
+<tr>
+<td style="text-align: left;">ToF</td>
+<td style="text-align: left;">Locating outline and two glue lands. Dry-fit the sensor, cover and solder tails; test readings through the window before two small glue fillets at the outer ears. No ToF screws or clamp.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wiring</td>
+<td style="text-align: left;">Battery position changes the local LCD and left-encoder routes. Use individual display housings through the neck and prewire constrained PCB plugs before inserting the stack. Keep H2 and SERVO1 empty in the standard build.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Servicing</td>
+<td style="text-align: left;">Remove both side panels and the fixed head before taking out the electronics stack or replacing the cell. Unplug display leads at the display, feed individual housings down the neck, move the stack 4 mm out, disconnect BAT, then withdraw through the GPIO side.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="chapter-11--fit-limits-to-check-on-real-parts">Fit limits to check on real parts</h2>
+<ul>
+<li><strong>Pi / PCB stack:</strong> the 11 mm gap is between the Pi's top surface and the custom PCB's underside. The Pi's 1.6 mm model thickness is an assumption. Verify actual PCB thickness, soldered header height, mating depth and clearance before tightening.</li>
+<li><strong>Button:</strong> nominal SW1 rest gap is 0.20 mm; assembly target 0.15–0.25 mm. Check no preload in every orientation and through available bearing play. A coupon cannot validate the board datum or switch position.</li>
+<li><strong>Head:</strong> front outside face to inside rear wall is 29.0 mm, overall depth 30.6 mm. The model assumes a 1.2 mm display PCB. Four approximately 24.65 mm cover posts must not load the glass, cable or components. The cover must meet its rim without screw force.</li>
+<li><strong>Display leads:</strong> the neck opening is Ø12 mm. Feed eight individual connector housings one at a time. Local head references allow housings up to 14.25 mm long, wire up to Ø1.5 mm and R3 centreline bends; actual bought leads still need checking.</li>
+<li><strong>Battery and harness:</strong> the local LCD route has only about 0.295 mm nominal clearance to the loaded-holder envelope, falling to about 0.161 mm in the tested PCB-offset cases. Its modelled R2 bend and the left-encoder R2.5 bend are clearance references, not permission to kink stiff wire. Full harness lengths are not specified by CAD.</li>
+<li><strong>Thin plastic:</strong> the minimum battery-seat floor is about 1.004 mm, rear motor wall about 1.018 mm, and panel pocket skins 0.8 mm. Check real print integrity and motor retention. Reference slicing is not a strength test.</li>
+<li><strong>ToF:</strong> a 1 mm solder-tail reference clears in CAD, but actual tails/cover and optical field of view were not measured. Verify fit and ranging in the real shell.</li>
+<li><strong>Cell service:</strong> the checked external envelope is up to 70 mm long × Ø18.6 mm. Actual spring-contact travel is not modelled. With the stack removed, the cell lifts about 20 mm before withdrawing through the battery side.</li>
+</ul>
+<h2 id="chapter-11--what-is-established">What is established</h2>
+<p>The October release records 15 closed STL meshes, 11 unsliced reference 3MF projects and nominal assembly/service checks. The individual meshes and projects are published unchanged. <a href="hardware/prints/2026-10-13/validation.json">Validation status</a> and the <a href="hardware/release-files.json">hardware manifest</a> identify the files.</p>
+<p>Physical print fit, material behaviour, repeated button use, motor retention, loaded wire clearance, optical performance and a complete new-enclosure build remain unverified. This mechanical revision does not change the PCB pinout or establish new electrical, charging or motor-load limits. Use the <a href="#chapter-5">wiring reference</a>, <a href="#chapter-4">bench tests</a> and <a href="#chapter-12">release checklist</a>.</p></section><section id="chapter-12"><h1 id="chapter-12--release-checklist">Release checklist</h1>
 <p><a href="#chapter-0">Guide home</a></p>
 <p>Complete these items before labelling the release independently reproducible. This page tracks specifications and tests that remain open.</p>
-<h2 id="chapter-11--mechanical-files">Mechanical files</h2>
+<h2 id="chapter-12--mechanical-files">Mechanical files</h2>
 <ul>
-<li>[x] Inspect the supplied STL and identify the main enclosure pieces, two side panels, head pieces, 56 mm wheel centre and 62 mm tread ring.</li>
-<li>[ ] Prepare a tested print plate with the updated external-access Pi mounting screws; resolve the main shell/closing-section open mesh boundaries before calling the extracts print-ready.</li>
-<li>[ ] Confirm units, materials, orientation, supports, layer height, walls and infill; include a slicer project.</li>
-<li>[ ] Specify M2 screw lengths/counts, M3 × 14 counts, insert outside dimensions/counts, spacers and MR128ZZ bearing locations/counts.</li>
-<li>[x] Illustrate the bearing seat, D-shaped shaft/hub fit, left-angle microphone adapter, camera screw mounting and ribbon route, head retaining bracket/inside nuts, and rear support foot using the supplied assembly photographs.</li>
-<li>[ ] Confirm the complete fastener dimensions and any additional wheel retention used on the released build; keep the documented back-panel/camera-ribbon clearances in the print-fit checks.</li>
+<li>[x] Compare the published assembly STL with the October chassis, panels, new motor clip and fixed head/cover; sampled surfaces agree within mesh export tolerance.</li>
+<li>[x] Include the unchanged 15 individual October STL exports and 11 unsliced reference 3MF projects; keep the original assembly STL as a reference.</li>
+<li>[x] Document millimetres/100% scale, reference orientation/supports and the PETG button / solid clip exceptions. These are reference slicer results, not a physically validated recipe.</li>
+<li>[x] Specify four M2 × 20 stack screws/four 11 mm spacers, M2 × 10 clip fastener, M2 × 6 head-cover fastener and two M3 × 12 head fasteners with corresponding nuts/washers.</li>
+<li>[x] Correct the written order: clip before holder/electronics; GPIO-side stack entry at 4 mm offset with head off; BAT then inward seating; head then camera.</li>
+<li>[x] Label the video/photographs as an earlier enclosure; remove the old adjustable-head and body-flex instructions from the current sequence.</li>
+<li>[ ] Physically print and dry-assemble the matching October enclosure. Check thin walls, actual motor retention, Pi/header stack height, LCD/holder clearance, button no-preload/click/release, USB seating, head hooks/posts, camera screws and ToF optics.</li>
+<li>[ ] Validate material strength, repeated button use, cable strain and full assembly/service routes on actual parts.</li>
+<li>[ ] Confirm unchanged side-panel/rear-cover/camera fasteners, insert dimensions/counts, bearing counts and any wheel retention.</li>
+<li>[ ] Supply separate wheel/tread print files and confirm tread material and successful print settings. The assembly reference contains the original hub and tread geometry.</li>
+<li>[ ] Add current-revision assembly photos after the physical build; existing photos identify components and earlier techniques.</li>
 </ul>
-<h2 id="chapter-11--electrical-specification">Electrical specification</h2>
+<h2 id="chapter-12--electrical-specification">Electrical specification</h2>
 <ul>
 <li>[x] Add a component-side connector drawing and numbered pin tables for all connectors used in this build; verify their copper connectivity in the manufactured Gerbers.</li>
 <li>[ ] Archive a fully matching editable schematic: the available schematic PDFs retain the older power circuit even though the PCB exports contain the newer IP5306 stage.</li>
@@ -1644,14 +1837,14 @@ This is <strong>not a ready-to-print plate</strong>. The assembly includes model
 <li>[ ] Record actual unloaded/loaded voltages, cell/protection configuration, charge settings and permitted simultaneous inputs.</li>
 <li>[ ] Validate the supply, duty and load limits for the 3 V motors, including startup and thermal checks.</li>
 </ul>
-<h2 id="chapter-11--software-and-repeatability">Software and repeatability</h2>
+<h2 id="chapter-12--software-and-repeatability">Software and repeatability</h2>
 <ul>
-<li>[ ] Publish an audited runtime archive and SHA-256 under an immutable tag in ace-builder/Robbi. Installer publication alone is not a runtime release; assets remain on hold.</li>
+<li>[ ] Publish this reviewed source snapshot with its sealed runtime manifest under an immutable tag in ace-builder/Robbi. A separate runtime Release is optional.</li>
 <li>[ ] Complete a fresh Bookworm 64-bit installation and record the working package versions.</li>
 <li>[ ] Validate the generated config/robot.yaml, setup wizard and service on a fresh Pi, including missing peripherals, network recovery and dashboard IMU calibration.</li>
 <li>[ ] Complete the build record: movement, stop/fault/restart behaviour, STT, LLM, TTS and full spoken interaction.</li>
 <li>[ ] Have another builder follow the guide without additional private instructions.</li>
-<li>[ ] Add appropriate code, CAD and media licences; exclude credentials and personal runtime state.</li>
+<li>[x] Prepare non-commercial code, CAD/documentation/artwork licences and retain third-party notices; exclude credentials and personal runtime state. Review these proposed terms before publishing.</li>
 </ul>
-<h2 id="chapter-11--publication-scope">Publication scope</h2>
-<p>Only <code>install.sh</code> is authorized for upload at present. Runtime, guide, warning banner, CAD and media stay local until the asset review is finished and publication is authorized. No <code>.env</code> files, owner data, private addresses, custom voice IDs or device-specific deployment records may enter a release.</p></section></main></body></html>
+<h2 id="chapter-12--publication-scope">Publication scope</h2>
+<p>The repository contains the reviewed software snapshot and the hardware guide. Publication does not establish physical validation of the revised printed enclosure. No <code>.env</code> files, owner data, private addresses, custom voice IDs or device-specific deployment records may enter a release.</p></section></main></body></html>

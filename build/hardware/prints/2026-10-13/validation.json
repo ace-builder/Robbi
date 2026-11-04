@@ -1,0 +1,39 @@
+{
+  "design_revision": "2026-10-13",
+  "status": "CAD_AND_REFERENCE_SLICER_CHECKS_ONLY",
+  "physical_print_tested": false,
+  "physical_full_assembly_tested": false,
+  "source_release_report": {
+    "status": "PASS_NOMINAL_CAD_AND_REFERENCE_PRINTABILITY",
+    "print_STLs": 15,
+    "unsliced_3MF_projects": 11,
+    "native_archive_reopened": true
+  },
+  "published_individual_exports_unchanged": true,
+  "published_assembly_stl_unchanged": true,
+  "sampled_surface_comparison": {
+    "parts": [
+      "chassis",
+      "battery-side panel",
+      "GPIO-side panel",
+      "front-fastened motor clip",
+      "fixed head carrier",
+      "head rear service cover"
+    ],
+    "sampled_vertices": 14000,
+    "maximum_distance_mm": 0.026,
+    "interpretation": "Sampled surfaces agree within mesh export tolerance after accounting for pose. Not a complete equivalence or physical-fit test."
+  },
+  "remaining_checks": [
+    "actual print fit and strength",
+    "motor retention",
+    "actual Pi/header stack height",
+    "LCD and encoder harness clearance",
+    "button preload/click/release",
+    "USB cable seating",
+    "head hooks/posts and display fit",
+    "camera screw depth",
+    "ToF solder/optical clearance",
+    "complete service route"
+  ]
+}
