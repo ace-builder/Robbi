@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A luxurious velvet curtain swishes open, one tiny coin spins and settles with a delicate metallic clink, an elegant shimmering glass chime. Dry premium foley. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "428ddee68f421e49a66e5b494276e40c288a2cede87870d4455252d2a393d942"
+}

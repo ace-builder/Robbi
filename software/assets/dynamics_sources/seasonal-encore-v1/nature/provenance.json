@@ -1,0 +1,41 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "generated_on": "2026-10-23",
+  "transparent_background": true,
+  "intent": "generate",
+  "preservation": "Unmodified original RGBA PNGs. Runtime uses transparent crop, proportional resize and translation only. Other artwork is native Pillow illustration.",
+  "assets": [
+    {
+      "file": "strawberry.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent fixed prop for a tiny summer picnic animation. Primary request: one delicious large ripe strawberry, full fruit visible upright in a three-quarter front view, pointed tip down and small crown of five broad fresh sage green leaves on top, short curved stem. Warm detailed children's storybook gouache with subtly sculpted volume, luminous coral red fruit, delicate golden seeds, tactile painterly texture and clean bold silhouette that reads beautifully at 100 pixels tall. Genuine transparent background. One isolated strawberry only, no plate, no ants, no ground, no cast shadow, no face, no text, no watermark, no robot. Ample transparent margins.",
+      "sha256": "91179a0e84e1b1bc84eff0c55e011ebf3c215172dbff2dafbfff097c114b3c25",
+      "original_sha256": "91179a0e84e1b1bc84eff0c55e011ebf3c215172dbff2dafbfff097c114b3c25",
+      "mode": "RGBA",
+      "size": [
+        1207,
+        1303
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "woodland-mushroom.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent fixed prop for an autumn harvest animation. Primary request: one charming woodland mushroom, whole mushroom visible upright in a three-quarter front view, generous softly domed chestnut cinnamon cap, subtle cream gills visible under its rounded edge, stout ivory stem widening slightly at its foot. Warm detailed children's storybook gouache with softly sculpted volume, rich tactile cap texture, gentle amber highlights and clean bold silhouette that reads beautifully at 100 pixels tall. Genuine transparent background. One isolated mushroom only, no forest, no leaves, no soil, no cast shadow, no face, no text, no watermark, no robot. Ample transparent margins.",
+      "sha256": "4c83b1d4812588ee01c905816cb39b37ee522c90d070472f8fa7d9f7f6140ee8",
+      "original_sha256": "4c83b1d4812588ee01c905816cb39b37ee522c90d070472f8fa7d9f7f6140ee8",
+      "mode": "RGBA",
+      "size": [
+        1309,
+        1202
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

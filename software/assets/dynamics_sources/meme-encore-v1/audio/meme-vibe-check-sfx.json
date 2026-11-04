@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Tiny airport conveyor motor hum, a clean electronic scanner sweep, two satisfying soft approval chimes, a very small rubber duck squeak. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "cb3febe92bd76656e727b95db8ee30df9e696d536e2693a4f329c4ccc2267a9f"
+}

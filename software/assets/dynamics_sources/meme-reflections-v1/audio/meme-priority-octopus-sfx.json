@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Eight little cloth flags flap in quick escalating bursts, funny soft rubber squeaks overlap, then a single crisp pop and one calm wooden tick. Comedic dry foley, no voices, no words, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "5392e7b2ae6d4a529ef53e14f0a71eacece6ea30b984313b68d4059c5d960cb9"
+}

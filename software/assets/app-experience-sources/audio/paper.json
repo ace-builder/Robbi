@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A tiny paper page flick followed by a gentle rounded wooden tap. Tactile friendly notebook confirmation, one second, dry clean isolated, no voice, no music.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 1302.62
+}

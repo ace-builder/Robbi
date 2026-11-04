@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Several tiny funny sticky snail footsteps, a short accelerating clock tick, then a heavy rubber office stamp thud with a little spring wobble. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "b1fc27614b74668d50f4e2fb8bf45244bc7f857db2ecece195a9aea1f8a4c50b"
+}

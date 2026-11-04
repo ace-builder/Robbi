@@ -1,0 +1,16 @@
+.imu-layout{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:20px;align-items:start}
+.imu-stage{height:430px;min-width:0;position:relative;background:#fafbf9;border:1px solid var(--line);border-radius:6px;overflow:hidden;touch-action:none}
+.imu-stage canvas{display:block;width:100%;height:100%}
+.imu-model-note{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:24px;color:var(--muted);pointer-events:none}
+.imu-model-note[hidden]{display:none}.imu-panel .panel-head{flex-wrap:wrap;gap:10px}
+.imu-angles{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;gap:12px}
+.imu-angles>div{padding:13px;border:1px solid var(--line);border-radius:5px;background:#fff}
+.imu-angles span{display:block;color:var(--muted);font-size:12px}.imu-angles strong{display:block;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.imu-status{font-size:13px;min-height:40px;margin:12px 0 0}.imu-status[data-state=error]{color:var(--amber)}
+.imu-details dl{margin:0}.imu-details dd{font-variant-numeric:tabular-nums}.imu-axis-grid{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+.imu-axis-grid th,.imu-axis-grid td{text-align:right;padding:7px 4px;border-bottom:1px solid var(--line)}.imu-axis-grid th:first-child{text-align:left}
+.imu-axis-grid caption{text-align:left;color:var(--muted);margin:8px 0}.imu-axis-grid thead th{font-size:11px;font-weight:500}
+.imu-calibration{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.alignment-steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.alignment-steps button{text-transform:capitalize}#imu-alignment>.panel-head{flex-wrap:wrap;gap:12px}#imu-alignment h2{margin-bottom:6px}#alignment-wizard{border-top:1px solid var(--line);margin-top:16px}#alignment-progress{min-height:24px}
+@media(max-width:1100px){.imu-layout{grid-template-columns:minmax(0,1fr)}.imu-details{max-width:none}.imu-stage{height:400px}}
+@media(max-width:600px){.imu-stage{height:310px}.imu-angles{gap:6px}.imu-angles>div{padding:10px 8px}.imu-angles strong{font-size:21px}.imu-panel .actions{gap:8px}.imu-panel .actions button{flex:1 1 auto}}

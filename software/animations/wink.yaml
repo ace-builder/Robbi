@@ -1,0 +1,5 @@
+- face: "wink.png"
+  sound: "wink.wav"
+  ms: 800
+- face: "happy.png"
+  ms: 0               # stay until next command

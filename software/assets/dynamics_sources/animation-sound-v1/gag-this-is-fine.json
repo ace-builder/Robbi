@@ -1,0 +1,13 @@
+{
+  "id": "gag-this-is-fine",
+  "title": "Tea amid the crackles",
+  "duration_s": 3.0,
+  "prompt": "Quiet tiny fireplace crackles, with one close-up exaggerated tea sip at the middle and a delicate porcelain cup clink near the end. Cozy absurd comedy, no fire roar. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "9fd8677ef476a5308f0a983526bda1fc761489d2ba44d2de2f0785ce0f79d1f1",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

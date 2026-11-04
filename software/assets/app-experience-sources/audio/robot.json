@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A tiny friendly desktop robot makes two soft bubbly electronic bloops then a warm rising chirp. Expressive and cute, one second, dry clean, no speech or harsh beeps.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "d0cfd8067399ecbfd9b73217897ff5710fa16c5763874dc454cec7223e94fe35",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 7189.89
+}

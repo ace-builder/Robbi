@@ -1,0 +1,49 @@
+{
+  "collection": "seasonal-encore-v1",
+  "group": "holidays",
+  "created": "2026-10-23",
+  "skill": "",
+  "assets": [
+    {
+      "name": "rubber-duck",
+      "file": "rubber-duck.png",
+      "original": "",
+      "sha256": "833ab8842412fb5d615ec1589136235c1ba84a21807000e464824b816b0d5468",
+      "prompt": "Use case: illustration-story. Asset type: a single fixed transparent prop for a tiny 280x240 animation. Subject: one charming classic yellow rubber duck, whole duck in left-facing side view, plump rounded body and raised head, a small coral orange beak, one simple dark plum dot eye, a tiny sculpted wing. Style: polished warm storybook gouache with a thick warm plum outline, clean bold silhouette, subtle paper grain and cream highlights, readable at 70-100 pixels. Palette honey yellow, golden ochre, coral orange and warm plum, no blue. Composition centered, generous transparent margin, no perspective distortion, no ground, no cast shadow, no spring or accessories. Genuinely transparent background clean alpha. No lettering, watermark, logos, robots, other objects.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "selection": "Original alpha preserved; no source edits. Fixed source reused for every frame."
+    },
+    {
+      "name": "warm-pretzel",
+      "file": "warm-pretzel.png",
+      "original": "",
+      "sha256": "720c7f9b42eb19089438b5abe468ded67d73af9e9224b6cd62b3a58fe6880509",
+      "prompt": "Use case: illustration-story. Asset type: a single fixed transparent prop for a tiny 280x240 animation. Subject: one plump traditional golden brown soft pretzel, clear classic symmetrical three-hole knotted silhouette, a few large irregular cream salt crystals on top, warm baked highlights, no face. Front view, whole pretzel centered with generous transparent margin. Style: polished warm storybook gouache with a thick warm plum outline, subtle baked texture and paper grain, simple bold silhouette readable at 75-100 pixels. Palette honey, cinnamon, golden caramel and cream. Genuinely transparent background clean alpha. No background, ground, cast shadow, plates, other pretzels, lettering, watermark, logos, robots, blue or alcohol.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "selection": "Original alpha preserved; no source edits. Fixed source reused for every frame."
+    }
+  ],
+  "native_artwork": [
+    "Terracotta flowerpot and coil spring",
+    "Clay oil diya and original eight-petal geometric rangoli",
+    "Nine-holder hanukkiah: eight equal-height row holders plus separate higher central shamash"
+  ],
+  "primary_symbol_guide": [
+    {
+      "url": "https://www.jmberlin.de/en/8-times-hanukkah",
+      "applied": "Eight holders in a straight row plus separate ninth shamash."
+    },
+    {
+      "url": "https://reformjudaism.org/jewish-holidays/hanukkah/hanukkah-customs-and-rituals",
+      "applied": "Clearly raised helper; side candles light left-to-right."
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/museum-life/letsmakewednesdays-diwali",
+      "applied": "Small clay oil lamp and original geometric rangoli; no copied pattern or religious text."
+    }
+  ]
+}

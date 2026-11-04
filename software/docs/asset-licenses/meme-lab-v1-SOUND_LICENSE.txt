@@ -1,0 +1,14 @@
+Robbi after hours - original nonverbal soundtracks
+
+The seven synthesized WAV soundtracks, and the original sound synthesis recipes
+in tools/prepare_meme_lab.py, are dedicated to the public domain under CC0 1.0
+Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+No voices, recorded music, downloaded effects or third-party samples were used.
+All oscillators, envelopes, filtered noise, pitch contours and event timings are
+authored in the synthesis script. Outputs are deterministic and may be reused,
+modified and redistributed without attribution.
+
+This dedication covers the original synthesized audio. It does not change the
+terms of the generated illustrations, existing Robbi face artwork, Lato fonts,
+or software dependencies. Lato's separate SIL Open Font License is included.

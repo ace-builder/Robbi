@@ -1,0 +1,13 @@
+{
+  "id": "gag-hamster-brain",
+  "title": "One wheel horsepower",
+  "duration_s": 3.0,
+  "prompt": "A tiny hamster running wheel with quick soft paw patters and a lightly squeaking wooden axle, gathering speed then coasting down. Cute miniature mechanical foley, no animal cries. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "35654d42e6cc22c029297861047df500abfcbc6e56c13c26c6250f4cf2f30bfe",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

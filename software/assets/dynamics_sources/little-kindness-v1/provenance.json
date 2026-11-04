@@ -1,0 +1,41 @@
+{
+  "tool": "built-in imagegen",
+  "created": "2026-10-23",
+  "originals": [
+    {
+      "name": "flower",
+      "source": "",
+      "sha256": "1f584670add587a863b867b280fbf72a57086e8a8ff3ed120cb564265bd09b8a",
+      "size": [
+        1355,
+        1161
+      ],
+      "alpha": true
+    },
+    {
+      "name": "cookie",
+      "source": "",
+      "sha256": "2d05e318579e1ca3c886540f6c8628f4983711c0d0c168a5f35f1edb0c34bcc5",
+      "size": [
+        1354,
+        1161
+      ],
+      "alpha": true
+    },
+    {
+      "name": "umbrella",
+      "source": "",
+      "sha256": "080811874993eef0b58cba902bff855f561c604914d762ec023c414b3ee71fb6",
+      "size": [
+        1355,
+        1161
+      ],
+      "alpha": true
+    }
+  ],
+  "face_plate": {
+    "derived_from": "test-results/emotion-build/plate.png",
+    "method": "Existing registered emotion face exporter; fixed background with cleared feature regions",
+    "sha256": "786ce5b9ad3f7b84e4817da16367bebfa4fc6df8207555c3aeced233343e55b7"
+  }
+}

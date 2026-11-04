@@ -1,0 +1,13 @@
+{
+  "id": "gag-task-failed",
+  "title": "Accidental competence",
+  "duration_s": 3.0,
+  "prompt": "A short low bassoon stumble, a brief comic pause, then a surprisingly cheerful two-stroke toy xylophone flourish and soft woodblock tap. Original awkward failure turning into success. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "aa0db0b85086efd6dd8e04273b39b24085f4c7068844ab48f965cb26cce68f8d",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

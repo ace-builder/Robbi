@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A playful little water droplet plop and two delicate kalimba notes, like a tiny sprout opening. Warm friendly gentle confirmation, one second, isolated, no voice, no music bed.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "2b8488a7926f6224dee3f560fec93bba52849bc03056fa0ea88861a9a94d0611",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 1436.59
+}

@@ -1,0 +1,13 @@
+{
+  "id": "gag-buffering",
+  "title": "The stalled office",
+  "duration_s": 3.0,
+  "prompt": "A miniature mechanical printer works eagerly with dry paper-feed ticks for the first half, then jams with a tiny rubber belt squeak and one final defeated wooden click. Comic waiting. No electronic notification tones. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "317545e31370fb48d453025e6beebd79455e2a6d600cbd6d8813e6a03cf2e06a",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

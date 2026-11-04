@@ -1,0 +1,9 @@
+{
+  "file": "carnival-mask.png",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: illustration-story. Asset type: ONE fixed transparent carnival eye-mask prop for a warm storybook mini-animation viewed on a 280x240 LCD. Subject: a beautifully crafted paper carnival half-mask viewed directly from front, wide symmetrical swept wing shape, two generous almond eye openings that are genuinely transparent, tiny central nose bridge, no mouth, no human behind it. Hand-painted warm coral-red and muted lilac panels, golden ochre filigree trim with a few large simple gold dots, subtly dimensional folded card edges, restrained elegant detail readable at 100 pixels wide. Entire mask isolated, no ribbons, no feathers, no stick: those will be independent animated elements added in code. Style: polished gouache children's book illustration, warm soft shading and clear crisp silhouette. Composition: whole single object centered horizontally with generous transparent margin, true transparent background and eye holes. No lettering, no logos, no watermark, no people, no skin, no blue robot, no surrounding scene, no external cast shadow.",
+  "original_path": "",
+  "date": "2026-10-23",
+  "processing": "Original image copied unchanged. Animation uses crop, scale, rotation and compositing transforms only.",
+  "sha256": "17c9ad4350fd580d470523dc994526b165e90093acfa8a760d8742140a105c75"
+}

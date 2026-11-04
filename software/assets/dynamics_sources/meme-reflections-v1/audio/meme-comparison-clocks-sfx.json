@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Two small clocks tick at different speeds, one quick and one slow, then both stop gently and two equal warm glass chimes ring together. Quiet tactile foley, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "f11c8a065ebbc3ce16aa0734f882db50cd08bfc213c7ecfc779c028697f869a5"
+}

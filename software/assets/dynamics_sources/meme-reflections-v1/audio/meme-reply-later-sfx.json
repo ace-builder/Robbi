@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Three small inbox ticks, crisp paper folds, a tiny glass bottle clinks and a cork softly pops into place, a gentle water plop. Miniature whimsical foley, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "6f97b1540406a5b7218e5c43b6a41427706b7eceee9788258c698b58785ba9d6"
+}

@@ -1,0 +1,81 @@
+api_version: 2
+id: tip-splitter
+name: Tips and bill splitting
+version: 1.1.0
+entrypoint: main:run
+description: Calculate a tip and split the rounded total into shares that add up exactly.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Split a 93 euro bill between four people with a 15 percent tip
+tools:
+- name: split
+  title: Split a bill
+  description: Add a tip and split equally. First people receive any spare smallest currency units. Specify
+    decimal places for currencies that do not use two.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      bill:
+        type: number
+        title: Bill amount
+        minimum: 0
+        maximum: 1000000000
+        x-order: 0
+      tip_percent:
+        type: number
+        title: Tip percent
+        minimum: 0
+        maximum: 100
+        default: 10
+        x-order: 10
+      people:
+        type: integer
+        title: People
+        minimum: 1
+        maximum: 100
+        default: 2
+        x-order: 20
+      currency:
+        type: string
+        title: Currency label
+        maxLength: 3
+        default: EUR
+        x-order: 30
+      decimal_places:
+        type: integer
+        title: Currency decimal places
+        minimum: 0
+        maximum: 3
+        default: 2
+        x-order: 40
+    required:
+    - bill
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- bills
+- tips
+- splitting
+images:
+  icon: images/icon.png
+  screen: images/screen.png

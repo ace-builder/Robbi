@@ -1,0 +1,13 @@
+{
+  "id": "gag-achievement",
+  "title": "Unreasonably prestigious",
+  "duration_s": 3.0,
+  "prompt": "An original miniature acoustic celebration: three nimble pizzicato string plucks rising, a small party-popper paper puff at the middle and delicate tambourine confetti settling. No arcade beeps. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "ae0baaa442ecf81727419d77a5c5cb712375f41756bcf617dd5bb050ccb11b94",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

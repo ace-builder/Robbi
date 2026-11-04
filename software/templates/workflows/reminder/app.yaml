@@ -1,0 +1,14 @@
+id: reminder
+name: Reminder
+version: 0.1.0
+description: Schedule a delayed reminder that Robbi will announce later.
+triggers:
+  - remind me
+  - reminder
+  - remind
+prompt: |
+  When the user wants a delayed reminder, use this app.
+  Pass app input as an object with:
+  - delay_seconds: numeric delay until due
+  - message: short reminder content
+  If the user asks to stop or cancel a reminder, use app id reminder with input {"action":"cancel"}.

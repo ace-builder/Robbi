@@ -1,0 +1,13 @@
+{
+  "id": "double-blink",
+  "title": "Two silk flicks",
+  "duration_s": 1.09,
+  "prompt": "Two distinct quick soft silk flicks, a little pause between them, second slightly lighter, then silence. A curious double blink. No musical tones. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 0.8700000000000001,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "dc5ee55b2b07fb97d53b9250252f870a966781ce69d16594fa5b702e86e645cc",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

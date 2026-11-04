@@ -1,0 +1,115 @@
+api_version: 2
+id: percentage-helper
+name: Percentages and discounts
+version: 1.1.0
+entrypoint: main:run
+description: Calculate portions, percentage changes, discounts and markups locally.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- What is 18 percent of 240?
+- Take 25 percent off 79.99
+tools:
+- name: percent_of
+  title: Percentage of a value
+  description: Calculate percent of a value.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      value:
+        type: number
+        title: Value
+        minimum: -1000000000000.0
+        maximum: 1000000000000.0
+        x-order: 0
+      percent:
+        type: number
+        title: Percent
+        minimum: -1000000
+        maximum: 1000000
+        x-order: 10
+    required:
+    - value
+    - percent
+- name: change
+  title: Percentage change
+  description: Calculate change from an original to a new value. A zero starting value is undefined. Negative
+    originals use their absolute magnitude as denominator.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      value:
+        type: number
+        title: Original value
+        minimum: -1000000000000.0
+        maximum: 1000000000000.0
+        x-order: 0
+      new_value:
+        type: number
+        title: New value
+        minimum: -1000000000000.0
+        maximum: 1000000000000.0
+        x-order: 10
+    required:
+    - value
+    - new_value
+- name: adjust
+  title: Discount or increase
+  description: Apply a discount or percentage increase to a nonnegative amount.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      value:
+        type: number
+        title: Original amount
+        minimum: 0
+        maximum: 1000000000000.0
+        x-order: 0
+      percent:
+        type: number
+        title: Percent
+        minimum: 0
+        maximum: 1000000
+        x-order: 10
+      operation:
+        type: string
+        title: Operation
+        maxLength: 10
+        enum:
+        - discount
+        - increase
+        default: discount
+        x-order: 20
+    required:
+    - value
+    - percent
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- percentages
+- discounts
+- math
+images:
+  icon: images/icon.png
+  screen: images/screen.png

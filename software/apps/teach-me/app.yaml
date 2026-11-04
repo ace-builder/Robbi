@@ -1,0 +1,119 @@
+api_version: 2
+id: teach-me
+name: Teach Me Something
+version: 1.1.0
+entrypoint: main:run
+description: Five-minute offline lessons, personal study cards and spaced recall reviews.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Teach me something about Python
+- Review my German
+- Save this as a study card
+tools:
+- name: study
+  title: Learn and review
+  description: Start a five-minute lesson or due review in python, german, science, history or a custom
+    topic. Recall before reveal; then explicitly grade again/hard/good/easy to schedule the next review.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+        - topics
+        - start
+        - review
+        - reveal
+        - grade
+        - status
+        default: topics
+      topic:
+        type: string
+        maxLength: 40
+        default: python
+      grade:
+        type: string
+        enum:
+        - again
+        - hard
+        - good
+        - easy
+- name: cards
+  title: My study cards
+  description: List, save or delete custom cards. A save without id creates; with id edits only supplied
+    fields and resets review progress. Built-in topics cannot be edited. Use returned IDs.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+        - list
+        - save
+        - delete
+        default: list
+      id:
+        type: string
+        maxLength: 32
+        default: ''
+        x-advanced: true
+      topic:
+        type: string
+        maxLength: 40
+      title:
+        type: string
+        maxLength: 100
+      question:
+        type: string
+        maxLength: 300
+      answer:
+        type: string
+        maxLength: 500
+      lesson:
+        type: string
+        maxLength: 500
+        x-advanced: true
+      practice:
+        type: string
+        maxLength: 200
+        x-advanced: true
+- name: progress
+  title: Review progress
+  description: Show learned cards, due dates and the cards most recently rated difficult. No background
+    notifications or changes.
+  read_only: true
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties: {}
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: learning
+tags:
+- lessons
+- flashcards
+- spaced-review
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+images:
+  icon: images/icon.png
+  screen: images/screen.png

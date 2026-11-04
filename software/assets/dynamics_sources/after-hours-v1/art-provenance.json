@@ -1,0 +1,38 @@
+[
+  {
+    "name": "boundary-cactus",
+    "source": "",
+    "file": "boundary-cactus.png",
+    "sha256": "90bf2b4519a513752ec1278214dd23930c9909b340f4cf9e4a1dcdf10b33eb38",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "judge-shrimp",
+    "source": "",
+    "file": "judge-shrimp.png",
+    "sha256": "66eb6e7831b5fd5da2bd0335a6d334f5db2a6fd8bd90a3d6b8d38aeacd93043b",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "capybara-rest",
+    "source": "",
+    "file": "capybara-rest.png",
+    "sha256": "fef942b4fff0b08b244cd1846aad92f5aafebc8566285cc99247c2b20506bdc8",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "tool": "built-in image_gen"
+  }
+]

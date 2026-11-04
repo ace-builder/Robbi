@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Two delicate ceramic pieces gently touch and settle together, followed by a small warm rubbed-glass shimmer and a soft leaf unfurling rustle. Tender and hopeful, close-up foley, no voices, no melody.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "734c36e3ddf25d71ad050f289373ea46b22faaccff6f671bdc12fbdb93f246b7"
+}

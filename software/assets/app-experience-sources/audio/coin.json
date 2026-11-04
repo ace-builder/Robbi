@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A single tiny golden coin spins with a delicate metallic flutter then lands with a warm bright ting. Friendly toy-like coin flip reveal. One second, dry isolated, no voice, no music, no harsh frequencies.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "c5e91b8808dde84aa3490c92ef0c05b765abcf566ff5ede5342c89eab5679793",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 1545.93
+}

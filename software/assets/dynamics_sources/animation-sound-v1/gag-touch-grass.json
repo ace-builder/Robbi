@@ -1,0 +1,13 @@
+{
+  "id": "gag-touch-grass",
+  "title": "Botanical permission",
+  "duration_s": 3.0,
+  "prompt": "Gentle close-up grass and leaf rustle grows upward, two tiny soft pats on a moss cushion at the middle, then a brief delicate outdoor bird twitter. Peaceful tactile foley. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "f3854bb4644f26bffddfe97d69af6be525e7ba9c4be9485052ac668c268604e4",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

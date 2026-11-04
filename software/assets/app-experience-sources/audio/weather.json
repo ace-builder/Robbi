@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A tiny airy soft whoosh opening into two warm sunlit bell drops. Gentle weather reveal, one second, isolated, no thunder, no voice, no music bed.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "ebc2f8d6b6571a58f5405ef950e39602a344d182d0125b9866f7b638a864af17",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 2688.5
+}

@@ -1,0 +1,80 @@
+{
+  "collection": "seasonal-encore-v1",
+  "assets": [
+    {
+      "file": "assets/dynamics_sources/seasonal-encore-v1/festive/carnival-mask.png",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: illustration-story. Asset type: ONE fixed transparent carnival eye-mask prop for a warm storybook mini-animation viewed on a 280x240 LCD. Subject: a beautifully crafted paper carnival half-mask viewed directly from front, wide symmetrical swept wing shape, two generous almond eye openings that are genuinely transparent, tiny central nose bridge, no mouth, no human behind it. Hand-painted warm coral-red and muted lilac panels, golden ochre filigree trim with a few large simple gold dots, subtly dimensional folded card edges, restrained elegant detail readable at 100 pixels wide. Entire mask isolated, no ribbons, no feathers, no stick: those will be independent animated elements added in code. Style: polished gouache children's book illustration, warm soft shading and clear crisp silhouette. Composition: whole single object centered horizontally with generous transparent margin, true transparent background and eye holes. No lettering, no logos, no watermark, no people, no skin, no blue robot, no surrounding scene, no external cast shadow.",
+      "original_path": "",
+      "sha256": "17c9ad4350fd580d470523dc994526b165e90093acfa8a760d8742140a105c75",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "file": "assets/dynamics_sources/seasonal-encore-v1/nature/strawberry.png",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: illustration-story. Asset type: transparent fixed prop for a tiny summer picnic animation. Primary request: one delicious large ripe strawberry, full fruit visible upright in a three-quarter front view, pointed tip down and small crown of five broad fresh sage green leaves on top, short curved stem. Warm detailed children's storybook gouache with subtly sculpted volume, luminous coral red fruit, delicate golden seeds, tactile painterly texture and clean bold silhouette that reads beautifully at 100 pixels tall. Genuine transparent background. One isolated strawberry only, no plate, no ants, no ground, no cast shadow, no face, no text, no watermark, no robot. Ample transparent margins.",
+      "original_path": "",
+      "sha256": "91179a0e84e1b1bc84eff0c55e011ebf3c215172dbff2dafbfff097c114b3c25",
+      "size": [
+        1207,
+        1303
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/dynamics_sources/seasonal-encore-v1/nature/woodland-mushroom.png",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: illustration-story. Asset type: transparent fixed prop for an autumn harvest animation. Primary request: one charming woodland mushroom, whole mushroom visible upright in a three-quarter front view, generous softly domed chestnut cinnamon cap, subtle cream gills visible under its rounded edge, stout ivory stem widening slightly at its foot. Warm detailed children's storybook gouache with softly sculpted volume, rich tactile cap texture, gentle amber highlights and clean bold silhouette that reads beautifully at 100 pixels tall. Genuine transparent background. One isolated mushroom only, no forest, no leaves, no soil, no cast shadow, no face, no text, no watermark, no robot. Ample transparent margins.",
+      "original_path": "",
+      "sha256": "4c83b1d4812588ee01c905816cb39b37ee522c90d070472f8fa7d9f7f6140ee8",
+      "size": [
+        1309,
+        1202
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/dynamics_sources/seasonal-encore-v1/holidays/rubber-duck.png",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: illustration-story. Asset type: a single fixed transparent prop for a tiny 280x240 animation. Subject: one charming classic yellow rubber duck, whole duck in left-facing side view, plump rounded body and raised head, a small coral orange beak, one simple dark plum dot eye, a tiny sculpted wing. Style: polished warm storybook gouache with a thick warm plum outline, clean bold silhouette, subtle paper grain and cream highlights, readable at 70-100 pixels. Palette honey yellow, golden ochre, coral orange and warm plum, no blue. Composition centered, generous transparent margin, no perspective distortion, no ground, no cast shadow, no spring or accessories. Genuinely transparent background clean alpha. No lettering, watermark, logos, robots, other objects.",
+      "original_path": "",
+      "sha256": "833ab8842412fb5d615ec1589136235c1ba84a21807000e464824b816b0d5468",
+      "size": [
+        1355,
+        1161
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/dynamics_sources/seasonal-encore-v1/holidays/warm-pretzel.png",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: illustration-story. Asset type: a single fixed transparent prop for a tiny 280x240 animation. Subject: one plump traditional golden brown soft pretzel, clear classic symmetrical three-hole knotted silhouette, a few large irregular cream salt crystals on top, warm baked highlights, no face. Front view, whole pretzel centered with generous transparent margin. Style: polished warm storybook gouache with a thick warm plum outline, subtle baked texture and paper grain, simple bold silhouette readable at 75-100 pixels. Palette honey, cinnamon, golden caramel and cream. Genuinely transparent background clean alpha. No background, ground, cast shadow, plates, other pretzels, lettering, watermark, logos, robots, blue or alcohol.",
+      "original_path": "",
+      "sha256": "720c7f9b42eb19089438b5abe468ded67d73af9e9224b6cd62b3a58fe6880509",
+      "size": [
+        1355,
+        1161
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

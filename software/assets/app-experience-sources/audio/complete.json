@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "Two soft rounded marimba notes rising into a small warm bell shimmer. Understated friendly accomplishment sound, one second, dry isolated, no voice, no dramatic fanfare.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 2797.12
+}

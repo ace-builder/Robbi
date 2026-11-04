@@ -1,0 +1,167 @@
+api_version: 2
+id: fridge-rescue
+name: Fridge Rescue
+version: 1.1.0
+entrypoint: main:run
+description: Track food stock and dates, suggest offline recipes and maintain an app-owned shopping list.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- What can I cook with what I have?
+- Show food with dates coming up soon
+tools:
+- name: stock
+  title: Food stock
+  description: List, save or remove stock. New records need name; optional id updates only supplied fields
+    (empty expires clears date). Dates are labels, not safety checks; past-date stock is excluded from
+    recipes.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - list
+        - save
+        - remove
+        default: list
+      name:
+        type: string
+        title: Ingredient name
+        maxLength: 80
+      quantity:
+        type: string
+        title: Quantity, e.g. 2 cans
+        maxLength: 40
+      expires:
+        type: string
+        title: Date YYYY-MM-DD (optional)
+        maxLength: 10
+      storage:
+        type: string
+        title: Storage
+        maxLength: 10
+        enum:
+        - fridge
+        - freezer
+        - pantry
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+      view:
+        type: string
+        title: List filter
+        maxLength: 10
+        enum:
+        - all
+        - soon
+        - past_date
+        default: all
+        x-advanced: true
+      days:
+        type: integer
+        title: Soon within days
+        minimum: 0
+        maximum: 30
+        default: 3
+        x-advanced: true
+- name: suggest
+  title: Suggest recipes
+  description: Read-only offline ingredient matching; excludes past-date stock. Names match common English/German
+    aliases. Exclusions are literal ingredient filters, not allergy guarantees.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      exclude:
+        type: array
+        title: Exclude ingredients
+        items:
+          type: string
+          title: Ingredient
+          maxLength: 80
+        maxItems: 8
+        default: []
+      count:
+        type: integer
+        title: Maximum ideas
+        minimum: 1
+        maximum: 8
+        default: 5
+  read_only: true
+- name: shopping
+  title: Fridge shopping list
+  description: Manage this app's own shopping list, separate from Robbi's shared list. add_missing adds
+    absent ingredients from an exact recipe_id only when explicitly requested. Other changes use returned
+    item id.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 12
+        enum:
+        - list
+        - add
+        - add_missing
+        - bought
+        - needed
+        - remove
+        default: list
+      items:
+        type: array
+        title: Items to add
+        items:
+          type: string
+          title: Item
+          maxLength: 80
+        maxItems: 12
+      recipe_id:
+        type: string
+        title: Recipe ID
+        maxLength: 40
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      default: Europe/Berlin
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: home
+tags:
+- food
+- recipes
+- shopping
+images:
+  icon: images/icon.png
+  screen: images/screen.png

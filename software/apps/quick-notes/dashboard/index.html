@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quick Notes</title>
+  <script src="../../../../static/app-sdk.js"></script>
+  <style>
+    :root{font-family:system-ui,Arial,sans-serif;color:#202322;background:white;font-size:14px}*{box-sizing:border-box}body{margin:0;padding:22px}h1{font-size:20px;letter-spacing:-.4px;margin:0 0 6px}p{margin:0 0 17px;color:#666d69;font-size:13px}label{display:block;font-size:13px;font-weight:600}textarea{display:block;width:100%;resize:vertical;min-height:82px;border:1px solid #c9ceca;border-radius:5px;font:inherit;padding:11px;margin-top:8px}button{font:inherit;border:1px solid #c9ceca;border-radius:5px;background:white;color:#202322;padding:8px 13px;min-height:38px;cursor:pointer}button:hover{background:#f5f6f4}button:disabled{opacity:.5;cursor:default}button.primary{color:white;background:#202322;border-color:#202322}button:focus-visible,textarea:focus-visible{outline:3px solid #535f57;outline-offset:3px}.actions{display:flex;gap:9px;margin:12px 0 16px;align-items:center;flex-wrap:wrap}#status{font-size:12px;color:#666d69}#status.error{color:#a33232}.note{border-top:1px solid #dce0dc;padding:15px 0;display:flex;gap:15px;align-items:flex-start}.note-content{flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}.note small{display:block;color:#666d69;font-size:11px;margin-top:6px}.note button{font-size:11px;min-height:32px;padding:5px 9px}.empty{padding:18px;border:1px dashed #dce0dc;border-radius:5px;color:#666d69;font-size:13px;text-align:center}@media(max-width:400px){body{padding:16px}}
+  </style>
+  <link rel="stylesheet" href="app-page.css">
+</head>
+<body data-app="quick-notes">
+  <h1>A thought worth keeping.</h1>
+  <p>Saved locally on Robbi, ready when you need it.</p>
+  <form id="note-form">
+    <label>New note<textarea name="text" id="note-text" maxlength="1000" required placeholder="An idea, a detail, something to remember…"></textarea></label>
+    <div class="actions"><button class="primary" type="submit">Save note</button><button type="button" id="refresh">Refresh</button><span id="status" role="status" aria-live="polite"></span></div>
+  </form>
+  <div id="notes"><div class="empty">Loading notes…</div></div>
+  <script>
+    const form=document.getElementById('note-form'),notes=document.getElementById('notes'),status=document.getElementById('status');
+    let busy=false,disposed=false;
+    window.addEventListener('pagehide',()=>disposed=true);
+    function message(text,error=false){status.textContent=text;status.className=error?'error':''}
+    function controls(value){busy=value;document.querySelectorAll('button').forEach(button=>button.disabled=value)}
+    async function invoke(tool,args={}){
+      let response=await RobbiApp.call(tool,args),job=response.job;
+      if(!job?.id)throw new Error('Robbi did not return a job ID.');
+      for(let attempt=0;attempt<40;attempt++){
+        if(disposed)throw new Error('Dashboard closed.');
+        if(['done','succeeded'].includes(job.state)){if(job.result?.ok===false||job.result?.error)throw new Error(job.result.text||String(job.result.error));return job.result||{}}
+        if(['failed','cancelled','expired'].includes(job.state))throw new Error(typeof job.error==='string'?job.error:'Request stopped.');
+        await new Promise(resolve=>setTimeout(resolve,300));
+        response=await RobbiApp.job(job.id);job=response.job||response;
+      }
+      throw new Error('The note request is still running. Use the app’s Check status button.');
+    }
+    function render(items){
+      notes.replaceChildren();
+      if(!items.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='No notes yet. Save your first one above.';notes.append(empty);return}
+      for(const item of items){
+        const row=document.createElement('article');row.className='note';
+        const text=document.createElement('div');text.className='note-content';text.textContent=item.text||'';
+        const time=document.createElement('small');const date=new Date(typeof item.created_at==='number'?item.created_at*1000:item.created_at);time.textContent=Number.isNaN(date.getTime())?'Saved on Robbi':date.toLocaleString();text.append(time);
+        const remove=document.createElement('button');remove.type='button';remove.textContent='Delete';remove.setAttribute('aria-label',`Delete note: ${String(item.text||'').slice(0,60)}`);remove.onclick=()=>work(async()=>{await invoke('delete',{id:item.id});await refresh();message('Note deleted.')});
+        row.append(text,remove);notes.append(row);
+      }
+    }
+    async function refresh(){const result=await invoke('list',{limit:10});render(result.data?.notes||[])}
+    async function work(callback){if(busy)return;controls(true);message('Working…');try{await callback()}catch(error){if(!disposed)message(error.message,true)}finally{if(!disposed)controls(false)}}
+    form.addEventListener('submit',event=>{event.preventDefault();const text=document.getElementById('note-text').value.trim();if(!text){message('Write a note first.',true);return}work(async()=>{await invoke('add',{text});form.reset();await refresh();message('Note saved.')})});
+    document.getElementById('refresh').onclick=()=>work(async()=>{await refresh();message('Up to date.')});
+    work(async()=>{await refresh();message('')});
+  </script>
+</body>
+</html>

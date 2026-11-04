@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "Three playful muted hand drum taps, first two quick then one rounded low tap. Tiny toy percussion response, one second, clean isolated, gentle volume, no speech.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "2d7e11c1c7008ed8e92404b88a1cef13a9beeebcf088c6274576fe243b57c0a8",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 1812.6
+}

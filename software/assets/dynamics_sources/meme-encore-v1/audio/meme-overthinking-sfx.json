@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Quick corkboard pushpin taps and increasingly frantic little plucked string twangs, ending in one deflating low rubber boing. Dry playful miniature detective foley. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "9e85a2fc9c2f8265f7afa9a9ccca877507af915292174761c47cb6f049c1c805"
+}

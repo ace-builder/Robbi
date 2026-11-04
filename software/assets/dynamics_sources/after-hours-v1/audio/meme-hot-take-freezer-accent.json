@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Exactly one small ice cube landing gently in a small ceramic dish. One delicate bright glassy clink with a tiny short settling rattle. Isolated dry recording, no other objects, no voices, no music.",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 17179,
+  "sha256": "24bcfcc3e98ce559449c5103763428a426613c2e12d5421cca5ebf43f4b1d2c7"
+}

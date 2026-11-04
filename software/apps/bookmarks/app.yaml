@@ -1,0 +1,102 @@
+api_version: 2
+id: bookmarks
+name: Saved web bookmarks
+version: 1.1.0
+entrypoint: main:run
+description: Keep a small searchable local collection of titled web links and tags.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Save this recipe link with the tag dinner
+- Find my hiking bookmarks
+tools:
+- name: save
+  title: Save bookmark
+  description: Save an HTTP/HTTPS URL and title with optional tags. Saving the exact same URL updates
+    its title and tags. Never fetches or opens the URL.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      title:
+        type: string
+        title: Title
+        maxLength: 100
+        minLength: 1
+        x-order: 0
+      url:
+        type: string
+        title: HTTP or HTTPS URL
+        maxLength: 1000
+        minLength: 1
+        x-order: 10
+      tags:
+        type: array
+        title: Tags
+        maxItems: 5
+        items:
+          type: string
+          title: Tag
+          maxLength: 30
+          minLength: 1
+        default: []
+        x-order: 20
+    required:
+    - title
+    - url
+- name: search
+  title: Find bookmarks
+  description: Search titles, URLs and tags case-insensitively; empty query lists all saved links.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      query:
+        type: string
+        title: Search text
+        maxLength: 100
+        default: ''
+        x-order: 0
+- name: remove
+  title: Remove bookmark
+  description: Permanently remove the bookmark with this exact ID from a previous search result.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      id:
+        type: string
+        title: Bookmark ID
+        maxLength: 12
+        minLength: 12
+        x-order: 0
+    required:
+    - id
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: productivity
+tags:
+- bookmarks
+- links
+- offline
+images:
+  icon: images/icon.png
+  screen: images/screen.png

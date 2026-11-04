@@ -1,0 +1,12 @@
+[
+  {
+    "id": "heads",
+    "path": "",
+    "prompt": "Use the provided Decision helper illustration as the STYLE AND MATERIAL reference. Create ONE isolated, perfectly face-on round gold toy coin featuring an embossed sun with a happy smiling face with little warm coral cheeks. Square production sprite1024x1024. The entire round coin fills 85% of the square, perfectly centered, only a thin visible rim, NO tilt or perspective foreshortening, suitable as one face of a flipping coin animation. Match the source's beautiful tactile warm gold, soft toy lighting, crisp friendly dimensional sculpting. Single coin only. Transparent background outside the round coin, no cast shadow outside coin, no other coins, no sparkles, no text, no letters, no watermark. This is the heads face."
+  },
+  {
+    "id": "tails",
+    "path": "",
+    "prompt": "Use the provided Decision helper illustration as the STYLE AND MATERIAL reference. Create ONE isolated, perfectly face-on round gold toy coin featuring an embossed crescent moon with a sweet smiling sleepy face with warm coral cheeks. Square production sprite1024x1024. The entire round coin fills 85% of the square, perfectly centered, only a thin visible rim, NO tilt or perspective foreshortening, suitable as one face of a flipping coin animation. Match the source's beautiful tactile warm gold, soft toy lighting, crisp friendly dimensional sculpting. Single coin only. Transparent background outside the round coin, no cast shadow outside coin, no other coins, no sparkles, no text, no letters, no watermark. This is the tails face."
+  }
+]

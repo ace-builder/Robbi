@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A single pleasant calendar notification ping, crisp paper unfolding into wings, a brisk fluttering paper flight whoosh. Funny miniature foley. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "ec6eee1ab9ac2710b82fcb9d488afe5fbf8b7f30bca1baa206743a9ca4daadce"
+}

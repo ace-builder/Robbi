@@ -1,0 +1,16 @@
+- ms: 7000
+- drive:
+    direction: "forward"
+    speed: 100
+    duration: 2.0
+  ms: 2000
+- drive:
+    direction: "right"
+    speed: 100
+    duration: 0.7
+  ms: 700
+- drive:
+    direction: "forward"
+    speed: 100
+    duration: 6.0
+  ms: 6000

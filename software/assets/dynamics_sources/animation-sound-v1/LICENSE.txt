@@ -1,0 +1,6 @@
+These 35 new sound effects were generated using the owner's ElevenLabs account.
+They are governed by that account's applicable ElevenLabs plan terms.
+They are NOT represented as CC0, public domain, or third-party licensed samples.
+No existing emotion-library recording is reused in these new soundtracks.
+Prompts, raw PCM recordings, model identity and hashes are retained alongside
+this file. Post-processing is reproducible with tools/complete_animation_sound.py.

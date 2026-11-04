@@ -1,0 +1,68 @@
+{
+  "collection": "seasonal-postcards-v1",
+  "group": "holidays",
+  "created": "2026-10-23",
+  "skill": "",
+  "assets": [
+    {
+      "name": "birthday-cake",
+      "file": "birthday-cake.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one charming squat birthday cupcake with coral pink frosting, golden wrapper and ONE straight unlit cream candle, no flame. Style: polished storybook gouache with thick warm plum outlines, simple bold silhouette and subtle paper texture. Front view slight perspective, centered, whole object, no cast shadow or surrounding objects. Palette cream, peach, coral, muted sage and golden honey. Genuinely transparent background with clean alpha. No text, logos, robots, faces, eyes, blue, scene, hands. Generous empty transparent margin.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    },
+    {
+      "name": "gingerbread",
+      "file": "gingerbread.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: a plump joyful gingerbread cookie person with white icing cuffs, two simple dark dot eyes, small icing smile and three coral buttons, standing with arms slightly raised. Style: polished storybook gouache with thick warm plum outlines, bold simple silhouette and subtle baked texture. Front view, centered, whole object, no cast shadow or surrounding objects. Warm brown, cream icing, coral accents. Genuinely transparent background clean alpha. No text, logos, robots, blue, gifts, hats, scenery. Generous transparent margin.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    },
+    {
+      "name": "pumpkin",
+      "file": "pumpkin.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one adorable squat orange Halloween pumpkin with a jaunty short curved green stem, three clean carved openings: two triangle eyes and a tiny happy crescent mouth glowing honey yellow. Style polished storybook gouache with thick warm plum outlines, bold chunky silhouette and subtle papery texture. Front view slight perspective, centered, whole object. Genuinely transparent background with clean alpha. No text, logos, robots, blue, hats, scene, cast shadow, extra objects. Generous transparent margin.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    },
+    {
+      "name": "summer-icecream",
+      "file": "summer-icecream.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one delicious slightly melting peach-and-vanilla ice cream scoop on a short golden waffle cone, one small drip on the left. Bold simple silhouette. Style polished storybook gouache with thick warm plum outlines, soft papery texture, warm cream peach coral and honey palette. Front view, centered, entire object. Genuinely transparent background clean alpha, generous transparent margin. No face, eyes, text, logos, robots, blue, scene, cast shadow, extra objects, toppings or umbrella.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    },
+    {
+      "name": "autumn-hedgehog",
+      "file": "autumn-hedgehog.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one sweet sleepy round hedgehog in side view facing right, tiny dark dot eye and smile, cream face, warm cocoa and cinnamon spines, tiny feet, nose raised slightly, a very clear simple squat silhouette. Style polished storybook gouache with thick warm plum outlines and light papery texture. Centered whole animal, no scene or cast shadow. Genuinely transparent background clean alpha, generous transparent margin. No leaves or accessories, text, logos, robots, blue.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    },
+    {
+      "name": "spring-wateringcan",
+      "file": "spring-wateringcan.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one small charming coral red metal watering can with a round body, large loop handle on the right, long spout pointing upper left and round perforated rose head. Empty can alone, no water. Style polished storybook gouache with thick warm plum outlines, clean bold silhouette and subtle paper texture. Front three-quarter view, centered whole object, warm coral and cream highlights with dark plum outlines. Genuinely transparent background clean alpha, generous transparent margin. No text, logos, robots, eyes, faces, blue, scene, shadows, flowers.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "inspected": true,
+      "notes": "Selected original artwork. RGBA preserved. Fixed source reused between frames."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "source": "emotion-keyposes-v3-original.png",
+  "references": [
+    "../face_animations/expression-atlas-v2.png",
+    "../images/faces/neutral.png"
+  ],
+  "prompt": "Use case: identity-preserve.\nAsset type: ten emotion key poses for Robbi's LCD sprite animation.\nInput image 1 is the established face atlas and character/style reference. Input image 2 is Robbi's original neutral face, a geometry reference. Create a NEW matching sprite atlas, exactly TWO columns and FIVE rows, containing TEN faces. Each cell has identical 280:240 proportions; requested overall canvas 560 x 1200 pixels. No margins, gutters, cell borders, labels, typography, scenery, body, or extra decorations. Full rectangular muted aqua backgrounds touch edge to edge.\nPreserve Robbi's identity: simple dark charcoal rounded eyes, tiny white upper-right highlights, two orange round cheeks, minimalist dark mouth, gentle friendly graphic style. Keep cheek centers at (40,154) and (240,154) and their radii fixed in every cell; eye centers (70,98) and (210,98), regular eye width about 72 pixels; mouth center (140,165), maximum mouth width 96 pixels. These coordinates are relative to each 280x240 cell. No face translation, rotation, zoom, camera motion, shading changes, background variation, noses, eyelashes, teeth or eyebrow strokes. Eyelids may change shape to express the emotion, but keep the centers anchored. Use dark eyes for every emotion; do not add colored emoji eyes or floating symbols.\nThe ten cells, row-major order (left to right then top to bottom), are:\n0 AFFECTION: two dark heart-shaped eyes with tiny consistent white glints, small tender curved smile.\n1 PRIDE: gently closed confident upward-curved eyes and a contained satisfied smile, warm and modest.\n2 SHYNESS: slightly lowered lids and downward-looking glints, very small bashful smile; cheeks unchanged.\n3 EXCITEMENT: delighted closed arch eyes and a broad open smile, no teeth.\n4 AMAZEMENT: round eyes wider in height while remaining in their anchored centers, small round O mouth.\n5 THOUGHTFULNESS: open eyes looking subtly up and to the left using the white glints, tiny thoughtful off-center curve whose overall mouth stays centered.\n6 SKEPTICISM: one eye half closed, the other open; restrained nearly straight doubtful mouth, no raised eyebrows.\n7 CONFUSION: one eye slightly squinted, the other round; a small gently wavy puzzled mouth.\n8 SADNESS: softly drooping upper eyelids and a small clear downward-curved frown; poignant rather than distressed, no tears.\n9 FRUSTRATION: subtly inward-angled upper eyelids and a small firm frown; mildly grumpy rather than scary, no anger symbols.\nThese are ten independent EMOTION KEY POSES, not ten chronological frames. They will be registered and interpolated against one shared neutral image by the sprite exporter. Prioritize clear silhouettes, consistent dark and orange colors, centered facial elements and strong consistency with the reference. Complete the entire 2x5 grid.",
+  "purpose": "One generated key pose per emotion; temporal frames are registered exports, not independently generated images.",
+  "exports": [
+    "../face_animations/affectionate-smile.png",
+    "../face_animations/proud-smile.png",
+    "../face_animations/shy-smile.png",
+    "../face_animations/excited-grin.png",
+    "../face_animations/amazed-gasp.png",
+    "../face_animations/thoughtful-look.png",
+    "../face_animations/skeptical-look.png",
+    "../face_animations/confused-look.png",
+    "../face_animations/sad-sigh.png",
+    "../face_animations/frustrated-frown.png"
+  ],
+  "exporter": "../../tools/prepare_emotion_sprites.py",
+  "registration_report": "emotion-registration-v3.json"
+}

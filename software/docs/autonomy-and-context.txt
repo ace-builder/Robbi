@@ -1,0 +1,170 @@
+AUTONOMY, MEMORY AND RESPONSIVE CONVERSATION
+
+Design
+Robbi uses two timescales. Local display, wake-word/audio handling, ownership and
+motor feedback react without waiting for a model. A single existing heartbeat
+worker periodically checks cached evidence. A meaningful change, available
+budget and quiet outputs admit one model decision. That decision selects quiet,
+silent observation, one useful spoken contribution, or bounded exploration.
+Actual execution is checked separately and its outcome is recorded.
+
+This is intentional, bounded behavior, not a claim of human awareness or general
+self-directed intelligence. The model does not control wheel PWM, rewrite code,
+learn a motion policy or infer human presence/emotions from a distance sensor.
+The choice set is deliberately narrower for unsolicited activity than for a
+user-requested app/tool invocation. Full research and app workflows run when
+requested by the user, including in the responsive background lane.
+
+What informs a decision
+- Coarse fresh front range category and relative map position; normal sensor
+  jitter is filtered by coarse bins rather than causing fresh model calls.
+- Current day phase, a few recent user messages, open tasks and reminders.
+- Recent timestamped observations, clearly labelled as unverified evidence.
+- A small relevant selection of approved memories from the existing SQLite/FTS
+  store, plus recent actual outcomes and the current intention.
+
+The attention journal stores at most 32 considered situation fingerprints and
+12 brief episodes. Fingerprints last up to 24 hours, including across restart;
+unchanged scenes cannot generate continuous check-ins. Admission is written
+before inference, so a restart does not replay interrupted work. Corrupt or
+unwritable attention state disables new deliberation with a visible error;
+conversation, manual controls and other independent components remain available.
+
+A clock schedules checks and limits frequency; it does not force a behavior.
+"Nothing useful to do" is a successful silent outcome. Quiet hours, filming,
+focus, manual/interactive outputs and user activity take priority. Conditions
+are checked again after inference. The model cannot elevate a decision into
+arbitrary movement, app execution, networking or automatic memory approval.
+Exploration still uses the existing navigation controller and its distance/time
+budgets. Manual driving behavior is unaffected by this autonomy policy.
+
+Memory discipline
+Approved user facts/preferences remain in the existing memory database. The
+attention and observation journals are separate episodic evidence. Autonomous
+model inferences are not promoted into approved personal facts. A recalled
+fact is not automatically saved again. Oversized individual memory entries now
+respect the prompt budget too. No personal memory was copied into public code.
+
+Prompt and app discovery
+Foreground conversation receives the stable action contract, bounded character
+instructions, relevant memory, recent scoped messages and the app capability
+index. App descriptions are data, never permission or execution authority.
+Detailed app schemas are ranked using names, descriptions, example phrases and
+triggers. Up to four schemas are included within an 8,500-character budget.
+Every enabled app remains listed; an unselected app is not inaccessible.
+
+If the schema is missing, the model can return:
+  {"capability_search":{"query":"weather forecast"}}
+The runtime performs one read-only manifest lookup and one model continuation.
+It does not execute app code. A repeated lookup is bounded, and actual app calls
+still pass envelope/schema validation, permissions and ownership. A discovery
+response cannot be combined with drive or another effect. All installed app
+permissions continue to be enforced when their tools execute.
+
+Current prompt ceilings (characters, not exact tokens): character 3,500;
+core tool context 26,000; legacy workflow catalog 2,500; memory/context 5,000;
+extra instructions 3,500; recent history 6,000 across at most ten messages.
+Tool evidence is reduced as valid JSON rather than cutting a JSON string in
+half. Full diagnostic dumps and duplicate daily transcripts are omitted.
+The autonomous chooser has its own compact system prompt and receives only
+its permitted choices, instead of the conversation action/app catalog.
+
+On the 40-app, 81-tool library, the previous full app catalog was 45,743
+characters. The new index is 6,680; an example weather request with selected
+schemas is 10,239 (about 78% smaller than the old full catalog). This measures
+the app section, not the entire system prompt. Desktop selection averaged
+about 1 ms; actual Pi timing and end-to-end model latency remain unmeasured.
+
+Responsive work
+Explicit research, current-news and web-lookup requests acknowledge locally,
+then use the existing bounded background worker. Slow voice inference transfers
+the SAME future rather than making a duplicate model call. Ordinary dashboard
+chat keeps its existing asynchronous response path. A model can request
+background_task for other substantial work; network-backed app results can also
+be handed off before their slow execution.
+
+The requesting source/session context is captured before the handoff. Completed
+results and tool receipts return to that session, without taking another browser
+tab's recent messages. User-requested spoken results wait for idle audio; task
+cards retain results while muted. Restarted tasks are not automatically replayed
+or announced. Existing cancellation, deadlines, bounded queue size and optional
+background provider/model settings remain. Worker threads perform network I/O;
+no heavyweight second agent process or additional daemon worker was added.
+
+GPT-6 Luna requests use reasoning_effort none and a 1,800 completion-token cap
+for concise JSON actions. Other configured providers retain their adapters and
+models. Provider errors stay explicit failures rather than successful research
+results. Acknowledgement text is immediate in the local path; audible delivery
+still depends on the configured TTS service and output availability.
+
+Settings and use
+Existing installations retain their enabled/disabled choices. New installs keep
+autonomy opt-in. In Settings enable autonomy.enabled and heartbeat.enabled,
+choose autonomy.level normal, and keep autonomy.deliberation_enabled enabled.
+Defaults for the new fields are:
+  autonomy.deliberation_enabled: true
+  autonomy.attention_poll_s: 10
+  autonomy.decide_interval_s: 60
+The first is the new chooser; disabling it restores the previous proposal loop.
+The second is a cheap local check, not an API call or motor/sensor sample rate.
+The third is a minimum gap between model decisions, not a schedule to speak.
+Existing max_model_calls_per_day (8), max_attempts_per_day (24), observe/explore
+cooldowns and quiet hours remain. A visual observation may use a second model
+call; it is counted before invocation. Exploration must additionally be enabled
+and commissioned. Settings preserve geometry, motion limits, keys and data.
+
+Overview > Daily rhythm & autonomy > Activity & daily limits shows the last
+three intentions/outcomes. Pause/Resume remains there; detailed state is also
+available through the existing autonomy API. All rendered model text is escaped.
+
+Validation and deployment status
+486 focused tests passed in each local code tree. They cover novelty/restart,
+provider failure, budgets, interruption, memory bounds, prompt flooding,
+read-only discovery, app permissions, background source isolation, cancellation,
+conversation feeds and existing movement contracts. Browser checks cover the
+attention history, pause/resume, settings bounds and narrow mobile layout.
+
+No robot deployment or GitHub upload was performed. No live model test was run:
+the local robot environment files lacked OPENAI_API_KEY. API test spend is USD
+0.00. A synthetic-only optional evaluation is prepared in the private backup,
+with a persistent USD 0.45 reservation ceiling, conservative per-request token
+bounds, no automatic retries and no real tool execution. It is not distributed
+as part of the public runtime. Physical behavior and live provider quality must
+still be verified before calling this hardware-validated autonomy.
+
+Research and rationale (primary sources, reviewed 2026-10-27)
+OpenClaw's agent-loop documentation separates admission/ownership, prompt
+assembly, execution and delivery. Its memory architecture describes provenance
+and excluding heartbeat noise from durable user memories. Robbi adapts these
+separation principles using its existing worker, session and storage boundaries;
+it does not embed the OpenClaw framework.
+https://docs.openclaw.ai/concepts/agent-loop
+https://docs.openclaw.ai/concepts/memory-architecture
+
+Hermes documents a compact skill index followed by on-demand detail loading,
+and small curated persistent memories. Robbi applies progressive disclosure to
+app manifests and uses bounded retrieval from its existing memory store. It
+does not add automatic skill-code generation or private training workflows.
+https://hermes-agent.nousresearch.com/docs/guides/work-with-skills/
+https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/
+
+Disney Imagineering describes character-led autonomous interaction; the BDX
+work emphasizes expressive movement supporting believable personality. Disney
+Research's 2025 operator-imitation paper instead learns continuous/discrete
+commands from expert-operated interaction data. These are distinct approaches,
+not evidence that a general LLM alone makes a believable robot. For Robbi the
+practical inference is to preserve a responsive local performance layer and
+make higher-level choices consistent with intention and context. No Disney
+training model, human tracking system or reinforcement-learning policy is used.
+https://sites.disney.com/waltdisneyimagineering/autonomous-characters/
+https://thewaltdisneycompany.com/news/behind-the-bdx-droids/
+https://la.disneyresearch.com/publication/autonomous-human-robot-interaction-via-operator-imitation/
+
+Official GPT-6 Luna documentation supports reasoning_effort none and lists
+standard short-context prices of USD 0.10/M input and USD 0.50/M output tokens.
+The optional evaluation reserves at much higher rates and does not assume
+cache discounts. Pricing and account access should be checked before a later run.
+https://developers.openai.com/api/docs/models/gpt-6-luna
+https://developers.openai.com/api/docs/pricing
+
+Autonomy follow-through: successful sensing can admit up to two fresh-evidence continuations. Current intentions are visible in Overview. Recent robot speech is context, not a trigger; duplicate autonomous sentences are suppressed. Existing silent face animations can express attention without speaking. See LIVE_AWARENESS.md for behavior, limits and the optional cloud audio/video experiment.

@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A pencil scribbles in an increasingly fussy little loop, a soft rubber eraser rub, then one confident satisfying rubber stamp on paper. Warm tactile office foley, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "8471dd50d5acac77cc8ab1f24ec04865eee4865763180e804efcb2b28d4b1b51"
+}

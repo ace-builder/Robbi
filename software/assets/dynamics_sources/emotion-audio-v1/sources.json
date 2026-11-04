@@ -1,0 +1,24 @@
+[
+  {
+    "id": "kenney-digital-audio",
+    "author": "Kenney",
+    "source_url": "https://kenney.nl/assets/digital-audio",
+    "download_url": "https://kenney.nl/media/pages/assets/digital-audio/216eac4753-1677590265/kenney_digital-audio.zip",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-23",
+    "archive": "kenney-digital-audio.zip",
+    "sha256": "24e6ce28b76a6d8c89cff4d331e0965ff5c3de8a73c612028e9d363cc64e4f06"
+  },
+  {
+    "id": "kenney-interface-sounds",
+    "author": "Kenney",
+    "source_url": "https://kenney.nl/assets/interface-sounds",
+    "download_url": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verified_date": "2026-10-23",
+    "archive": "kenney-interface-sounds.zip",
+    "sha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232"
+  }
+]

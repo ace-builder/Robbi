@@ -1,0 +1,79 @@
+api_version: 2
+id: text-toolbox
+name: Text toolbox
+version: 1.1.0
+entrypoint: main:run
+description: Count words and characters or change text case and whitespace offline.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Count the words in this text
+- Convert this text to uppercase
+tools:
+- name: analyze
+  title: Count text
+  description: Count whitespace-separated words, Unicode code points, lines and UTF-8 bytes in up to 4000
+    characters.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      text:
+        type: string
+        title: Text
+        maxLength: 4000
+        default: ''
+        x-order: 0
+- name: transform
+  title: Transform text
+  description: Change case, trim outer whitespace or collapse all whitespace to single spaces. Title case
+    follows Python Unicode rules.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      text:
+        type: string
+        title: Text
+        maxLength: 4000
+        default: ''
+        x-order: 0
+      operation:
+        type: string
+        title: Operation
+        maxLength: 25
+        enum:
+        - lower
+        - upper
+        - title
+        - trim
+        - normalize_whitespace
+        default: lower
+        x-order: 10
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- text
+- writing
+- formatting
+images:
+  icon: images/icon.png
+  screen: images/screen.png

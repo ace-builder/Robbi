@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A miniature quality inspector slides a small metal measuring tool, gently rubs a magnifying glass, then presses one neat rubber approval stamp onto paper. Dry close-up tactile foley, no speech, no music, no digital beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.65,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "d89f5eaa84eacbb589f6a8e9f1a3edc228789dddb18ccab7986939f52d70aeed"
+}

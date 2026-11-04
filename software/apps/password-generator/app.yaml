@@ -1,0 +1,85 @@
+api_version: 2
+id: password-generator
+name: Password generator
+version: 1.1.0
+entrypoint: main:run
+description: Generate random passwords with selected character groups using operating-system randomness.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Generate a 20-character password with numbers and symbols
+tools:
+- name: generate
+  title: Generate passwords
+  description: Generate passwords for a user who requests them. Passwords are visible in tool results
+    and may be retained in chat/job history; this is not a secret vault.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      length:
+        type: integer
+        title: Length
+        minimum: 12
+        maximum: 128
+        default: 20
+        x-order: 0
+      count:
+        type: integer
+        title: How many
+        minimum: 1
+        maximum: 5
+        default: 1
+        x-order: 10
+      lowercase:
+        type: boolean
+        title: Lowercase letters
+        default: true
+        x-order: 20
+      uppercase:
+        type: boolean
+        title: Uppercase letters
+        default: true
+        x-order: 30
+      digits:
+        type: boolean
+        title: Digits
+        default: true
+        x-order: 40
+      symbols:
+        type: boolean
+        title: Symbols
+        default: true
+        x-order: 50
+      exclude_ambiguous:
+        type: boolean
+        title: Exclude Il1O0o
+        default: true
+        x-order: 60
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- passwords
+- security
+- offline
+images:
+  icon: images/icon.png
+  screen: images/screen.png

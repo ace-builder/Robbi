@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "prompts": [
+    [
+      "toaster",
+      "Use case: stylized-concept. Asset type: fixed cutout prop for an original meme animation. A single retro coral-red chrome toaster with two short feet, a little side lever, two slots visible on the top, NO bread in the slots. Three-quarter front view, charming tactile 3D clay illustration, softly worn painted enamel, warm cream chrome highlights, rich dimensional shading. No face, no eyes, no robot, no lettering, no shadow plane. Isolated single animation prop centered with generous empty margin. Premium stop-motion comedy aesthetic, bold readable silhouette at small size. True transparent background."
+    ],
+    [
+      "raccoon",
+      "Use case: stylized-concept. Asset type: fixed cutout prop for an original meme animation. One extremely unimpressed chubby raccoon sitting upright, arms folded across chest, half-lidded eyes looking at viewer. Gray charcoal and warm cream plush fur, striped tail curling right around feet. Tactile miniature clay-and-felt stop motion character, warm studio lighting, subtle surface texture, rich dimensional shading, charming deadpan comedy. Full body, centered isolated single prop with generous margin. No objects held, no accessories, no lettering, no robot, no blue face, no shadow plane. True transparent background."
+    ],
+    [
+      "cat",
+      "Use case: stylized-concept. Asset type: fixed cutout prop for an original meme animation. One gloriously unbothered orange tabby cat in a perfectly round loaf pose, tiny tucked paws, eyes peacefully closed, small smug smile, tail curved around its body. Three-quarter front view. Tactile miniature clay-and-felt stop motion character, warm studio lighting, orange ginger and warm cream fur, rich dimensional shading. Full body, centered isolated single animation prop with generous margin. No accessories, no lettering, no robot, no blue face, no shadow plane. True transparent background."
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+- face: "joyful.png"
+  ms: 300
+- sound: "dancing.wav"
+  ms: 100
+- face: "happy.png"
+  ms: 200
+- face: "joyful.png"
+  drive:
+    direction: "left"
+    speed: 70
+    duration: 0.3
+  ms: 300
+- face: "surprised.png"
+  drive:
+    direction: "right"
+    speed: 70
+    duration: 0.3
+  ms: 300
+- face: "happy.png"
+  drive:
+    direction: "right"
+    speed: 70
+    duration: 0.3
+  ms: 200
+- face: "joyful.png"
+  drive:
+    direction: "left"
+    speed: 70
+    duration: 0.2
+  ms: 200
+- drive:
+    direction: "left"
+    speed: 100
+    duration: 4.2
+- face: "surprised.png"
+  ms: 200
+- face: "happy.png"
+  ms: 200

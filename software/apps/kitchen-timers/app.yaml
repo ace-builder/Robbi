@@ -1,0 +1,85 @@
+api_version: 2
+id: kitchen-timers
+name: Kitchen timers
+version: 1.1.0
+entrypoint: main:run
+description: Named timers with persistent reminders. Keep tea, pasta and oven timers running together.
+permissions:
+- robot.reminders
+- robot.display
+- robot.audio
+triggers:
+- Set a pasta timer for ten minutes
+- How long is left on my kitchen timers?
+dashboard:
+  title: Kitchen timers
+  description: Named timers with persistent reminders. Keep tea, pasta and oven timers running together.
+tools:
+- name: start
+  title: Start
+  description: Set a named timer for a duration in seconds. Several timers can run together, and saved
+    timers survive a restart.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      label:
+        type: string
+        title: Timer name
+        maxLength: 80
+        minLength: 1
+      seconds:
+        type: integer
+        title: Duration in seconds
+        minimum: 1
+        maximum: 86400
+    required:
+    - label
+    - seconds
+- name: list
+  title: List
+  description: List active kitchen timers and their IDs and remaining seconds.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties: {}
+- name: cancel
+  title: Cancel
+  description: Cancel one kitchen timer using its ID from the active timer list.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      id:
+        type: string
+        title: Timer ID
+        maxLength: 80
+        minLength: 1
+    required:
+    - id
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: home
+tags:
+- cooking
+- timers
+- reminders
+images:
+  icon: images/icon.png
+  screen: images/screen.png

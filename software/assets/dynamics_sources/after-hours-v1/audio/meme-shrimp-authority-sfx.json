@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A very small wooden courtroom: brief paper shuffle, a tiny gavel lifts with a sleeve rustle then one clear warm wooden knock near the middle, followed by a rubber stamp tap. Dry close-up foley, no crowd, no speech, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "95a2ab8473524c45f397ee3bc114352496941120156cfbede96edea73e648090"
+}

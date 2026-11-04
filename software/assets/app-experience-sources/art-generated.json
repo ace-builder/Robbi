@@ -1,0 +1,322 @@
+[
+  {
+    "id": "decision-helper",
+    "prompt": "Use case: stylized-concept. Create ONE finished square app icon illustration for Robbi's Decision helper app, 1024x1024. A delightfully tactile little gold coin character with a tiny friendly face, one coin front with embossed sun and another showing crescent moon, suspended mid flip with a curved golden motion trail and three subtle sparkles. Sophisticated friendly 3D clay / softly rendered toy illustration, warm butter-yellow background, rich amber-gold with small coral accents, gentle grounding shadow, beautiful soft studio lighting, exceptionally crisp silhouette, large centered subject filling 70% of frame, generous safe margins. Real production app artwork, no UI chrome, lettering, numbers, logos, white rectangular backdrop or watermark. Must read clearly at 100px.",
+    "path": "",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "140f067569bb2fb0c3170619a695197a259acd529886618a2539e6bf2ab80472",
+    "screen_sha256": "4c1a3751ad082b0ee11240e1b8a31dc62bd265cfc5b513b4785e12b8a31d3837"
+  },
+  {
+    "id": "bookmarks",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'bookmarks'. Subject: A teal bookmark ribbon peeking from a little stack of beautiful coral, cream and blue books, a small gold star charm; mint background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "8b44fdf2eefe8780b3bb379b40639f741e910faf22589c1ce14e156cb7f7d733",
+    "screen_sha256": "a7f169639deb58280820ef4b6233602da0a7a172e1df7d14f6c0429e68d74cda"
+  },
+  {
+    "id": "calculator",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'calculator'. Subject: A friendly rounded coral calculator with chunky pastel keys and a tiny gold plus symbol hovering beside it; warm peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "d8c1ceeb3558dbabaf1053207261fea647f48f217f4bd6d7fdee286d74dd0800",
+    "screen_sha256": "9d9e8590d9ce285f35e71e4e958f78098f82a84b3f4cbbba043fb1ae1cbce797"
+  },
+  {
+    "id": "checklists",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'checklists'. Subject: A mint-green rounded clipboard with three generous embossed checkmarks and a tiny orange pencil; pale mint background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "1ec2705801cb62d327deb555d5718655adb21939a100357ec5016473f8ad4eae",
+    "screen_sha256": "dc0bc833238c79dd45416ea1b816c2bababfe1aaedd5a925cbbb70c6910c5e91"
+  },
+  {
+    "id": "date-calculator",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'date-calculator'. Subject: Two small cream desk-calendar pages connected by a looping coral path and a little gold hourglass; soft coral background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "c9814a276d5b611a172c7c7b01929e5317dc6e19c9ea5ab602b12bdf92df2170",
+    "screen_sha256": "6c13f1dbc1c1db0c87d88c4766bc28e60b797126342a5fd8496adcc2b3bc88c2"
+  },
+  {
+    "id": "decision-notebook",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'decision-notebook'. Subject: A small lavender journal opened at a forked branching path with a gold compass resting on it; lilac background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "828b611e872f636ced291f505eaea032fbc23f990aad652f37e83ffe145ca93a",
+    "screen_sha256": "255878ed586a664451e7e182515f1f723e2d082105a448e3410167214ca1254b"
+  },
+  {
+    "id": "expense-tracker",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'expense-tracker'. Subject: A cheerful coral wallet with tidy mint receipts and a few small golden coins; soft peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "adc9a638a67e7ec952c52c84a221b840b0ae8462dbe4fd2e6e2ef4d179295b92",
+    "screen_sha256": "604e5786f5b15b4f807020db1b0074b4cbd85b72b00937adc0b40c5f201ce250"
+  },
+  {
+    "id": "expressions",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'expressions'. Subject: A tiny teal desktop robot head showing happy expressive friendly eyes, floating pink and golden expressive sparkles; lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "c1002ccbee178a25110baff5dae79067e968ef25f037a7bbc51bcceb58ddb077",
+    "screen_sha256": "0c29b69db1cb7581283df0b966acc9f86f0146e711b616b0a457cace3b491982"
+  },
+  {
+    "id": "fridge-rescue",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'fridge-rescue'. Subject: A rounded mint mini-fridge slightly open with a happy carrot, tomato and leafy greens peeking out; pale sage background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "14484f54a726701bb0f8078637d049a07e4ac14fbb276033ce4dee94cfbe4676",
+    "screen_sha256": "d40a4299bd2da6e5e5fab94cf511a158df1372ef97e91770b6fc248701aa45a1"
+  },
+  {
+    "id": "gmail",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'gmail'. Subject: A chunky cream envelope with coral red folded flap, a little golden notification sparkle and a teal paperclip; soft coral background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "941176f794d85ebcb430ca01dec53f189fcc1bc25e1a9e73d33095ddb04ed5c9",
+    "screen_sha256": "1ddb10c564266f1d9cccf6c63d6be99fca790801ff93e182ecfc5b85e15ef076"
+  },
+  {
+    "id": "google-calendar",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'google-calendar'. Subject: A rounded white calendar with four colorful tabs and one coral checkmark highlighted on its page, a tiny mint clock; light sky-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "90927d3dfe8440bef729c6de0d9a097abce9df47c4fb2bd07224d13b6f406f5a",
+    "screen_sha256": "4cbca220962706de570532476406ceba4d087a3dd9943fdcb2d4a176523b2483"
+  },
+  {
+    "id": "google-maps",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'google-maps'. Subject: A folded cream paper map with a winding teal path and a large coral location pin standing above it; pale mint background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "d99471b5e8a50a123f67f030efe59f31d3e825ae5efcb29fec01cb214a2ce8c0",
+    "screen_sha256": "75d728736a34652ba1527ad443355561a4d267e69f05ef1d5e7c871ddb555de7"
+  },
+  {
+    "id": "habit-tracker",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'habit-tracker'. Subject: A small mint sprout growing from a rounded coral planter, with a tiny circle of gold checkmark tokens around the base; warm cream background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "e83e9e36f521c6445cd9a8be566df757dcd10948645805f642cebce6a98c68a0",
+    "screen_sha256": "0beecb6c0b5c98d4b5880dc6b4de350431c209cb740ba3604bff80235b127b6c"
+  },
+  {
+    "id": "higher-lower",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'higher-lower'. Subject: Two chunky playful coral and teal arrows pointing up and down beside two toy number blocks; butter yellow background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "40e4d4f155aaa9ea7e3c30a41d48a58e3f210aae88673b03fb41d6cb232734e0",
+    "screen_sha256": "66a458f8604aa230866b96f2d2a2588ddeff1d13cedb5429bcdf8dcfd9791341"
+  },
+  {
+    "id": "home-care",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'home-care'. Subject: A tiny rounded peach house with a mint roof and a little green plant, golden sparkle on a window; pale sage background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "9b6fa17c76fde6ebf79c17e11a356b209d599245362d54b55c52419b3d98e6bf",
+    "screen_sha256": "6b5ec02495c7fc2ce00f691fa41b0dcfa2c59cd54002717dbaa286b163fdb0f6"
+  },
+  {
+    "id": "image-studio",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'image-studio'. Subject: A floating miniature art easel with a dreamy little mountain painting, a coral paintbrush and colorful paint blobs; pale lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "79dc37f290dbda3dbd0f33be203a910faf5561033da1f27fcaeb6fc33d8677af",
+    "screen_sha256": "e617f6eec9be7bdada963583b9998491a64aa0b2b6f90987c75a06819e6fb659"
+  },
+  {
+    "id": "kitchen-timers",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'kitchen-timers'. Subject: A rounded coral kitchen timer with cream face and mint dial, two tiny bouncing gold bells; warm peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "470e00da4e9966e754ab991fb3d675a6c1b737ffbea113163686abb7e7529be7",
+    "screen_sha256": "e5f07d15d89be4bdca46b565494b604061e909b4f5c3d4f9333663a7907774c8"
+  },
+  {
+    "id": "meeting-prep",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'meeting-prep'. Subject: A lovely cream notebook with a coral pen and a tiny mint coffee cup, arranged ready for a friendly meeting; pale sand background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "57dc125eaec187694ea085f3c9a95762bca5733bb2f9e693e4b7b403fecc0336",
+    "screen_sha256": "301d0cd08fd820c232e86dfaf6dd22880bc255e698cf319345d4664d02954dd4"
+  },
+  {
+    "id": "memory-colours",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'memory-colours'. Subject: Four chunky rounded memory tiles in coral, teal, violet and sunshine yellow arranged like a playful flower; pale lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "f5bf8e184839d718dcc8e871eff0863e21c1a2b2be5084629637fa6666108dda",
+    "screen_sha256": "7e620a9a817e1cb5ffa395f19cddbeff1c4a210e947f7f8e60f95511e3b3d971"
+  },
+  {
+    "id": "packing-list",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'packing-list'. Subject: A small mint travel suitcase open with a neatly rolled coral sweater and a golden luggage tag; pale sky-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "a7ec1ae4aa8e8b6a696c70035552ae4c8b5a9efa678e2b1c886653a1e4ac096c",
+    "screen_sha256": "14f0b8ebe496e7ae3e5a85779b0ee416481c19abf0465a806889a4a1c7c67d2d"
+  },
+  {
+    "id": "password-generator",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'password-generator'. Subject: A friendly strong teal padlock with a small gold key, rounded reassuring toy shapes and one soft sparkle; pale lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "3b93cbf1903c174ca94064a0c33d426d784d31692c0843bf434ddd59efcd2c66",
+    "screen_sha256": "ffee569400242f391c81d4c92e7abdd8895f55e4b9d14deef42904d2dd51f791"
+  },
+  {
+    "id": "percentage-helper",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'percentage-helper'. Subject: Two chunky coral percentage dots and a mint diagonal slash, with a tiny gold pie chart slice; soft peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "6b956e0098a0e4868156f67fa10b2b8d5b779150e32c67238791109e7d8271b4",
+    "screen_sha256": "f5a4b14d00af27fb9fdfa2322b047cb211c2b84c7110f4f29ac3820e38551eb9"
+  },
+  {
+    "id": "quick-notes",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'quick-notes'. Subject: A stack of softly curled pastel sticky notes with a little coral pencil and a friendly gold paperclip; butter yellow background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "e3feba32d26e00605a0389cd6fffc62928d75f5e074950f953875e5ed967e9c2",
+    "screen_sha256": "b7bf87c1796613c5183819ea90ed12a4c995eebfa86673666a4c5491f0b12aaa"
+  },
+  {
+    "id": "random-number",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'random-number'. Subject: Three tumbling chunky dice in cream, coral and mint, beautiful deep rounded pips and a curved swoosh; pale lilac background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "3043f812cae92b98f25ff5be6578f7fcff4743ec88ad771d965b15c7582d5892",
+    "screen_sha256": "0b118e21d762472290abf750ee576fd5bfa23613b155198cde194477673879ba"
+  },
+  {
+    "id": "ready-to-leave",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'ready-to-leave'. Subject: A tiny teal backpack beside a cheerful pair of coral shoes and a gold keyring, ready by a miniature doorway; warm cream background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "538ba035007e4d4cca74f9bcea241185fa2abe3f4f5c97476ebe130d7b15c03d",
+    "screen_sha256": "1ab5d6bbd0e481f2308854eae1fedbbce43988e3ab3751aa7680c81535a54021"
+  },
+  {
+    "id": "recipe-scaler",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'recipe-scaler'. Subject: A cream mixing bowl with a coral measuring spoon and three tiny mint measuring cups stepping in size; warm peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "6b8ccd49ea2fc2ef6f7c4583309845d6be95993b6c349cde113e2de706a9aaab",
+    "screen_sha256": "e134344971a851d3977f38f30b3738a2de4c1fd15a67a4ca12a2e88588645083"
+  },
+  {
+    "id": "rhythm-relay",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'rhythm-relay'. Subject: A cute teal toy drum and two coral drumsticks with floating golden music notes and rhythmic dots; soft lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "754f10321034d191695cb10ecc7da469f70f1297c9994efb2ed83168b5da9016",
+    "screen_sha256": "db3367742f804ae50a0722ad96038f01a117b89daf3d983ac735cca6ef1c0d36"
+  },
+  {
+    "id": "robot-charades",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'robot-charades'. Subject: A tiny friendly mint robot acting with one raised arm beside two theatrical coral and gold comedy masks; pale peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "f305eda95d3644556e5795803bccf331e5d84750b05897a8be0aba1d2c1d1535",
+    "screen_sha256": "35c7f54257ce70cd8bafc83a9999ab9e5ef0f0f2be485da1f838fe28c63e76da"
+  },
+  {
+    "id": "robot-status",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'robot-status'. Subject: A friendly small mint robot with a glowing heart-shaped status light and three soft green status dots; pale sky-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "50f5c87c26c5822c116bed10661105e3f9da04c19983c17962f614bf4de7a60a",
+    "screen_sha256": "4408090a67612e6015378dba1e3bdcd5c732c4638eade752a7c26b8ab95b6463"
+  },
+  {
+    "id": "sensor-check",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'sensor-check'. Subject: A tiny teal radar dish with concentric floating mint signal rings and a small friendly sensor eye; dark desaturated navy background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "1faa2507bd2ae1f930e95a2419c2ed1b646e5d360df0bc976aa917823e7cc4b4",
+    "screen_sha256": "8f061d58ffbaee18743e4ddae1689655abc7b0d197b9c096a85124388d4f8ccb"
+  },
+  {
+    "id": "teach-me",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'teach-me'. Subject: A small open cream book with a tiny glowing golden lightbulb rising from its pages and a mint bookmark; pale lavender background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "ba11673f7b9d9f1acaa1b3fc6e9ff31df774ae41cc7754ef44a03898b504c6eb",
+    "screen_sha256": "f84a43c433adca969844df40029481f38b9e403f7292401ac1fa53a331d436d9"
+  },
+  {
+    "id": "text-toolbox",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'text-toolbox'. Subject: A pair of coral scissors beside cream paper strips, mint quotation marks and a small golden pencil; soft mint background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "0194401ee3518380f3d1db7b8dbe7d232f361e9a887c8595f99b82589ce9e4dc",
+    "screen_sha256": "b302f82d0fe277c916cbbacfd005f52cd12c92fdb3daca60d15696a8176775c2"
+  },
+  {
+    "id": "tic-tac-toe",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'tic-tac-toe'. Subject: A chunky mint tic-tac-toe board with coral crosses and golden rings, playful toy proportions; pale lilac background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "b0c4bd13994cd4ef60c845098933abb49f50ec58898ab743b9ba407327b424de",
+    "screen_sha256": "6d318e6b91a3ca91124f747abe41d5ba9ccff8920699dfb20aecb042cb558e38"
+  },
+  {
+    "id": "tiny-detective",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'tiny-detective'. Subject: A large coral magnifying glass revealing a golden star-shaped clue beside a tiny mint detective hat; warm cream background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "3bcfd4c83bbfa46571794a6de5267e3b87cb8afc1acf446675887838623ea2f9",
+    "screen_sha256": "5f770e7c8716bd4e6b202b5d3c09fb423e9ae577b9f3abf3075695bde8431612"
+  },
+  {
+    "id": "tip-splitter",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'tip-splitter'. Subject: A coral café cup beside a cream receipt splitting into two mint paths toward little golden coins; soft peach background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "6c087b1a04bbcc1621d31574b7efddb8b0127141cc72318f66533960d3c9806d",
+    "screen_sha256": "2e4fa125939b74c927cbc7844508610f648a8f219d5a6ba0366f916ff7ec0f73"
+  },
+  {
+    "id": "unit-converter",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'unit-converter'. Subject: Two chunky mint and coral measuring rulers, a tiny cream weighing scale and a graceful gold exchange arrow; pale sky-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "253916f387788a366eb60f8bd2222c5a1267946549561712f44c927ae1f72a43",
+    "screen_sha256": "e6d6201713f5893de4e47e25874faf33b69848228804cf4e9c41d83ce91a1786"
+  },
+  {
+    "id": "weather",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'weather'. Subject: A smiling warm golden sun peeking around a fluffy cream cloud with three translucent blue rain drops; soft sky-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "244fdc11fecc4d0d3629bfd9e7d3cef21e74fdd8682c3268cd6eb5ec4bb28f36",
+    "screen_sha256": "311ccbfb6d09399927aebedd8177631c5425d8c18b61f185388514cb7a0a3421"
+  },
+  {
+    "id": "web-search",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'web-search'. Subject: A small mint globe with a coral magnifying glass and a tiny gold discovery sparkle, friendly rounded clay; pale teal background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "742d88a071b8219c616553743e29d900cb1eb05dc06f59dc7c511683563867cb",
+    "screen_sha256": "966866beda5cce5bbad42891466f36ee0b4315eb194af7fe6b4c61da630f8c21"
+  },
+  {
+    "id": "where-did-i-put-it",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'where-did-i-put-it'. Subject: A little coral storage box containing a mint keyring with a large friendly gold location pin hovering above; pale lilac background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "1b8df32ebdfc549d6493677896bbe0dc4de5d1132bd5ee054ec543ac629a696b",
+    "screen_sha256": "4aa7230be73991eaa10971571fe2043e0fa40254bee4abf7302d992bf8e7a16b"
+  },
+  {
+    "id": "world-clock",
+    "path": "",
+    "prompt": "Use case: stylized-concept. ONE finished square production app icon illustration, 1024x1024, for Robbi app 'world-clock'. Subject: Three little pastel clocks orbiting a tiny mint globe, with a subtle gold moon and coral sun; soft midnight-blue background. Cohesive collection style: sophisticated friendly 3D clay/toy illustration, tactile matte ceramic surfaces, softly beveled rounded forms, gentle ambient occlusion and grounding shadow, beautiful studio light, crisp unmistakable silhouette. Large centered subject fills 70 percent with generous safe margins. Charming and refined, appealing to adults and children; not stock clip art. Full-bleed softly colored background. No lettering, labels, logos, watermark, UI chrome, white border or collage. Must read at 100px.",
+    "provider": "OpenAI built-in image generation",
+    "icon_sha256": "f4bb7709719f8e7adc1014f8910c7bb2975af22f2418556e6b1d2e7d3adb3325",
+    "screen_sha256": "2fa3bc99f1c6900b3ddb907b2b3ce3f3ef836d5ca8f562d56cbf710e5c04ccca"
+  }
+]

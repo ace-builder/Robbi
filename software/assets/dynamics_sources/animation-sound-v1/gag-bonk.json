@@ -1,0 +1,13 @@
+{
+  "id": "gag-bonk",
+  "title": "Foam hammer physics",
+  "duration_s": 3.0,
+  "prompt": "A quick little airy cartoon hammer swoosh, one soft hollow coconut bonk exactly near the middle, followed by a wobbling metal spring decay. Silly gentle impact, not violent, no loud smack. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "d3d3791100bec0f1d80f9ce281c2eb4f89f48d82d23a7dfb6a0720d173ea2f90",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

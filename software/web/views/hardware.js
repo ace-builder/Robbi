@@ -1,0 +1,61 @@
+import {$,$$,state,api,esc,heading,ready,action,data,gateControls,notify} from '../core.js';
+import {mediaPreview} from '../media-preview.js';
+
+const kinds=[['faces','Faces','Choose an expression.','Show face','◉'],['sounds','Sounds','Listen here, then play on Robbi.','Play sound','♪'],['videos','Videos','Preview a clip before showing it.','Play video','▷'],['animations','Animations','Animated faces and expression timelines.','Play animation','✧']];
+export async function media(root,life){
+  root.innerHTML=heading('EXPRESSION, SOUND & LISTENING','Media & voice.','Pick something for Robbi. Preview it here first, or send it to the robot.',`<div class="media-feedback"><button id="media-refresh" class="small">Refresh library</button><p id="media-result" role="status" aria-live="polite">Ready to choose.</p></div>`)+
+    `<div class="media-library">${kinds.map(([kind,label,description,play])=>`<section class="panel media-row" data-kind="${kind}" aria-labelledby="heading-${kind}"><div class="media-row-head"><div><h2 id="heading-${kind}">${label} <span class="media-count"></span></h2><p class="hint">${description}</p></div><div class="media-row-tools"><label class="sr-only" for="search-${kind}">Search ${label.toLowerCase()}</label><input type="search" id="search-${kind}" placeholder="Search ${label.toLowerCase()}…" maxlength="120"><button class="small media-back" aria-label="Scroll ${label.toLowerCase()} left">←</button><button class="small media-next" aria-label="Scroll ${label.toLowerCase()} right">→</button></div></div><div class="media-strip" tabindex="0" aria-label="${label}"><p class="hint">Loading…</p></div><div class="media-row-foot"><div><strong class="media-selected">Select an item</strong><span class="hint media-gate"></span></div><button class="media-send" disabled>${play}</button></div></section>`).join('')}</div>`+
+    `<details class="section-gap mic-panel"><summary>Microphone test <span class="hint">Record a short sample and listen here</span></summary><div class="details-body"><div class="grid"><div><form id="mic-test"><label>Recording duration (seconds)<input name="duration" type="number" min="1" max="10" value="3" required></label><div class="actions"><button type="submit" data-requires="microphone">Record sample</button><button id="mic-level" type="button" data-requires="microphone">Read input level</button></div></form><p id="mic-status" role="status"></p><div id="mic-audio"></div></div><div><h3>Wake word & listening</h3><p id="wake-state" class="hint"></p><div class="actions"><button data-wake="true" data-requires="microphone">Enable listening</button><button data-wake="false">Disable listening</button><a href="#wake">Wake word training →</a></div><p class="hint section-gap" id="mic-reading">Input level has not been measured.</p></div></div></div></details>`;
+  const result=$('#media-result',root),preview=mediaPreview(root,life);let playBusy=false,jobTimer=null,audioUrl,recordAbort;
+  const rows=[];
+  const report=(text,error=false)=>{if(life.signal.aborted)return;if(result.textContent!==text)notify(text,error);result.textContent=text;result.classList.toggle('error',error)};
+  function gate(){for(const row of rows){const missing=(row.selected?.requirements||[]).filter(n=>!ready(n));row.send.disabled=playBusy||!row.selected||!!row.selected.error||!state.connected||missing.length>0;$('.media-gate',row.el).textContent=row.selected?(row.selected.error||(!state.connected?'Waiting for connection':missing.length?'Unavailable: '+missing.join(', '):row.selected.motion?'Includes wheel movement':'Ready on Robbi')):''}}
+  async function track(job,item){if(life.signal.aborted)return;const failed=['failed','cancelled'].includes(job.state);if(failed||['done','completed','succeeded'].includes(job.state)){playBusy=false;report(failed?(job.error||'Playback did not complete.'):`Sent to Robbi: ${item.label}`,failed);gate();return}report(`Playing on Robbi: ${item.label}…`);jobTimer=setTimeout(async()=>{try{await track(await api('/api/jobs/'+encodeURIComponent(job.id),{signal:life.signal}),item)}catch(e){playBusy=false;report(e.message,true);gate()}},1000)}
+  // Decode requests are serialized on the Zero. Queue thumbnails here as well,
+  // and retry transient contention from another dashboard tab at most twice.
+  const imageQueue=[],retryTimers=new Set();let loadingImage=false;
+  function nextImage(){
+    if(loadingImage||life.signal.aborted)return;let img;
+    while(imageQueue.length){img=imageQueue.shift();if(img.isConnected)break;img=null}if(!img)return;
+    loadingImage=true;let finished=false;const timeout=setTimeout(()=>finish(false),10000);
+    function finish(ok){if(finished)return;finished=true;clearTimeout(timeout);img.onload=img.onerror=null;loadingImage=false;
+      if(!ok&&!life.signal.aborted&&img.isConnected){const tries=Number(img.dataset.tries||0);if(tries<2){img.dataset.tries=tries+1;const timer=setTimeout(()=>{retryTimers.delete(timer);imageQueue.push(img);nextImage()},500*(tries+1));retryTimers.add(timer)}else{img.dispatchEvent(new Event('thumbnail-failed'))}}
+      nextImage();
+    }
+    img.onload=()=>finish(true);img.onerror=()=>finish(false);img.src=img.dataset.src+(img.dataset.tries?'&retry='+img.dataset.tries:'');
+  }
+  const imageObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){imageQueue.push(e.target);imageObserver.unobserve(e.target)}nextImage()},{rootMargin:'100px'});life.add(()=>{imageObserver.disconnect();imageQueue.length=0;for(const timer of retryTimers)clearTimeout(timer)});
+  for(const [kind,label,description,play,icon] of kinds){
+    const el=$(`[data-kind="${kind}"]`,root),strip=$('.media-strip',el),search=$('input[type=search]',el),send=$('.media-send',el);
+    const row={el,strip,search,send,selected:null,items:[],next:null,loading:false,epoch:0,abort:null,timer:null};rows.push(row);
+    function select(item,button){row.selected=item;for(const b of $$('.media-select',el))b.setAttribute('aria-pressed',String(b===button));$('.media-selected',el).textContent=item.label;gate()}
+    function cards(items){for(const item of items){const card=document.createElement('article');card.className='media-card';const active=row.selected?.name===item.name&&row.selected?.kind===item.kind;
+      card.innerHTML=`<button class="media-select" aria-pressed="${active}" title="${esc(item.name)}" aria-label="Select ${esc(item.label)}"><span class="media-thumb">${item.thumbnail?`<img data-src="${esc(item.thumbnail)}" alt="" decoding="async" width="168" height="144">`:`<span class="media-symbol" aria-hidden="true">${icon}</span>`}</span><span class="media-name">${esc(item.label)}</span></button><button class="media-preview small" aria-label="Preview ${esc(item.label)}">${kind==='sounds'?'Listen here':'Preview'}</button>${item.motion?'<span class="media-motion">Includes movement</span>':''}`;
+      const button=$('.media-select',card);button.addEventListener('click',()=>select(item,button));$('.media-preview',card).addEventListener('click',()=>preview(item));
+      const img=$('img',card);if(img){img.addEventListener('thumbnail-failed',()=>{img.replaceWith(Object.assign(document.createElement('span'),{className:'media-symbol',textContent:icon}));card.title='Thumbnail unavailable; try Preview.'},{once:true});imageObserver.observe(img)}strip.append(card)}
+    }
+    async function load(reset=false){
+      if(row.loading&&!reset)return;if(reset){row.epoch++;row.abort?.abort();row.items=[];row.next=null;row.selected=null;for(const img of $$('img',strip))imageObserver.unobserve(img);strip.innerHTML='<p class="hint">Loading…</p>';strip.scrollLeft=0;$('.media-selected',el).textContent='Select an item';gate()}
+      const epoch=row.epoch;row.loading=true;const abort=new AbortController();row.abort=abort;const cancel=()=>abort.abort();life.signal.addEventListener('abort',cancel,{once:true});
+      try{const page=await api('/api/media-library?'+new URLSearchParams({kind,q:search.value.trim(),offset:reset?0:row.next||0,limit:18}),{signal:abort.signal});if(epoch!==row.epoch||life.signal.aborted)return;
+        if(reset)strip.replaceChildren();$('.media-more',strip)?.remove();row.items.push(...page.items);row.next=page.next;$('.media-count',el).textContent=page.total;
+        cards(page.items);if(!page.total)strip.innerHTML='<div class="media-empty">No matches. Try another search.</div>';
+        if(page.next!==null){const more=document.createElement('button');more.className='media-more small';more.textContent='Load more →';more.addEventListener('click',()=>load());strip.append(more)}
+      }catch(e){if(epoch===row.epoch&&!life.signal.aborted){if(reset)strip.replaceChildren();const retry=document.createElement('button');retry.className='small media-retry';retry.textContent='Retry loading';retry.addEventListener('click',()=>{retry.remove();load(reset)});strip.append(retry);report(e.message,true)}}finally{life.signal.removeEventListener('abort',cancel);if(epoch===row.epoch)row.loading=false}
+    }
+    life.on(search,'input',()=>{clearTimeout(row.timer);row.timer=setTimeout(()=>load(true),220)});life.add(()=>{clearTimeout(row.timer);row.abort?.abort()});
+    life.on($('.media-back',el),'click',()=>strip.scrollBy({left:-Math.max(180,strip.clientWidth*.8),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+    life.on($('.media-next',el),'click',()=>strip.scrollBy({left:Math.max(180,strip.clientWidth*.8),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+    life.on(strip,'scroll',()=>{if(row.next!==null&&!row.loading&&strip.scrollLeft+strip.clientWidth>=strip.scrollWidth-200)load()});
+    life.on(send,'click',async()=>{if(playBusy||!row.selected)return;const item=row.selected;playBusy=true;gate();report(`Sending ${item.label}…`);try{const job=await api('/api/media-library/play',{method:'POST',body:{kind:item.kind,name:item.name}});await track(job,item)}catch(e){playBusy=false;report(e.message,true);gate()}});
+    row.load=load;
+  }
+  life.on($('#media-refresh',root),'click',e=>action(e.currentTarget,async()=>{await api('/api/media-library/refresh',{method:'POST',body:{}});await Promise.all(rows.map(row=>row.load(true)))},{success:'Media library refreshed.'}));
+  function status(){gate();$('#wake-state',root).textContent=state.status?.voice?.wake_enabled?'Wake listening is enabled.':'Wake listening is disabled.'}
+  life.on(document,'robbi:status',status);life.on(document,'robbi:gates',gate);
+  life.on(root,'click',e=>{const b=e.target.closest('[data-wake]');if(b)action(b,()=>api('/wake_word',{method:'POST',body:{enabled:b.dataset.wake==='true'}}),{success:'Listening updated.'})});
+  life.on($('#mic-test',root),'submit',e=>{e.preventDefault();const form=e.currentTarget;action($('button[type=submit]',form),async()=>{recordAbort=new AbortController();const timer=setTimeout(()=>recordAbort.abort(),20000);$('#mic-status',root).textContent='Recording on Robbi…';try{const response=await fetch('/mic_record.wav?duration='+data(form).duration,{signal:recordAbort.signal});if(!response.ok)throw Error('Microphone recording failed. Check Overview.');const blob=await response.blob();if(life.signal.aborted)return;if(audioUrl)URL.revokeObjectURL(audioUrl);audioUrl=URL.createObjectURL(blob);$('#mic-audio',root).innerHTML='<audio controls aria-label="Microphone test recording"></audio>';$('audio',$('#mic-audio',root)).src=audioUrl;$('#mic-status',root).textContent='Recorded. Press play to listen here.'}catch(e){if(!life.signal.aborted)$('#mic-status',root).textContent=e.message;throw e}finally{clearTimeout(timer)}},{success:null})});
+  life.on($('#mic-level',root),'click',e=>action(e.currentTarget,async()=>{const level=await api('/mic_level',{signal:life.signal});if(!life.signal.aborted)$('#mic-reading',root).textContent=Object.entries(level).filter(([,v])=>typeof v!=='object').map(([k,v])=>`${k.replaceAll('_',' ')}: ${v}`).join(' · ')},{success:null}));
+  life.add(()=>{clearTimeout(jobTimer);recordAbort?.abort();for(const audio of $$('audio',root))audio.pause();if(audioUrl)URL.revokeObjectURL(audioUrl)});
+  await Promise.all(rows.map(row=>row.load(true)));if(!life.signal.aborted){status();gateControls()}
+}

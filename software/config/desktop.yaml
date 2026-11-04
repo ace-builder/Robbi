@@ -1,0 +1,143 @@
+server:
+  host: 127.0.0.1
+  port: 8082
+  auth_enabled: false
+  hot_reload: false
+  log_level: INFO
+network:
+  connect_timeout_s: 3
+  request_timeout_s: 15
+  cooldown_s: 5
+  max_cooldown_s: 120
+runtime:
+  worker_threads: 4
+  command_queue_size: 2
+  status_interval_s: 2
+  summary_interval_s: 15
+  catalog_interval_s: 60
+  feature_task_limit: 16
+  allow_host_management: false
+  calibration_confirmed: false
+audio_studio:
+  max_storage_mb: 128
+  max_clip_mb: 16
+  history_limit: 500
+hardware:
+  right_encoder_b_pin: 16
+  enable_motors: false
+  enable_lcd: false
+  enable_servos: false
+dynamics:
+  pickup_reactions_enabled: true
+camera:
+  enabled: true
+  width: 640
+  height: 480
+  fps: 3
+  warmup_s: 0.5
+voice:
+  enabled: false
+  wake_engine: local_wake
+  wake_phrase: hey robbi
+audio:
+  alsa_device: plughw:CARD=MAX98357A,DEV=0
+  mic_device: plughw:CARD=Device,DEV=0
+  mic_sample_rate: 16000
+llm:
+  chat_provider: local
+  chat_model: ''
+  ui_text_provider: local
+  ui_text_model: ''
+  speech_input_provider: local
+  speech_input_model: ''
+  attach_photo_for_ui_text: false
+  attach_photo_for_speech_input: false
+  vision_max_width: 512
+  vision_jpeg_quality: 65
+providers:
+  local:
+    llm_base_url: http://127.0.0.1:1234/v1
+    stt_base_url: http://127.0.0.1:8002/v1
+    tts_base_url: http://127.0.0.1:8003/v1
+stt:
+  provider: local
+  model: whisper-1
+tts:
+  provider: local
+  model: kokoro
+  voice: af_heart
+memory:
+  recent_context_messages: 12
+  recent_context_chars: 8000
+  prompt_max_chars: 1600
+  search_limit: 5
+  export_limit: 200
+events:
+  enabled: true
+  max_queue_size: 200
+autonomy:
+  enabled: false
+  level: quiet
+  allow_vision: false
+  allow_web_search: false
+heartbeat:
+  enabled: false
+daily_loop:
+  enabled: true
+  mode: quiet
+  max_proactive_per_day: 3
+  telegram_brief_enabled: false
+startup_warmup:
+  enabled: false
+  chat_enabled: false
+telegram:
+  enabled: false
+  notify_reminders: false
+  notify_proactive: false
+  allow_robot_actions: false
+  speak_remote_messages: false
+tof:
+  h2_enabled: false
+  enabled: false
+imu:
+  enabled: false
+motion:
+  obstacle_stop_enabled: true
+  obstacle_stop_cm: 12
+  encoder_timeout_s: 8
+  wheel_diameter_cm: 6.2
+  wheel_base_cm: 10.2
+  encoder_counts_per_rev: 2800
+  pwm_max_duty: 100.0
+retention:
+  cleanup_days: 30
+ui:
+  debug_mode: false
+app_hub:
+  url: https://ai-tier.com/apphub
+apps:
+  permissions_enabled: true
+conversation:
+  # Brief, context-checked listening after successful speech. Owner overrides win.
+  followup_enabled: true
+  followup_timeout_s: 5
+  max_turns: 0
+background_work:
+  enabled: true
+  foreground_budget_s: 2.0
+  timeout_s: 120.0
+  provider: ''
+  model: ''
+  max_pending: 2
+  max_history: 32
+  notify_on_complete: false
+  acknowledgement: I'll work on this and let you know when it's ready. You can keep
+    talking to me.
+day_cycle:
+  enabled: true
+  timezone: Europe/Berlin
+  weekday_wake_hour: 7
+  weekend_wake_hour: 9
+  day_hour: 10
+  evening_hour: 18
+  sleep_hour: 22

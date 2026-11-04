@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "prompts": [
+    [
+      "cactus",
+      "Use case: stylized-concept. Asset type: fixed transparent prop for an original meaningful meme animation. One small round prickly pear cactus with three plump sage green pads and visible soft golden spines, planted in a warm terracotta pot with a cream rim. No face or eyes. Tactile handcrafted clay botanical prop, warm studio lighting, sophisticated stop-motion illustration, beautifully shaped volume, crisp silhouette readable at tiny display size. Front three-quarter view, whole object visible with generous transparent margin. No ground plane, no lettering, no extra objects, no robot. True transparent background."
+    ],
+    [
+      "octopus",
+      "Use case: stylized-concept. Asset type: fixed transparent prop for an original meaningful meme animation. One charming miniature coral-orange octopus, frontal view, eight short clearly separated curved arms spread in a semicircle, big tired half-lidded dark eyes looking at viewer, tiny unimpressed mouth. Hands/arm tips empty with nothing held. Tactile handcrafted clay creature, warm studio lighting, softly textured matte clay, sophisticated stop-motion comedy character. Entire creature with generous transparent margin, no water, no background scene, no text, no robot, no blue face. True transparent background."
+    ],
+    [
+      "frog",
+      "Use case: stylized-concept. Asset type: fixed transparent prop for an original meaningful meme animation. One small sage-green frog seated peacefully cross-legged with closed eyes, hands resting on knees, round soft belly and tiny calm smile, front three-quarter view, entire body centered. Tactile hand-crafted clay figure with subtly mottled matte surface, warm cream belly, warm studio light, sophisticated stop-motion comedy illustration. No seat, no accessories, no ground plane, no text, no robot, no blue face. Generous transparent margin. True transparent background."
+    ]
+  ]
+}

@@ -1,47 +1,42 @@
-# Build Robbi
+# Robbi
 
-![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](assets/early-version-warning.svg)
+![Very early version — experienced makers only. Expect tinkering and fixes. Design and components will change; backward compatibility is not guaranteed. Provided as-is.](build/assets/early-version-warning.svg)
 
-![Build Robbi — a small robot, built by you](assets/banners/00-build.png)
+A tiny Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. This repository brings together the illustrated hardware build guide and the software that runs on Robbi.
 
-A small Raspberry Pi robot with a face, a camera, a voice and two encoder-equipped wheels. Build the electronics on the bench, fit them into the printed body, then bring Robbi's movement and conversation to life.
+## Choose your starting point
 
-## Watch the build
-
-[![Watch the Robbi video build guide](assets/build-video-thumbnail.png)](https://youtu.be/MBummcW5DIk)
-
-**11:46 · 4K · silent, with on-screen instructions.** Follow the assembly in the video and use the written steps below for parts, wiring and calibration.
-
-[Bench tests](https://youtu.be/MBummcW5DIk?t=59) · [Motors and wheels](https://youtu.be/MBummcW5DIk?t=136) · [Head assembly](https://youtu.be/MBummcW5DIk?t=305) · [Final checks](https://youtu.be/MBummcW5DIk?t=626)
-
-> [!IMPORTANT]
-> **Build guide in progress.** Includes the parts and variant photos, manufactured PCB settings, connector pinout, assembly STL and illustrated build sequence. Remaining gaps are the tested print recipe, exact fasteners at each mounting point, motor-cable identification and measured power/load limits. See the [release checklist](RELEASE-CHECKLIST.md).
-
-## Start here
-
-Follow the order below. **Finish the bench tests before mounting the electronics in the shell.**
-
-| Step | What you will do |
+| Build the robot | Install and use the software |
 | :--- | :--- |
-| **[01 · Parts](01-parts.md)** | Order the matching board, modules, motors and hardware. |
-| **[02 · Preparation](02-preparation.md)** | Gather tools, prepare printed parts and check the fits. |
-| **[03 · Software](03-software.md)** | Flash Bookworm, run one installer command and finish in the dashboard. |
-| **[04 · Bench tests](04-bench-tests.md)** | Test the battery-powered bare PCB, join it to the Pi, then check the peripherals. |
-| **[05 · Assembly](05-assembly.md)** | Mount the motors, Pi/back panel and head; fit the wiring, ToF sensor and side-panel inserts. |
-| **[06 · Calibration](06-calibration.md)** | Follow IMU calibration, check wheel movement and test STT, LLM and TTS. |
-| **[Troubleshooting](07-troubleshooting.md)** | Isolate a fault without changing several things at once. |
+| **[Hardware build guide](build/README.md)** | **[Software guide](software/README.md)** |
+| Parts, tools, 3D prints, PCB manufacturing, wiring, assembly and calibration. | First installation, dashboard, voice providers, apps, configuration and development. |
+| [Parts list](build/01-parts.md) · [Wiring](build/WIRING.md) | [Step-by-step setup](software/SETUP.md) · [Software documentation](software/docs/README.md) |
 
-## What you are building
+## From parts to a working Robbi
 
-| Core | Hardware |
-| :--- | :--- |
-| Computer | Raspberry Pi Zero 2 W with a soldered 40-pin header |
-| Main board | Custom `Robbi 2026-09` PCB: power circuit, motor driver, speaker amplifier and IMU |
-| Movement | Two matching 3 V / 75 RPM N20 motors with encoders |
-| Face and voice | 1.69-inch SPI display, USB microphone and miniature speaker |
-| Vision and distance | IMX219 camera and one forward-facing VL53L1X-family ToF module |
+1. **Order and prepare:** follow the [parts list](build/01-parts.md) and [printing/tool preparation](build/02-preparation.md).
+2. **Install the software:** prepare Raspberry Pi OS Bookworm Lite 64-bit, connect by SSH and follow [first setup](software/SETUP.md).
+3. **Test on the bench:** verify the bare PCB, connect it to the Pi and check each peripheral using the [bench tests](build/04-bench-tests.md).
+4. **Assemble:** fit the motors, body, head and wiring following the [illustrated assembly guide](build/05-assembly.md).
+5. **Calibrate and check:** complete [IMU and motor calibration and voice tests](build/06-calibration.md). Use [troubleshooting](build/07-troubleshooting.md) if a check fails.
 
-The second ToF connector and servo outputs are unused in this build. Use the PCB and print revisions listed in this guide together.
+The core hardware is a Raspberry Pi Zero 2 W, the custom Robbi PCB, two N20 encoder motors, a small SPI face display, USB microphone, speaker, camera and forward-facing distance sensor. Bench-test the electronics before closing the shell.
+
+## Software installation
+
+On the prepared Pi, as your normal Linux user:
+
+```sh
+curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/ace-builder/Robbi/main/software/install.sh | bash
+```
+
+The guided installer verifies a pinned source snapshot, sets up the runtime and startup service, and asks for your own dashboard credentials and provider settings. Follow the [complete setup instructions](software/SETUP.md) for requirements and first checks. A fresh-card installation and the actual hardware still need physical verification.
+
+## Watch the assembly
+
+[![Watch the Robbi video build guide](build/assets/build-video-thumbnail.png)](https://youtu.be/MBummcW5DIk)
+
+The silent 4K build video accompanies the written guide. Use the written parts, wiring and test instructions alongside it.
 
 ## Known limitations
 
@@ -73,20 +68,14 @@ These notes describe the current prototype. Suspected causes and possible improv
 
 A future PCB revision could also explore an **on-board 18650 holder**, with suitable cell retention, electrical clearance and enclosure space. This is a proposed improvement.
 
-## Keep these nearby
-
-- **[Parts list](bom.csv)** — quantities, variants and purchase links.
-- **[Wiring reference](WIRING.md)** — top-view connector drawing, numbered pins, display power-pin swap and power test points.
-- **[Build record](build-record.csv)** — record your revisions, measurements and test results.
-- **[PCB manufacturing files](hardware/pcb/README.md)** and **[enclosure model](hardware/prints/README.md)**.
-- **[One-command installation](03-software.md)** — minimal terminal setup, automatic startup and one generated configuration.
-- **[Release readiness](RELEASE-CHECKLIST.md)** — runtime publication and fresh-card testing status.
-
-> [!TIP]
-> Keep power disconnected while changing wiring or fitting parts. For the first powered motor checks, raise both wheels. Floor tests need a clear, level area away from edges: the forward ToF sensor does not provide cliff detection.
-
 ## Repository layout
 
-Keep the Markdown files, `assets/` and `hardware/` together so the relative links work on GitHub. The repository root contains the runtime: `pyproject.toml`, `src/`, `config/`, `web/`, `apps/` and `tools/`. Installation is covered in [Software](03-software.md).
+```text
+README.md       Project overview and setup sequence
+build/          Illustrated guide, parts, wiring, photos and hardware files
+software/       Runtime, installer, apps, assets and software documentation
+```
 
-The illustrated Markdown guide is the single maintained manual. Separate browser, commissioning and service-template editions have been retired; the installer generates the working settings and startup service.
+## Licensing and contributions
+
+Personal non-commercial building and modification are welcome under the included terms. First-party software uses PolyForm Noncommercial 1.0.0; first-party hardware, documentation and artwork use CC BY-NC-SA 4.0 where applicable. See [licensing](software/LICENSE.md), [third-party media notices](software/docs/MEDIA.md) and [contribution guidance](software/CONTRIBUTING.md).

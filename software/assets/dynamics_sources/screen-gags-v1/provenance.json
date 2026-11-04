@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "duck.png",
+    "provider": "built-in image_gen",
+    "source_filename": "exec-4534eba5-dfdc-4b3a-bd28-f9edbbed079d.png",
+    "sha256": "f9e6b46dbd3619b37d785354642ab22f381774f4065bd7abf189c4c9e1db9550"
+  },
+  {
+    "asset": "violin.png",
+    "provider": "built-in image_gen",
+    "source_filename": "exec-78c8cd98-70ba-4170-bb11-906bf2af33e4.png",
+    "sha256": "dfe41ca7abade1e5ca97a95af60e136f9de5f15b90b9dfd5fe36b410191cc4a4"
+  },
+  {
+    "asset": "hamster.png",
+    "provider": "built-in image_gen",
+    "source_filename": "exec-19061b85-e41d-47d9-a863-45912ad400e2.png",
+    "sha256": "712c431062882b41a22f0bed56b952002fa9f4e99258aa39ddf864f283ad14ee"
+  }
+]

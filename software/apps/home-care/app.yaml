@@ -1,0 +1,142 @@
+api_version: 2
+id: home-care
+name: Home Care Companion
+version: 1.1.0
+entrypoint: main:run
+description: Recurring household chores with due dates based on actual completion and optional one-shot
+  timers.
+permissions:
+- state
+- robot.reminders
+- robot.display
+- robot.audio
+triggers:
+- What home care is due?
+- I changed the water filter today
+tools:
+- name: manage
+  title: Manage a chore
+  description: Save or remove a chore. New records need name; optional id updates supplied fields. Interval
+    defaults to 7 days. Changing interval recalculates due from last completion; first_due explicitly
+    overrides it.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - save
+        - remove
+        default: save
+      name:
+        type: string
+        title: Chore name
+        maxLength: 80
+      every_days:
+        type: integer
+        title: Repeat every days
+        minimum: 1
+        maximum: 3650
+      first_due:
+        type: string
+        title: First due YYYY-MM-DD
+        maxLength: 10
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+      notes:
+        type: string
+        title: Notes
+        maxLength: 160
+        x-advanced: true
+- name: agenda
+  title: Due chores
+  description: List overdue chores and chores due within days_ahead, or include_all=true for every chore.
+    Due dates do not create background reminders.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      days_ahead:
+        type: integer
+        title: Days ahead
+        minimum: 0
+        maximum: 3650
+        default: 7
+      include_all:
+        type: boolean
+        title: Show all saved chores
+        default: false
+        x-advanced: true
+  read_only: true
+- name: act
+  title: Complete or remind
+  description: Complete on an actual date (blank=today); next due is completion+interval. Duplicate date
+    is unchanged. remind explicitly starts a separate one-shot audible timer of 1–1440 minutes, undoable
+    by exact ID.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - complete
+        - remind
+        default: complete
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: false
+      completed_on:
+        type: string
+        title: Completed YYYY-MM-DD
+        maxLength: 10
+        x-advanced: true
+      minutes:
+        type: integer
+        title: Reminder in minutes
+        minimum: 1
+        maximum: 1440
+        x-advanced: true
+    required:
+    - id
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      default: Europe/Berlin
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: home
+tags:
+- chores
+- maintenance
+- reminders
+images:
+  icon: images/icon.png
+  screen: images/screen.png

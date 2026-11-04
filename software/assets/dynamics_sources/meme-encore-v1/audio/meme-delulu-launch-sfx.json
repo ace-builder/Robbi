@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A retro toaster lever clicks down, tense spring rattles building to a ridiculous tiny rocket ignition and fast upward whoosh. Premium funny foley, no speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "4b6f5fd88d1d3da9bbc8656dbde3b240b76e1cfe74d9e3070f816cf69bac7f50"
+}

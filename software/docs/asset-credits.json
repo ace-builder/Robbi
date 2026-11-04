@@ -1,0 +1,81 @@
+{
+  "dance_funk": {
+    "title": "Funked Up",
+    "author": "Joth",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://opengameart.org/content/funked-up",
+    "download": "https://opengameart.org/sites/default/files/Funked%20Up.mp3",
+    "adaptation": "First 18 seconds, mono 22050 Hz PCM, gain 0.65 and fades",
+    "sha256": "abd1c4abb6ddbf25be01e69de220a70824d16177608af9ef151187673cdac678"
+  },
+  "dance_bots": {
+    "title": "Danza D' Bots II",
+    "author": "LushoGames",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://opengameart.org/content/danza-d-bots-ii",
+    "download": "https://opengameart.org/sites/default/files/DanzaDeBots_2.mp3",
+    "adaptation": "First 18 seconds, mono 22050 Hz PCM, gain 0.65 and fades",
+    "sha256": "26b873514115be37e48d6246100e15c997bd3545320d1412f54d3d41e0919817"
+  },
+  "dance_garden": {
+    "title": "Rhythm Garden",
+    "author": "congusbongus",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "https://opengameart.org/content/rhythm-garden",
+    "download": "https://opengameart.org/sites/default/files/rhythm_garden_0.ogg",
+    "adaptation": "First 18 seconds, mono 22050 Hz PCM, gain 0.65 and fades",
+    "sha256": "6716468402c7c670316ef272deea338184dfca902b695f5507b798046d1236b8"
+  },
+  "reaction_surprise": {
+    "provider": "ElevenLabs",
+    "model": "eleven_text_to_sound_v2",
+    "prompt": "A tiny friendly cartoon robot's surprised rising electronic chirp, two soft bloops and a questioning squeak. Dry clean sound, no speech, no music, no harsh alarms.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "4f648319c480f41ce38cfc3547ba1cbf267e3be615a5fac53b5fb6fca4e816dd"
+  },
+  "reaction_happy": {
+    "provider": "ElevenLabs",
+    "model": "eleven_text_to_sound_v2",
+    "prompt": "A tiny happy desk robot makes three playful warm electronic chirps, a cute rising bubbly trill. Clean isolated sound, no words, no background music.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "aed03f037292d610e640044c9d5755548374b10b606a2128d619e1af86842117"
+  },
+  "game_victory": {
+    "provider": "ElevenLabs",
+    "model": "eleven_text_to_sound_v2",
+    "prompt": "A short original joyful arcade victory fanfare, sparkling soft chiptune notes rising to a happy resolved chord. Friendly, playful, no speech, no percussion blast.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "6272d1336cd269e8c190813afabfb364661c3eac61b667b04e3d0a9076ffdb73"
+  },
+  "pickup_put_me_down": {
+    "provider": "ElevenLabs",
+    "model": "eleven_multilingual_v2",
+    "prompt": "Put me down! I have extremely important desk business.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "a6b261f7f048a39886fb99eb86bbcd0e90c973227bdb15a87e26a982b24eeda7"
+  },
+  "pickup_whee": {
+    "provider": "ElevenLabs",
+    "model": "eleven_multilingual_v2",
+    "prompt": "Whee! So this is the premium transport service.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "64de57a2eb864e68422fc07d883a22e370365a17b872a309d84979e2670602f3"
+  },
+  "pickup_landed": {
+    "provider": "ElevenLabs",
+    "model": "eleven_multilingual_v2",
+    "prompt": "Ah, solid ground. Much more my level.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "456e5f4589803084d7e9037eade47be17e1479e610482f46ac7f0cca07f636d7"
+  },
+  "game_robot_wins": {
+    "provider": "ElevenLabs",
+    "model": "eleven_multilingual_v2",
+    "prompt": "I win! A historic victory for a very small robot.",
+    "license": "Generated using owner's ElevenLabs account; subject to its plan terms, not CC0",
+    "sha256": "d85660193a881abf0cc43db065015903b201157999ac65d5c85cd8d47456b467"
+  }
+}

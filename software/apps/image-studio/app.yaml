@@ -1,0 +1,230 @@
+api_version: 2
+id: image-studio
+name: Image Studio
+version: 1.1.0
+description: Generate a diagram, pictogram or image with your configured image service and show it on
+  Robbi.
+entrypoint: main:run
+permissions:
+- network
+- robot.display
+triggers:
+- Draw a diagram of the water cycle
+- Show me a pictogram for quiet
+- Generate a picture of a moon base
+dashboard:
+  title: Image Studio
+  description: Describe an image. Robbi generates it remotely and fits it to the screen. Configure a provider
+    first; provider charges may apply.
+tools:
+- name: generate
+  title: Generate image
+  description: Generate and display an image when the user explicitly requests an image, diagram or pictogram.
+    Uses the configured remote image provider; may incur a charge. Do not call for ordinary questions
+    or descriptions of the camera.
+  timeout_s: 180
+  examples:
+  - Draw a simple diagram of a plant cell
+  - Show a sun pictogram on your screen
+  input_schema:
+    type: object
+    required:
+    - prompt
+    properties:
+      prompt:
+        type: string
+        title: Image description
+        minLength: 3
+        maxLength: 4000
+        description: Simple high-contrast diagrams work best on the small screen.
+        x-order: 10
+      show_on_screen:
+        type: boolean
+        title: Show on Robbi
+        default: true
+        x-order: 20
+      hold_s:
+        type: number
+        title: Minimum display time (seconds)
+        minimum: 1
+        maximum: 120
+        default: 10
+        description: Keep the image visible through speech and idle faces. Use longer for detailed diagrams.
+- name: show
+  title: Show saved image
+  description: Display an existing generated image only when the user explicitly asks to show that saved
+    result. Does not generate a new image or contact its provider.
+  timeout_s: 10
+  input_schema:
+    type: object
+    required:
+    - artifact_id
+    properties:
+      artifact_id:
+        type: string
+        title: Saved artifact ID
+        minLength: 32
+        maxLength: 32
+      hold_s:
+        type: number
+        title: Minimum display time (seconds)
+        minimum: 1
+        maximum: 120
+        default: 10
+        description: Keep the image visible through speech and idle faces. Use longer for detailed diagrams.
+config_schema:
+  type: object
+  properties:
+    provider:
+      type: string
+      title: Provider
+      enum:
+      - openai
+      - google
+      - google_generate_content
+      - bfl
+      - replicate
+      - generic
+      default: openai
+      x-order: 10
+    model:
+      type: string
+      title: Model ID
+      maxLength: 200
+      default: ''
+      description: Set a currently supported model ID from your provider. Replicate uses owner/model.
+      x-order: 20
+    api_key_env:
+      type: string
+      format: env
+      title: API key environment variable
+      maxLength: 100
+      default: ''
+      description: Name only, such as OPENAI_API_KEY. Store the actual key in .env.secrets. Leave blank
+        for the provider default.
+      x-order: 30
+    endpoint:
+      type: string
+      title: Endpoint override
+      maxLength: 1000
+      default: ''
+      description: Full HTTPS endpoint. Leave blank for the selected provider default.
+      x-order: 100
+      x-advanced: true
+    timeout_s:
+      type: integer
+      title: Request budget (seconds)
+      minimum: 5
+      maximum: 180
+      default: 120
+      x-order: 110
+      x-advanced: true
+    size:
+      type: string
+      title: OpenAI size
+      maxLength: 30
+      default: 1024x1024
+      x-order: 200
+      x-advanced: true
+    quality:
+      type: string
+      title: OpenAI quality
+      enum:
+      - low
+      - medium
+      - high
+      - auto
+      default: low
+      x-order: 210
+      x-advanced: true
+    aspect_ratio:
+      type: string
+      title: Google aspect ratio
+      maxLength: 20
+      default: '1:1'
+      x-order: 220
+      x-advanced: true
+    width:
+      type: integer
+      title: BFL width
+      minimum: 256
+      maximum: 2048
+      default: 1024
+      x-order: 230
+      x-advanced: true
+    height:
+      type: integer
+      title: BFL height
+      minimum: 256
+      maximum: 2048
+      default: 1024
+      x-order: 240
+      x-advanced: true
+    allow_http:
+      type: boolean
+      title: Allow HTTP for a trusted LAN endpoint
+      default: false
+      x-order: 410
+      x-advanced: true
+    request_options_json:
+      type: string
+      title: Additional provider options (JSON)
+      maxLength: 4000
+      default: '{}'
+      description: Optional provider-specific fields. Keep credentials in the environment variable.
+      x-order: 300
+      x-advanced: true
+    request_template_json:
+      type: string
+      title: Generic request template (JSON)
+      maxLength: 4000
+      default: ''
+      description: Generic endpoint only. Use {prompt} and {model} placeholders.
+      x-order: 310
+      x-advanced: true
+    response_encoding:
+      type: string
+      title: Generic response encoding
+      enum:
+      - base64
+      - url
+      - binary
+      default: base64
+      x-order: 320
+      x-advanced: true
+    response_path:
+      type: string
+      title: Generic response field
+      maxLength: 200
+      default: data.0.b64_json
+      x-order: 330
+      x-advanced: true
+    auth_header:
+      type: string
+      title: Generic authentication header
+      maxLength: 100
+      default: Authorization
+      x-order: 400
+      x-advanced: true
+    auth_prefix:
+      type: string
+      title: Generic authentication prefix
+      maxLength: 50
+      default: 'Bearer '
+      x-order: 405
+      x-advanced: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: creative
+tags:
+- images
+- generation
+- artwork
+images:
+  icon: images/icon.png
+  screen: images/screen.png

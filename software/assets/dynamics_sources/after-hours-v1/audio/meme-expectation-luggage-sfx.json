@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A large soft air cushion slowly deflates with an amusing airy whoosh, a small leather case creaks closed with a neat metal clasp click, then two tiny wheels roll briefly. No speech, music or beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "d5ceff2c8c35eebcd1b1ed0a3632c0bfdc454893ae617b0b7f7bd16c04f9cfde"
+}

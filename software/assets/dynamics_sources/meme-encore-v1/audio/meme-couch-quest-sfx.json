@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A fantasy parchment scroll quickly unfurls, a soft plush cushion poofs, followed by a tiny magical achievement chime and gentle sleepy exhale. No speech, no words, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "88d2fefd0761ace1acea390476e46c052120442e1db43b7e560475d06e774a42"
+}

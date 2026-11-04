@@ -1,0 +1,26 @@
+{
+  "sheet": "expression-atlas-v2.png",
+  "columns": 4,
+  "rows": 5,
+  "order": [
+    14,
+    13,
+    15,
+    8,
+    8
+  ],
+  "durations_ms": [
+    120,
+    140,
+    380,
+    320,
+    300
+  ],
+  "blend_ms": [
+    0,
+    100,
+    160,
+    200,
+    0
+  ]
+}

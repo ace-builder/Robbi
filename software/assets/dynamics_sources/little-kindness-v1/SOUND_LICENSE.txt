@@ -1,0 +1,11 @@
+Original Robbi Little Kindnesses sound recordings and synthesis recipes
+Created 2026-10-23.
+
+To the extent copyright or related rights apply to these original synthesized
+soundtracks and their synthesis recipes, they are dedicated to the public domain
+under CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+No recordings, voices, sampled effects or third-party music were used.
+This dedication applies only to the six sweet-*.wav soundtracks and the original
+soundtrack composition in prepare_little_kindness.py. It does not alter the terms
+of image artwork, fonts, dependencies or existing project code.

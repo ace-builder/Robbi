@@ -1,0 +1,13 @@
+Original Robbi seasonal and Advent soundtracks and composition recipes
+Created 2026-10-23.
+
+To the extent copyright or related rights apply to these original synthesized
+soundtracks and their original composition recipes, they are dedicated to the
+public domain under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+This applies to the nine season-*.wav tracks and 24 advent-*.wav tracks in this
+collection, their synchronized video audio, and the original audio event recipes
+in seasonal_holidays.py, seasonal_advent_early.py and seasonal_advent_late.py.
+No recordings, voices, sampled effects or third-party music were used.
+This dedication does not change artwork, font, dependency or existing code terms.

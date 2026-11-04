@@ -1,0 +1,13 @@
+{
+  "id": "cheeky-wink",
+  "title": "Pocket cork wink",
+  "duration_s": 1.36,
+  "prompt": "A tiny playful cork pop followed by a very short cheeky slide whistle flick upward. Warm and soft, not shrill. One wink gesture. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.1400000000000001,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "4f2dd83b2b506f3fa2f5e2300c8eb5e4fe25fe97e877c51db01421553b981de5",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

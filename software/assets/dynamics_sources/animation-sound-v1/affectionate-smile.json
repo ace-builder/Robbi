@@ -1,0 +1,13 @@
+{
+  "id": "affectionate-smile",
+  "title": "Felt heart nuzzle",
+  "duration_s": 2.44,
+  "prompt": "Two warm soft felt heart thumps, then an intimate rounded finger-rub on singing glass with a tender rising shimmer and soft fade. Affectionate, gentle, no beeps. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.2199999999999998,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "ae088a2bd3c5d72684f11c8b76a21d2b607ab36d343a75d749883d93eb3af790",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

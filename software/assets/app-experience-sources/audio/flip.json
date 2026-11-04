@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A short playful coin-flip whoosh with a soft metallic flutter, rising then falling, ending softly before the result. One second, dry isolated, no speech, no music.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "b2fa632d473dc51dc25dfa2ec07612feba61292e600c65750126118f8d7e1f8f",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 2010.86
+}

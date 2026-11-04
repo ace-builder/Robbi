@@ -1,0 +1,90 @@
+api_version: 2
+id: checklists
+name: Everyday checklists
+version: 1.1.0
+entrypoint: main:run
+description: Reusable packing lists, morning routines and step-by-step task checklists, saved offline.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Create a packing checklist
+- Check off my passport
+- What is next on my morning checklist?
+dashboard:
+  title: Everyday checklists
+  description: Reusable packing lists, morning routines and step-by-step task checklists, saved offline.
+tools:
+- name: manage
+  title: Manage
+  description: Create a list, show the next unfinished step, or check an item by number. Reset clears
+    the checkmarks; delete removes the named list.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 160
+        enum:
+        - create
+        - list
+        - show
+        - check
+        - uncheck
+        - reset
+        - delete
+        default: list
+        x-order: 0
+      name:
+        type: string
+        title: Checklist name
+        maxLength: 60
+        default: ''
+        x-order: 10
+      items:
+        type: array
+        title: Items for new list
+        description: Enter one item per line. Used when creating a list.
+        x-order: 20
+        maxItems: 30
+        items:
+          type: string
+          title: Item
+          maxLength: 120
+          minLength: 1
+      item:
+        type: integer
+        title: Item number
+        description: Used to check or uncheck a saved item.
+        x-order: 30
+        minimum: 1
+        maximum: 30
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Show on Robbi’s screen
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: productivity
+tags:
+- tasks
+- routines
+- offline
+images:
+  icon: images/icon.png
+  screen: images/screen.png

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robbi-runtime"
+version = "2.1.2"
+description = "Robbi's modular, fault-tolerant robot runtime"
+license = {file = "LICENSE"}
+requires-python = ">=3.11,<3.13"
+dependencies = ["Flask>=3.1,<4", "waitress>=3.0.2,<4", "PyYAML>=6.0.2,<7", "Pillow>=11.3,<13", "cryptography>=41,<51", "packaging>=24,<27", "tzdata>=2025.2; sys_platform == 'win32'"]
+
+[project.optional-dependencies]
+providers = ["openai>=1.97,<3", "httpx>=0.28,<1"]
+live = ["websockets>=14,<18"]
+vision = ["numpy>=1.24,<3", "opencv-python-headless>=4.10,<5"]
+navigation = ["numpy>=1.24,<3"]
+voice = ["numpy>=1.24,<3", "scipy>=1.10,<2", "python_speech_features==0.6"]
+test = ["pytest>=8.3,<10", "numpy>=1.24,<3", "scipy>=1.10,<2", "python_speech_features==0.6"]
+
+[project.scripts]
+robbi = "robbi.__main__:main"
+robbi-setup = "robbi.setup.wizard:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+

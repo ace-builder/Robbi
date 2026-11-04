@@ -1,0 +1,13 @@
+{
+  "id": "curious-glance",
+  "title": "Inquisitive marimba",
+  "duration_s": 2.04,
+  "prompt": "A soft hollow marimba question and answer, first a low pair of plucks, pause, then a brighter single pluck, with gentle wooden resonance. An original curious searching gesture. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.82,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "0344d10dbf8a29edf725057f6e9b290906e5f7f04bcfe61f2fe06dc74f9b0fc1",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

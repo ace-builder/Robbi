@@ -1,0 +1,77 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-10-23",
+  "usage": "Fixed transparent independent props for advent-01 through advent-12. No frame-by-frame generated geometry; all animation is deterministic Pillow composition.",
+  "assets": [
+    {
+      "file": "nicholas-boot.png",
+      "prompt": "Use case: illustration-story. Asset type: one fixed transparent prop for a warm Advent mini-animation on a 280x240 LCD. Subject: single charming deep cranberry red Saint Nicholas ankle boot, side view with toe pointing right, plush cream fur cuff, simple gold buckle, no contents, opening clearly visible. Style: beautifully polished hand-painted storybook gouache with soft dimensional shading, crisp silhouette, tiny material details visible at small size. Palette: cranberry, warm cream, muted golden ochre, plum shadows. Composition: entire boot centered, isolated, generous margin, genuine transparent background. No lettering, no logo, no eyes or face, no character, no other objects, no ground, no cast shadow outside object.",
+      "generated_original": "",
+      "sha256": "3f57500e33388b80c23c4663f1a2f4c7cb83ade6ed659c2a8507092dfd3b8a73",
+      "dimensions": [
+        1355,
+        1161
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ginger-star.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one plain six-point star shaped gingerbread biscuit, seen almost straight from above with subtly visible baked thickness at bottom, warm golden brown, gently textured baked surface, no icing or decoration, entire biscuit fully visible. Style: polished hand-painted storybook gouache with dimensional soft shading and clear crisp silhouette, attractive at tiny size. Composition: centered single object isolated with genuine transparent background and generous margin. Palette: golden ochre, toasted caramel, warm brown edges. No lettering, no logo, no face, no eyes, no people, no other objects, no plate, no external cast shadow.",
+      "generated_original": "",
+      "sha256": "07362e16acc8cbdb09873042320b975a158690076abd8d211982e75ac713aaa1",
+      "dimensions": [
+        1312,
+        1199
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "sage-mitten.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one beautiful sage green knitted mitten, upright palm facing viewer, fingers rounded at top, small thumb to the left, wide warm cream ribbed cuff at bottom, simple tiny cream snowflake knitting motif centered on palm. Style: polished hand-painted storybook gouache with softly dimensional shading, visible chunky wool stitches, crisp simple silhouette readable at tiny size. Composition: centered single entire object isolated on genuine transparent background, generous margin. Palette: sage green, pale moss, warm cream, plum shadows. No lettering, no logo, no eyes or face, no people, no hand inside, no other objects, no cast shadow outside object.",
+      "generated_original": "",
+      "sha256": "d483f8499ce7c8dc18566ab774bc89c5beea54f271cc47a12ba57cc3a898777f",
+      "dimensions": [
+        1087,
+        1447
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "cocoa-mug.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one beautifully glazed cranberry red ceramic mug filled with hot chocolate and three little cream marshmallows, handle to the right, gently three-quarter front view with oval rim visible, simple gold star motif on mug front, no steam so steam can be animated separately. Style: polished hand-painted storybook gouache, softly dimensional warm highlights, clean crisp silhouette and appealing small-scale clarity. Composition: entire single mug centered, isolated on genuine transparent background, generous margin. Palette: cranberry red, warm cream, golden ochre, chocolate brown, plum shadows. No lettering, no logo, no eyes or face, no people, no saucer, no other objects, no external cast shadow.",
+      "generated_original": "",
+      "sha256": "e434872f68fb65738f2b7305ed737555fe75e49ab989d8cc3a77294c35544425",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "clementine.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one fresh whole clementine orange, slightly flattened round form, tiny dark green leaf and short stem on top, bright textured peel, front three-quarter view, full object visible. Style: polished hand-painted storybook gouache with soft dimensional golden highlights and warm shadow, crisp simple silhouette attractive at very small size. Composition: one object centered, isolated on genuine transparent background, generous margin. Palette: tangerine orange, warm gold, sage green leaf, subtle plum shadows. No lettering, no logo, no face or eyes, no people, no other objects, no ground or external cast shadow.",
+      "generated_original": "",
+      "sha256": "aec23b9d5a97b7d850858e0919b511c4b952010b746e0f96ffeac396fdcdded4",
+      "dimensions": [
+        1307,
+        1203
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

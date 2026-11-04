@@ -1,0 +1,80 @@
+api_version: 2
+id: robot-charades
+name: Robot Charades
+version: 1.1.1
+description: Guess twenty feelings, actions, animals and jobs from Robbi's expressions, sounds and acting
+  scenes.
+permissions:
+- state
+- robot.display
+- robot.audio
+- robot.motion
+triggers:
+- Play Robot Charades
+- Guess Robbi's expression
+dashboard:
+  page: dashboard/index.html
+tools:
+- name: play
+  description: Start a hidden feeling, action, animal or job; perform again, ask for a hint or guess.
+    Exact synonyms count. Only solve or skip reveals the answer. Sounds are stylized cues. Motors are
+    off unless enabled.
+  timeout_s: 25
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+        - start
+        - perform
+        - hint
+        - guess
+        - skip
+        - status
+        - stop
+        default: status
+      answer:
+        type: string
+        maxLength: 160
+        default: ''
+config_schema:
+  type: object
+  properties:
+    output:
+      type: string
+      enum:
+      - both
+      - screen
+      - sound
+      - text
+      default: both
+      title: Performance output
+    category:
+      type: string
+      enum:
+      - mixed
+      - feeling
+      - action
+      - animal
+      - job
+      default: mixed
+    motion:
+      type: boolean
+      default: false
+      title: Allow small body gestures
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.1,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: games
+tags:
+- gestures
+- guessing
+- robot
+images:
+  icon: images/icon.png
+  screen: images/screen.png

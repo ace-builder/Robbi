@@ -1,0 +1,92 @@
+api_version: 2
+id: recipe-scaler
+name: Recipe portions
+version: 1.1.0
+entrypoint: main:run
+description: Scale ingredient quantities from original portions to the portions you need.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Scale this recipe from four portions to six
+tools:
+- name: scale
+  title: Scale ingredients
+  description: Scale numeric ingredient amounts linearly. Preserve each unit; do not infer cooking time,
+    temperature or ingredient density.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      original_portions:
+        type: number
+        title: Original portions
+        minimum: 0.01
+        maximum: 10000
+        x-order: 0
+      wanted_portions:
+        type: number
+        title: Wanted portions
+        minimum: 0.01
+        maximum: 10000
+        x-order: 10
+      ingredients:
+        type: array
+        title: Ingredients
+        maxItems: 30
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+              title: Ingredient
+              maxLength: 80
+              minLength: 1
+              x-order: 0
+            amount:
+              type: number
+              title: Amount
+              minimum: 0
+              maximum: 1000000
+              x-order: 10
+            unit:
+              type: string
+              title: Unit
+              maxLength: 30
+              default: ''
+              x-order: 20
+          required:
+          - name
+          - amount
+        minItems: 1
+        x-order: 20
+    required:
+    - original_portions
+    - wanted_portions
+    - ingredients
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: home
+tags:
+- cooking
+- portions
+- measurements
+images:
+  icon: images/icon.png
+  screen: images/screen.png

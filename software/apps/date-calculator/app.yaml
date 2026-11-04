@@ -1,0 +1,101 @@
+api_version: 2
+id: date-calculator
+name: Dates and countdowns
+version: 1.1.0
+entrypoint: main:run
+description: Shift dates and count calendar or working days, with optional holiday exclusions.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- What date is 45 days from today?
+- How many weekdays until December 1?
+tools:
+- name: shift
+  title: Add or subtract days
+  description: Add a signed number of calendar days to a date; an empty date uses today.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      date:
+        type: string
+        title: Starting date
+        maxLength: 10
+        description: YYYY-MM-DD; empty means today in the configured timezone.
+        default: ''
+        x-order: 0
+      days:
+        type: integer
+        title: Days to add
+        minimum: -36500
+        maximum: 36500
+        default: 0
+        x-order: 10
+- name: difference
+  title: Date difference or countdown
+  description: Count signed calendar days and Monday-Friday days from start to end. Empty start means
+    today. Include start, exclude end; provide local holidays explicitly.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      start:
+        type: string
+        title: Starting date
+        maxLength: 10
+        description: YYYY-MM-DD; empty means today in the configured timezone.
+        default: ''
+        x-order: 0
+      end:
+        type: string
+        title: Ending date
+        maxLength: 10
+        minLength: 10
+        x-order: 10
+      holidays:
+        type: array
+        title: Holiday dates
+        maxItems: 100
+        items:
+          type: string
+          title: Date YYYY-MM-DD
+          maxLength: 10
+          minLength: 10
+        default: []
+        x-order: 20
+    required:
+    - end
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      description: IANA timezone used for today and empty date fields.
+      default: Europe/Berlin
+      x-order: 0
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- dates
+- countdowns
+- calendars
+images:
+  icon: images/icon.png
+  screen: images/screen.png

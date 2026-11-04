@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A small descending airy meteor whistle, a surprisingly soft hollow cardboard shield thunk, followed by a delicate sugar cube dropping into a teacup with a porcelain clink and tiny plop. Dry cartoon foley, gentle, no voice or music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "44e6224a7a69af810882b0e54ca794438071e8dd5cd9380882576357b48523ec"
+}

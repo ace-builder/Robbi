@@ -1,0 +1,13 @@
+{
+  "id": "gag-dramatic-zoom",
+  "title": "Extremely small revelation",
+  "duration_s": 3.0,
+  "prompt": "A restrained cinematic bowed-cello rising tension swell, a dry low piano plunk at the middle and a tiny reverse-cymbal tail. Comically disproportionate discovery. No horror scream or bass blast. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "d5e8eb26274708adb11a8757aa7652990ac565c4b870800963c03e62bfdafd16",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

@@ -1,0 +1,177 @@
+api_version: 2
+id: unit-converter
+name: Everyday unit converter
+version: 1.1.0
+entrypoint: main:run
+description: Convert physical quantities, temperatures, durations and decimal or binary data sizes.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Convert two gigabytes to mebibytes
+- How many square meters is 500 square feet?
+tools:
+- name: convert
+  title: Convert units
+  description: Convert between units in the same category. B is bytes, bit is bits; MB is decimal and
+    MiB is binary. US and imperial measures are distinct.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      value:
+        type: number
+        title: Value
+        minimum: -1000000000000.0
+        maximum: 1000000000000.0
+        x-order: 0
+      from_unit:
+        type: string
+        title: From unit
+        maxLength: 20
+        enum:
+        - mm
+        - cm
+        - m
+        - km
+        - in
+        - ft
+        - yd
+        - mi
+        - mg
+        - g
+        - kg
+        - oz
+        - lb
+        - ml
+        - l
+        - us_gal
+        - us_cup
+        - us_tbsp
+        - us_tsp
+        - imperial_gal
+        - m/s
+        - km/h
+        - mph
+        - ms
+        - s
+        - min
+        - h
+        - day
+        - week
+        - bit
+        - B
+        - kB
+        - MB
+        - GB
+        - KiB
+        - MiB
+        - GiB
+        - cm2
+        - m2
+        - ha
+        - km2
+        - ft2
+        - acre
+        - Pa
+        - kPa
+        - bar
+        - atm
+        - J
+        - kJ
+        - kWh
+        - kcal
+        - C
+        - F
+        - K
+        x-order: 10
+      to_unit:
+        type: string
+        title: To unit
+        maxLength: 20
+        enum:
+        - mm
+        - cm
+        - m
+        - km
+        - in
+        - ft
+        - yd
+        - mi
+        - mg
+        - g
+        - kg
+        - oz
+        - lb
+        - ml
+        - l
+        - us_gal
+        - us_cup
+        - us_tbsp
+        - us_tsp
+        - imperial_gal
+        - m/s
+        - km/h
+        - mph
+        - ms
+        - s
+        - min
+        - h
+        - day
+        - week
+        - bit
+        - B
+        - kB
+        - MB
+        - GB
+        - KiB
+        - MiB
+        - GiB
+        - cm2
+        - m2
+        - ha
+        - km2
+        - ft2
+        - acre
+        - Pa
+        - kPa
+        - bar
+        - atm
+        - J
+        - kJ
+        - kWh
+        - kcal
+        - C
+        - F
+        - K
+        x-order: 20
+    required:
+    - value
+    - from_unit
+    - to_unit
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- units
+- measurements
+- conversions
+images:
+  icon: images/icon.png
+  screen: images/screen.png

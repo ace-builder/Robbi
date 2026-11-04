@@ -1,0 +1,156 @@
+{
+  "collection": "A year of little moments",
+  "mode": "built-in imagegen",
+  "assets": [
+    {
+      "file": "holidays/birthday-cake.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one charming squat birthday cupcake with coral pink frosting, golden wrapper and ONE straight unlit cream candle, no flame. Style: polished storybook gouache with thick warm plum outlines, simple bold silhouette and subtle paper texture. Front view slight perspective, centered, whole object, no cast shadow or surrounding objects. Palette cream, peach, coral, muted sage and golden honey. Genuinely transparent background with clean alpha. No text, logos, robots, faces, eyes, blue, scene, hands. Generous empty transparent margin.",
+      "sha256": "6c77e31262c62ab02cf0ef7c968d2589782880c627cdd89f2345c1edafc4edf7",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "holidays/gingerbread.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: a plump joyful gingerbread cookie person with white icing cuffs, two simple dark dot eyes, small icing smile and three coral buttons, standing with arms slightly raised. Style: polished storybook gouache with thick warm plum outlines, bold simple silhouette and subtle baked texture. Front view, centered, whole object, no cast shadow or surrounding objects. Warm brown, cream icing, coral accents. Genuinely transparent background clean alpha. No text, logos, robots, blue, gifts, hats, scenery. Generous transparent margin.",
+      "sha256": "0b7fdb25405dd06a5a2066c37898f32a75da235bad3c7ba070fea9caba97fc4b",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "holidays/pumpkin.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one adorable squat orange Halloween pumpkin with a jaunty short curved green stem, three clean carved openings: two triangle eyes and a tiny happy crescent mouth glowing honey yellow. Style polished storybook gouache with thick warm plum outlines, bold chunky silhouette and subtle papery texture. Front view slight perspective, centered, whole object. Genuinely transparent background with clean alpha. No text, logos, robots, blue, hats, scene, cast shadow, extra objects. Generous transparent margin.",
+      "sha256": "f19ec120d46d1349623980cf76953ad1bc173c25ced6c9baad67c432fe1dc8e5",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "holidays/summer-icecream.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one delicious slightly melting peach-and-vanilla ice cream scoop on a short golden waffle cone, one small drip on the left. Bold simple silhouette. Style polished storybook gouache with thick warm plum outlines, soft papery texture, warm cream peach coral and honey palette. Front view, centered, entire object. Genuinely transparent background clean alpha, generous transparent margin. No face, eyes, text, logos, robots, blue, scene, cast shadow, extra objects, toppings or umbrella.",
+      "sha256": "63a3c1e6dc325fed16c1e3558f1170aea7b49b7c5cefb35a7dd803d498b9e94b",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "holidays/autumn-hedgehog.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one sweet sleepy round hedgehog in side view facing right, tiny dark dot eye and smile, cream face, warm cocoa and cinnamon spines, tiny feet, nose raised slightly, a very clear simple squat silhouette. Style polished storybook gouache with thick warm plum outlines and light papery texture. Centered whole animal, no scene or cast shadow. Genuinely transparent background clean alpha, generous transparent margin. No leaves or accessories, text, logos, robots, blue.",
+      "sha256": "bca464a5e14c9a76e1528814c76814751a9a2f09ddda6833712e3d55e528f89c",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "holidays/spring-wateringcan.png",
+      "prompt": "Use case: illustration-story. Asset type: single transparent animation prop for a tiny 280x240 display. Subject: one small charming coral red metal watering can with a round body, large loop handle on the right, long spout pointing upper left and round perforated rose head. Empty can alone, no water. Style polished storybook gouache with thick warm plum outlines, clean bold silhouette and subtle paper texture. Front three-quarter view, centered whole object, warm coral and cream highlights with dark plum outlines. Genuinely transparent background clean alpha, generous transparent margin. No text, logos, robots, eyes, faces, blue, scene, shadows, flowers.",
+      "sha256": "904a0fc955136a8ef026f3224c171c7df9c22ad3170fed27dffdcfd735db261d",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-early/nicholas-boot.png",
+      "prompt": "Use case: illustration-story. Asset type: one fixed transparent prop for a warm Advent mini-animation on a 280x240 LCD. Subject: single charming deep cranberry red Saint Nicholas ankle boot, side view with toe pointing right, plush cream fur cuff, simple gold buckle, no contents, opening clearly visible. Style: beautifully polished hand-painted storybook gouache with soft dimensional shading, crisp silhouette, tiny material details visible at small size. Palette: cranberry, warm cream, muted golden ochre, plum shadows. Composition: entire boot centered, isolated, generous margin, genuine transparent background. No lettering, no logo, no eyes or face, no character, no other objects, no ground, no cast shadow outside object.",
+      "sha256": "3f57500e33388b80c23c4663f1a2f4c7cb83ade6ed659c2a8507092dfd3b8a73",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-early/ginger-star.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one plain six-point star shaped gingerbread biscuit, seen almost straight from above with subtly visible baked thickness at bottom, warm golden brown, gently textured baked surface, no icing or decoration, entire biscuit fully visible. Style: polished hand-painted storybook gouache with dimensional soft shading and clear crisp silhouette, attractive at tiny size. Composition: centered single object isolated with genuine transparent background and generous margin. Palette: golden ochre, toasted caramel, warm brown edges. No lettering, no logo, no face, no eyes, no people, no other objects, no plate, no external cast shadow.",
+      "sha256": "07362e16acc8cbdb09873042320b975a158690076abd8d211982e75ac713aaa1",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-early/sage-mitten.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one beautiful sage green knitted mitten, upright palm facing viewer, fingers rounded at top, small thumb to the left, wide warm cream ribbed cuff at bottom, simple tiny cream snowflake knitting motif centered on palm. Style: polished hand-painted storybook gouache with softly dimensional shading, visible chunky wool stitches, crisp simple silhouette readable at tiny size. Composition: centered single entire object isolated on genuine transparent background, generous margin. Palette: sage green, pale moss, warm cream, plum shadows. No lettering, no logo, no eyes or face, no people, no hand inside, no other objects, no cast shadow outside object.",
+      "sha256": "d483f8499ce7c8dc18566ab774bc89c5beea54f271cc47a12ba57cc3a898777f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-early/cocoa-mug.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one beautifully glazed cranberry red ceramic mug filled with hot chocolate and three little cream marshmallows, handle to the right, gently three-quarter front view with oval rim visible, simple gold star motif on mug front, no steam so steam can be animated separately. Style: polished hand-painted storybook gouache, softly dimensional warm highlights, clean crisp silhouette and appealing small-scale clarity. Composition: entire single mug centered, isolated on genuine transparent background, generous margin. Palette: cranberry red, warm cream, golden ochre, chocolate brown, plum shadows. No lettering, no logo, no eyes or face, no people, no saucer, no other objects, no external cast shadow.",
+      "sha256": "e434872f68fb65738f2b7305ed737555fe75e49ab989d8cc3a77294c35544425",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-early/clementine.png",
+      "prompt": "Use case: illustration-story. Asset type: fixed transparent prop for a cozy Advent LCD animation. Subject: one fresh whole clementine orange, slightly flattened round form, tiny dark green leaf and short stem on top, bright textured peel, front three-quarter view, full object visible. Style: polished hand-painted storybook gouache with soft dimensional golden highlights and warm shadow, crisp simple silhouette attractive at very small size. Composition: one object centered, isolated on genuine transparent background, generous margin. Palette: tangerine orange, warm gold, sage green leaf, subtle plum shadows. No lettering, no logo, no face or eyes, no people, no other objects, no ground or external cast shadow.",
+      "sha256": "aec23b9d5a97b7d850858e0919b511c4b952010b746e0f96ffeac396fdcdded4",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-late/sleepy-gingerbread.png",
+      "prompt": "Use case: illustration-story. Asset type: transparent character prop for a tiny Advent LCD animation. Subject: one adorable sleepy gingerbread biscuit person, full body, front view, lying horizontally on its back with head at left and feet at right, arms relaxed, eyes gently closed and tiny smile. Golden baked cookie, elegant white icing cuffs, two warm coral sugar buttons, subtle baked texture. Children's storybook gouache with softly sculpted volume, clean bold silhouette, restrained cream/coral palette and dark warm outline. Single isolated cutout on genuinely transparent background, no bed, no accessories, no text, no ground plane, no cast shadow, no blue robot or robot face, no watermark. Ample clear transparent margin.",
+      "sha256": "f44dfdf0a857fce8f68db1b3192663ce2e718487fa7c9fa9927402d3b195e90d",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-late/skating-penguin.png",
+      "prompt": "Use case: illustration-story. Asset type: transparent full-body character prop for an Advent LCD animation. Subject: one tiny adorable round penguin in coral knitted earmuffs, both stubby flippers out for balance, two polished silver ice skates with little tan boots, a relaxed happy beak smile. Front three-quarter view, character facing slightly right. Children's storybook gouache with soft sculpted volume, bold clean silhouette, warm ivory belly and charcoal plum back, beautiful restrained painted texture. Single isolated cutout on genuinely transparent background, entire body and skates fully visible, no ground, no cast shadow, no ice, no text, no blue robot or robot face, no watermark. Plenty transparent margin.",
+      "sha256": "13e51bddda3c75e0e5307678fa85dae597a1c278102dc4909dc39b1b5b5646f8",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-late/festive-pinecone.png",
+      "prompt": "Use case: illustration-story. Asset type: transparent object character prop for an Advent LCD animation. Subject: one charming upright round little pinecone, rich layered chestnut scales, a very tiny friendly face with two dark dot eyes and a gentle smile low in its center, full pinecone visible. Warm children's storybook gouache with softly sculpted volume, restrained golden brown and cream highlights, clean simple bold silhouette, delicate tactile painted detail that reads when small. Single isolated cutout on genuinely transparent background. No hat, no limbs, no accessories, no ground plane, no cast shadow, no text, no blue robot or robot face, no watermark. Ample transparent margin.",
+      "sha256": "1fab1bb0fc6e6bcba44b827dc818ccff90a172f25fa14f22d2b5dad4f6dd4b08",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    },
+    {
+      "file": "advent-late/snack-reindeer.png",
+      "prompt": "Use case: illustration-story. Asset type: transparent character prop for an Advent LCD animation. Subject: one adorable tiny baby reindeer, full body in a sitting pose, three-quarter view facing left, oversized friendly velvet muzzle and small branched antlers, tan soft fur, ivory chest patch, dark brown hooves, tiny coral scarf, eyes happily looking slightly down and left. Children's storybook gouache with softly sculpted volume, bold readable clean silhouette, warm tactile texture and restrained chestnut/cream/coral palette. Single isolated cutout on genuinely transparent background, entire antlers and feet visible. No food, no gift, no ground, no cast shadow, no text, no blue robot or robot face, no watermark. Ample transparent margin.",
+      "sha256": "39f4c4cd6be74cb160c0e8dd57251a2438a48dc78904f058d918c09a6baa200e",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "tool": "built-in imagegen"
+    }
+  ]
+}

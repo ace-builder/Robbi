@@ -1,0 +1,6 @@
+{
+  "name":"robbi-motion-studio",
+  "private":true,
+  "type":"module",
+  "scripts":{"test":"node --test motion.test.js media-preview.test.js"}
+}

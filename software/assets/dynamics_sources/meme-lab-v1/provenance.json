@@ -1,0 +1,58 @@
+[
+  {
+    "name": "brick",
+    "source_filename": "exec-d1c2ddfa-045c-48bf-9bb2-23d0c4ee8d4c.png",
+    "sha256": "e03afbc7e3d70a30482aa20cbf90e974bf74326b9c98f2aa51c49443ad3ec8a5",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "name": "shredder",
+    "source_filename": "exec-091f11ee-553b-4120-b24a-100d1c92f2b1.png",
+    "sha256": "7e89dc2a219de6a6cdc2f6c3ce8aa40a84cdafe3d511a9914ce2f8c3f0d71152",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "name": "can",
+    "source_filename": "exec-40dcc051-a89b-497e-bdf0-4dd7d9ba5ade.png",
+    "sha256": "78c4f288971feccfd6b898661bf757d25008320b7e60e32b43ba9947df19c4be",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ]
+  },
+  {
+    "name": "bin",
+    "source_filename": "exec-32341aa1-a5a8-421a-b4fc-4b6f0e37af02.png",
+    "sha256": "5bd382f0dfeb98a9c60854c4e61366924aed0dffaac80e02be5a4ff9485e6e29",
+    "size": [
+      1355,
+      1161
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+api_version: 2
+id: robot-status
+name: Robot check
+version: 1.1.0
+description: Ask Robbi which components need attention, without probing devices or changing settings.
+permissions:
+- robot.status
+- robot.display
+- robot.audio
+triggers:
+- Is your camera connected?
+- Are all your components working?
+- Why can you not hear me?
+tools:
+- name: check
+  title: Check Robbi
+  description: Read cached robot health and current component problems. Never claims real hardware works
+    when disabled or unavailable. Use for questions about camera, microphone or robot readiness; it does
+    not perform device I/O or repairs.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties: {}
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: robot
+tags:
+- diagnostics
+- health
+- status
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+images:
+  icon: images/icon.png
+  screen: images/screen.png

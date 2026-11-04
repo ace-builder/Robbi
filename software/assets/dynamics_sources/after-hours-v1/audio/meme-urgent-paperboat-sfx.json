@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Crisp close-up folding paper in two short steps, followed by a small paper boat touching water with a tiny plip, and a brief gentle water lap. Intimate miniature foley, no speech or music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "70c3b3794ad17ec665de40e7a3c318381a03d5c7563c07110f93d062618c2ae9"
+}

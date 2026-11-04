@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A gentle ceramic cup clink followed by a tiny wooden spoon tap and one soft bright bell. Friendly kitchen helper, one second, isolated, no voice or background.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "4069429694ceb285947c3579ddabb124ad2ded4ee6152c06884afb5d2c141c29",
+  "seconds": 1.0,
+  "peak": 12000,
+  "rms": 1707.41
+}

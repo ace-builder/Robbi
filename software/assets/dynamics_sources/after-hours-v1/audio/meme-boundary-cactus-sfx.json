@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Two papery speech bubbles flutter in, two soft rubber boxing gloves inflate with gentle pops, then two restrained padded boofs push the paper away. Tiny playful tactile foley, not violent. No voices, no music, no beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "6c2afebf4fbb109288bc702315e317ba94c343c07a4ea7d4bfa760c8426a230f"
+}

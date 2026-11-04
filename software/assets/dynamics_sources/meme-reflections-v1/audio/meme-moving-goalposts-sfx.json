@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A small ball rolls across a smooth floor, a funny short spring boing, a pair of tiny shoes scampers away with brisk footsteps. Clean playful cartoon foley. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "7c1fa0dc47cbc6f7e4db574bb38161aa1c4bd2667d4ce3cb1f608f7c2286ca83"
+}

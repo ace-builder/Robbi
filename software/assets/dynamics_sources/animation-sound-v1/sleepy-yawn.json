@@ -1,0 +1,13 @@
+{
+  "id": "sleepy-yawn",
+  "title": "Accordion yawn",
+  "duration_s": 2.37,
+  "prompt": "A tiny breathy accordion reed slowly opens in a rounded yawning pitch arc, with soft bellows air, then sinks down and closes. Cute sleepy nonverbal instrument, no human voice. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.15,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "5fd86030ec5343278df8edf6a713d0eca890a5000b4ea5223252bede25d88efe",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

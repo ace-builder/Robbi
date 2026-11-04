@@ -1,0 +1,13 @@
+{
+  "id": "look-right",
+  "title": "Right bamboo glance",
+  "duration_s": 1.28,
+  "prompt": "A hollow bamboo tube rolled briefly across felt, a delicate hollow tap, then a light brush returning. A distinct gentle looking-right gesture, no digital beeps. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.06,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "e373448a949ff1e7e69f24d0ebb3d2ccf5c16e16ce5418c24b9b810ce1cb16a9",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

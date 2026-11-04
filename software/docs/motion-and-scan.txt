@@ -1,0 +1,229 @@
+Movement control follow-up — 2026-10-27 (offline)
+
+The measured motor loop now targets 100 Hz (motion.control_interval_s: 0.01).
+ControlTick schedules against monotonic absolute deadlines, subtracts work time,
+skips missed slots instead of issuing catch-up bursts, and waits interruptibly.
+No busy spin, privileged real-time scheduler, extra sensor reader, or dependency
+was introduced. Encoder snapshots avoid the motor output lock after initialization.
+Gyro samples remain cached at the IMU worker's rate (normally 50 Hz); bounded
+rate extrapolation aligns them with encoder ticks. 100 Hz is a target, not a
+Linux scheduling guarantee. Receipts expose actual control_hz, target_control_hz,
+max_control_gap_ms, control_jitter_rms_ms, and missed_control_ticks.
+
+Straight/reverse measured moves now share the continuous arc/wave controller.
+It adjusts wheel phase and measured wheel speed throughout travel. Bounded
+adaptive PWM balance compensates persistent left/right motor mismatch; fused
+relative pose adds a bounded cross-track heading correction. Neither feature
+claims to observe distance slip that the available sensors cannot measure.
+Both wheels stop together at path completion; corrections are applied during
+travel instead of saving a one-wheel pivot for the end. Start assistance can
+raise a non-rolling wheel toward the requested PWM ceiling, subject to slew and
+stall limits. No new hardcoded motor RPM calibration is assumed.
+
+Tuning in Settings > Motion:
+  control_interval_s: 0.01       # 100 Hz target; allowed 0.01..0.05 seconds
+  curve_trim_gain: 0.8           # 0..3; zero disables adaptive wheel balance
+  curve_cross_track_gain: 1.0    # 0..2; zero disables position correction
+  curve_start_assist: true      # help overcome rolling/breakaway mismatch
+Adaptive trim is disabled when a nonzero custom curve PID integral gain is set,
+to avoid running two competing integrators. Existing geometry, PWM ceilings,
+encoder calibration, permissions and private settings are preserved.
+
+Turns hold cruise speed longer, brake using measured wheel rates, settle using
+observed stillness, and size correction pulses from their observed response
+instead of treating slow correction pulses like full-speed cruise. PWM ceilings,
+finite correction pulses and cancellation remain in effect.
+
+Manual policy (dashboard and Motion Studio owner identities only):
+- Missing/stale front ToF is advisory. It no longer locks manual buttons or
+  rejects a movement. Fresh detected obstacles still stop forward movement.
+- Missing, stale, reset or discontinuous IMU readings switch to encoders.
+  Three distinct consistent gyro samples allow recovery at the current fused
+  pose; the gyro blends back over 0.1 seconds, without restarting the movement.
+  Opposite-direction gyro evidence latches encoder fallback for that move.
+- Continuous gyro/encoder disagreement is reported rather than treating ordinary
+  wheel slip as proof that the gyro failed.
+- Delayed control ticks recover with a warning. Unreached turn accuracy or
+  incomplete settling yields an approximate result, not a failed manual command.
+- No command is queued or replayed when sensors/network recover.
+Stop/cancel, output ownership, pickup detection, real per-wheel stalls, bounded
+timeouts and configured output limits remain. Navigation and app commands do
+not inherit this manual exception. Filming retains its separate existing policy.
+
+Validation for this follow-up:
+561 focused tests passed in EACH of the private source and public candidate.
+Coverage includes loaded curves, straight/reverse paths, changing motor load,
+manual gyro dropout/recovery, strict navigation, cadence overrun, turn warning
+policy, stop/cancellation, setup/settings and filming compatibility. Local browser
+checks covered missing ToF/IMU, one POST per click, no replay on recovery, busy
+state, Stop, network interruption, setting limits, and 390 px mobile layout.
+
+Deterministic simulation comparison (not physical accuracy): average absolute
+endpoint heading error over the loaded arc/wave matrix fell from 1.81 degrees
+to 0.20 degrees (maximum updated 0.40 degrees). Across nine turn target/inertia
+cases median duration was about 7% shorter; all stayed within the existing
+12-count tolerance. Some individual turns can take longer to settle precisely.
+Desktop follower computation was about 10 microseconds/tick, excluding GPIO,
+I2C and OS scheduling; this does not establish CPU usage or timing on the Pi.
+
+No code was deployed. On hardware, first check both arc directions and forward/
+reverse at modest speed, then waves and in-place wiggles. Compare receipts and
+physical endpoints under normal voice/camera load. Preserve saved calibration.
+If saved settings override the new default, set control_interval_s to 0.01
+explicitly. Physical accuracy, braking on the real floor and sustained Pi loop
+rate remain unverified.
+
+
+Previous scan/control investigation follows (2026-10-26 baseline)
+
+MOTION AND SCAN PERFORMANCE — offline update, 2026-10-26
+
+Why the old scans were slow and sparse
+- The local Pi configuration polled ToF at 10 Hz with a 50 ms timing budget.
+  The worker also capped readiness polling at 20 Hz. A faster navigation loop
+  cannot recover sensor samples that were never read.
+- Only the latest range and motor telemetry were cached. Navigation checked
+  them every 25 ms, so increasing sensor frequency alone would lose samples.
+- The scan kept one point per 6-degree bin: at most 60 points per revolution.
+- After a sweep, up to 12 separate gap-filling turns could lengthen the scan.
+- The sensor's intermeasurement period was not explicitly programmed; changing
+  integration budget alone does not configure the repetition period.
+
+Sensor limits
+Robbi uses the VL53L1X. ST specifies up to 50 Hz and a typical 27-degree full
+(diagonal) field of view. A 20 ms budget is suitable for short distance mode,
+whose useful maximum is about 1.3 m. Long mode needs at least 33 ms according to
+the datasheet; its best quoted 4 m performance uses much longer budgets and
+favorable targets. More samples improve angular coverage but do not turn this
+sensor into a narrow-beam lidar. Dark surfaces, sunlight, glass, nearby furniture,
+wheel slip, and motion during integration all affect the map.
+
+Implemented data flow
+VL53L1X -> one I2C-owning worker -> 512 timestamped ranges per sensor
+Encoders + cached gyro heading -> motor loop -> 256 timestamped pose increments
+Navigation -> drain both histories -> interpolate range-time pose -> angular bins
+           -> existing bounded occupancy mapping / scan matching
+
+The sensor period is now explicitly set using its calibrated oscillator value,
+following ST's ULD register calculation. The period must be at least the timing
+budget. Readiness polling allows up to 200 Hz (5 ms); this is NOT the number of
+new distance measurements per second. Both worker and motor loops subtract work
+time from their wait. I2C reads remain in the existing sensor worker, never in
+HTTP handlers or the motor control loop. Sensor bus speed is not changed.
+
+Scan quality presets in Map & explore
+Preset          Mode    Budget  Period  Nominal rate  Readings in 4 s
+Room mapping    Long    33 ms   35 ms   28.6 Hz       about 114
+Near range      Short   20 ms   20 ms   50 Hz         about 200
+Stronger returns Long   50 ms   55 ms   18.2 Hz       about 73
+
+These are target sensor rates, not measured hardware guarantees. Each preset
+uses a 200 Hz readiness poll. Actual rate and valid-return percentage are shown
+in the tab. New installations use the room-mapping preset. Old saved settings
+are preserved: select a preset explicitly after installing this update.
+
+Advanced Settings exposes tof.intermeasurement_ms (0 = derive from budget/poll)
+and tof.roi_size (4..16 SPADs per side, default 16). Smaller ROI narrows the view
+at the cost of fewer photons; test return quality before relying on it. Presets
+preserve the chosen ROI and optional second-sensor setting.
+
+Navigation defaults to 1-degree bins, a 90-degree/s rotation target, a 40% PWM
+ceiling, and no extra gap-filling turns. The requested rate is regulated using
+measured fused motion. Acceleration, braking, configured PWM limits and motor
+friction still affect duration; 90 degrees/s does not promise a four-second take.
+Existing navigation settings can override the new defaults. Set these in Robot
+geometry & navigation settings when upgrading:
+  scan_bin_deg: 1
+  scan_rate_deg_s: 90
+  scan_speed: 40
+  scan_max_fill_turns: 0
+The motor's existing lower PWM limit always takes precedence.
+
+Range timestamps estimate the integration midpoint from ready-poll time, half
+the timing budget and half a polling interval. They are explicitly labelled as
+estimates with timing uncertainty; the sensor does not supply a hardware exposure
+timestamp. Bracketed pose interpolation compensates rotation during sampling.
+Missing ranges are never invented, and no-return measurements are not free space.
+Ring-buffer overflow, unmatched timestamps, invalid returns and angular gaps are
+reported in scan diagnostics. A scan still requires adequate actual coverage.
+
+The existing localization budget remains: matching uses a bounded subset of the
+scan while occupancy mapping can retain the denser points. Grid size is separate
+from sampling density; reducing cell size cannot recover optical detail. No new
+heavy SLAM library, neural model, sensor thread or dependency was introduced.
+
+Driving findings and changes
+The previous code DID already read encoder callbacks in a nominal 20 ms loop and
+use calibrated gyro-led heading fusion. Accelerometer gravity corrects the gyro
+axis for tilt; it is not double-integrated as a reliable distance sensor. A new
+Kalman filter alone would not fix clipping, timing, friction or path dispatch.
+
+1. The motor output layer independently clipped wheel PWM. At a 50% ceiling,
+   a timed 70/100 pair became 50/50, removing steering. It now scales the pair
+   together to 35/50 and preserves direction/ratio. Raw tests retain +/-100%.
+2. Curves slept 20 ms AFTER doing their control work. They now target a 20 ms
+   period including work, and report actual control_hz and maximum scheduling gap.
+3. Very short turns (<=200 encoder counts) skipped the normal drive phase and
+   used only tiny correction pulses. They now accelerate under feedback first,
+   then use bounded settling corrections. This helps small in-place wiggles.
+4. Forward wiggle now uses the same continuous trajectory follower as sine,
+   rather than separate turn/straight/turn segments. Target helpers and execution
+   agree. In-place wiggle remains a sequence of measured alternating turns.
+5. The existing continuous follower's wheel-phase and velocity corrections run
+   throughout arcs and waves. Its coupled endpoint stop is retained: it does
+   not brake one wheel and let the other add a final pivot. Regression tests
+   check the path at 25%, 50% and 75%, not just its endpoint.
+
+6. At low PWM, the old distance-only timeout could expire just before a healthy
+   curve finished. It now allows measured wheel progress to extend that estimate
+   within a bounded deadline. Per-wheel stall and cancellation checks remain.
+   Tests cover 40% (dashboard default) and 50%, plus a creeping plant that must
+   still time out: movement cannot extend its deadline indefinitely.
+
+Manual driving now exposes optional wave amplitude and describes the feasible
+sideways excursion. For a 20 cm full wave with 15 cm minimum radius and a 15-degree
+heading limit, maximum excursion is only about 1.35 cm. This can look almost
+straight even when correctly executed. Increase distance or reduce cycles for
+a wider wave. Explicit infeasible amplitude is rejected before motor admission.
+Amplitude is the cosine coefficient: the maximum sideways excursion is 2*A,
+with the path starting and ending on its original line and heading.
+
+Examples (manual-motion JSON; no movement is performed by reading this guide):
+  {"mode":"arc","radius_cm":20,"angle_deg":90,"speed":40}
+  {"mode":"sine","distance_cm":40,"radius_cm":15,"angle_deg":30,
+   "cycles":1,"amplitude_cm":2,"speed":40}
+  {"mode":"wiggle_forward","distance_cm":40,"radius_cm":15,
+   "angle_deg":30,"cycles":1,"speed":40}
+  {"mode":"wiggle","angle_deg":15,"cycles":1,"speed":40}
+
+Verification and remaining physical checks
+- 539 focused tests passed in each of the private source and public candidate.
+  They cover sensor configuration, histories, motion, navigation, setup,
+  orchestration, manual commands, and filming compatibility.
+- A simulated 50 Hz / four-second sweep retains all 200 points despite 80 ms
+  navigation scheduling delays, with 1.8-degree largest gap and no buffer loss.
+- Loaded-motor simulations include asymmetric breakaway/rolling friction,
+  inertia, 40 ms encoder delay, 6 ms control work, and mild wheel slip. Arc/wave
+  checkpoints track heading within 8 degrees and endpoint error within 6 degrees;
+  measured loop scheduling remains 50 Hz. These are simulation tolerances, not
+  promises of physical accuracy.
+- Local browser checks cover presets, errors, diagnostics, busy-state gating,
+  automatic/explicit wave amplitude, and 390 px mobile layout. No robot calls.
+
+When hardware is available: select Room mapping first, inspect measured Hz and
+return percentage, then try Near range with targets inside 1.3 m. Check I2C errors,
+IMU freshness and control_hz under normal voice/camera load. Then compare both
+arc directions and a longer wave against the measured path checkpoints. Calibrate
+wheel diameter, track width and breakaway PWM if needed; saved calibration has
+not been replaced. Hardware performance and whether the currently installed Pi
+matches this source still need verification. Nothing was deployed by this update.
+
+Primary references
+ST VL53L1X datasheet:
+https://www.st.com/resource/en/datasheet/vl53l1x.pdf
+ST ULD timing and intermeasurement rules:
+https://www.st.com/resource/en/user_manual/um2510-a-guide-to-using-the-vl53l1x-ultra-lite-driver-stmicroelectronics.pdf
+ST oscillator-calibrated SetInterMeasurementInMs implementation:
+https://raw.githubusercontent.com/stm32duino/VL53L1X/main/src/vl53l1x_class.cpp
+Adafruit driver (timing budget and ROI):
+https://raw.githubusercontent.com/adafruit/Adafruit_CircuitPython_VL53L1X/main/adafruit_vl53l1x.py

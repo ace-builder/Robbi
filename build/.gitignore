@@ -1,0 +1,27 @@
+# No owner data or credentials, anywhere in this repository.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+**/var/
+**/data/
+**/datasets/
+**/recordings/
+**/captures/
+**/logs/
+**/backups/
+**/.ssh/
+**/config/robot.yaml
+**/config/local.yaml
+**/config/pi.yaml
+**/.venv/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+**/node_modules/
+**/.pytest_cache/
+**/test-results/
+*.sqlite*
+*.db*

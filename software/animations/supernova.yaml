@@ -1,0 +1,53 @@
+- face: surprised.png
+  sound: wow.wav
+  ms: 260
+- face: joyful.png
+  drive:
+    direction: forward
+    speed: 62
+    duration: 0.25
+  ms: 260
+- face: mischievous.png
+  drive:
+    direction: left
+    speed: 74
+    duration: 0.24
+  ms: 220
+- face: happy.png
+  sound: beeping.wav
+  ms: 180
+- face: cute.png
+  drive:
+    direction: right
+    speed: 74
+    duration: 0.24
+  ms: 220
+- face: surprised.png
+  drive:
+    direction: backward
+    speed: 58
+    duration: 0.22
+  ms: 180
+- face: joyful.png
+  ms: 220
+- face: happy.png
+  drive:
+    direction: forward
+    speed: 72
+    duration: 0.3
+  ms: 220
+- face: mischievous.png
+  drive:
+    direction: left
+    speed: 82
+    duration: 0.18
+  ms: 180
+- face: joyful.png
+  drive:
+    direction: right
+    speed: 82
+    duration: 0.18
+  ms: 200
+- face: cute.png
+  sound: happy.wav
+  ms: 800

@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "One silver spoon delicately clinks, a little squeaky pulley lifts it away, followed by one dry wooden stamp thump. Funny understated tactile foley. No speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "bf195b2590a43df52b4ce5a87d650cece9a1908951a47511dbf765ab2d9b73b5"
+}

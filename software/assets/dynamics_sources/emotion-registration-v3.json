@@ -1,0 +1,1426 @@
+{
+  "source": "assets/dynamics_sources/emotion-keyposes-v3-original.png",
+  "canonical": "expression-atlas-v2.png",
+  "frame_size": [
+    280,
+    240
+  ],
+  "registered_regions": {
+    "left_eye": [
+      32,
+      56,
+      80,
+      80
+    ],
+    "right_eye": [
+      176,
+      54,
+      82,
+      82
+    ],
+    "mouth": [
+      90,
+      132,
+      108,
+      64
+    ]
+  },
+  "anchors": {
+    "left_eye": [
+      71.5,
+      98.5
+    ],
+    "right_eye": [
+      216.5,
+      97.5
+    ],
+    "mouth": [
+      143.5,
+      165
+    ]
+  },
+  "weights": [
+    0,
+    0.15625,
+    0.5,
+    0.84375,
+    1,
+    1,
+    0.84375,
+    0.5,
+    0.15625,
+    0
+  ],
+  "emotions": {
+    "affectionate-smile": {
+      "description": "Heart-shaped eyes and a small, warm smile.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            114,
+            58,
+            131,
+            107
+          ],
+          "source_crop": [
+            112,
+            56,
+            135,
+            111
+          ],
+          "target_box": [
+            34,
+            68,
+            75,
+            61
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d5"
+        },
+        "right_eye": {
+          "source_bbox": [
+            348,
+            58,
+            131,
+            106
+          ],
+          "source_crop": [
+            346,
+            56,
+            135,
+            110
+          ],
+          "target_box": [
+            178,
+            66,
+            77,
+            63
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa7d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            241,
+            188,
+            107,
+            38
+          ],
+          "source_crop": [
+            239,
+            186,
+            111,
+            42
+          ],
+          "target_box": [
+            112,
+            153,
+            63,
+            24
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            80,
+            79,
+            18,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            225,
+            78,
+            18,
+            18
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.5,
+        "mouth": 0.0
+      },
+      "sha256": "5e54584681764e7e79d534c18e1846ceca2751e508e8ca1b2477e9034963dfaa"
+    },
+    "proud-smile": {
+      "description": "A quiet, satisfied smile with gently closed eyes.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            683,
+            86,
+            128,
+            47
+          ],
+          "source_crop": [
+            681,
+            84,
+            132,
+            51
+          ],
+          "target_box": [
+            34,
+            83,
+            75,
+            31
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "right_eye": {
+          "source_bbox": [
+            928,
+            86,
+            128,
+            47
+          ],
+          "source_crop": [
+            926,
+            84,
+            132,
+            51
+          ],
+          "target_box": [
+            178,
+            82,
+            77,
+            31
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "mouth": {
+          "source_bbox": [
+            800,
+            185,
+            139,
+            41
+          ],
+          "source_crop": [
+            798,
+            183,
+            143,
+            45
+          ],
+          "target_box": [
+            102,
+            151,
+            83,
+            28
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d7d5"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {},
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.0,
+        "mouth": 0.5
+      },
+      "sha256": "9973fbab5c2a623310c827c5aab8ab52b6f77ae5901e7d79c510970ff5529e8d"
+    },
+    "shy-smile": {
+      "description": "A little bashful smile and a downward gaze.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            120,
+            319,
+            120,
+            109
+          ],
+          "source_crop": [
+            118,
+            317,
+            124,
+            113
+          ],
+          "target_box": [
+            34,
+            64,
+            75,
+            69
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "right_eye": {
+          "source_bbox": [
+            350,
+            318,
+            118,
+            109
+          ],
+          "source_crop": [
+            348,
+            316,
+            122,
+            113
+          ],
+          "target_box": [
+            178,
+            62,
+            77,
+            71
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            252,
+            458,
+            85,
+            31
+          ],
+          "source_crop": [
+            250,
+            456,
+            89,
+            35
+          ],
+          "target_box": [
+            116,
+            154,
+            55,
+            22
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa5d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            80.01595744680851,
+            109.57446808510639
+          ],
+          "box": [
+            70,
+            102,
+            21,
+            17
+          ]
+        },
+        "right_eye": {
+          "center": [
+            222.16923076923078,
+            109.5025641025641
+          ],
+          "box": [
+            212,
+            101,
+            22,
+            18
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.5,
+        "mouth": 0.5
+      },
+      "sha256": "04a89009acb9bde8dc3c4d02ee7068286b8e3c8a7c33d69ae4f5a25c566ac4fe"
+    },
+    "excited-grin": {
+      "description": "Delighted eyes and a broad, excited grin.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            677,
+            339,
+            139,
+            54
+          ],
+          "source_crop": [
+            675,
+            337,
+            143,
+            58
+          ],
+          "target_box": [
+            34,
+            83,
+            75,
+            31
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "right_eye": {
+          "source_bbox": [
+            918,
+            339,
+            139,
+            54
+          ],
+          "source_crop": [
+            916,
+            337,
+            143,
+            58
+          ],
+          "target_box": [
+            178,
+            81,
+            77,
+            33
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            801,
+            426,
+            132,
+            69
+          ],
+          "source_crop": [
+            799,
+            424,
+            136,
+            73
+          ],
+          "target_box": [
+            107,
+            145,
+            73,
+            40
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {},
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.5,
+        "mouth": 0.5
+      },
+      "sha256": "407bb324efa8b61f63a3ec3adba97f034726bfcfef53df3bcb6cf69f59478883"
+    },
+    "amazed-gasp": {
+      "description": "Wide eyes and a little astonished O mouth.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            113,
+            573,
+            127,
+            124
+          ],
+          "source_crop": [
+            111,
+            571,
+            131,
+            128
+          ],
+          "target_box": [
+            34,
+            62,
+            75,
+            73
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "right_eye": {
+          "source_bbox": [
+            346,
+            573,
+            125,
+            124
+          ],
+          "source_crop": [
+            344,
+            571,
+            129,
+            128
+          ],
+          "target_box": [
+            178,
+            60,
+            77,
+            75
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            265,
+            702,
+            56,
+            61
+          ],
+          "source_crop": [
+            263,
+            700,
+            60,
+            65
+          ],
+          "target_box": [
+            125,
+            145,
+            37,
+            40
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            76,
+            77,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            220,
+            75,
+            20,
+            19
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.5,
+        "right_eye": 0.5,
+        "mouth": 0.0
+      },
+      "sha256": "aa88d3b9fdce1fa161477e28e02c3a184ca29407ac42370b5dc70abf1d201bc6"
+    },
+    "thoughtful-look": {
+      "description": "Look up thoughtfully, then relax.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            687,
+            580,
+            123,
+            117
+          ],
+          "source_crop": [
+            685,
+            578,
+            127,
+            121
+          ],
+          "target_box": [
+            34,
+            63,
+            75,
+            71
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "right_eye": {
+          "source_bbox": [
+            925,
+            579,
+            123,
+            118
+          ],
+          "source_crop": [
+            923,
+            577,
+            127,
+            122
+          ],
+          "target_box": [
+            178,
+            60,
+            77,
+            75
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            827,
+            711,
+            83,
+            37
+          ],
+          "source_crop": [
+            825,
+            709,
+            87,
+            41
+          ],
+          "target_box": [
+            117,
+            152,
+            53,
+            26
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa7d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            55.0,
+            83.28729281767956
+          ],
+          "box": [
+            46,
+            74,
+            19,
+            19
+          ]
+        },
+        "right_eye": {
+          "center": [
+            200.51295336787564,
+            81.89119170984456
+          ],
+          "box": [
+            191,
+            73,
+            20,
+            19
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.5,
+        "mouth": 0.0
+      },
+      "sha256": "67e3a3e423d03bd8d1a5fbfad8d36e2428de700b2f53a1af7e4d90076f55eace"
+    },
+    "skeptical-look": {
+      "description": "One lowered eyelid and a doubtful little look.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            113,
+            855,
+            131,
+            93
+          ],
+          "source_crop": [
+            111,
+            853,
+            135,
+            97
+          ],
+          "target_box": [
+            34,
+            71,
+            75,
+            55
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "right_eye": {
+          "source_bbox": [
+            347,
+            843,
+            124,
+            117
+          ],
+          "source_crop": [
+            345,
+            841,
+            128,
+            121
+          ],
+          "target_box": [
+            178,
+            61,
+            77,
+            73
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa7d7d6"
+        },
+        "mouth": {
+          "source_bbox": [
+            222,
+            991,
+            144,
+            21
+          ],
+          "source_crop": [
+            220,
+            989,
+            148,
+            25
+          ],
+          "target_box": [
+            101,
+            157,
+            85,
+            16
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            73,
+            100,
+            20,
+            16
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            221,
+            77,
+            19,
+            19
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.5,
+        "right_eye": 0.5,
+        "mouth": 0.5
+      },
+      "sha256": "3c91be21da72c3c83cb4193f2d7c1943435ba3bf08602a4f2268331acb2d29b1"
+    },
+    "confused-look": {
+      "description": "Uneven eyelids and a small puzzled mouth.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            689,
+            867,
+            118,
+            84
+          ],
+          "source_crop": [
+            687,
+            865,
+            122,
+            88
+          ],
+          "target_box": [
+            34,
+            71,
+            75,
+            55
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "right_eye": {
+          "source_bbox": [
+            923,
+            843,
+            125,
+            117
+          ],
+          "source_crop": [
+            921,
+            841,
+            129,
+            121
+          ],
+          "target_box": [
+            178,
+            61,
+            77,
+            73
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "mouth": {
+          "source_bbox": [
+            810,
+            990,
+            111,
+            31
+          ],
+          "source_crop": [
+            808,
+            988,
+            115,
+            35
+          ],
+          "target_box": [
+            109,
+            154,
+            69,
+            22
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            77,
+            95,
+            21,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            221,
+            77,
+            19,
+            19
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.0,
+        "right_eye": 0.0,
+        "mouth": 0.5
+      },
+      "sha256": "7889317d4bc5696a59ca8a7b830ad67d7c259ea7f8cb7a9c536648db0a67a574"
+    },
+    "sad-sigh": {
+      "description": "Drooping eyes and a gentle, brief frown.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            113,
+            1130,
+            123,
+            88
+          ],
+          "source_crop": [
+            111,
+            1128,
+            127,
+            92
+          ],
+          "target_box": [
+            34,
+            71,
+            75,
+            55
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d8d7"
+        },
+        "right_eye": {
+          "source_bbox": [
+            350,
+            1130,
+            121,
+            88
+          ],
+          "source_crop": [
+            348,
+            1128,
+            125,
+            92
+          ],
+          "target_box": [
+            178,
+            69,
+            77,
+            57
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa5d8d6"
+        },
+        "mouth": {
+          "source_bbox": [
+            236,
+            1231,
+            113,
+            38
+          ],
+          "source_crop": [
+            234,
+            1229,
+            117,
+            42
+          ],
+          "target_box": [
+            108,
+            152,
+            71,
+            26
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            68,
+            100,
+            20,
+            15
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            211,
+            101,
+            21,
+            13
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.5,
+        "right_eye": 0.0,
+        "mouth": 0.5
+      },
+      "sha256": "eb975ccdc3a278e9b6c6d6be27c23afc563924749eee405376c8943d225c6ffb"
+    },
+    "frustrated-frown": {
+      "description": "A mildly grumpy frown that relaxes back to neutral.",
+      "features": {
+        "left_eye": {
+          "source_bbox": [
+            687,
+            1123,
+            114,
+            99
+          ],
+          "source_crop": [
+            685,
+            1121,
+            118,
+            103
+          ],
+          "target_box": [
+            34,
+            66,
+            75,
+            65
+          ],
+          "anchor": [
+            71.5,
+            98.5
+          ],
+          "key_color": "0xa6d7d5"
+        },
+        "right_eye": {
+          "source_bbox": [
+            927,
+            1122,
+            114,
+            100
+          ],
+          "source_crop": [
+            925,
+            1120,
+            118,
+            104
+          ],
+          "target_box": [
+            178,
+            63,
+            77,
+            69
+          ],
+          "anchor": [
+            216.5,
+            97.5
+          ],
+          "key_color": "0xa6d8d6"
+        },
+        "mouth": {
+          "source_bbox": [
+            808,
+            1229,
+            117,
+            36
+          ],
+          "source_crop": [
+            806,
+            1227,
+            121,
+            40
+          ],
+          "target_box": [
+            105,
+            152,
+            77,
+            26
+          ],
+          "anchor": [
+            143.5,
+            165
+          ],
+          "key_color": "0xa6d8d6"
+        }
+      },
+      "highlights_start": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            79,
+            19,
+            18
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            219,
+            78,
+            20,
+            18
+          ]
+        }
+      },
+      "highlights_peak": {
+        "left_eye": {
+          "center": [
+            84.31578947368422,
+            87.53801169590643
+          ],
+          "box": [
+            75,
+            88,
+            20,
+            19
+          ]
+        },
+        "right_eye": {
+          "center": [
+            228.5,
+            86.5
+          ],
+          "box": [
+            205,
+            83,
+            21,
+            20
+          ]
+        }
+      },
+      "fixed_pixels": 47340,
+      "fixed_pixel_changes": 0,
+      "loop_seam_changed_pixels": 0,
+      "entry_exit_symmetric": true,
+      "max_anchor_error_px": {
+        "left_eye": 0.5,
+        "right_eye": 0.0,
+        "mouth": 0.0
+      },
+      "sha256": "aaa4c86b8d14bb5d35496fa10c28161561c020610f17bc62ed768cdcf8d4a6a1"
+    }
+  }
+}

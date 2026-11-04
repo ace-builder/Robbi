@@ -1,0 +1,154 @@
+api_version: 2
+id: google-maps
+name: Google Maps
+version: 1.1.0
+description: Free search and directions links, plus optional Google geocoding and route estimates.
+entrypoint: main:run
+permissions:
+- network
+- robot.display
+- robot.audio
+triggers:
+- Find a cafe in Berlin on Google Maps
+- Get directions to Berlin Hauptbahnhof
+dashboard:
+  title: Google Maps
+  description: Search and directions create free links without credentials. Geocoding and route estimates
+    require GOOGLE_MAPS_API_KEY, enabled Google APIs and billing; usage charges can apply.
+tools:
+- name: search
+  read_only: true
+  title: Create a place search link
+  description: Create a Google Maps link without network access or a key. Returns no actual place results,
+    ratings or opening hours.
+  input_schema:
+    type: object
+    required:
+    - query
+    properties:
+      query:
+        type: string
+        title: Place or address
+        minLength: 1
+        maxLength: 300
+      place_id:
+        type: string
+        title: Place ID (optional)
+        maxLength: 250
+        default: ''
+        x-advanced: true
+- name: directions
+  read_only: true
+  title: Create a directions link
+  description: Create a Google Maps directions link without a key. The browser calculates routes when
+    opened; no duration or distance is retrieved here.
+  input_schema:
+    type: object
+    required:
+    - destination
+    properties:
+      destination:
+        type: string
+        title: Destination
+        minLength: 1
+        maxLength: 300
+      origin:
+        type: string
+        title: Origin (optional)
+        maxLength: 300
+        default: ''
+      mode:
+        type: string
+        title: Travel mode
+        enum:
+        - driving
+        - walking
+        - bicycling
+        - transit
+        default: driving
+- name: geocode
+  read_only: true
+  title: Look up address coordinates
+  description: Retrieve Google address matches using an API key. Confirm ambiguous or partial matches
+    with the user. May incur Google Maps charges.
+  timeout_s: 35
+  input_schema:
+    type: object
+    required:
+    - address
+    properties:
+      address:
+        type: string
+        title: Full street address
+        minLength: 1
+        maxLength: 300
+- name: route
+  read_only: true
+  title: Get a route estimate
+  description: Retrieve distance and duration via Google Routes API. Requires key and billing. Driving
+    excludes live traffic. Display returned warnings; this is not robot navigation.
+  timeout_s: 35
+  input_schema:
+    type: object
+    required:
+    - origin
+    - destination
+    properties:
+      origin:
+        type: string
+        title: Origin address or latitude longitude pair
+        minLength: 1
+        maxLength: 300
+      destination:
+        type: string
+        title: Destination address or latitude longitude pair
+        minLength: 1
+        maxLength: 300
+      mode:
+        type: string
+        title: Travel mode
+        enum:
+        - driving
+        - walking
+        - bicycling
+        - transit
+        default: driving
+config_schema:
+  type: object
+  properties:
+    api_key_env:
+      type: string
+      format: env
+      title: API key environment variable
+      maxLength: 100
+      default: GOOGLE_MAPS_API_KEY
+    timeout_s:
+      type: integer
+      title: Request timeout (seconds)
+      minimum: 1
+      maximum: 30
+      default: 20
+      x-advanced: true
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: travel
+tags:
+- maps
+- directions
+- places
+images:
+  icon: images/icon.png
+  screen: images/screen.png

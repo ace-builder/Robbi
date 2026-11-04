@@ -1,0 +1,13 @@
+{
+  "id": "natural-blink",
+  "title": "Velvet eyelids",
+  "duration_s": 1.0,
+  "prompt": "One very quiet close-up velvet fabric swish closing and opening, with a tiny airy puff. Tactile soft blink, barely audible, no chime. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 0.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "1b926bc4bece002815d9fbbbed41256d3272752fa6faa50d3ed7de1790f6b1e3",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

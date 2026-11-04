@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Several tiny mechanical knobs rattle and click uncertainly, one firm gentle toggle switch cuts the chatter off, then a small kettle exhales warm steam and a ceramic cup settles with a soft tap. No speech, no music, no beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "1897a2f83f9246904d2017714ce37eaf40b996a8f2949408c0fc129247464cec"
+}

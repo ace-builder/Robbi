@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Exactly one miniature wooden judge gavel striking a small wooden sound block. A single dry warm wooden knock, gentle and authoritative, with a short natural decay. No repeats, no voices, no background sound, no music.",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 17179,
+  "sha256": "848db27bc9e6865f45a05b52cd7bc52593c1596887a7b3dbd9b1714d675d53b9"
+}

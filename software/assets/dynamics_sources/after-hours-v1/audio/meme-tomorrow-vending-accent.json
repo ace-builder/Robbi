@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Exactly one small sealed aluminum soda can landing in a miniature vending machine tray. One hollow metal clunk and a short natural rattling decay. Isolated, close-up, gentle. No repeats, no voices, no music.",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 17179,
+  "sha256": "88a43a51d3c1cf278f3a7c2c021a7524754b9eba5d6e0ad09e197354e50448e9"
+}

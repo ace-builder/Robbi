@@ -1,0 +1,5 @@
+#navigation-map{display:block;width:100%;height:440px;border:1px solid #a9a9a9;border-radius:8px;margin-top:20px;touch-action:none;cursor:crosshair;background:#f2f2f2}
+.nav-map-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;font-size:12px;color:#656565;flex-wrap:wrap}
+.nav-green{color:#14634f}.nav-error{color:#9e352e}.nav-goal{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-top:18px}.nav-goal label{max-width:130px;min-width:90px;flex:1}.nav-goal input{width:100%}
+.nav-columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}.nav-inline{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin-top:15px}.nav-inline label{flex:1;min-width:140px}.nav-inline input{width:100%}.nav-map-panel #nav-message{min-height:24px}
+@media(max-width:760px){.nav-columns{grid-template-columns:1fr}#navigation-map{height:340px}.nav-goal button{flex:1;min-width:130px}.nav-map-panel{padding:16px}.nav-map-footer{font-size:11px}}

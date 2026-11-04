@@ -1,0 +1,217 @@
+api_version: 2
+id: weather
+name: Weather
+version: 1.1.0
+description: Forecasts for a city and its local date, with sources and clear units.
+entrypoint: main:run
+permissions:
+- network
+- robot.display
+- robot.audio
+triggers:
+- What will the weather be like tomorrow in Berlin?
+- Will it rain today in London?
+- Wetter morgen in München
+dashboard:
+  title: Weather
+  description: Choose a city and day. Open-Meteo works without an API key for noncommercial use. Other
+    providers and endpoints are configurable.
+tools:
+- name: forecast
+  read_only: true
+  title: Get forecast
+  description: Get weather for a city and a date, today or tomorrow in that city's timezone. Ask the user
+    to clarify ambiguous locations using returned choices. Keep provider attribution in result metadata; omit spoken source credits unless requested. Never guess missing
+    weather. Open-Meteo is the default.
+  timeout_s: 40
+  examples:
+  - What is tomorrow's weather in Hamburg?
+  - Will it rain in Paris today?
+  input_schema:
+    type: object
+    properties:
+      location:
+        type: string
+        title: City
+        maxLength: 120
+        default: ''
+        description: Include country or choose a configured default city.
+        x-order: 10
+      day:
+        type: string
+        title: Day
+        maxLength: 32
+        default: tomorrow
+        description: today, tomorrow, day after tomorrow or YYYY-MM-DD
+        x-order: 20
+      country_code:
+        type: string
+        title: Country code (optional)
+        maxLength: 2
+        x-order: 100
+        x-advanced: true
+      latitude:
+        type: number
+        title: Latitude (optional)
+        minimum: -90
+        maximum: 90
+        description: Supply latitude, longitude and timezone together to override the home location.
+        x-order: 110
+        x-advanced: true
+      longitude:
+        type: number
+        title: Longitude (optional)
+        minimum: -180
+        maximum: 180
+        x-order: 120
+        x-advanced: true
+      timezone:
+        type: string
+        title: Timezone for coordinates (optional)
+        maxLength: 80
+        description: Required with request coordinates. IANA timezone, such as Europe/Berlin.
+        x-order: 130
+        x-advanced: true
+config_schema:
+  type: object
+  properties:
+    provider:
+      type: string
+      title: Provider
+      enum:
+      - open_meteo
+      - met_no
+      - openweather
+      - generic
+      default: open_meteo
+      x-order: 10
+    default_location:
+      type: string
+      title: Default city
+      maxLength: 120
+      default: ''
+      x-order: 20
+    country_code:
+      type: string
+      title: Default country code
+      maxLength: 2
+      default: ''
+      description: Used with the default city. For another city, set the country code in that forecast
+        request.
+      x-order: 30
+    latitude:
+      type: number
+      title: Default latitude (optional)
+      minimum: -90
+      maximum: 90
+      x-order: 100
+      x-advanced: true
+    longitude:
+      type: number
+      title: Default longitude (optional)
+      minimum: -180
+      maximum: 180
+      x-order: 110
+      x-advanced: true
+    timezone:
+      type: string
+      title: Default IANA timezone
+      maxLength: 80
+      default: ''
+      x-order: 120
+      x-advanced: true
+    endpoint:
+      type: string
+      title: Forecast endpoint override
+      maxLength: 1000
+      default: ''
+      x-order: 200
+      x-advanced: true
+    geocoding_endpoint:
+      type: string
+      title: Geocoding endpoint override
+      maxLength: 1000
+      default: ''
+      x-order: 210
+      x-advanced: true
+    api_key_env:
+      type: string
+      format: env
+      title: API key environment variable
+      maxLength: 100
+      default: ''
+      description: OpenWeather needs a key. Store the actual value in .env.secrets.
+      x-order: 40
+    user_agent:
+      type: string
+      title: MET Norway identifying User-Agent
+      maxLength: 250
+      default: ''
+      description: Required for MET Norway, e.g. MyRobbi/1.0 contact@example.org. Use your real contact.
+      x-order: 50
+    language:
+      type: string
+      title: Language code
+      maxLength: 10
+      default: en
+      x-order: 130
+      x-advanced: true
+    cache_ttl_s:
+      type: integer
+      title: Cache duration (seconds)
+      minimum: 60
+      maximum: 3600
+      default: 600
+      x-order: 300
+      x-advanced: true
+    timeout_s:
+      type: integer
+      title: Request budget (seconds)
+      minimum: 3
+      maximum: 35
+      default: 25
+      x-order: 310
+      x-advanced: true
+    allow_http:
+      type: boolean
+      title: Allow HTTP for a trusted LAN endpoint
+      default: false
+      x-order: 220
+      x-advanced: true
+    attribution_name:
+      type: string
+      title: Custom provider attribution
+      maxLength: 200
+      default: ''
+      x-order: 230
+      x-advanced: true
+    attribution_url:
+      type: string
+      title: Custom provider attribution link
+      maxLength: 1000
+      default: ''
+      x-order: 240
+      x-advanced: true
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: travel
+tags:
+- forecast
+- weather
+- locations
+images:
+  icon: images/icon.png
+  screen: images/screen.png

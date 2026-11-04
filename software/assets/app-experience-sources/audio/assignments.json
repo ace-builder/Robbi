@@ -1,0 +1,162 @@
+{
+  "bookmarks": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "calculator": {
+    "cue": "complete",
+    "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86"
+  },
+  "checklists": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "date-calculator": {
+    "cue": "clock",
+    "sha256": "764180012752f51a470cffc6a3f5dd868c4cc9fbbfe9721a6e0e9b8ef9b30f90"
+  },
+  "decision-helper": {
+    "cue": "coin",
+    "sha256": "c5e91b8808dde84aa3490c92ef0c05b765abcf566ff5ede5342c89eab5679793"
+  },
+  "decision-notebook": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "expense-tracker": {
+    "cue": "coin",
+    "sha256": "c5e91b8808dde84aa3490c92ef0c05b765abcf566ff5ede5342c89eab5679793"
+  },
+  "expressions": {
+    "cue": "robot",
+    "sha256": "d0cfd8067399ecbfd9b73217897ff5710fa16c5763874dc454cec7223e94fe35"
+  },
+  "fridge-rescue": {
+    "cue": "kitchen",
+    "sha256": "4069429694ceb285947c3579ddabb124ad2ded4ee6152c06884afb5d2c141c29"
+  },
+  "gmail": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "google-calendar": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "google-maps": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "habit-tracker": {
+    "cue": "garden",
+    "sha256": "2b8488a7926f6224dee3f560fec93bba52849bc03056fa0ea88861a9a94d0611"
+  },
+  "higher-lower": {
+    "cue": "dice",
+    "sha256": "2421d8f6964a683da0d332b4ad724d332f6ad947f392f4c060934af6e7b99231"
+  },
+  "home-care": {
+    "cue": "garden",
+    "sha256": "2b8488a7926f6224dee3f560fec93bba52849bc03056fa0ea88861a9a94d0611"
+  },
+  "image-studio": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "kitchen-timers": {
+    "cue": "clock",
+    "sha256": "764180012752f51a470cffc6a3f5dd868c4cc9fbbfe9721a6e0e9b8ef9b30f90"
+  },
+  "meeting-prep": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "memory-colours": {
+    "cue": "dice",
+    "sha256": "2421d8f6964a683da0d332b4ad724d332f6ad947f392f4c060934af6e7b99231"
+  },
+  "packing-list": {
+    "cue": "complete",
+    "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86"
+  },
+  "password-generator": {
+    "cue": "complete",
+    "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86"
+  },
+  "percentage-helper": {
+    "cue": "complete",
+    "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86"
+  },
+  "quick-notes": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "random-number": {
+    "cue": "dice",
+    "sha256": "2421d8f6964a683da0d332b4ad724d332f6ad947f392f4c060934af6e7b99231"
+  },
+  "ready-to-leave": {
+    "cue": "clock",
+    "sha256": "764180012752f51a470cffc6a3f5dd868c4cc9fbbfe9721a6e0e9b8ef9b30f90"
+  },
+  "recipe-scaler": {
+    "cue": "kitchen",
+    "sha256": "4069429694ceb285947c3579ddabb124ad2ded4ee6152c06884afb5d2c141c29"
+  },
+  "rhythm-relay": {
+    "cue": "rhythm",
+    "sha256": "2d7e11c1c7008ed8e92404b88a1cef13a9beeebcf088c6274576fe243b57c0a8"
+  },
+  "robot-charades": {
+    "cue": "robot",
+    "sha256": "d0cfd8067399ecbfd9b73217897ff5710fa16c5763874dc454cec7223e94fe35"
+  },
+  "robot-status": {
+    "cue": "robot",
+    "sha256": "d0cfd8067399ecbfd9b73217897ff5710fa16c5763874dc454cec7223e94fe35"
+  },
+  "sensor-check": {
+    "cue": "robot",
+    "sha256": "d0cfd8067399ecbfd9b73217897ff5710fa16c5763874dc454cec7223e94fe35"
+  },
+  "teach-me": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "text-toolbox": {
+    "cue": "paper",
+    "sha256": "c73cff20b8db1de825a728f6491682c7c0c7e918d1ec3c561206a6a6e109f3e4"
+  },
+  "tic-tac-toe": {
+    "cue": "dice",
+    "sha256": "2421d8f6964a683da0d332b4ad724d332f6ad947f392f4c060934af6e7b99231"
+  },
+  "tiny-detective": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "tip-splitter": {
+    "cue": "coin",
+    "sha256": "c5e91b8808dde84aa3490c92ef0c05b765abcf566ff5ede5342c89eab5679793"
+  },
+  "unit-converter": {
+    "cue": "complete",
+    "sha256": "e9486d2c041927c1c222ec68d470e13f4fda925517d99b500a65a80a73ea6b86"
+  },
+  "weather": {
+    "cue": "weather",
+    "sha256": "ebc2f8d6b6571a58f5405ef950e39602a344d182d0125b9866f7b638a864af17"
+  },
+  "web-search": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "where-did-i-put-it": {
+    "cue": "discovery",
+    "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4"
+  },
+  "world-clock": {
+    "cue": "clock",
+    "sha256": "764180012752f51a470cffc6a3f5dd868c4cc9fbbfe9721a6e0e9b8ef9b30f90"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A sheet of paper crumples briefly then crisply folds into a boat, a soft small splash, gentle rippling water and a delicate warm glass sparkle. Storybook foley, no speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "611d6ee7c81e25bcfbea415d2c69a82a471b6428b8517974d63f810121ed2770"
+}

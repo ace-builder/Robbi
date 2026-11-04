@@ -1,0 +1,100 @@
+api_version: 2
+id: world-clock
+name: World clock
+version: 1.1.0
+entrypoint: main:run
+description: See current times and convert a local date and time between IANA timezones.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- What time is it in Berlin and Tokyo?
+- Convert 9 AM in New York tomorrow to Berlin time
+tools:
+- name: now
+  title: Current times
+  description: Get the current date, time and UTC offset in up to eight named timezones.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      timezones:
+        type: array
+        title: Timezones
+        maxItems: 8
+        items: &id001
+          type: string
+          title: IANA timezone
+          maxLength: 80
+          minLength: 1
+        minItems: 1
+        default: &id002
+        - Europe/Berlin
+        - UTC
+        x-order: 0
+- name: convert
+  title: Convert date and time
+  description: Convert an explicit local date and time to other timezones. Resolve the date before calling.
+    Repeated DST times require earlier or later occurrence.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      local_time:
+        type: string
+        title: Local date and time
+        maxLength: 19
+        description: YYYY-MM-DDTHH:MM or YYYY-MM-DDTHH:MM:SS without offset.
+        x-order: 0
+      source_timezone:
+        type: string
+        title: Source timezone
+        maxLength: 80
+        default: Europe/Berlin
+        x-order: 10
+      timezones:
+        type: array
+        title: Timezones
+        maxItems: 8
+        items: *id001
+        minItems: 1
+        default: *id002
+        x-order: 20
+      occurrence:
+        type: string
+        title: Repeated time
+        maxLength: 10
+        enum:
+        - reject
+        - earlier
+        - later
+        default: reject
+        x-order: 30
+    required:
+    - local_time
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- time
+- timezones
+- travel
+images:
+  icon: images/icon.png
+  screen: images/screen.png

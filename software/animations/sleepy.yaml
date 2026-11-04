@@ -1,0 +1,8 @@
+- face: "neutral.png"
+  ms: 1000
+- sound: "sleepy.wav"
+  ms: 100
+- face: "sleepy.png"
+  ms: 3000
+- face: "sleepy.png"
+  ms: 0  # stay sleeping 

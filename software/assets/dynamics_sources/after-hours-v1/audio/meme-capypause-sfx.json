@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Tiny peaceful bath water lap, a little parasol opening with a soft fabric fwip, then three light paper envelopes patter off the fabric canopy. End with a soft nonverbal airy puff. No human speech, no music, no notification beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "3034f2464ac66ac291011f1208a54463cdad124bc0905dd619ed4475e43ac7f0"
+}

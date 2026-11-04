@@ -1,0 +1,80 @@
+api_version: 2
+id: habit-tracker
+name: Habit tracker
+version: 1.1.0
+entrypoint: main:run
+description: Record daily completions and see current and best streaks for your habits.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Mark reading as done today
+- Show my habit streaks
+tools:
+- name: manage
+  title: Manage habits
+  description: Create, list, mark, unmark or remove a named daily habit. Empty date means today. Marking
+    is idempotent; remove deletes the habit and all its dates.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - create
+        - list
+        - mark
+        - unmark
+        - remove
+        default: list
+        x-order: 0
+      name:
+        type: string
+        title: Habit name
+        maxLength: 60
+        default: ''
+        x-order: 10
+      date:
+        type: string
+        title: Completion date
+        maxLength: 10
+        description: YYYY-MM-DD; empty means today in the configured timezone.
+        default: ''
+        x-order: 20
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      description: IANA timezone used for today and empty date fields.
+      default: Europe/Berlin
+      x-order: 0
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: productivity
+tags:
+- habits
+- streaks
+- wellbeing
+images:
+  icon: images/icon.png
+  screen: images/screen.png

@@ -1,0 +1,5 @@
+# Install with the robot's existing venv; do not upgrade its audio/display stack.
+lgpio>=0.2.2.0
+adafruit-circuitpython-vl53l1x>=1.2,<2
+adafruit-extended-bus>=1,<2
+adafruit-circuitpython-lsm6ds>=4.6.3,<5

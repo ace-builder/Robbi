@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "transparent": true,
+  "files": [
+    {
+      "file": "toaster.png",
+      "original": "exec-bab3c76a-0d9c-4185-92dc-ee93b99df077.png",
+      "sha256": "bee5d782c3a8dc10314e6f5cfbac606a14f6bb15837e675cdaecc0a318ea33a4",
+      "unchanged": true
+    },
+    {
+      "file": "raccoon.png",
+      "original": "exec-7d80c29f-ba47-411e-b8a3-6952677e6d9f.png",
+      "sha256": "cd27709c5cea9ea561932193fc82872b1039ae3b8605bd36e8ec64e95a923932",
+      "unchanged": true
+    },
+    {
+      "file": "cat.png",
+      "original": "exec-800ebc29-3cde-44a3-a957-bbda6587e676.png",
+      "sha256": "3c7a285f9d1703b81b6d505a790167987f487cfbea727286c53537449f740006",
+      "unchanged": true
+    }
+  ]
+}

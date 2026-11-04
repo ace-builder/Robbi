@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A small harmless flame crackles briefly, a miniature freezer door softly clicks shut, a cool airy frosty whoosh, and one small ice cube clinks into a dish. Crisp but not harsh, no speech or music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "46409a107afd1c436f1b08867a007cefe8f4ce2ddcf0f7ac26439b485066368b"
+}

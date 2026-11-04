@@ -1,0 +1,13 @@
+{
+  "id": "skeptical-look",
+  "title": "Really, bass clarinet?",
+  "duration_s": 1.98,
+  "prompt": "A dry low bass clarinet gives a brief upward questioning scoop, pauses, then a short doubtful lower note with audible soft reed breath. Wry and restrained, original phrase. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.76,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "adeee5107190511a0fc5f34a8310a5a0b4d372579a88a648d89b9efb001282a3",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

@@ -1,0 +1,345 @@
+api_version: 2
+id: expressions
+name: Expressions & dances
+version: 1.13.0
+entrypoint: main:run
+description: Tiny measured gestures, short dances, smooth faces and funny screen cartoons.
+permissions:
+- robot.display
+- robot.audio
+- robot.motion
+triggers:
+- Do a happy dance
+- Give me a tiny wiggle
+- Wink at me
+- Look around
+- Nod yes
+- Preview happy dance
+- Look proud
+- Look thoughtful
+- Show affection
+- Play the tiny violin
+- Show the hamster brain
+dashboard:
+  title: Expressions & dances
+  description: Tiny measured gestures, short dances, smooth faces and funny screen cartoons.
+tools:
+- name: perform
+  title: Perform
+  description: Play a wiggle, tiny body nod, curious peek or dance on a clear level surface. Movements
+    return toward the starting pose. Switch off wheel motion to preview the face and sound.
+  timeout_s: 100
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Gesture
+        maxLength: 160
+        enum:
+        - happy-wiggle
+        - tiny-no
+        - tiny-nod
+        - curious-peek
+        - happy-dance
+        - orbit-dance
+        - shuffle
+        default: happy-wiggle
+      with_motion:
+        type: boolean
+        title: Move wheels
+        default: true
+      with_audio:
+        type: boolean
+        title: Play sound
+        default: true
+- name: animate
+  title: Animate
+  description: Play a blink, glance, wink or an emotion such as affection, pride, shyness, excitement,
+    amazement, thoughtfulness, skepticism, confusion, sadness or frustration. Pose timing stays the same
+    at every frame rate. Sound plays a dedicated 30 fps video. Disable sound for timed sprites at the
+    selected fps; 30 fps requests smoother transitions and reports measured performance.
+  timeout_s: 45
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Expression
+        maxLength: 160
+        enum:
+        - natural-blink
+        - double-blink
+        - happy-blink
+        - cheeky-wink
+        - happy-dance
+        - curious-glance
+        - look-left
+        - look-right
+        - sleepy-yawn
+        - sleepy-breath
+        - pickup-startle
+        - soft-relief
+        - mischievous-grin
+        - affectionate-smile
+        - proud-smile
+        - shy-smile
+        - excited-grin
+        - amazed-gasp
+        - thoughtful-look
+        - skeptical-look
+        - confused-look
+        - sad-sigh
+        - frustrated-frown
+        default: natural-blink
+      fps:
+        type: integer
+        title: Frames per second
+        minimum: 1
+        maximum: 30
+        default: 10
+      loops:
+        type: integer
+        title: Repeats
+        minimum: 1
+        maximum: 10
+        default: 1
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: gag
+  title: Gag
+  description: 'Show a short original visual joke on the LCD: a loading bar stuck at 99%, sunglasses,
+    this-is-fine tea, tiny violin, a rubber duck, hamster brain, touch grass, task failed successfully,
+    social battery, bonk, dramatic zoom or a tiny achievement. Each returns to the normal face. Use sparingly
+    when the moment is playful. Dedicated synchronized sound by default; disable it for silent sprites
+    at the selected fps. Sound video is 10 fps. No wheel movement.'
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Screen gag
+        maxLength: 160
+        enum:
+        - gag-buffering
+        - gag-deal-with-it
+        - gag-this-is-fine
+        - gag-tiny-violin
+        - gag-no-thoughts
+        - gag-hamster-brain
+        - gag-touch-grass
+        - gag-task-failed
+        - gag-social-battery
+        - gag-bonk
+        - gag-dramatic-zoom
+        - gag-achievement
+        default: gag-buffering
+      fps:
+        type: integer
+        title: Frames per second
+        minimum: 1
+        maximum: 30
+        default: 10
+      loops:
+        type: integer
+        title: Repeats
+        minimum: 1
+        maximum: 3
+        default: 1
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: meme
+  title: Meme
+  description: 'Play one of 37 original audiovisual cartoons. Choices include sarcastic office jokes,
+    meaningful reflections and ten after-hours stories: quality-control cactus, urgency laundry, travel-size
+    expectations, tomorrow vending, cardboard plot armor, mending mug, shrimp judge, capybara pause, hot-take
+    freezer and a tea control panel. New stories last six seconds with distinct effects and brief voice
+    lines; earlier seven memes last 4.5 seconds. No wheel movement. Sound can be disabled. Use sparingly
+    when the tone fits.'
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Meme
+        maxLength: 160
+        enum:
+        - meme-support-brick
+        - meme-optimism-shredder
+        - meme-last-beep
+        - meme-premium-empathy
+        - meme-overreaction
+        - meme-family-audacity
+        - meme-problem-compost
+        - meme-dumpster-promotion
+        - meme-meeting-escape
+        - meme-brain-tabs
+        - meme-delulu-launch
+        - meme-last-spoon
+        - meme-tiny-deadline
+        - meme-vibe-check
+        - meme-budget-luxury
+        - meme-overthinking
+        - meme-couch-quest
+        - meme-boundary-garden
+        - meme-weather-candle
+        - meme-priority-octopus
+        - meme-moving-goalposts
+        - meme-perfection-draft
+        - meme-invisible-progress
+        - meme-inner-critic
+        - meme-reply-later
+        - meme-comparison-clocks
+        - meme-plot-twist-boat
+        - meme-feature-cactus
+        - meme-urgent-laundry
+        - meme-expectation-luggage
+        - meme-tomorrow-vending
+        - meme-plot-armor
+        - meme-still-mending
+        - meme-shrimp-authority
+        - meme-capypause
+        - meme-hot-take-freezer
+        - meme-control-tea
+        default: meme-support-brick
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: kindness
+  title: Kindness
+  description: 'Play a warm original cartoon: offer a flower, deliver a pocket hug, patch a heart in apology,
+    share the bigger half of a cookie, shelter together under an umbrella or tuck in a bedtime blanket.
+    Each lasts 4.5 seconds with gentle nonverbal sound and returns to the normal face. No movement. Sound
+    can be disabled.'
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Little kindness
+        maxLength: 160
+        enum:
+        - sweet-flower
+        - sweet-pocket-hug
+        - sweet-sorry
+        - sweet-cookie
+        - sweet-rain
+        - sweet-rest
+        default: sweet-flower
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: postcard
+  title: Postcard
+  description: 'Play an illustrated object-and-text cartoon with no Robbi face, including its opening
+    and ending: pocket sunshine, a cup of sorry, slow progress snail, priority heart mail, return-to-sender
+    guilt stamp or a soft paper-plane landing. Each lasts 4.5 seconds with original nonverbal sound, optional
+    silent sprites and no wheel movement. Ends on a matching text card.'
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Postcard
+        maxLength: 160
+        enum:
+        - post-sunshine
+        - post-peace-tea
+        - post-slow-club
+        - post-heart-mail
+        - post-return-guilt
+        - post-soft-landing
+        default: post-sunshine
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: seasonal
+  title: Seasonal
+  description: 'Play one of 21 seasonal greetings: birthdays, Christmas, Halloween, Easter, the seasons,
+    New Year, Valentine''s Day, Lunar New Year, Carnival, St Patrick''s Day, Earth Day, a summer picnic,
+    an autumn harvest, winter solstice, April Fools, Oktoberfest, Diwali or Hanukkah. Objects, pictures
+    and text only; no Robbi face or wheel movement. Each lasts 4.5 seconds with original nonverbal sound
+    or optional silent sprites.'
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Occasion
+        maxLength: 160
+        enum:
+        - season-birthday
+        - season-christmas
+        - season-halloween
+        - season-easter
+        - season-summer
+        - season-autumn
+        - season-winter
+        - season-spring
+        - season-new-year
+        - season-valentine
+        - season-lunar-new-year
+        - season-carnival
+        - season-lucky-clover
+        - season-earth-day
+        - season-summer-picnic
+        - season-autumn-harvest
+        - season-winter-solstice
+        - season-april-fools
+        - season-oktoberfest
+        - season-diwali
+        - season-hanukkah
+        default: season-birthday
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+- name: advent
+  title: Advent
+  description: Open one of 24 different Advent cartoons, numbered for December 1 to 24. Every day has
+    its own illustrated story and original nonverbal sound. Any day may be previewed at any time; no date
+    lock, Robbi face or wheel movement. Each lasts 4.5 seconds.
+  timeout_s: 15
+  input_schema:
+    type: object
+    properties:
+      day:
+        type: integer
+        title: December day
+        minimum: 1
+        maximum: 24
+        default: 1
+      with_audio:
+        type: boolean
+        title: Play soundtrack
+        default: true
+config_schema:
+  type: object
+  properties: {}
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: robot
+tags:
+- gestures
+- animations
+- sound
+images:
+  icon: images/icon.png
+  screen: images/screen.png

@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "Two soft friendly wooden clock ticks and one rounded muted chime. Tiny desk clock reveal, one second, isolated, not an alarm, no speech, no music.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "764180012752f51a470cffc6a3f5dd868c4cc9fbbfe9721a6e0e9b8ef9b30f90",
+  "seconds": 1.0,
+  "peak": 8941,
+  "rms": 439.99
+}

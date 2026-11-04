@@ -1,0 +1,39 @@
+[
+  {
+    "file": "build/hardware/pcb/gerber_v1.zip",
+    "bytes": 247843,
+    "sha256": "41c2447dcb8bf12c640209eaf1f7232ce2d263f77da26c6d9ce0b3fac4a3e881"
+  },
+  {
+    "file": "build/hardware/pcb/bom_v1.csv",
+    "bytes": 6890,
+    "sha256": "d6379004627208956d3e94a5c200bd5f9f4e25b08695d93675a226027661d87b"
+  },
+  {
+    "file": "build/hardware/pcb/pickandplace_v1.csv",
+    "bytes": 5989,
+    "sha256": "539e5fd8e6b947f1cb6cf5297c7c623c26f3befdd236f635add3175ecbbd5351"
+  },
+  {
+    "file": "build/hardware/prints/robo_4_astra.zip",
+    "bytes": 6600044,
+    "sha256": "ebd355e34ac41a780f31201444d370440f599047de03f7198c009c3338719a61",
+    "contains": [
+      {
+        "file": "robo_4_astra.stl",
+        "bytes": 29019984,
+        "sha256": "6fe93a3a3b308f29c70af73f4f626312966a0fdde650a920391e5af936b15f85"
+      }
+    ]
+  },
+  {
+    "file": "build/hardware/pcb/connector-pinout.csv",
+    "bytes": 1766,
+    "sha256": "6299600778f0213dc8bd82608edf514d720b9bd11e5d87ef4d5b2bddcfaa48b7"
+  },
+  {
+    "file": "build/hardware/pcb/order-settings.json",
+    "bytes": 674,
+    "sha256": "221585bac12a7561af6b9a596aadacb7fa24a4f509ea6d285be3b8bcd718435e"
+  }
+]

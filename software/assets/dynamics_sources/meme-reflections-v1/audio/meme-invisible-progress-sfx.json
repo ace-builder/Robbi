@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Soft close-up earth crumbling, several delicate branching woody crackles spreading underneath, then a tiny bright organic sprout pop. Intimate miniature nature foley, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "6c94ce4b0b14d4a42b2c354c2b677ec6042cf09e5858032968cb233fe52f6fd9"
+}

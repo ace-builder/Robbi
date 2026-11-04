@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "props": [
+    {
+      "name": "cactus",
+      "original": "exec-299c1e92-22f7-49c2-9453-da3b1d3203bc.png",
+      "sha256": "837970abe5d65f524d60e900e90f83a375a216c922955ed2d01d5cf575b6f15a",
+      "unchanged": true
+    },
+    {
+      "name": "octopus",
+      "original": "exec-7d10e003-82f6-4682-84d5-ef9676c846ce.png",
+      "sha256": "b5c2b6e2cc26fc104e0ea050af74498bf668bfdc8edbb0f887c4f7eb843001b8",
+      "unchanged": true
+    },
+    {
+      "name": "frog",
+      "original": "exec-25c89282-95f3-484f-bc1d-47b43fb54cd9.png",
+      "sha256": "4b5b65d586cc89fcbee27277019c9f9aa0d6f276aa5bdb6efa5337d9028f5801",
+      "unchanged": true
+    }
+  ]
+}

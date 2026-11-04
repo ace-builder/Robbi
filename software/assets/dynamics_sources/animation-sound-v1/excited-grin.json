@@ -1,0 +1,13 @@
+{
+  "id": "excited-grin",
+  "title": "Bubbling delight",
+  "duration_s": 1.58,
+  "prompt": "A bright quick playful water-droplet cascade with tiny hand-shaken seed rattles, rising and bouncing, ending with a warm rubber squeal. Joyful organic texture, no arcade beeps. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.36,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "799fdcb8579b72f83ffaf3c2b98cb143338c422f11f710533b5fab7e18056dac",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

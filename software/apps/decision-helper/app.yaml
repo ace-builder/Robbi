@@ -1,0 +1,82 @@
+api_version: 2
+id: decision-helper
+name: Decision helper
+version: 1.1.0
+entrypoint: main:run
+description: Flip a coin, roll dice, pick an option or put a short list in random order.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Flip a coin
+- Roll two six sided dice
+- Pick between pizza and pasta
+dashboard:
+  title: Decision helper
+  description: Flip a coin, roll dice, pick an option or put a short list in random order.
+tools:
+- name: decide
+  title: Decide
+  description: Flip a coin, roll dice, choose from your options, or shuffle them into a random order.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 160
+        enum:
+        - coin
+        - dice
+        - choose
+        - shuffle
+        default: coin
+      count:
+        type: integer
+        title: Number of dice
+        minimum: 1
+        maximum: 10
+        default: 1
+      sides:
+        type: integer
+        title: Sides per die
+        minimum: 2
+        maximum: 100
+        default: 6
+      choices:
+        type: array
+        title: Options
+        description: Enter one option per line for choose or shuffle.
+        maxItems: 20
+        items:
+          type: string
+          title: Option
+          maxLength: 80
+          minLength: 1
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Show on Robbi’s screen
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- random
+- choices
+- dice
+images:
+  icon: images/icon.png
+  screen: images/screen.png

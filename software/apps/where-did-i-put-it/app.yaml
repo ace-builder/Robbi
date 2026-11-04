@@ -1,0 +1,131 @@
+api_version: 2
+id: where-did-i-put-it
+name: Where Did I Put It?
+version: 1.1.0
+entrypoint: main:run
+description: Remember where you put things, find saved locations and mark items found.
+permissions:
+- state
+- robot.camera
+- robot.display
+- robot.audio
+triggers:
+- Remember that the spare keys are in the blue drawer
+- Where did I put my passport?
+tools:
+- name: remember
+  title: Remember a location
+  description: Save a user-supplied item and location; optional id edits it. Photo=true explicitly captures
+    a reference without interpreting it. Omitted notes preserve existing notes.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      name:
+        type: string
+        title: Item name
+        maxLength: 80
+      location:
+        type: string
+        title: Location
+        maxLength: 180
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+      notes:
+        type: string
+        title: Notes
+        maxLength: 160
+        x-advanced: true
+      photo:
+        type: boolean
+        title: Capture a reference photo
+        default: false
+        x-advanced: true
+    required:
+    - name
+    - location
+- name: find
+  title: Find an item
+  description: Search saved item names, locations and notes. Locations come from the user; photo references
+    may expire.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      query:
+        type: string
+        title: Search
+        maxLength: 100
+        default: ''
+      status:
+        type: string
+        title: Status
+        maxLength: 10
+        enum:
+        - all
+        - stored
+        - found
+        default: all
+  read_only: true
+- name: update
+  title: Mark found or remove
+  description: Use an exact returned item id to mark found, mark stored again, or remove. Optional location
+    records where the user found or moved it.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: false
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - found
+        - stored
+        - remove
+      location:
+        type: string
+        title: New location
+        maxLength: 180
+    required:
+    - id
+    - action
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      default: Europe/Berlin
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: home
+tags:
+- locations
+- belongings
+- photos
+images:
+  icon: images/icon.png
+  screen: images/screen.png

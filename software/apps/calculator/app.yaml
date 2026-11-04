@@ -1,0 +1,129 @@
+api_version: 2
+id: calculator
+name: Calculate & convert
+version: 1.2.0
+description: Arithmetic, scientific functions and common unit conversions, instantly and offline.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- What is 18 times 24?
+- Convert 20 degrees Celsius to Fahrenheit
+- How many centimeters is 5 feet?
+tools:
+- name: calculate
+  title: Calculate
+  description: 'Calculate using a bounded local parser: numbers, parentheses, pi, e, + - * / // % and
+    ** (exponent up to 12). Functions: sqrt, sin, cos, tan, log (natural), log10, floor, ceil, abs. Each
+    takes one argument; angles are radians. Floating-point results are approximate. No arbitrary code.'
+  timeout_s: 3
+  input_schema:
+    type: object
+    required:
+    - expression
+    properties:
+      expression:
+        type: string
+        title: Expression
+        minLength: 1
+        maxLength: 200
+        description: For example, (18 * 24) / 3.
+        x-order: 10
+- name: convert
+  title: Convert units
+  description: Convert units of length, mass, volume, speed or temperature. Use listed symbols exactly;
+    C/F/K are temperatures and us_gal is US gallons.
+  timeout_s: 3
+  input_schema:
+    type: object
+    required:
+    - value
+    - from_unit
+    - to_unit
+    properties:
+      value:
+        type: number
+        title: Value
+        minimum: -1000000000000
+        maximum: 1000000000000
+        x-order: 10
+      from_unit:
+        type: string
+        title: From
+        enum:
+        - mm
+        - cm
+        - m
+        - km
+        - in
+        - ft
+        - yd
+        - mi
+        - mg
+        - g
+        - kg
+        - oz
+        - lb
+        - ml
+        - l
+        - us_gal
+        - m/s
+        - km/h
+        - mph
+        - C
+        - F
+        - K
+        x-order: 20
+      to_unit:
+        type: string
+        title: To
+        enum:
+        - mm
+        - cm
+        - m
+        - km
+        - in
+        - ft
+        - yd
+        - mi
+        - mg
+        - g
+        - kg
+        - oz
+        - lb
+        - ml
+        - l
+        - us_gal
+        - m/s
+        - km/h
+        - mph
+        - C
+        - F
+        - K
+        x-order: 30
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- math
+- arithmetic
+- offline
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+images:
+  icon: images/icon.png
+  screen: images/screen.png

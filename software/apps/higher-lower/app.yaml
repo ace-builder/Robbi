@@ -1,0 +1,65 @@
+api_version: 2
+id: higher-lower
+name: Higher or lower
+version: 1.1.1
+entrypoint: main:run
+description: Guess Robbi’s secret number from 1 to 20 with higher/lower hints.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Play higher or lower
+- My guess is twelve
+dashboard:
+  title: Higher or lower
+  description: Guess Robbi’s secret number from 1 to 20 with higher/lower hints.
+tools:
+- name: play
+  title: Play
+  description: Start a game, guess a number from 1 to 20, check the remaining range, or stop. Robbi tells
+    you whether to guess higher or lower.
+  timeout_s: 20
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 160
+        enum:
+        - start
+        - move
+        - status
+        - stop
+        default: move
+      answer:
+        description: Spoken answer as text, including digits or English/German number words (for example 1, one, eins, or Nummer 1).
+        type: string
+        title: Your move
+        maxLength: 160
+        default: ''
+config_schema:
+  type: object
+  properties:
+    sound:
+      type: boolean
+      title: Victory sound
+      default: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.1,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies:
+  - name: Pillow
+    version: '>=11.3,<13'
+category: games
+tags:
+- numbers
+- guessing
+- offline
+images:
+  icon: images/icon.png
+  screen: images/screen.png

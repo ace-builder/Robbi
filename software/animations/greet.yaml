@@ -1,0 +1,9 @@
+- face: surprised.png
+  ms: 500
+- ms: 100
+- face: happy.png
+  ms: 2000
+- face: joyful.png
+  ms: 1500
+- face: cute.png
+  ms: 0

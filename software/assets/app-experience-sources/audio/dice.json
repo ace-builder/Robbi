@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "Two tiny wooden dice tumble and settle on a soft felt tabletop: a quick gentle clack-clack followed by a warm soft pop. Friendly board game result, one second, isolated, no voice or music.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "2421d8f6964a683da0d332b4ad724d332f6ad947f392f4c060934af6e7b99231",
+  "seconds": 1.0,
+  "peak": 10576,
+  "rms": 470.35
+}

@@ -1,0 +1,13 @@
+{
+  "id": "gag-deal-with-it",
+  "title": "Velvet swagger",
+  "duration_s": 3.0,
+  "prompt": "A confident short muted bass-guitar slide, a crisp sunglasses hinge click at the middle, then a soft brushed-snare flick. Understated smug tiny entrance. Original two-note flourish, not a known song. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "35038668b2bdd1d2334ee032522f7166396b24f4b43ffc0beb3774591417770e",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

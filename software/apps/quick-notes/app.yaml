@@ -1,0 +1,90 @@
+api_version: 2
+id: quick-notes
+name: Quick notes
+version: 1.1.0
+description: Keep short notes and find them again, even while offline.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Save a quick note
+- Show my quick notes
+dashboard:
+  title: Quick notes
+  description: Keep up to 40 short notes. These belong to this app; daily-tool notes and durable memory
+    remain separate.
+  page: dashboard/index.html
+tools:
+- name: add
+  title: Save note
+  description: Save a short note to the Quick notes app when the user explicitly asks for a quick note.
+    Other notes and robot memory use their existing tools.
+  timeout_s: 5
+  input_schema:
+    type: object
+    required:
+    - text
+    properties:
+      text:
+        type: string
+        title: Note
+        minLength: 1
+        maxLength: 1000
+        x-order: 10
+- name: list
+  title: Read notes
+  description: Read recent notes in the Quick notes app. Returns note IDs for explicit deletion requests.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      limit:
+        type: integer
+        title: Maximum notes
+        minimum: 1
+        maximum: 40
+        default: 10
+        x-order: 10
+        x-advanced: true
+- name: delete
+  title: Delete note
+  description: Delete a quick note by its exact returned ID only when the user asks to delete it.
+  timeout_s: 5
+  input_schema:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: string
+        title: Note ID
+        minLength: 12
+        maxLength: 12
+        x-order: 10
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: productivity
+tags:
+- notes
+- capture
+- offline
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+images:
+  icon: images/icon.png
+  screen: images/screen.png

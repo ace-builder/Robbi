@@ -1,0 +1,13 @@
+{
+  "id": "mischievous-grin",
+  "title": "Sneaky pizzicato",
+  "duration_s": 1.6,
+  "prompt": "Three conspiratorial muted pizzicato cello plucks, a pause, and a soft comic woodblock knock. Quiet sneaky original musical gesture, not a recognizable tune. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.3800000000000001,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "1fd98e71c709420d74aac37582316552486eaf6431a6ed64726911d0218ab04a",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

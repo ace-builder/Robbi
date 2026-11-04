@@ -1,0 +1,17 @@
+.studio-grid{align-items:start;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+.studio-text-foot{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;margin:7px 0 10px}
+.studio-text-foot>span:last-child{white-space:nowrap}
+.studio-tags{margin-bottom:18px}.studio-tags button{font-weight:400}
+.actions.studio-voice-actions{margin:9px 0 12px}.studio-voice-field input{font-family:Consolas,monospace}
+#studio-text{min-height:135px;resize:vertical}#studio-progress{margin-bottom:0}#studio-error{margin-bottom:20px}
+.studio-preview h3{margin:0;overflow-wrap:anywhere}.studio-preview .panel-head{flex-wrap:wrap}
+.studio-preview audio{width:100%;margin-top:15px;display:block}
+.studio-script{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;max-height:230px;overflow:auto;border-left:2px solid var(--line);padding-left:15px}
+.studio-voice-meta{overflow-wrap:anywhere}.studio-key-form{display:flex;align-items:end;gap:15px;max-width:720px}.studio-key-form label{flex:1;min-width:0}.studio-key-form button{flex-shrink:0}
+.studio-history-head{align-items:center;flex-wrap:wrap}.studio-history-head select{width:auto;max-width:100%}
+.studio-history-row{display:flex;width:100%;gap:16px;align-items:center;text-align:left;border:0;border-top:1px solid var(--line);border-radius:0;padding:15px 8px;font-weight:400;background:white}
+.studio-history-row.selected{background:var(--soft);box-shadow:inset 3px 0 var(--ink)}
+.studio-history-copy{flex:1;min-width:0}.studio-history-copy strong{font-size:13px;display:block;overflow-wrap:anywhere}.studio-history-copy small{font-size:11px;color:var(--muted);display:block;margin-top:4px;overflow-wrap:anywhere}
+.studio-history-row .badge{flex-shrink:0}.studio-pagination{display:flex;justify-content:flex-end;gap:14px;align-items:center;margin-top:20px}
+@media(max-width:1050px){.studio-grid{grid-template-columns:1fr}}
+@media(max-width:750px){#studio-text{min-height:110px;height:110px}.studio-tags button{font-size:11px;padding:4px 7px;min-height:30px}.studio-text-foot{font-size:10px}.studio-key-form{display:block}.studio-key-form button{margin-top:12px}.studio-pagination{justify-content:space-between}.studio-history-row{gap:10px}.studio-preview .actions{gap:7px}.studio-preview .actions button,.studio-preview .button-link{font-size:12px;padding:8px 10px}}

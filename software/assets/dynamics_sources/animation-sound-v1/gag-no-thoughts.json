@@ -1,0 +1,13 @@
+{
+  "id": "gag-no-thoughts",
+  "title": "Duck spa",
+  "duration_s": 3.0,
+  "prompt": "A small rubber bath duck bobs in a teacup-sized puddle: gentle water lap, two soft rubber squeaks with different pitches, and one tiny water bubble. Relaxed and silly. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "71bf846f3f069d1c2bcbea06f99a8516eba91d6fc5a1482cccbc868888009419",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

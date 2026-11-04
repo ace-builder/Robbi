@@ -1,0 +1,16 @@
+{
+  "provider": "ElevenLabs",
+  "request": {
+    "text": "A delicate ascending glassy three-note discovery sparkle ending in a warm round plink. Tiny friendly robot finding a clue, one second, isolated, no speech, no large fanfare.",
+    "model_id": "eleven_text_to_sound_v2",
+    "duration_seconds": 1.0,
+    "prompt_influence": 0.65,
+    "loop": false
+  },
+  "source_format": "pcm_22050",
+  "adaptation": "Gain limited, mono PCM16, 10 ms fades, at most one second",
+  "sha256": "9271522b294797b16475bfb51f8d586f118011b1fb7be24295fa903cb53f9ae4",
+  "seconds": 1.0,
+  "peak": 11197,
+  "rms": 2020.23
+}

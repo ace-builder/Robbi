@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Robbi · Robot dashboard</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../static/style.css">
+  <link rel="stylesheet" href="../../static/app-hub.css">
+  <link rel="stylesheet" href="../../static/apps-library.css">
+  <link rel="stylesheet" href="../../static/app-ui/experience.css">
+  <link rel="stylesheet" href="../../static/audio-studio.css">
+  <link rel="stylesheet" href="../../static/imu.css">
+  
+  <link rel="stylesheet" href="../../static/manual-drive.css">
+  <link rel="stylesheet" href="../../static/navigation.css">
+  <link rel="stylesheet" href="../../static/media-library.css">
+  <script type="module" src="../../static/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Robbi overview"><span class="brand-mark" aria-hidden="true">r.</span><span>Robbi<small>ROBOT / VERSION 2</small></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-view="overview"><span aria-hidden="true">01</span>Overview</a>
+      <a href="#interact" data-view="interact"><span aria-hidden="true">02</span>Interact</a>
+      <a href="#conversation-lab" data-view="conversation-lab"><span aria-hidden="true">C</span>Conversation Lab</a>
+      <a href="#apps" data-view="apps"><span aria-hidden="true">03</span>App library</a>
+      <a href="#app-hub" data-view="app-hub"><span aria-hidden="true">↗</span>Robbi App Hub</a>
+      <a href="#daily" data-view="daily"><span aria-hidden="true">04</span>Daily tools</a>
+      <a href="#memory" data-view="memory"><span aria-hidden="true">05</span>Memory</a>
+      <a href="#motion" data-view="motion"><span aria-hidden="true">06</span>Drive</a>
+      <a href="#map" data-view="map"><span aria-hidden="true">↗</span>Map & explore</a>
+      <a href="#imu" data-view="imu"><span aria-hidden="true">07</span>IMU · Live 3D</a>
+      <a href="../../motion-studio"><span aria-hidden="true">↗</span>Motion studio</a>
+      <a href="#media" data-view="media"><span aria-hidden="true">08</span>Media & voice</a>
+      <a href="#audio" data-view="audio"><span aria-hidden="true">09</span>Audio studio</a>
+      
+      <a href="#video" data-view="video"><span aria-hidden="true">↗</span>Video capture</a>
+      <a href="#wake" data-view="wake"><span aria-hidden="true">W</span>Wake word</a>
+      <a href="#settings" data-view="settings"><span aria-hidden="true">11</span>Settings</a>
+    </nav>
+    <div class="sidebar-foot"><span class="status-dot" id="connection-dot"></span><span id="connection-label">Connecting…</span><small id="last-updated">Waiting for first status</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="eyebrow">ROBBI CONTROL ROOM</span><div class="top-actions"><div class="global-audio" id="global-audio" role="group" aria-label="Robot audio output"></div><span class="badge" id="system-state">Connecting</span><button class="stop" id="stop" type="button" aria-label="Stop robot actions; leave the Pi running">■ <span>Stop actions</span></button><button id="power-off" type="button" title="Shut down the Raspberry Pi">⏻ Shut down Pi</button></div></header>
+    <div class="connection-notice" id="connection-notice" role="status" hidden></div>
+    <main id="content" tabindex="-1"><div class="loading">Connecting to Robbi…</div></main>
+    <footer>Robbi v2 <span>Local control · Hardware status is reported by the robot</span></footer>
+  </div>
+  <div id="notification" class="notification" role="status" aria-live="polite" hidden></div>
+  <noscript><p>This dashboard needs JavaScript. Diagnostics remain available at <a href="../../api/health">/api/health</a>.</p></noscript>
+</body>
+</html>

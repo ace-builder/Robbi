@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Playful accelerating sequence of little computer mouse clicks and soft window opening pops, ending in a bewildered rubber duck squeak. Dry cartoon sound design, no speech, no voices, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "d341943487a51b991e4b71783b821a2db87a7cda8d7973508ea620daa3861790"
+}

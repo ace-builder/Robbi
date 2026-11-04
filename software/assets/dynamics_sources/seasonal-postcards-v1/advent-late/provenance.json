@@ -1,0 +1,29 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "generated_on": "2026-10-23",
+  "intent": "generate",
+  "transparent_background": true,
+  "composition": "Generated RGBA source artwork is kept unchanged. The repeatable renderer crops transparent margins, resizes, rotates and composites fixed props; all other objects are code-native Pillow art.",
+  "assets": [
+    {
+      "file": "sleepy-gingerbread.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent character prop for a tiny Advent LCD animation. Subject: one adorable sleepy gingerbread biscuit person, full body, front view, lying horizontally on its back with head at left and feet at right, arms relaxed, eyes gently closed and tiny smile. Golden baked cookie, elegant white icing cuffs, two warm coral sugar buttons, subtle baked texture. Children's storybook gouache with softly sculpted volume, clean bold silhouette, restrained cream/coral palette and dark warm outline. Single isolated cutout on genuinely transparent background, no bed, no accessories, no text, no ground plane, no cast shadow, no blue robot or robot face, no watermark. Ample clear transparent margin."
+    },
+    {
+      "file": "skating-penguin.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent full-body character prop for an Advent LCD animation. Subject: one tiny adorable round penguin in coral knitted earmuffs, both stubby flippers out for balance, two polished silver ice skates with little tan boots, a relaxed happy beak smile. Front three-quarter view, character facing slightly right. Children's storybook gouache with soft sculpted volume, bold clean silhouette, warm ivory belly and charcoal plum back, beautiful restrained painted texture. Single isolated cutout on genuinely transparent background, entire body and skates fully visible, no ground, no cast shadow, no ice, no text, no blue robot or robot face, no watermark. Plenty transparent margin."
+    },
+    {
+      "file": "festive-pinecone.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent object character prop for an Advent LCD animation. Subject: one charming upright round little pinecone, rich layered chestnut scales, a very tiny friendly face with two dark dot eyes and a gentle smile low in its center, full pinecone visible. Warm children's storybook gouache with softly sculpted volume, restrained golden brown and cream highlights, clean simple bold silhouette, delicate tactile painted detail that reads when small. Single isolated cutout on genuinely transparent background. No hat, no limbs, no accessories, no ground plane, no cast shadow, no text, no blue robot or robot face, no watermark. Ample transparent margin."
+    },
+    {
+      "file": "snack-reindeer.png",
+      "original": "",
+      "prompt": "Use case: illustration-story. Asset type: transparent character prop for an Advent LCD animation. Subject: one adorable tiny baby reindeer, full body in a sitting pose, three-quarter view facing left, oversized friendly velvet muzzle and small branched antlers, tan soft fur, ivory chest patch, dark brown hooves, tiny coral scarf, eyes happily looking slightly down and left. Children's storybook gouache with softly sculpted volume, bold readable clean silhouette, warm tactile texture and restrained chestnut/cream/coral palette. Single isolated cutout on genuinely transparent background, entire antlers and feet visible. No food, no gift, no ground, no cast shadow, no text, no blue robot or robot face, no watermark. Ample transparent margin."
+    }
+  ]
+}

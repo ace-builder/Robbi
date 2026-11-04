@@ -1,0 +1,107 @@
+api_version: 2
+id: packing-list
+name: Trip packing
+version: 1.1.0
+entrypoint: main:run
+description: Plan trip quantities by category and record exactly how many of each item are packed.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Create a packing list for our weekend trip
+- I have packed three of my five shirts
+tools:
+- name: manage
+  title: Manage trip packing
+  description: Create/list/show trips; add quantities by category; set an item's packed count; remove
+    an item or delete a trip. Use item numbers returned by show.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - create
+        - list
+        - show
+        - add
+        - pack
+        - remove
+        - delete
+        default: list
+        x-order: 0
+      trip:
+        type: string
+        title: Trip name
+        maxLength: 60
+        default: ''
+        x-order: 10
+      departure:
+        type: string
+        title: Departure date
+        maxLength: 10
+        default: ''
+        x-order: 20
+      item_name:
+        type: string
+        title: Item name
+        maxLength: 80
+        default: ''
+        x-order: 30
+      category:
+        type: string
+        title: Category
+        maxLength: 40
+        default: General
+        x-order: 40
+      quantity:
+        type: integer
+        title: Quantity needed
+        minimum: 1
+        maximum: 100
+        default: 1
+        x-order: 50
+      item_number:
+        type: integer
+        title: Item number
+        minimum: 1
+        maximum: 40
+        default: 1
+        x-order: 60
+      packed:
+        type: integer
+        title: Quantity packed
+        minimum: 0
+        maximum: 100
+        default: 0
+        x-order: 70
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: travel
+tags:
+- packing
+- checklists
+- trips
+images:
+  icon: images/icon.png
+  screen: images/screen.png

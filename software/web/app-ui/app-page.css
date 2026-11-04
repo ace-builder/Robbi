@@ -1,0 +1,55 @@
+/* Shared visual frame for the app-owned interactive pages. */
+body[data-app]{--app-art:url('../images/icon.png');--app-accent:#58784b;--app-paper:#f8f6ed;--app-line:#dfe3d2;position:relative;min-height:100vh;padding:28px;background:radial-gradient(ellipse at 100% 0%,#e8eddd 0,transparent 55%),var(--app-paper);color:#34412e;line-height:1.6}
+body[data-app]::before{content:'';position:absolute;right:26px;top:23px;width:86px;height:86px;border:5px solid #fffaf1;border-radius:22px;background:var(--app-art) center/cover,#e8eddd;box-shadow:0 7px 16px #354a2912;transform:rotate(7deg);pointer-events:none}
+body[data-app=tiny-detective]{--app-accent:#8b7548;--app-paper:#faf6eb}
+body[data-app=robot-charades]{--app-accent:#a66f4d;--app-paper:#faf3e9}
+body[data-app=quick-notes]{--app-accent:#9b7b3d;--app-paper:#fbf7e8}
+body[data-app=rhythm-relay]{--app-accent:#75d9c3;--app-paper:#122a31;--app-line:#35545a;background:radial-gradient(ellipse at 100% 0%,#24453e 0,transparent 70%),var(--app-paper);color:#e5f3e8}
+body[data-app]>.eyebrow{font-size:9px;font-weight:650;letter-spacing:2px;color:var(--app-accent);padding-right:110px}
+body[data-app]>h1{font-family:Georgia,serif;font-size:34px;letter-spacing:-1.1px;font-weight:400;line-height:1.13;margin:10px 0 13px;padding-right:110px;color:inherit}
+body[data-app]>p:first-of-type{padding-right:110px;line-height:1.8;font-size:12px;color:#7b826e;min-height:29px}
+body[data-app] button,body[data-app] input,body[data-app] select,body[data-app] textarea{border-color:var(--app-line);border-radius:11px;font-size:13px;min-height:43px;color:inherit}
+body[data-app] button{padding:10px 15px;background:#fffdf7;font-weight:550;transition:background .15s,border-color .15s}
+body[data-app] button:hover:not(:disabled){background:#edf2e5;border-color:#9cad8c}
+body[data-app] button:focus-visible,body[data-app] input:focus-visible,body[data-app] select:focus-visible,body[data-app] textarea:focus-visible{outline:3px solid var(--app-accent);outline-offset:3px}
+body[data-app] button.primary{background:#415c38;border-color:#415c38;color:#fffdf2;border-radius:24px;padding-left:21px;padding-right:21px}
+body[data-app] button.primary:hover:not(:disabled){background:#526f47}
+body[data-app] .controls{gap:9px;margin:22px 0}
+body[data-app] .meta{font-size:10px;letter-spacing:.35px;color:#8a917c;border-top:1px solid var(--app-line);padding-top:15px;margin-top:20px}
+body[data-app] .panel{border-color:var(--app-line);border-radius:18px;background:#fffdf7;padding:22px;margin:20px 0;box-shadow:0 5px 14px #364c2810}
+body[data-app] .panel h2{font-family:Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.5px;line-height:1.25;margin-bottom:13px}
+body[data-app] .panel>p{font-size:13px;line-height:1.85;color:#7c8370}
+body[data-app] .evidence{border-color:#e7e8da;font-size:13px;padding:15px 0;line-height:1.8}
+body[data-app] .evidence b{font-size:9px;letter-spacing:1.5px;color:#9d916b;margin-bottom:8px}
+body[data-app] .clues{gap:8px;margin:16px 0 3px}
+body[data-app] .clues button{border-style:dashed;background:#f8f6e9;font-size:11px}
+body[data-app] .clues button.read{border-style:solid;background:#edf2e3;color:#638054}
+body[data-app] .choices{gap:9px;margin:18px 0}
+body[data-app] .choices button{background:#fffdf7;border-color:#d6dcc9;border-radius:15px;flex:1 1 auto;min-width:90px}
+body[data-app] .hint{border-left-color:#bd9c64;background:#faf3df;border-radius:0 9px 9px 0;padding:12px 15px;font-size:12px;line-height:1.75}
+body[data-app] #result{background:#edf1e3;border-radius:14px;padding:17px 19px;font-size:13px;line-height:1.75;color:#596e47;margin-top:20px}
+body[data-app] #result.error{background:#fbede5;color:#9f5140}
+body[data-app=quick-notes] textarea{background:#fffdf6;border-color:#e0dfc9;border-radius:15px;min-height:115px;padding:15px;line-height:1.8;font-size:14px}
+body[data-app=quick-notes] label{font-size:11px;color:#8b856a}
+body[data-app=quick-notes] .actions{gap:10px;margin:16px 0 27px}
+body[data-app=quick-notes] .note{padding:19px;border:1px solid #e6e0ca;border-radius:14px;margin-top:12px;background:#fffdf5;box-shadow:0 4px 10px #7f6f3210;gap:12px}
+body[data-app=quick-notes] .note-content{font-size:13px;line-height:1.8;color:#6f6c54}
+body[data-app=quick-notes] .note small{font-size:10px;color:#a29a7d;margin-top:9px}
+body[data-app=quick-notes] .note button{min-height:40px;border-radius:20px;font-size:10px;padding:7px 12px;background:transparent;color:#a18767}
+body[data-app=quick-notes] .empty{background:#fffdf5;border-color:#e2ddc8;border-radius:15px;padding:32px;font-size:12px;color:#9b9479}
+body[data-app=rhythm-relay]::before{border-color:#34574e;box-shadow:0 8px 22px #0002}
+body[data-app=rhythm-relay]>p:first-of-type{color:#a7c2b9}
+body[data-app=rhythm-relay] .meta{color:#9fbbb2}
+body[data-app=rhythm-relay] button{background:#203d41;border-color:#3d5c5e}
+body[data-app=rhythm-relay] button:hover:not(:disabled){background:#2c4d4f;border-color:#6c9285}
+body[data-app=rhythm-relay] button.primary{background:#81d7ba;border-color:#81d7ba;color:#14392e}
+body[data-app=rhythm-relay] .beatline{border-color:#36575b;background:linear-gradient(0deg,#18363b,transparent);border-radius:12px;padding-top:12px}
+body[data-app=rhythm-relay] .beat{background:#86d8b5;color:#14392c;width:28px;height:28px;font-size:11px;box-shadow:0 4px 12px #0002}
+body[data-app=rhythm-relay] .beat.player2{background:#edc383}
+body[data-app=rhythm-relay] #tap{background:radial-gradient(ellipse at 50% 0%,#315c55,#1b3d41);border:1px solid #629c83;border-radius:23px;min-height:138px;font-family:Georgia,serif;font-size:32px;font-weight:400;color:#a4e1c0;box-shadow:inset 0 1px 0 #a7ecc42a,0 8px 20px #071d2129}
+body[data-app=rhythm-relay] #tap:active{background:#8bd6b6;color:#204b3c;box-shadow:inset 0 3px 10px #23472d36}
+body[data-app=rhythm-relay] .note{font-size:11px;color:#9db9ad;line-height:1.8}
+body[data-app=rhythm-relay] #result{background:#1e3d3e;color:#b7d7c2}
+body[data-app=rhythm-relay] #result.error{background:#4b3b38;color:#f1c1a4}
+@media(max-width:440px){body[data-app]{padding:20px}body[data-app]::before{top:20px;right:18px;width:66px;height:66px;border-width:4px;border-radius:18px}body[data-app]>h1{font-size:29px;padding-right:81px;margin-top:9px}body[data-app]>.eyebrow{font-size:8px;padding-right:75px;letter-spacing:1.5px}body[data-app]>p:first-of-type{padding-right:0;font-size:11px;max-width:100%}body[data-app] .panel{padding:18px;border-radius:16px}body[data-app] .panel h2{font-size:24px}body[data-app] .controls{gap:7px}body[data-app] .controls button{font-size:11px;padding:9px 12px}body[data-app=quick-notes] .note{padding:15px;flex-wrap:wrap}body[data-app=quick-notes] .note-content{flex-basis:100%}body[data-app=rhythm-relay] #tap{min-height:120px;font-size:29px}}
+@media(prefers-reduced-motion:reduce){body[data-app] button{transition:none}}

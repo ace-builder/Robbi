@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A few tiny notification pops approach, a miniature wooden garden fence rattles up, two soft rubbery rebounds, a satisfying wooden latch click. Warm close-up cartoon foley, no voices or music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "4f8d5444de93130f7a9c3a907459b77f3de764c445642d7717e6f89e50086796"
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A miniature washing machine door clicks shut, a brief tiny gentle motor turns with bubbly water swishing, then stops with a soft cloth flap and one little water droplet. Comically calm laundry foley. No voices, music or beeps.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.65,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "d2ff326d22f93b1fbeb36c1b4f4b223e53532a319589827877873a8c8f3ef00f"
+}

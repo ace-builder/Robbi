@@ -1,0 +1,13 @@
+{
+  "id": "happy-dance",
+  "title": "Kitchen tabletop shuffle",
+  "duration_s": 2.0,
+  "prompt": "A miniature upbeat acoustic percussion groove with fingertip tabletop taps, brushed shaker and muted ukulele string chops. One original compact dance flourish with a clean finish, no electronic beeps. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 1.78,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "15c38df6b24b38344f1fca6435aa05029d48c4369a1f3f0526b162b2cc3547d9",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

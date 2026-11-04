@@ -1,0 +1,32 @@
+{
+  "tool": "built-in imagegen",
+  "created": "2026-10-23",
+  "originals": [
+    {
+      "name": "sunshine-jar",
+      "source": "",
+      "sha256": "269662a78d32a8ce04c5a6062ebeb0896eeabab7312883b15a69717b4747efda"
+    },
+    {
+      "name": "peace-tea",
+      "source": "",
+      "sha256": "6156358562adc9d7c28c55fbf68473ed0fb1433f241b5fda7f0e591445c38e89"
+    },
+    {
+      "name": "soft-pillow",
+      "source": "",
+      "sha256": "e5239aaeee784f8f49484433c931dd63ea40fc0ad97b6f8d5bcabb2164225776"
+    },
+    {
+      "name": "slow-snail-draft",
+      "source": "",
+      "sha256": "d2fd8eb4680ce8b12a4f65c5963c380f2973c7a38c1875b64402402b6d47e7be"
+    },
+    {
+      "name": "slow-snail",
+      "source": "",
+      "sha256": "cc558d928fac2907b3b649cc2d0893bdac30975d28380aa327450ba2efe35f66",
+      "refines": "slow-snail-draft.png"
+    }
+  ]
+}

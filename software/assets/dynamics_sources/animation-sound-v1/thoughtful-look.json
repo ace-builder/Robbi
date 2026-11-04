@@ -1,0 +1,13 @@
+{
+  "id": "thoughtful-look",
+  "title": "The thinking desk",
+  "duration_s": 2.44,
+  "prompt": "Two spaced soft pencil taps on wood, a very light pencil scratch thinking pause, then a thoughtful low muted handpan note. Quiet tactile contemplation. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.2199999999999998,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "4ce44998dd2a75b64e1b972734ca7b4fe6742ba910e4fd8b5ea2b3a3f9607b91",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

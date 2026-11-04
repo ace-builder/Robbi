@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Gentle close-up rain patter, a tiny umbrella snaps open with a soft fabric swish, rain patters warmly on its canopy, one delicate flame flicker. Reassuring miniature foley, no voices, no thunder, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "4949799676d007cc4757708cc271acf2435c7700468bb0bf463ec9e7c7e9a4a7"
+}

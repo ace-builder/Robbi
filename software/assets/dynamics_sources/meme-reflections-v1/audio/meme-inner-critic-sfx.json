@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A very short annoying nasal kazoo-like blurt, a clean mute switch click cuts it off, followed by a gentle soft airy exhale. Funny but soothing foley, no speech, no words, no music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "1aaa83dc79c0b8400746736f506648e8a7add4d5faeb9b2ff0cac2dee3aaefcf"
+}

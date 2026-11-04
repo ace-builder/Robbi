@@ -1,0 +1,11 @@
+id: focus-timer
+name: Focus Timer
+version: 0.1.0
+description: Start a persistent focus countdown that owns the screen until it finishes.
+triggers:
+  - focus timer
+  - pomodoro
+  - focus session
+prompt: |
+  When the user wants to start a focus timer or pomodoro, use this app.
+  Pass the requested duration in the app input when possible.

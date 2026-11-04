@@ -1,0 +1,24 @@
+"""Project-local implementation. Shared runtime access uses only the supported SDK."""
+
+CHARADES = (
+    ("happy", ("happiness", "joyful", "glad", "glücklich"), "feeling", "excited-grin", "tiny-nod", "A bright grin and bouncing eyes.", ("Something wonderful just happened.", "The opposite of sad.")),
+    ("sad", ("sadness", "unhappy", "traurig"), "feeling", "sad-sigh", None, "A drooping expression and a little sigh.", ("A favourite plan was cancelled.", "The opposite of happy.")),
+    ("sleepy", ("tired", "drowsy", "müde"), "feeling", "sleepy-yawn", None, "Heavy eyelids open for a wide yawn.", ("It has been a very long day.", "A pillow would be welcome.")),
+    ("surprised", ("surprise", "amazed", "astonished", "überrascht"), "feeling", "amazed-gasp", None, "Eyes suddenly widen with a sharp intake of breath.", ("Nobody expected that to happen.", "A secret party might cause this reaction.")),
+    ("confused", ("confusion", "puzzled", "verwirrt"), "feeling", "confused-look", None, "Uneven eyes seem to study a puzzling situation.", ("The instructions do not make sense yet.", "The feeling when you cannot work out what is happening.")),
+    ("proud", ("pride", "stolz"), "feeling", "proud-smile", "tiny-nod", "A composed smile after completing something difficult.", ("A hard task has gone very well.", "You might feel this about something you achieved.")),
+    ("shy", ("bashful", "schüchtern"), "feeling", "shy-smile", None, "A small smile peeks out, then the eyes look away.", ("Meeting new people can bring on this feeling.", "You want to join in but feel hesitant about attention.")),
+    ("curious", ("curiosity", "neugierig"), "feeling", "curious-glance", "curious-peek", "Eyes glance from side to side, searching for something interesting.", ("There might be a discovery around the corner.", "Wanting to find out more.")),
+    ("frustrated", ("frustration", "annoyed", "frustriert"), "feeling", "frustrated-frown", "tiny-no", "A furrowed look appears after another unsuccessful try.", ("The same obstacle keeps getting in the way.", "How you might feel when nothing seems to work.")),
+    ("relieved", ("relief", "erleichtert"), "feeling", "soft-relief", None, "Tension leaves the face with a gentle exhale.", ("A worry has just turned out fine.", "The feeling after discovering that everything is okay.")),
+    ("dancing", ("dance", "tanzen"), "action", "happy-dance", None, "The expression bounces in a lively repeating pattern.", ("A strong beat would help.", "Moving with music.")),
+    ("winking", ("wink", "zwinkern"), "action", "cheeky-wink", None, "One eye briefly closes while the other stays open.", ("A tiny signal between friends.", "A deliberate blink with just one eye.")),
+    ("thinking", ("think", "pondering", "nachdenken"), "action", "thoughtful-look", None, "The eyes settle into a quiet, focused expression.", ("There is a problem to solve.", "Working through an idea in your mind.")),
+    ("startled", ("startle", "alarmed", "erschrocken"), "feeling", "pickup-startle", None, "The whole expression jolts suddenly, then settles.", ("An unexpected noise might cause this.", "A sudden little fright.")),
+    ("skeptical", ("sceptical", "doubtful", "skeptisch"), "feeling", "skeptical-look", "tiny-no", "One side of the expression lifts as if a claim sounds questionable.", ("That story might need some evidence.", "Not quite convinced that something is true.")),
+    ("affectionate", ("loving", "fond", "affection", "liebevoll"), "feeling", "affectionate-smile", None, "A warm, gentle smile softens the eyes.", ("Someone dear has arrived.", "Showing warmth and fondness.")),
+    ("cat", ("kitten", "feline", "katze"), "animal", "curious-glance", "curious-peek", "Acting scene: quietly track a moving toy, then pretend to groom a paw. The eyes keep peeking around.", ("This pet often enjoys climbing and napping in warm spots.", "Whiskers, soft paws and a fondness for chasing string.")),
+    ("owl", ("eule",), "animal", "look-left", None, "Acting scene: keep very wide eyes, look sideways from a high perch, and silently watch the dark garden.", ("An animal with feathers that is often active at night.", "A night bird famous for its large eyes and turning head.")),
+    ("librarian", ("library worker", "bibliothekar", "bibliothekarin"), "job", "thoughtful-look", None, "Acting scene: study an imaginary index, sort books onto shelves, then signal for quiet with a thoughtful look.", ("This person helps people find stories and information.", "They manage book loans and shelves of reading material.")),
+    ("chef", ("cook", "koch", "köchin"), "job", "excited-grin", None, "Acting scene: stir an imaginary pot, taste carefully, and grin before presenting a meal.", ("This person works with recipes and ingredients.", "Their workplace might be a restaurant kitchen.")),
+)

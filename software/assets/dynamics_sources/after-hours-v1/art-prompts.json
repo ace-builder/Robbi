@@ -1,0 +1,20 @@
+[
+  {
+    "id": "boundary-cactus",
+    "prompt": "Use case: illustration-story. Asset type: a single transparent animation prop for Robbi's 280x240 LCD, later composited and moved as a fixed sprite. One complete small squat prickly pear cactus in a warm terracotta flowerpot, with three thick rounded paddle leaves, tiny neat cream spines, two tiny black oval eyes and a calm unimpressed mouth on the central paddle. The pot has a simple horizontal cream rim. Cactus has no arms, no gloves, no flowers. Front view, friendly deadpan character. Full subject centered with plenty of transparent margin. Style: premium hand-painted storybook cut-paper illustration, restrained soft gouache shading, bold clean dark-plum outlines, warm pastel cream/coral/sage palette, fine texture kept subtle enough to downsample well to 100 pixels. Broad simple shapes; not photorealistic, not 3D plastic. True transparent RGBA background, not a checkerboard, no shadow outside the subject. No blue robot, no text, no logos, no watermark. Deliver one isolated complete character, not a sheet.",
+    "tool": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "judge-shrimp",
+    "prompt": "Use case: illustration-story. Asset type: a single transparent animation prop for Robbi's 280x240 LCD, later composited and moved as a fixed sprite. One tiny charming coral-orange shrimp as a cartoon judge, standing upright with a curled segmented tail, two fine short antennae, large gently skeptical black oval eyes, wearing a small ivory curled British-style judge wig and a simple dark plum robe. Stubby little claws rest by its sides, no object held. Entire full body centered, front three-quarter view. No gavel, no podium, no words. Very readable silhouette, humorously authoritative. Style: premium hand-painted storybook cut-paper illustration, restrained soft gouache shading, bold clean dark-plum outlines, warm pastel cream/coral/sage palette, fine texture kept subtle enough to downsample well to 100 pixels. Broad simple shapes; not photorealistic, not 3D plastic. True transparent RGBA background, not a checkerboard, no shadow outside the subject. No blue robot, no text, no logos, no watermark. Deliver one isolated complete character, not a sheet.",
+    "tool": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "capybara-rest",
+    "prompt": "Use case: illustration-story. Asset type: a single transparent animation prop for Robbi's 280x240 LCD, later composited and moved as a fixed sprite. One complete adorable warm cinnamon-brown capybara sitting relaxed, front three-quarter view, with a broad rectangular rounded muzzle, tiny ears, serene half-closed black eyes, stubby limbs and a softly content expression. No clothing, no accessories, no container, no background. Body is compact and rounded, both front paws visible resting on its belly. Full subject centered with transparent margin. Style: premium hand-painted storybook cut-paper illustration, restrained soft gouache shading, bold clean dark-plum outlines, warm pastel cream/coral/sage palette, fine texture kept subtle enough to downsample well to 100 pixels. Broad simple shapes; not photorealistic, not 3D plastic. True transparent RGBA background, not a checkerboard, no shadow outside the subject. No blue robot, no text, no logos, no watermark. Deliver one isolated complete character, not a sheet.",
+    "tool": "built-in image_gen",
+    "transparent_background": true
+  }
+]

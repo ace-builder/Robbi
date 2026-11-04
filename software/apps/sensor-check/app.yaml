@@ -1,0 +1,62 @@
+api_version: 2
+id: sensor-check
+name: Sensor check
+version: 1.1.0
+entrypoint: main:run
+description: Read both distance sensors and the IMU, with honest freshness and connection status.
+permissions:
+- robot.tof
+- robot.imu
+- robot.display
+- robot.audio
+triggers:
+- How far away is the object in front of you?
+- What do your distance sensors see?
+- Are you tilted, and what does your IMU measure?
+dashboard:
+  title: Sensor check
+  description: Read current cached ToF and IMU samples. Showing the summary on Robbi is optional. This
+    check never drives or changes sensor settings.
+tools:
+- name: inspect
+  title: Read sensors
+  timeout_s: 15
+  description: Read H1 forward and H2 auxiliary ToF distance in centimetres and IMU acceleration, angular
+    velocity and relative orientation. Report unavailable, disabled or stale sensors instead of reusing
+    their old measurements. IMU yaw is relative gyro heading, never compass north. This tool does not
+    move Robbi; only show the summary on its display when requested.
+  examples:
+  - How far is the obstacle in front of you?
+  - Read both of your distance sensors.
+  - Tell me your tilt and acceleration.
+  - Show your current sensor readings on your screen.
+  input_schema:
+    type: object
+    properties:
+      show_on_screen:
+        type: boolean
+        title: Show on Robbi's screen
+        description: Display a short summary for up to ten seconds when the screen is available.
+        default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: robot
+tags:
+- sensors
+- diagnostics
+- measurements
+config_schema:
+  type: object
+  properties:
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+images:
+  icon: images/icon.png
+  screen: images/screen.png

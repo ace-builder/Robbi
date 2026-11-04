@@ -1,0 +1,182 @@
+api_version: 2
+id: decision-notebook
+name: Decision Notebook
+version: 1.1.0
+entrypoint: main:run
+description: Compare weighted options with your own scores, reasons and later outcome reviews.
+permissions:
+- state
+- robot.display
+- robot.audio
+triggers:
+- Help me compare my options
+- Record how that decision turned out
+tools:
+- name: save
+  title: Save a decision
+  description: Save 2–5 options and 1–5 criteria. Optional integer weights 1–10 correspond to criteria;
+    empty means equal. Optional id edits. Changing scored options/criteria requires explicit reset_scores=true
+    and clears ratings/outcome.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      title:
+        type: string
+        title: Decision
+        maxLength: 100
+      options:
+        type: array
+        title: Options (one per line)
+        items:
+          type: string
+          title: Option
+          maxLength: 60
+        maxItems: 5
+        minItems: 2
+      criteria:
+        type: array
+        title: Criteria (higher score is better)
+        items:
+          type: string
+          title: Criterion
+          maxLength: 50
+        maxItems: 5
+        minItems: 1
+      weights:
+        type: array
+        title: Weights in criterion order
+        items:
+          type: integer
+          title: Weight
+          minimum: 1
+          maximum: 10
+        maxItems: 5
+        x-advanced: true
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+      notes:
+        type: string
+        title: Notes
+        maxLength: 160
+        x-advanced: true
+      reset_scores:
+        type: boolean
+        title: Allow resetting scores after options change
+        default: false
+        x-advanced: true
+    required:
+    - title
+    - options
+    - criteria
+- name: score
+  title: Score an option
+  description: Set one option's criterion score from 0 to 10 (higher is better), with your reason. Use
+    exact saved option/criterion names; rescore replaces that cell. Ranking waits until all cells are
+    scored.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: false
+      option:
+        type: string
+        title: Option
+        maxLength: 60
+      criterion:
+        type: string
+        title: Criterion
+        maxLength: 50
+      score:
+        type: integer
+        title: Score
+        minimum: 0
+        maximum: 10
+      reason:
+        type: string
+        title: Reason
+        maxLength: 120
+    required:
+    - id
+    - option
+    - criterion
+    - score
+- name: review
+  title: Compare or review
+  description: List/search decisions, compare all weighted scores and reasons, save an outcome review
+    with chosen option, or remove by exact id. Weights express preferences, not predicted outcomes.
+  timeout_s: 10
+  input_schema:
+    type: object
+    properties:
+      action:
+        type: string
+        title: Action
+        maxLength: 10
+        enum:
+        - list
+        - compare
+        - outcome
+        - remove
+        default: list
+      id:
+        type: string
+        title: Record ID
+        maxLength: 12
+        x-advanced: true
+      query:
+        type: string
+        title: Search titles and notes
+        maxLength: 100
+        x-advanced: true
+      choice:
+        type: string
+        title: Chosen option
+        maxLength: 60
+      outcome:
+        type: string
+        title: Outcome review
+        maxLength: 240
+      reviewed_on:
+        type: string
+        title: Reviewed YYYY-MM-DD
+        maxLength: 10
+        x-advanced: true
+config_schema:
+  type: object
+  properties:
+    timezone:
+      type: string
+      title: Local timezone
+      maxLength: 80
+      default: Europe/Berlin
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: false
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: productivity
+tags:
+- decisions
+- scoring
+- reflection
+images:
+  icon: images/icon.png
+  screen: images/screen.png

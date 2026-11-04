@@ -1,0 +1,13 @@
+{
+  "id": "sad-sigh",
+  "title": "Rain on a small cello",
+  "duration_s": 2.44,
+  "prompt": "A tender quiet solo cello harmonic descends slowly with a fragile bow tremble and a gentle airy fading tail. A small disappointed sigh, not tragic or loud; no speech. Isolated clean sound effect for a tiny friendly desktop robot. No speech, no recognizable song, no background music bed, no harsh high frequencies. Begin promptly, leave a short quiet tail.",
+  "provider": "ElevenLabs",
+  "model": "eleven_text_to_sound_v2",
+  "requested_duration_s": 2.2199999999999998,
+  "format": "pcm_s16le_22050_mono",
+  "sha256": "6b37462ac78fd7f1777eba3fa39ee0819ee5cfecd9a7affb9ec49335db2102dd",
+  "license": "Generated with owner account; subject to ElevenLabs plan terms. Not CC0.",
+  "api_reference": "https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert"
+}

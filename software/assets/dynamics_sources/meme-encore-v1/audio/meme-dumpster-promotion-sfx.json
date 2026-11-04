@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "Close-up cartoon metal dumpster rattles, tiny harmless fire crackles, then a comically grand short brass coronation flourish. Dry clean cinematic foley. No speech, no voices, no background music.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "09a1648f115510518b0afe47bca12b37c57442c4ce802e9f25d37cb37a2c7d35"
+}

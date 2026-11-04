@@ -1,0 +1,14 @@
+id: kids
+name: Kids App Pack
+version: 0.1.0
+description: "Child-safe short games: riddles, story buddy, rock paper scissors, and quiz mode."
+triggers:
+  - riddle
+  - story
+  - rock paper scissors
+  - quiz
+  - kids mode
+prompt: |
+  Use this app when the user wants a child-friendly game or playful learning mode.
+  Prefer the `kids_game` tool with mode `riddle`, `story`, `rps`, or `quiz`.
+  Keep turns short, interactive, and safe.

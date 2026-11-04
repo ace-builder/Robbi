@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "",
+  "request": {
+    "text": "A miniature vending machine button clicks, its little motor turns, then three small aluminum cans drop separately into a tray: clunk, clink, clunk, with light rattling decay. Funny tactile mechanism. No speech, no music, no electronic tones.",
+    "duration_seconds": 2.6,
+    "prompt_influence": 0.55,
+    "model_id": "eleven_text_to_sound_v2",
+    "loop": false
+  },
+  "format": "mp3_44100_128",
+  "bytes": 41838,
+  "sha256": "820eae190fc850e21bb84d42b317332c58070de9eadc81b529f1ebc007ee2306"
+}

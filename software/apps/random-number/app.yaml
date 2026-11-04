@@ -1,0 +1,72 @@
+api_version: 2
+id: random-number
+name: Random numbers
+version: 1.1.0
+entrypoint: main:run
+description: Generate secure random integers in an inclusive range, with optional unique results.
+permissions:
+- robot.display
+- robot.audio
+triggers:
+- Pick five unique numbers between 1 and 50
+tools:
+- name: generate
+  title: Generate integers
+  description: Choose random integers with operating-system randomness. Both bounds are inclusive; unique
+    results never repeat.
+  timeout_s: 5
+  input_schema:
+    type: object
+    properties:
+      minimum:
+        type: integer
+        title: Minimum
+        minimum: -1000000000000
+        maximum: 1000000000000
+        default: 1
+        x-order: 0
+      maximum:
+        type: integer
+        title: Maximum
+        minimum: -1000000000000
+        maximum: 1000000000000
+        default: 100
+        x-order: 10
+      count:
+        type: integer
+        title: How many
+        minimum: 1
+        maximum: 100
+        default: 1
+        x-order: 20
+      unique:
+        type: boolean
+        title: No repeated numbers
+        default: false
+        x-order: 30
+config_schema:
+  type: object
+  properties:
+    show_screen:
+      type: boolean
+      title: Illustrated result on Robbi
+      default: true
+    play_sound:
+      type: boolean
+      title: Play the app sound
+      default: true
+author:
+  name: Robbi project
+requires:
+  sdk: 2
+  runtime: '>=2.1.0,<3.0.0'
+  python: '>=3.11,<3.13'
+  dependencies: []
+category: utilities
+tags:
+- random
+- numbers
+- offline
+images:
+  icon: images/icon.png
+  screen: images/screen.png

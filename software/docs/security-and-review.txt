@@ -1,0 +1,127 @@
+SECURITY AND CODE REVIEW UPDATE — 27 OCTOBER 2026
+
+Dashboard access
+Fresh installations enable the existing HTTP Basic/Bearer sign-in and create a
+random ROBBI_WEB_TOKEN in the private .env.secrets file (0600). The terminal
+wizard offers a chosen password, or displays a generated password when Enter
+is used on the first run. Username: robbi. Existing installations keep their
+explicit auth_enabled setting; no password is silently imposed on this robot.
+Settings > Dashboard access can set/change the password and enable sign-in
+without editing files or restarting. The value is never returned by the API.
+A new browser authentication prompt may appear after changing the password.
+
+The Host boundary applies even with sign-in disabled. It accepts literal LAN
+and loopback addresses, localhost, the current machine name, robbi/robbi.local,
+and exact names in server.allowed_hosts. It does not resolve attacker-supplied
+names or trust forwarded headers. Existing Origin checks remain. For a reverse
+proxy, add its exact hostname, without a URL, port or wildcard. This is LAN
+password protection; use an HTTPS reverse proxy/VPN before remote access.
+
+Telegram
+The optional setup step explains @BotFather and /newbot, then asks for the token
+at a hidden prompt and the owner's positive numeric user ID. @userinfobot can
+show the ID; send it /start, never your bot token. Setup stores only that one
+private-chat ID in telegram.allowed_chat_ids. Photos and robot actions default
+off. Existing explicit allowances are preserved unless that setup step is run.
+An empty or invalid allowlist admits nobody. Unauthorized chats are neither
+remembered nor notified. Queued handlers and outgoing messages/media recheck
+the allowlist, so revocation also blocks delayed replies. Notification targets
+come only from the current allowlist, never historic chat discovery.
+
+Imported-app isolation
+All imported Python apps, including App Hub installs and manual ZIP installs,
+use Linux bubblewrap namespaces; bundled first-party apps retain the existing
+lightweight in-process execution. Neither signed archives nor SDK permission
+prompts alone are a sandbox. The existing ZIP/signature/owner checks remain.
+No fallback imports untrusted code into Robbi if isolation is unavailable.
+Only that app reports unavailable; the rest of Robbi can start and operate.
+The updated installer includes bubblewrap and libseccomp2. Existing Pi installs
+need those packages before invoking imported apps. Kernel user namespaces must
+be usable; launch failures explain the requirement. Windows can develop/run
+bundled trusted projects, but imported-app execution requires Linux.
+
+The worker sees read-only standard software, Python dependencies, runtime source
+and its own app package. It cannot see robot state, .env files, home directories,
+host processes, GPIO/I2C/SPI devices or direct network sockets. App code cannot
+spawn threads/processes, execute other programs or disable the syscall filter.
+Temporary storage is limited to 16 MiB; address space is 128 MiB, CPU time 30 s,
+individual files 8 MiB, descriptors 48, and broker calls 128 per invocation.
+The existing tool deadline and Stop/revocation epoch terminate the process.
+There are no permanently resident per-app workers and no container daemon.
+
+The existing AppContext/RobotAPI remains the capability boundary in the parent.
+A fixed RPC method allowlist reuses its consent, cancellation, read-only policy,
+state quotas, artifact validation and orchestrator leases. Robot sessions close
+on every exit. Provider credentials never enter the worker. Provider calls use
+explicitly owner-saved configuration, never manifest defaults or app-supplied
+credential names/endpoints. Until the owner saves provider settings in the app
+page, broker services use their built-in defaults. Custom endpoints require
+that explicit save. Raw credential fields are omitted from worker config.
+Imported Google tools additionally need account.gmail or account.calendar;
+network permission alone does not grant connected-account access. The bundled
+Gmail/Calendar manifests declare those capabilities for their packaged form.
+
+Supported remote SDK methods: checkpoint, wait, require, request_permissions,
+read_state, write_state, save_image, call_app and note_non_undoable; public robot
+methods for state, sensors, display, speech/audio, timers, claps and motion; and
+the existing images/weather/search/maps/Google service adapters. Assets remain
+read-only and relative Python imports work. Arbitrary host paths, raw urllib/
+requests sockets, subprocesses, private SDK attributes and Python callback-based
+register_undo are not supported for imported code. State and supported broker
+operations still register their existing undo receipts in the parent. Authors
+must adapt code using direct host/network access to these documented APIs.
+Disabling apps.permissions_enabled bypasses SDK consent for development, but
+never disables OS isolation for imported code.
+
+Regression and portability work
+The first fresh audio packet after an epoch change is now processed if it is
+still current after wake-engine reset; a slow reset still discards stale data.
+The clean-checkout subprocess test explicitly supplies src on PYTHONPATH.
+PCM gain/levels no longer import audioop: vectorized NumPy operations preserve
+8/16/24/32-bit semantics, with a standard-library fallback for minimal installs.
+The installer still supports Bookworm/Python 3.11–3.12: removing audioop alone
+does not validate Trixie camera/GPIO/audio packages. No unsupported OS is now
+silently accepted. Hardware acceptance on Trixie remains a separate upgrade.
+Paired wheel/encoder/vector zip calls explicitly require equal lengths; adjacent
+path-segment iteration intentionally truncates with strict=False. Unused imports
+and variables were removed while dependency probes and validation side effects
+were retained. Motor/ToF teardown errors are now logged instead of swallowed;
+live sensor failures already report degraded health. Manual driving and filming
+policies are unchanged and are described beside their controls.
+
+Architecture and repository hygiene
+The package/configuration follow-up is now implemented locally. Active feature
+engines live in src/robbi/engine; src/robot contains only lazy compatibility
+imports that preserve module identity. The original installation is untouched.
+The shared robbi.configuration schema owns field defaults, environment names,
+aliases, numeric constraints and editor bindings. The existing flat settings API,
+YAML keys, live reloads and per-installation paths are preserved. Schema/runtime
+validation imports no hardware or engine settings. A common parser and write lock
+serve the store and settings adapter, with failed-save cache rollback.
+The same existing algorithms remain in motion, media, microphone and providers;
+this is package/configuration consolidation, not a replacement control system.
+See the current architecture document for precedence, compatibility and extension
+rules. Physical Pi verification remains separate from offline regressions.
+
+.gitignore now covers .env variants, exports, caches and generated outputs.
+Git ignore rules do NOT stop Google Drive sync. No secrets were relocated, no
+private remote was created, and no GitHub upload occurred. Before publishing,
+use the reviewed public candidate and its existing exact-byte release audit;
+never initialize a public history from the private working directory. Keep any
+future private clone, venv and secrets outside a cloud-synced directory. Existing
+snapshot backups remain the rollback source for this update.
+
+Verification boundaries
+Windows SDK/lifecycle tests use an explicitly named trusted_app_runner fixture
+for test-authored code; this is not a production bypass. Separate Linux tests
+exercise the actual namespace/seccomp process, denial of files/secrets/devices/
+sockets/fork/exec, memory limits, deadlines, relative imports and real AppHost
+state permission grant/revocation. No robot deployment or physical movement was
+performed by this review. Test reports and rollback snapshots live in backups.
+
+Primary references
+https://github.com/containers/bubblewrap/blob/main/README.md
+https://docs.python.org/3/library/audioop.html
+https://core.telegram.org/bots/features#botfather
+https://core.telegram.org/bots/api#user
+https://t.me/userinfobot

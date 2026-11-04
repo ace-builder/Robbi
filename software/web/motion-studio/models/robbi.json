@@ -1,0 +1,138 @@
+{
+  "source": {
+    "name": "robo_4_astra.stl",
+    "sha256": "38d5347547aa1f03d1f0064418f51dcb50e2710dfd415afd2026b3c0b67d5daa",
+    "bytes": 28676084,
+    "triangles": 573520,
+    "provenance": "User supplied CAD export; shell/head extracted by original part colors, removable cover isolated as the rearmost connected component of its material. Internal electronics omitted. Body/cover coordinates are snapped to a 0.001 mm grid (at most 0.0005 mm per coordinate) to remove sub-micron CAD export discrepancies along their shared rim. The complete existing side panel and mating rim (x=-39..-32.5 mm) are copied and reflected across x=0. All original opposing geometry at x>32.5 mm is removed before the mirrored copy is joined. This makes both complete side assemblies symmetric, without overlapping patches. Central camera/speaker apertures are retained. Solid Boolean assembly removes internal contact faces."
+  },
+  "coordinates": {
+    "units": "millimeters",
+    "up": "+y",
+    "front": "+z",
+    "ground": "y=0",
+    "transform": "x=35-original_z; y=original_y-237.75; z=original_x-352.90"
+  },
+  "meshes": [
+    {
+      "name": "body",
+      "file": "robbi-body.stl",
+      "color": "#e7e1d6",
+      "triangles": 19640,
+      "bytes": 982084,
+      "bounds": [
+        [
+          -39.0,
+          9.112000465393066,
+          -63.268001556396484
+        ],
+        [
+          39.0,
+          90.11199951171875,
+          45.11399841308594
+        ]
+      ]
+    },
+    {
+      "name": "head",
+      "file": "robbi-head.stl",
+      "color": "#e7e1d6",
+      "triangles": 6048,
+      "bytes": 302484,
+      "bounds": [
+        [
+          -32.5,
+          89.11250305175781,
+          14.210399627685547
+        ],
+        [
+          32.5,
+          139.1125030517578,
+          44.81039810180664
+        ]
+      ]
+    }
+  ],
+  "sidePanels": {
+    "sourceX": [
+      -39,
+      -32.5
+    ],
+    "copyX": [
+      32.5,
+      39
+    ],
+    "mirrorPlane": "x=0",
+    "method": "Remove target band, then union one reflected copy of the complete source panel and mating rim."
+  },
+  "screen": {
+    "center": [
+      0,
+      119.1125,
+      43.66
+    ],
+    "width": 34,
+    "height": 29.142857142857142,
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "description": "Default PlaneGeometry +Z normal; recessed inside actual CAD bezel. Width 34 and height 29.142857 preserve the 280x240 image aspect while fitting the measured aperture without clipping. Suggested dark backing 35x31 at this depth."
+  },
+  "wheels": {
+    "centers": [
+      [
+        -43,
+        25,
+        0
+      ],
+      [
+        43,
+        25,
+        0
+      ]
+    ],
+    "radius": 25,
+    "width": 9,
+    "axis": [
+      1,
+      0,
+      0
+    ],
+    "hubRadius": 21.8,
+    "sourceAxleHeight": 25,
+    "bodyYOffset": 0,
+    "description": "Original approximate display wheels: radius 25 mm, centers x=+/-43 mm, width 9 mm, hub radius 21.8 mm. Keep the CAD shell at its original height and wheels directly beside its panels, without axle extensions. The illustration is intentionally approximate; movement calculations use the separate physics values, not these display dimensions."
+  },
+  "camera": {
+    "center": [
+      -13.1,
+      59.5,
+      44.0
+    ],
+    "radius": 7.0,
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "description": "Suggested procedural lens centered in the existing shell cutout; dimensions estimated from CAD front projection."
+  },
+  "speaker": {
+    "center": [
+      20.0,
+      64.0,
+      42.0
+    ],
+    "width": 21,
+    "height": 29,
+    "description": "Place dark backing behind existing speaker cutouts."
+  },
+  "physics": {
+    "wheel_circumference_cm": 12,
+    "track_width_cm": 9,
+    "gear_ratio": 30,
+    "description": "Movement calculations use 12 cm per wheel rotation, 9 cm between wheel centers, and 30 motor rotations per wheel rotation. The track is updated to the tutor's requested 9 cm; the approximate display geometry is independent."
+  }
+}
