@@ -21,7 +21,7 @@ Complete these items before labelling the release independently reproducible. Th
 ## Electrical specification
 
 - [x] Add a component-side connector drawing and numbered pin tables for all connectors used in this build; verify their copper connectivity in the manufactured Gerbers.
-- [ ] Archive a fully matching editable schematic: the available schematic PDFs retain the older power circuit even though the PCB exports contain the newer IP5306 stage.
+- [x] Archive the matching editable EasyEDA schematic, PDF and netlist. The exported 59 component references, footprints and values match the manufacturing BOM/placement; all 208 connected schematic pins match the traced Gerber copper. Note the legacy test-point names in the [PCB notes](hardware/pcb/README.md#schematic).
 - [x] Recover manufactured board settings: 75 × 45 mm, four layers, 1.6 mm FR-4, 1 oz outer / 0.5 oz inner copper, lead-free HASL, green/white; distinguish the 75 × 71 mm assembly panel.
 - [ ] Confirm exact dielectric stackup and which through-hole connectors arrived fitted; U6 is already marked for backside hand soldering.
 - [x] Trace MENCODER_R pin 4 to U6 pin 36 / BCM16 in the supplied Gerbers. Use `hardware.right_encoder_b_pin: 16`; GPIO7 remains a repair option.

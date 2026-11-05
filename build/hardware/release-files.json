@@ -224,5 +224,29 @@
     "sha256": "43d503f62321ab95294c18f797cab995c2f762e06aa160d616f157f2ec950c01",
     "design_revision": "2026-10-13",
     "physical_fit_tested": false
+  },
+  {
+    "file": "build/hardware/pcb/schematic_v1.easyeda.json",
+    "bytes": 143199,
+    "sha256": "8e10593a099ec2e13cac4992bdd73c96016bd93660a463e056377e1c17226248",
+    "design_revision": "Robbi 2026-09 PCB"
+  },
+  {
+    "file": "build/hardware/pcb/schematic_v1.pdf",
+    "bytes": 28455,
+    "sha256": "4ac3cecf956816a35f626ed0f0319cc50b4f02bee44985f26d08a75d0901557f",
+    "design_revision": "Robbi 2026-09 PCB"
+  },
+  {
+    "file": "build/hardware/pcb/schematic_v1.net",
+    "bytes": 5263,
+    "sha256": "d422196e93e8998dc31ff0b7ac2d21aff83b21af337de478b0274205371fbfca",
+    "design_revision": "Robbi 2026-09 PCB"
+  },
+  {
+    "file": "build/hardware/pcb/schematic-verification.json",
+    "bytes": 2026,
+    "sha256": "72fda91f89a243bb986baad4e13ffc4e85a89662a61c8215e5366436e6da1e5d",
+    "design_revision": "Robbi 2026-09 PCB"
   }
 ]

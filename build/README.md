@@ -64,7 +64,7 @@ Read the [current prototype limitations](../README.md#known-limitations) before 
 - **[Parts list](bom.csv)** — quantities, variants and purchase links.
 - **[Wiring reference](WIRING.md)** — top-view connector drawing, numbered pins, display power-pin swap and power test points.
 - **[Build record](build-record.csv)** — record your revisions, measurements and test results.
-- **[PCB manufacturing files](hardware/pcb/README.md)** and **[enclosure model](hardware/prints/README.md)**.
+- **[PCB manufacturing files and schematic](hardware/pcb/README.md)** — Gerbers, BOM, placement, schematic PDF and editable EasyEDA source. **[Enclosure model](hardware/prints/README.md)**.
 - **[One-command installation](03-software.md)** — minimal terminal setup, automatic startup and one generated configuration.
 - **[Release readiness](RELEASE-CHECKLIST.md)** — runtime publication and fresh-card testing status.
 

@@ -1,0 +1,4 @@
+# Preserve the released schematic files, including their line endings.
+schematic_v1.pdf binary
+schematic_v1.easyeda.json -text whitespace=cr-at-eol
+schematic_v1.net -text whitespace=-blank-at-eol,cr-at-eol

@@ -12,7 +12,7 @@ A tiny Raspberry Pi robot with a face, a camera, a voice and two encoder-equippe
 | :--- | :--- |
 | **[Hardware build guide](build/README.md)** | **[Software guide](software/README.md)** |
 | Parts, tools, 3D prints, PCB manufacturing, wiring, assembly and calibration. | First installation, dashboard, voice providers, apps, configuration and development. |
-| [Parts list](build/01-parts.md) · [Wiring](build/WIRING.md) | [Step-by-step setup](software/SETUP.md) · [Software documentation](software/docs/README.md) |
+| [Parts list](build/01-parts.md) · [Wiring](build/WIRING.md) · [PCB schematic](build/hardware/pcb/schematic_v1.pdf) | [Step-by-step setup](software/SETUP.md) · [Software documentation](software/docs/README.md) |
 
 ## From parts to a working Robbi
 

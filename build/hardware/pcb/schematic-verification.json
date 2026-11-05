@@ -1,0 +1,43 @@
+{
+  "status": "PASS_SCHEMATIC_TO_MANUFACTURING_CONSISTENCY",
+  "design": "Robbi 2026-09 PCB",
+  "checked_date": "2026-11-05",
+  "source": "EasyEDA Standard schematic export; title-block attribution removed and document ID replaced for privacy",
+  "files": {
+    "schematic_v1.easyeda.json": {
+      "sha256": "8e10593a099ec2e13cac4992bdd73c96016bd93660a463e056377e1c17226248",
+      "bytes": 143199
+    },
+    "schematic_v1.pdf": {
+      "sha256": "4ac3cecf956816a35f626ed0f0319cc50b4f02bee44985f26d08a75d0901557f",
+      "bytes": 28455
+    },
+    "schematic_v1.net": {
+      "sha256": "d422196e93e8998dc31ff0b7ac2d21aff83b21af337de478b0274205371fbfca",
+      "bytes": 5263
+    }
+  },
+  "gerber_zip_sha256": "41c2447dcb8bf12c640209eaf1f7232ce2d263f77da26c6d9ce0b3fac4a3e881",
+  "comparison": {
+    "component_references_matching_bom_and_placement": 59,
+    "component_values_and_footprints_matching_bom_and_placement": 59,
+    "schematic_nets": 48,
+    "connected_schematic_pins_compared_with_native_pcb_and_traced_gerber": 208,
+    "pcb_numbered_pads": 228,
+    "pads_omitted_from_exported_connected_netlist": 20,
+    "omitted_pads_with_other_component_pad_connected_in_gerber_trace": 0,
+    "connected_pin_or_net_group_differences": 0,
+    "traced_gerber_and_plated_drill_files_byte_identical_to_published_zip": true
+  },
+  "selected_verified_connections": {
+    "MENCODER_R.4": "U6.36 / BCM16",
+    "AMP.4": "3V3",
+    "TP_USB_DETECT.1": "MOTOR_R_2 / MENCODER_R.6 / MD1.5",
+    "TP_I1C_SCL.1": "U6.27 / P27",
+    "TP_USB_VBUS1.1": "U6.10 / P10",
+    "TP_USB_VBUS2.1": "U6.28 / P28",
+    "TP_USB_VBUS.1": "USB_5V"
+  },
+  "limitations": "Checks compare source, BOM, placement and copper connectivity. They are not a design safety, battery-protection, charging, load, thermal or physical-fit qualification.",
+  "privacy": "The PDF title-block attribution and identifying metadata were removed. The editable export has an anonymous title block and a new, unlinked document ID. Component and connectivity data are unchanged."
+}

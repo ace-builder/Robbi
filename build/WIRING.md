@@ -120,6 +120,6 @@ Keep the black multimeter probe on **PACK−**. Use the marked single test pins 
 
 **A bare PCB does not generate its own 3.3 V rail.** Do not treat a missing 3.3 V reading during the battery-only test as a fault. Nominal rail names are not measured acceptance tolerances; record the actual unloaded and loaded readings.
 
-Two placement-file test-point names are misleading: `TP_USB_DETECT` actually connects to right motor output 2 (the board labels it `MR2`), and `TP_I1C_SCL` connects to Pi physical pin 27 rather than the main I²C clock. Use the named power pins above and the connector tables instead.
+Some schematic/placement-file test-point references are legacy names: `TP_USB_DETECT` actually connects to right motor output 2 (the board labels it `MR2`), and `TP_I1C_SCL` connects to Pi physical pin 27 rather than the main I²C clock. `TP_USB_VBUS1` and `TP_USB_VBUS2` connect to Pi pins 10 and 28 respectively, not USB VBUS. `TP_USB_VBUS` without a suffix is the USB 5 V input. Use the actual net labels and connector tables instead of assuming a function from a legacy reference name.
 
 [Download the connector table as CSV](hardware/pcb/connector-pinout.csv).

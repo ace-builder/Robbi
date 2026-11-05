@@ -94,7 +94,7 @@
 <li><strong><a href="bom.csv">Parts list</a></strong> — quantities, variants and purchase links.</li>
 <li><strong><a href="#chapter-5">Wiring reference</a></strong> — top-view connector drawing, numbered pins, display power-pin swap and power test points.</li>
 <li><strong><a href="build-record.csv">Build record</a></strong> — record your revisions, measurements and test results.</li>
-<li><strong><a href="#chapter-9">PCB manufacturing files</a></strong> and <strong><a href="#chapter-10">enclosure model</a></strong>.</li>
+<li><strong><a href="#chapter-9">PCB manufacturing files and schematic</a></strong> — Gerbers, BOM, placement, schematic PDF and editable EasyEDA source. <strong><a href="#chapter-10">Enclosure model</a></strong>.</li>
 <li><strong><a href="#chapter-3">One-command installation</a></strong> — minimal terminal setup, automatic startup and one generated configuration.</li>
 <li><strong><a href="#chapter-12">Release readiness</a></strong> — runtime publication and fresh-card testing status.</li>
 </ul>
@@ -1091,7 +1091,7 @@ aplay -l
 </tbody>
 </table></div>
 <p><strong>A bare PCB does not generate its own 3.3 V rail.</strong> Do not treat a missing 3.3 V reading during the battery-only test as a fault. Nominal rail names are not measured acceptance tolerances; record the actual unloaded and loaded readings.</p>
-<p>Two placement-file test-point names are misleading: <code>TP_USB_DETECT</code> actually connects to right motor output 2 (the board labels it <code>MR2</code>), and <code>TP_I1C_SCL</code> connects to Pi physical pin 27 rather than the main I²C clock. Use the named power pins above and the connector tables instead.</p>
+<p>Some schematic/placement-file test-point references are legacy names: <code>TP_USB_DETECT</code> actually connects to right motor output 2 (the board labels it <code>MR2</code>), and <code>TP_I1C_SCL</code> connects to Pi physical pin 27 rather than the main I²C clock. <code>TP_USB_VBUS1</code> and <code>TP_USB_VBUS2</code> connect to Pi pins 10 and 28 respectively, not USB VBUS. <code>TP_USB_VBUS</code> without a suffix is the USB 5 V input. Use the actual net labels and connector tables instead of assuming a function from a legacy reference name.</p>
 <p><a href="hardware/pcb/connector-pinout.csv">Download the connector table as CSV</a>.</p></section><section id="chapter-6"><h1 id="chapter-6--5-assemble-robbi">5. Assemble Robbi</h1>
 <p><img alt="Assemble Robbi" src="assets/banners/05-assembly.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-4">← Bench tests</a> · <a href="#chapter-7">Calibration →</a></p>
@@ -1510,6 +1510,38 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 </tbody>
 </table></div>
 <p>The Gerber ZIP contains <strong>four copper layers</strong>: top, bottom and two inner layers. Use all four layers. The BOM contains 31 grouped rows covering 59 component references; the placement file contains the same 59 references, with no unmatched references in either direction.</p>
+<h2 id="chapter-9--schematic">Schematic</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="hardware/pcb/schematic_v1.pdf">Schematic PDF</a></td>
+<td>Printable, zoomable circuit diagram</td>
+</tr>
+<tr>
+<td><a href="hardware/pcb/schematic_v1.easyeda.json">EasyEDA Standard schematic</a></td>
+<td>Editable schematic export; import it into EasyEDA Standard</td>
+</tr>
+<tr>
+<td><a href="hardware/pcb/schematic_v1.net">Protel/Altium netlist</a></td>
+<td>Exported component and pin-to-net list for comparison</td>
+</tr>
+<tr>
+<td><a href="hardware/pcb/schematic-verification.json">Comparison record</a></td>
+<td>Scope and results of the checks against the published manufacturing files</td>
+</tr>
+</tbody>
+</table></div>
+<p>The schematic uses the <strong>IP5306</strong> power circuit found on this PCB. Its <strong>59 component references, values and footprints</strong> match the BOM and placement exports. All <strong>208 connected schematic pins</strong> match the pad-to-pad connections traced from the published Gerber copper and plated drills; the other 20 numbered pads have no other component pad connected in that trace. The right encoder B signal reaches <strong>U6 pin 36 / BCM16</strong>, and the amplifier's SD_MODE pin is tied to <strong>3V3</strong>.</p>
+<blockquote class="notice important"><p><strong>Important</strong><br>
+Several test-point references on the schematic retain names from an older design. <strong><code>TP_USB_DETECT</code> is connected to right motor output 2, not USB detection</strong>; the board silkscreen calls it <code>MR2</code>. <code>TP_I1C_SCL</code> is Pi pin 27. <code>TP_USB_VBUS1</code> and <code>TP_USB_VBUS2</code> are Pi pins 10 and 28, respectively. Only <code>TP_USB_VBUS</code> without a suffix is on the USB 5 V input. Follow the actual net labels and <a href="#chapter-5--power-test-points">wiring reference</a>.</p>
+</blockquote>
+<p>The schematic's <strong>“Battery Protection”</strong> heading is a legacy section label; this sheet does not show a separate cell-protection IC and FET stage. It does not establish the protection fitted to a particular cell or pack. The matching checks establish documentation consistency, not an electrical safety, charging, load or thermal qualification.</p>
 <h2 id="chapter-9--settings-from-the-manufactured-board">Settings from the manufactured board</h2>
 <p>These settings were recovered from the manufacturer’s returned production package. The original Gerbers inside that package match the guide’s ZIP byte for byte.</p>
 <div class="table-wrap"><table>
@@ -1604,7 +1636,7 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 </tr>
 </tbody>
 </table></div>
-<p>The parts and visible <code>Robbi 2026-09</code> layout correspond to the board in the build photographs. This is a consistency check, not a new electrical design review or a substitute for loaded power/thermal testing. The <a href="#chapter-5">wiring reference</a> now provides connector pin order and orientation checked against the manufactured copper layout. Earlier schematic exports use a different power circuit and must not be presented as the schematic for this manufactured board.</p></section><section id="chapter-10"><h1 id="chapter-10--enclosure-and-print-files">Enclosure and print files</h1>
+<p>The parts and visible <code>Robbi 2026-09</code> layout correspond to the board in the build photographs. The <a href="#chapter-5">wiring reference</a> provides connector pin order and orientation checked against the manufactured copper layout. Older schematic exports using the BQ25895/TPS61088 power circuit do not describe this manufactured board.</p></section><section id="chapter-10"><h1 id="chapter-10--enclosure-and-print-files">Enclosure and print files</h1>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Print preparation</a> · <a href="#chapter-6">Assembly</a></p>
 <blockquote class="notice warning"><p><strong>Warning</strong><br>
 <strong>The 13 October 2026 printed design has not yet been physically tested as a complete build.</strong> It has nominal CAD-fit and reference slicer checks only. Fit, strength, button operation, connector access and optical clearance still need checking on actual printed parts and purchased components. The build video shows an earlier enclosure.</p>
@@ -1827,7 +1859,7 @@ journalctl -u robbi-v2.service -n 80 --no-pager
 <h2 id="chapter-12--electrical-specification">Electrical specification</h2>
 <ul>
 <li>[x] Add a component-side connector drawing and numbered pin tables for all connectors used in this build; verify their copper connectivity in the manufactured Gerbers.</li>
-<li>[ ] Archive a fully matching editable schematic: the available schematic PDFs retain the older power circuit even though the PCB exports contain the newer IP5306 stage.</li>
+<li>[x] Archive the matching editable EasyEDA schematic, PDF and netlist. The exported 59 component references, footprints and values match the manufacturing BOM/placement; all 208 connected schematic pins match the traced Gerber copper. Note the legacy test-point names in the <a href="#chapter-9--schematic">PCB notes</a>.</li>
 <li>[x] Recover manufactured board settings: 75 × 45 mm, four layers, 1.6 mm FR-4, 1 oz outer / 0.5 oz inner copper, lead-free HASL, green/white; distinguish the 75 × 71 mm assembly panel.</li>
 <li>[ ] Confirm exact dielectric stackup and which through-hole connectors arrived fitted; U6 is already marked for backside hand soldering.</li>
 <li>[x] Trace MENCODER_R pin 4 to U6 pin 36 / BCM16 in the supplied Gerbers. Use <code>hardware.right_encoder_b_pin: 16</code>; GPIO7 remains a repair option.</li>
