@@ -4,7 +4,7 @@
 
 [Guide home](README.md) · [Preparation →](02-preparation.md)
 
-Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. New reference listings were found through indexed product pages; live stock, seller authenticity and delivery to your country have not been verified. Confirm the exact variant before ordering.
+Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. Listings may offer multiple options; confirm the exact variant, live stock, seller authenticity and delivery to your country before ordering.
 
 **Custom board:** order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the [current manufacturing package and ordering notes](hardware/pcb/README.md); remaining electrical documentation is listed in [the release checklist](RELEASE-CHECKLIST.md).
 
@@ -21,7 +21,7 @@ Match the PCB, enclosure and motor revisions before ordering. Choose the exact v
 | As required | MR128ZZ miniature bearings | MR128ZZ  •  8 mm bore  •  12 mm outside  •  3.5 mm thick | [AliExpress](https://de.aliexpress.com/item/32962032067.html) |
 | 1 | TOF400C-VL53L1 sensor | 1 module  •  Select TOF400C-VL53L1 | [AliExpress](https://de.aliexpress.com/item/1005007318361593.html) |
 | 1 | TENSTAR ROBOT SPI display | 1 display  •  1.69 inch  •  240 × 280  •  8 pins | [AliExpress](https://de.aliexpress.com/item/1005007346976745.html) |
-| 1 | IMX219 wide-angle camera | 1 camera  •  IMX219  •  130° or 160° lens  •  CSI | [AliExpress](https://www.aliexpress.com/item/33015616449.html) |
+| 1 | IMX219 wide-angle camera | 1 camera  •  IMX219  •  160° lens (second option)  •  CSI | [AliExpress](https://de.aliexpress.com/item/1005013519508511.html) |
 | 1 | 20 mm miniature speaker | 1 speaker  •  20 mm diameter  •  8 Ω / 8R  •  0.5 W | [AliExpress](https://de.aliexpress.com/item/1005006344913948.html) |
 | 1 | 18650 holder with wires | Single cell  •  With wires  •  76 × 21 × 18.4 mm envelope; 20.4 mm loaded height | [AliExpress](https://de.aliexpress.com/item/1005006089547043.html) |
 | 1 | 18650 rechargeable cell | 1 cell  •  About 3000 mAh  •  Genuine high-drain Li-ion | [AliExpress](https://www.aliexpress.com/item/1005013171674610.html) |
@@ -130,7 +130,7 @@ Select “1.69 Inch”. Look for the eight-pin SPI board, ST7789-family controll
 
 ### IMX219 wide-angle camera
 
-An IMX219 camera with a 130° or 160° lens and Raspberry Pi CSI support. Check board size, mounting holes and lens clearance against the printed mount.
+The linked listing’s 160° option was recommended (reported as the second option). Before ordering, confirm it uses an IMX219 sensor and a 15-pin camera connector; check board size, mounting holes and lens clearance against the printed mount. Use the separate 22-to-15-pin Pi Zero camera ribbon.
 
 **Avoid:** OV5647 / 5 MP cameras, narrow-angle lenses, USB webcams or bulky IR assemblies that do not fit the mount.
 

@@ -105,7 +105,7 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <p>This guide, its images and manufacturing files live together under <code>build/</code>. The reusable runtime, installer and software documentation live under <a href="../software/README.md"><code>software/</code></a>. Start with the <a href="../README.md">project overview</a> for the complete setup sequence.</p></section><section id="chapter-1"><h1 id="chapter-1--1-choose-the-parts">1. Choose the parts</h1>
 <p><img alt="Choose the parts" src="assets/banners/01-parts.png" /></p>
 <p><a href="#chapter-0">Guide home</a> · <a href="#chapter-2">Preparation →</a></p>
-<p>Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. New reference listings were found through indexed product pages; live stock, seller authenticity and delivery to your country have not been verified. Confirm the exact variant before ordering.</p>
+<p>Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. Listings may offer multiple options; confirm the exact variant, live stock, seller authenticity and delivery to your country before ordering.</p>
 <p><strong>Custom board:</strong> order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the <a href="#chapter-9">current manufacturing package and ordering notes</a>; remaining electrical documentation is listed in <a href="#chapter-12">the release checklist</a>.</p>
 <p><img alt="The custom board used in the build" src="assets/03-pcb-front-annotated.jpg" /></p>
 <h2 id="chapter-1--order-list">Order list</h2>
@@ -164,8 +164,8 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <tr>
 <td>1</td>
 <td>IMX219 wide-angle camera</td>
-<td>1 camera  •  IMX219  •  130° or 160° lens  •  CSI</td>
-<td><a href="https://www.aliexpress.com/item/33015616449.html">AliExpress</a></td>
+<td>1 camera  •  IMX219  •  160° lens (second option)  •  CSI</td>
+<td><a href="https://de.aliexpress.com/item/1005013519508511.html">AliExpress</a></td>
 </tr>
 <tr>
 <td>1</td>
@@ -384,7 +384,7 @@ Keep power disconnected while changing wiring or fitting parts. For the first po
 <p>Select “1.69 Inch”. Look for the eight-pin SPI board, ST7789-family controller and 240(RGB) × 280 marking on the display board.</p>
 <p><strong>Avoid:</strong> 1.54-inch or 1.9-inch variants; 240 × 240 or 240 × 320 panels; a different pin count or interface. Ignore the listing’s incorrect automatic 320 × 240 summary.</p>
 <h3 id="chapter-1--imx219-wide-angle-camera">IMX219 wide-angle camera</h3>
-<p>An IMX219 camera with a 130° or 160° lens and Raspberry Pi CSI support. Check board size, mounting holes and lens clearance against the printed mount.</p>
+<p>The linked listing’s 160° option was recommended (reported as the second option). Before ordering, confirm it uses an IMX219 sensor and a 15-pin camera connector; check board size, mounting holes and lens clearance against the printed mount. Use the separate 22-to-15-pin Pi Zero camera ribbon.</p>
 <p><strong>Avoid:</strong> OV5647 / 5 MP cameras, narrow-angle lenses, USB webcams or bulky IR assemblies that do not fit the mount.</p>
 <h3 id="chapter-1--20-mm-miniature-speaker">20 mm miniature speaker</h3>
 <p>Select “20mm”, and verify 8R / 8 Ω and 0.5 W. Prefer attached leads; check that the plug matches the build or can be reterminated.</p>
