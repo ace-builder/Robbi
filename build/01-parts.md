@@ -4,7 +4,7 @@
 
 [Guide home](README.md) · [Preparation →](02-preparation.md)
 
-Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Purchase links below lead to AliExpress, except the official Raspberry Pi page. Listings may offer multiple options; confirm the exact variant, live stock, seller authenticity and delivery to your country before ordering.
+Match the PCB, enclosure and motor revisions before ordering. Choose the exact variants below; a listing may open with a different option selected. Most purchase links below lead to AliExpress; the Raspberry Pi and JLCPCB quote pages are linked directly. Listings may offer multiple options; confirm the exact variant, live stock, seller authenticity and delivery to your country before ordering.
 
 **Custom board:** order one assembled board from the approved release, with matching Gerbers, assembly BOM and placement file. The board already carries the motor driver, amplifier, IMU and power electronics. Separate DRV8833, MAX98357A, IMU, charger or boost breakout boards are not additions to this custom-PCB build. Confirm which through-hole connectors the assembler fits; the supplied BOM marks the underside 40-pin socket for hand soldering. Use the [current manufacturing package and ordering notes](hardware/pcb/README.md); remaining electrical documentation is listed in [the release checklist](RELEASE-CHECKLIST.md).
 
@@ -14,7 +14,7 @@ Match the PCB, enclosure and motor revisions before ordering. Choose the exact v
 
 | Qty | Part | Exact choice | Purchase link |
 |---|---|---|---|
-| 1 | Assembled Robbi custom PCB | Custom four-layer board  •  Fabrication + component assembly  •  Quote required | [AliExpress · quote](https://www.aliexpress.com/item/1005012242415880.html) |
+| 1 | Assembled Robbi custom PCB | Custom four-layer board  •  Fabrication + component assembly  •  Quote required | [JLCPCB · quote](https://cart.jlcpcb.com/quote) · [AliExpress · search](https://www.aliexpress.com/wholesale?SearchText=PCB+assembly+service) |
 | 1 | Raspberry Pi Zero 2 W | 1 board  •  Wi-Fi  •  Header already soldered | [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) |
 | 1 | High-quality microSD card | 32 GB minimum  •  64 or 128 GB recommended  •  A1 or A2  •  Class 10 / UHS-I | [AliExpress](https://www.aliexpress.com/item/1005012331420695.html) |
 | 2 | N20 motors with encoders | 2 matching motors  •  3 V  •  75 RPM  •  Encoders | [AliExpress](https://de.aliexpress.com/item/4001275879836.html) |
