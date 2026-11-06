@@ -14,7 +14,7 @@ Match the PCB, enclosure and motor revisions before ordering. Choose the exact v
 
 | Qty | Part | Exact choice | Purchase link |
 |---|---|---|---|
-| 1 | Assembled Robbi custom PCB | Custom four-layer board  •  Fabrication + component assembly  •  Quote required | [JLCPCB · quote](https://cart.jlcpcb.com/quote) · [AliExpress · search](https://www.aliexpress.com/wholesale?SearchText=PCB+assembly+service) |
+| 1 | Assembled Robbi custom PCB | Custom four-layer board  •  Fabrication + component assembly  •  Quote required | [JLCPCB · quote](https://cart.jlcpcb.com/quote) |
 | 1 | Raspberry Pi Zero 2 W | 1 board  •  Wi-Fi  •  Header already soldered | [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) |
 | 1 | High-quality microSD card | 32 GB minimum  •  64 or 128 GB recommended  •  A1 or A2  •  Class 10 / UHS-I | [AliExpress](https://www.aliexpress.com/item/1005012331420695.html) |
 | 2 | N20 motors with encoders | 2 matching motors  •  3 V  •  75 RPM  •  Encoders | [AliExpress](https://de.aliexpress.com/item/4001275879836.html) |
